@@ -11,3 +11,6 @@ In order to run this project it should be installed:
 
 ## Running JJSS
 - Run the command `jjss --help`.
+
+### End to end tests
+- Run the command `jjss <pathToFolder> --end-to-end`
