@@ -1,0 +1,25 @@
+{
+  "name": "automated-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "jjss": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdguzmans/automated-testing.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/jdguzmans/automated-testing/issues"
+  },
+  "homepage": "https://github.com/jdguzmans/automated-testing/wiki",
+  "dependencies": {
+    "commander": "^2.17.1"
+  }
+}
