@@ -1,3 +1,5 @@
+/* global context, cy, it, beforeEach */
+
 /// <reference types="Cypress" />
 
 context('Actions', () => {
@@ -17,9 +19,9 @@ context('Actions', () => {
       .type('{del}{selectall}{backspace}')
 
       // .type() with key modifiers
-      .type('{alt}{option}') //these are equivalent
-      .type('{ctrl}{control}') //these are equivalent
-      .type('{meta}{command}{cmd}') //these are equivalent
+      .type('{alt}{option}') // these are equivalent
+      .type('{ctrl}{control}') // these are equivalent
+      .type('{meta}{command}{cmd}') // these are equivalent
       .type('{shift}')
 
       // Delay each keypress by 0.1 sec
@@ -217,7 +219,6 @@ context('Actions', () => {
   })
 
   it('cy.scrollTo() - scroll the window or element to a position', () => {
-
     // https://on.cypress.io/scrollTo
 
     // You can scroll to 9 specific positions of an element:
