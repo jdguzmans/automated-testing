@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "bin": {
     "jjss": "./index.js"
@@ -20,10 +20,9 @@
   },
   "homepage": "https://github.com/jdguzmans/automated-testing/wiki",
   "dependencies": {
-    "commander": "^2.17.1"
-  },
-  "devDependencies": {
+    "child_process": "^1.0.2",
     "cypress": "^3.1.0",
+    "inquirer": "1.1.0",
     "wdio-dot-reporter": "0.0.10",
     "wdio-jasmine-framework": "^0.3.6",
     "wdio-selenium-standalone-service": "0.0.10",

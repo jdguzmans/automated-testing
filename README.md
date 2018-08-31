@@ -6,11 +6,8 @@ In order to run this project it should be installed:
 - [NodeJS](https://nodejs.org/en/).
 
 ## Installing
-- Run `npm install --global` to install all the dependencies globally.
-- Run `npm link` to create a symlink on this project main file.
+- Run `npm install` to install all the dependencies locally.
 
 ## Running JJSS
-- Run the command `jjss --help`.
+- Run the command `npm start`.
 
-### End to end tests
-- Run the command `jjss <pathToFolder> --end-to-end`
