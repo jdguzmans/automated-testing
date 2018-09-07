@@ -23,9 +23,11 @@
     "child_process": "^1.0.2",
     "cypress": "^3.1.0",
     "inquirer": "1.1.0",
+    "selenium-webdriver": "^4.0.0-alpha.1",
     "wdio-dot-reporter": "0.0.10",
     "wdio-jasmine-framework": "^0.3.6",
     "wdio-selenium-standalone-service": "0.0.10",
+    "wdio-spec-reporter": "^0.1.2",
     "webdriverio": "^4.13.2"
   }
 }

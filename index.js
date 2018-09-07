@@ -5,6 +5,7 @@ const exec = require('child_process').exec
 
 const HEADED = 'Headed end to end tests'
 const HEADLESS = 'Headless end to end tests'
+const MONKEY = 'Monkey tests'
 
 const CHROME = 'Chrome'
 const CANARY = 'Canary'
@@ -23,35 +24,42 @@ const home = async () => {
       type: 'rawlist',
       name: 'mode',
       message: 'What do you want to do?',
-      choices: [HEADED, HEADLESS],
-      default: true
-    }, {
-      type: 'confirm',
-      name: 'isParallel',
-      message: 'Would you like it for the execution to be parallel?'
-    }, {
-      type: 'input',
-      name: 'dir',
-      message: 'What is the path of the directory the Cypress project is in?'
+      choices: [HEADED, HEADLESS, MONKEY]
     }]
 
-    const { mode, dir, isParallel } = await inquirer.prompt(questions)
+    const { mode } = await inquirer.prompt(questions)
 
     let start
-    if (mode === HEADLESS) {
-      start = new Date()
-      await headless(dir, isParallel)
-    } else if (mode === HEADED) {
+    if (mode === HEADLESS || mode === HEADED) {
       questions = [{
-        type: 'rawlist',
-        name: 'browser',
-        message: 'Which browser would you like to test in?',
-        choices: [CHROME, CANARY, CHROMIUM]
+        type: 'input',
+        name: 'dir',
+        message: 'What is the path of the directory the Cypress project is in?'
+      }, {
+        type: 'confirm',
+        name: 'isParallel',
+        message: 'Would you like it for the execution to be parallel?'
       }]
 
-      const { browser } = await inquirer.prompt(questions)
-      start = new Date().getTime()
-      await headed(dir, isParallel, browser)
+      const { dir, isParallel } = await inquirer.prompt(questions)
+      if (mode === HEADED) {
+        start = new Date()
+        await headless(dir, isParallel)
+      } else {
+        questions = [{
+          type: 'rawlist',
+          name: 'browser',
+          message: 'Which browser would you like to test in?',
+          choices: [CHROME, CANARY, CHROMIUM]
+        }]
+
+        const { browser } = await inquirer.prompt(questions)
+        start = new Date().getTime()
+        await headed(dir, isParallel, browser)
+      }
+    } else if (mode === MONKEY) {
+      start = new Date()
+      await monkey()
     }
     let time = new Date().getTime() - start
     console.log('Execution time: ' + time / 1000 + 's')
@@ -94,6 +102,28 @@ const headless = async (dir, isParallel, browser) => {
         resolve()
       }
     })
+  })
+}
+
+const monkey = async (dir, isParallel, browser) => {
+  return new Promise(async (resolve, reject) => {
+    // exec('node node_modules/webdriverio/bin/wdio wdio.conf.js', (error, stdout, stderr) => {
+    const monkey = require('./monkey.js')
+    await monkey('http://www.google.com')
+    // require('./monkey.js')
+    // exec('node ./monkey.js', (error, stdout, stderr) => {
+    //   if (error) {
+    //     console.log('ERROR')
+    //     console.log(error)
+    //     console.log('STDERR')
+    //     console.log(stderr)
+    //     reject(stderr)
+    //   }
+    //   if (stdout) {
+    //     console.log(stdout)
+    //     resolve()
+    //   }
+    // })
   })
 }
 
