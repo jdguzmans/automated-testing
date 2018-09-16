@@ -1,35 +1,22 @@
 {
-  "name": "automated-testing",
+  "name": "jjss-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
-  },
-  "bin": {
-    "jjss": "./index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jdguzmans/automated-testing.git"
+    "dev": "DEV=1 nodemon index.js"
   },
   "author": "",
-  "license": "",
-  "bugs": {
-    "url": "https://github.com/jdguzmans/automated-testing/issues"
-  },
-  "homepage": "https://github.com/jdguzmans/automated-testing/wiki",
+  "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "child_process": "^1.0.2",
+    "cors": "^2.8.4",
     "cypress": "^3.1.0",
-    "gremlins": "^2.0.0-beta4",
-    "inquirer": "1.1.0",
-    "puppeteer": "^1.8.0",
-    "selenium-webdriver": "^4.0.0-alpha.1",
-    "wdio-dot-reporter": "0.0.10",
-    "wdio-jasmine-framework": "^0.3.6",
-    "wdio-selenium-standalone-service": "0.0.10",
-    "wdio-spec-reporter": "^0.1.2",
-    "webdriverio": "^4.13.2"
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "path": "^0.12.7"
   }
 }
