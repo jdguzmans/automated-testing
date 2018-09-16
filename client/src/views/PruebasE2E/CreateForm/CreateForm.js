@@ -1,52 +1,73 @@
 import React, { Component } from 'react';
 import {
-  Badge,
   Button,
-  ButtonDropdown,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   Col,
-  Collapse,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  Fade,
   Form,
   FormGroup,
-  FormText,
-  FormFeedback,
   Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
   Label,
   Row,
 } from 'reactstrap';
+import axios from "axios/index";
 
 class CreateForm extends Component {
+
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.toggleFade = this.toggleFade.bind(this);
     this.state = {
-      collapse: true,
-      fadeIn: true,
-      timeout: 300
+      name        : '',
+      application : '',
+      fileTest    : '',
+      description : '',
+      serverports : []
     };
+
+    this.handleChangeField = this.handleChangeField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  toggle() {
-    this.setState({ collapse: !this.state.collapse });
+  handleSubmit(){
+    const { name, application, fileTest, description } = this.state;
+
+    axios.post('http://localhost:8000/api/testingE2E', {
+      name,
+      application,
+      fileTest,
+      description
+    });
+    alert('Datos guardados');
   }
 
-  toggleFade() {
-    this.setState((prevState) => { return { fadeIn: !prevState }});
+  handleChangeField(key, event) {
+    this.setState({
+      [key]: event.target.value,
+    });
+  }
+
+  componentDidMount(){
+    axios.get('http://localhost:8000/api/application')
+      .then(response => {
+        this.setState({ serverports: response.data.applications });
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  }
+  listOption(){
+    return this.state.serverports.map(function(object, i){
+      return (
+          <option value={object._id}>{object.name}</option>
+      );
+    });
   }
 
   render() {
+    const { name, application, fileTest, description } = this.state;
+
     return (
       <div className="animated fadeIn">
         <Row>
@@ -63,7 +84,11 @@ class CreateForm extends Component {
                       <Label htmlFor="text-input">Nombre Prueba</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="text" id="text-input" name="text-input"  />
+                      <Input
+                        onChange = {(ev) => this.handleChangeField('name', ev)}
+                        value    = {name}
+                        type     = "text"
+                      />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -71,10 +96,13 @@ class CreateForm extends Component {
                       <Label htmlFor="select">Aplicacion</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="select" name="select" id="select">
-                        <option value="0">Seleccione</option>
-                        <option value="1">Web</option>
-                        <option value="2">Movil</option>
+                      <Input
+                        onChange = {(ev) => this.handleChangeField('application', ev)}
+                        value    = {application}
+                        type     = "select"
+                      >
+                        <option value="">Seleccione</option>
+                        {this.listOption()}
                       </Input>
                     </Col>
                   </FormGroup>
@@ -83,7 +111,11 @@ class CreateForm extends Component {
                       <Label htmlFor="text-input">Archivo pruebas</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="file" id="file-input" name="file-input" />
+                      <Input
+                        onChange = {(ev) => this.handleChangeField('fileTest', ev)}
+                        value    = {fileTest}
+                        type     = "text"
+                      />
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -91,13 +123,18 @@ class CreateForm extends Component {
                       <Label htmlFor="textarea-input">Descripcion</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="textarea" name="textarea-input" id="textarea-input" rows="9"/>
+                      <Input
+                        onChange = {(ev) => this.handleChangeField('description', ev)}
+                        value    = {description}
+                        type     = "textarea"
+                        rows="9"
+                      />
                     </Col>
                   </FormGroup>
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
+                <Button onClick={this.handleSubmit} type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
                 <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
               </CardFooter>
             </Card>

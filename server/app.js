@@ -28,6 +28,7 @@ mongoose.set('debug', true);
 
 // Add models
 require('./models/Application');
+require('./models/TestingE2E');
 // Add routes
 app.use(require('./routes'));
 
