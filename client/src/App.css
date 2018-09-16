@@ -1,0 +1,19 @@
+.iconConfig{
+  position: absolute !important;
+  z-index: 1;
+  right: 5px;
+  top: 2px;
+}
+
+.bg-e2e{
+  background-color: #3b5998 !important;
+}
+
+.bg-monkey{
+  background-color: #EB0F62 !important;
+}
+
+.bg-bdd{
+  background-color: #0FEB61 !important;
+}
+

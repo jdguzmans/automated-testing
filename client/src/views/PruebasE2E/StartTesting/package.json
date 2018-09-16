@@ -1,0 +1,6 @@
+{
+  "name": "Start Testing",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./StartTesting.js"
+}
