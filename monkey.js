@@ -1,24 +1,21 @@
-module.exports = (url) => {
-  return new Promise(async (resolve, reject) => {
-    // const {Builder} = require('selenium-webdriver')
-    // await new Builder().forBrowser('firefox').build()
-    const webdriverio = require('webdriverio')
-    const options = {
-      desiredCapabilities: {
-        browserName: 'chrome'
-      }
-    }
+const webdriverio = require('webdriverio')
 
-    webdriverio
-          .remote(options)
-          .init()
-          .url(url)
-          .getTitle().then(function (title) {
-            console.log('Title was: ' + title)
-          })
-          .end()
-          .catch((err) => {
-            console.log(err)
-          })
+const options = {
+  desiredCapabilities: {
+    browserName: 'chrome'
+  }
+}
+
+const client = webdriverio.remote(options)
+
+module.exports = async (url) => {
+  return new Promise(async (resolve, reject) => {
+    const title = await client
+    .init()
+      .url(url)
+      .getTitle()
+    console.log('Title was: ' + title)
+
+    client.end()
   })
 }

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// java -jar ./selenium-server-standalone-2.53.1.jar -Dwebdriver.chrome.driver="chromedriver"
+
 const inquirer = require('inquirer')
 const exec = require('child_process').exec
 
@@ -58,8 +60,14 @@ const home = async () => {
         await headed(dir, isParallel, browser)
       }
     } else if (mode === MONKEY) {
+      questions = [{
+        type: 'input',
+        name: 'url',
+        message: 'What is the url?'
+      }]
+      const { url } = await inquirer.prompt(questions)
       start = new Date()
-      await monkey()
+      await monkey(url)
     }
     let time = new Date().getTime() - start
     console.log('Execution time: ' + time / 1000 + 's')
@@ -105,26 +113,9 @@ const headless = async (dir, isParallel, browser) => {
   })
 }
 
-const monkey = async (dir, isParallel, browser) => {
-  return new Promise(async (resolve, reject) => {
-    // exec('node node_modules/webdriverio/bin/wdio wdio.conf.js', (error, stdout, stderr) => {
-    const monkey = require('./monkey.js')
-    await monkey('http://www.google.com')
-    // require('./monkey.js')
-    // exec('node ./monkey.js', (error, stdout, stderr) => {
-    //   if (error) {
-    //     console.log('ERROR')
-    //     console.log(error)
-    //     console.log('STDERR')
-    //     console.log(stderr)
-    //     reject(stderr)
-    //   }
-    //   if (stdout) {
-    //     console.log(stdout)
-    //     resolve()
-    //   }
-    // })
-  })
+const monkey = async (url) => {
+  const monkey = require('./monkey.js')
+  await monkey(url)
 }
 
 const verify = async () => {
