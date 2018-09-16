@@ -11,12 +11,13 @@ const ApplicationSchema = new Schema({
 
 ApplicationSchema.methods.toJSON = function() {
     return {
-        _id       : this._id,
-        name      : this.name,
-        url       : this.url,
-        type      : this.type,
-        createdAt : this.createdAt,
-        updatedAt : this.updatedAt,
+        _id         : this._id,
+        name        : this.name,
+        url         : this.url,
+        type        : this.type,
+        description : this.description,
+        createdAt   : this.createdAt,
+        updatedAt   : this.updatedAt,
     };
 };
 

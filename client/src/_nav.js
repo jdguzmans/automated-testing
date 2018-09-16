@@ -20,6 +20,11 @@ export default {
       icon: 'icon-pencil',
     },
     {
+      name: 'Lista Aplicaciones',
+      url: '/listApplication',
+      icon: 'icon-list',
+    },
+    {
       title: true,
       name: 'Pruebas',
       wrapper: {

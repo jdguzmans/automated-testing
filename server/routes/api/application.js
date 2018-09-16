@@ -43,4 +43,11 @@ router.post('/', (req, res, next) => {
         .catch(next);
 });
 
+router.get('/', (req, res, next) => {
+    return Application.find()
+        .sort({ createdAt: 'descending' })
+        .then((applications) => res.json({ applications: applications.map(application => application.toJSON()) }))
+        .catch(next);
+});
+
 module.exports = router;

@@ -1,0 +1,6 @@
+{
+  "name": "List Application",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ListApplication.js"
+}
