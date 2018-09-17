@@ -30,7 +30,7 @@ mongoose.set('debug', true);
 require('./models/Application');
 require('./models/TestingE2E');
 // Add routes
-app.use(require('./routes'));
+app.use(require('./routes/index'));
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

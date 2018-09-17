@@ -45,7 +45,7 @@ class StartTesting extends Component {
 
   tabRow(){
     const applications = this.lisApplications();
-    
+
     return this.state.serverports.map(function(object, i){
       return (
         <tr>
@@ -53,7 +53,11 @@ class StartTesting extends Component {
           <td>{applications[object.application] }</td>
           <td>{object.description}</td>
           <td><i className="icon-pencil icons d-block mt-1"></i></td>
-          <td><i className="icon-control-play icons d-block mt-1"></i></td>
+          <td>
+            <a href={'/#/testingE2E/matrizTest/'+ object._id}>
+              <i className="icon-control-play icons d-block mt-1"></i>
+            </a>
+          </td>
         </tr>
       );
     });
