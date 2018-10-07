@@ -13,65 +13,58 @@ const CHROME = 'Chrome'
 const CANARY = 'Canary'
 const CHROMIUM = 'Chromium'
 
-console.log('\nWelcome to jjss, a Cypress tool')
+console.log('\nWelcome to jjss')
 
 const home = async () => {
-  console.log('\nVerifying if environment is suitable for jjss..')
-  let canRun = await verify()
-  if (!canRun) console.log('...it is not, sorry.\n')
-  else {
-    console.log('...it is!\n')
+  let questions = [{
+    type: 'rawlist',
+    name: 'mode',
+    message: 'What do you want to do?',
+    choices: [HEADED, HEADLESS, MONKEY]
+  }]
 
-    let questions = [{
-      type: 'rawlist',
-      name: 'mode',
-      message: 'What do you want to do?',
-      choices: [HEADED, HEADLESS, MONKEY]
+  const { mode } = await inquirer.prompt(questions)
+
+  let start
+  if (mode === HEADLESS || mode === HEADED) {
+    questions = [{
+      type: 'input',
+      name: 'dir',
+      message: 'What is the path of the directory the Cypress project is in?'
+    }, {
+      type: 'confirm',
+      name: 'isParallel',
+      message: 'Would you like it for the execution to be parallel?'
     }]
 
-    const { mode } = await inquirer.prompt(questions)
-
-    let start
-    if (mode === HEADLESS || mode === HEADED) {
-      questions = [{
-        type: 'input',
-        name: 'dir',
-        message: 'What is the path of the directory the Cypress project is in?'
-      }, {
-        type: 'confirm',
-        name: 'isParallel',
-        message: 'Would you like it for the execution to be parallel?'
-      }]
-
-      const { dir, isParallel } = await inquirer.prompt(questions)
-      if (mode === HEADED) {
-        start = new Date()
-        await headless(dir, isParallel)
-      } else {
-        questions = [{
-          type: 'rawlist',
-          name: 'browser',
-          message: 'Which browser would you like to test in?',
-          choices: [CHROME, CANARY, CHROMIUM]
-        }]
-
-        const { browser } = await inquirer.prompt(questions)
-        start = new Date().getTime()
-        await headed(dir, isParallel, browser)
-      }
-    } else if (mode === MONKEY) {
-      questions = [{
-        type: 'input',
-        name: 'url',
-        message: 'What is the url?'
-      }]
-      const { url } = await inquirer.prompt(questions)
+    const { dir, isParallel } = await inquirer.prompt(questions)
+    if (mode === HEADED) {
       start = new Date()
-      await monkey(url)
+      await headless(dir, isParallel)
+    } else {
+      questions = [{
+        type: 'rawlist',
+        name: 'browser',
+        message: 'Which browser would you like to test in?',
+        choices: [CHROME, CANARY, CHROMIUM]
+      }]
+
+      const { browser } = await inquirer.prompt(questions)
+      start = new Date().getTime()
+      await headed(dir, isParallel, browser)
     }
-    let time = new Date().getTime() - start
-    console.log('Execution time: ' + time / 1000 + 's')
+  } else if (mode === MONKEY) {
+    questions = [{
+      type: 'input',
+      name: 'url',
+      message: 'What is the url?'
+    }]
+    const { url } = await inquirer.prompt(questions)
+    start = new Date()
+    await monkey(url)
   }
+  let time = new Date().getTime() - start
+  console.log('Execution time: ' + time / 1000 + 's')
 }
 
 const headed = (dir, isParallel, browser) => {
