@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import {
-  Button,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   Col,
-  Form,
-  FormGroup,
-  Input,
-  Label,
   Row
 } from 'reactstrap'
 import axios from 'axios/index'
@@ -18,11 +13,7 @@ class CreateForm extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: '',
-      application: '',
-      fileTest: '',
-      description: '',
-      serverports: []
+      snapshots: []
     }
 
     this.handleChangeField = this.handleChangeField.bind(this)
@@ -47,25 +38,23 @@ class CreateForm extends Component {
     })
   }
 
-  componentDidMount () {
-    axios.get('http://localhost:8000/api/application')
-      .then(response => {
-        this.setState({ serverports: response.data.applications })
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+  async handleExecute (snapshotId) {
+    await axios.post('http://localhost:4000/visualRegression/execute', {
+      _id: snapshotId
+    })
+    alert('listo')
   }
-  listOption () {
-    return this.state.serverports.map(function (object, i) {
-      return (
-        <option value={object._id}>{object.name}</option>
-      )
+
+  async componentDidMount () {
+    const { data: snapshots } = await axios.get('http://localhost:4000/visualRegression')
+    this.setState({
+      snapshots
     })
   }
 
   render () {
-    const { name, application, fileTest, description } = this.state
+    const { handleExecute } = this
+    const { snapshots } = this.state
 
     return (
       <div className='animated fadeIn'>
@@ -74,68 +63,18 @@ class CreateForm extends Component {
           <Col xs='10' md='6'>
             <Card>
               <CardHeader>
-                <strong>Registrar estado</strong>
+                <strong>Ejecutar snapshot</strong>
               </CardHeader>
               <CardBody>
-                <Form action='' method='post' encType='multipart/form-data' className='form-horizontal'>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='text-input'>Nombre Prueba</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('name', ev)}
-                        value={name}
-                        type='text'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='select'>Aplicacion</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('application', ev)}
-                        value={application}
-                        type='select'
-                      >
-                        <option value=''>Seleccione</option>
-                        {this.listOption()}
-                      </Input>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='text-input'>Archivo pruebas</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('fileTest', ev)}
-                        value={fileTest}
-                        type='text'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='textarea-input'>Descripcion</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('description', ev)}
-                        value={description}
-                        type='textarea'
-                        rows='9'
-                      />
-                    </Col>
-                  </FormGroup>
-                </Form>
+                {snapshots.map((snapshot, index) => {
+                  const { name, _id } = snapshot
+                  return (
+                    <div key={index}>
+                      <h1>{name}</h1> <button onClick={() => { handleExecute(_id) }}>Ejecutar</button>
+                    </div>)
+                })}
               </CardBody>
-              <CardFooter>
-                <Button onClick={this.handleSubmit} type='submit' size='sm' color='primary'><i className='fa fa-dot-circle-o' /> Submit</Button>
-                <Button type='reset' size='sm' color='danger'><i className='fa fa-ban' /> Reset</Button>
-              </CardFooter>
+              <CardFooter />
             </Card>
           </Col>
         </Row>

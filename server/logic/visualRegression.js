@@ -89,33 +89,31 @@ module.exports = {
           dir = `${dir}/${time}`
           if (!fs.existsSync(dir)) fs.mkdirSync(dir)
 
-          for (let i = 0; i < (snapshots.length - 1); i++) {
-            const snapshot1 = snapshots[i]
-            const snapshot2 = snapshots[i + 1]
+          const snapshot1 = snapshots[(snapshots.length - 2)]
+          const snapshot2 = snapshots[(snapshots.length - 1)]
 
-            const snapshot1Electron = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/electron.png`)
-            const snapshot2Electron = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/electron.png`)
+          const snapshot1Electron = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/electron.png`)
+          const snapshot2Electron = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/electron.png`)
 
-            const snapshot1Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/phantomjs.png`)
-            const snapshot2Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/phantomjs.png`)
+          const snapshot1Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/phantomjs.png`)
+          const snapshot2Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/phantomjs.png`)
 
-            resemble(snapshot1Electron)
-            .compareTo(snapshot2Electron)
+          resemble(snapshot1Electron)
+          .compareTo(snapshot2Electron)
+          .onComplete(data => {
+            const { getDiffImageAsJPEG } = data
+            const differences = getDiffImageAsJPEG()
+            fs.writeFileSync(`${dir}/electron.jpeg`, differences)
+
+            resemble(snapshot1Phantom)
+            .compareTo(snapshot2Phantom)
             .onComplete(data => {
               const { getDiffImageAsJPEG } = data
               const differences = getDiffImageAsJPEG()
-              fs.writeFileSync(`${dir}/electron.jpeg`, differences)
-
-              resemble(snapshot1Phantom)
-              .compareTo(snapshot2Phantom)
-              .onComplete(data => {
-                const { getDiffImageAsJPEG } = data
-                const differences = getDiffImageAsJPEG()
-                fs.writeFileSync(`${dir}/phantom.jpeg`, differences)
-                resolve()
-              })
+              fs.writeFileSync(`${dir}/phantom.jpeg`, differences)
+              resolve()
             })
-          }
+          })
         }
       })
     })
