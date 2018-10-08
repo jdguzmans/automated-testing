@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Col, Row } from 'reactstrap'
 
-class Breadcrumbs extends Component {
+class VissualRegression extends Component {
   render () {
     return (
       <div className='animated fadeIn'>
@@ -44,4 +44,4 @@ class Breadcrumbs extends Component {
   }
 }
 
-export default Breadcrumbs
+export default VissualRegression

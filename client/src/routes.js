@@ -42,6 +42,21 @@ const Breadcrumbs = Loadable({
   loading: Loading,
 });
 
+const VissualRegressionExecute = Loadable({
+  loader: () => import('./views/VisualRegression/Execute'),
+  loading: Loading,
+});
+
+const VissualRegressionRegister = Loadable({
+  loader: () => import('./views/VisualRegression/Register'),
+  loading: Loading,
+});
+
+const VissualRegressionReports = Loadable({
+  loader: () => import('./views/VisualRegression/Reports'),
+  loading: Loading,
+});
+
 const Cards = Loadable({
   loader: () => import('./views/Base/Cards'),
   loading: Loading,
@@ -212,8 +227,6 @@ const User = Loadable({
   loading: Loading,
 });
 
-
-
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
@@ -264,6 +277,10 @@ const routes = [
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
+
+  { path: '/visualRegression/execute', name: 'VisualRegressionExecute', component: VissualRegressionExecute },
+  { path: '/visualRegression/register', name: 'VisualRegressionRegister', component: VissualRegressionRegister },
+  { path: '/visualRegression/reports', name: 'VisualRegressionReports', component: VissualRegressionReports },
 ];
 
 export default routes;

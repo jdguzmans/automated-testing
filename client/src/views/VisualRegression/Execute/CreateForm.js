@@ -74,7 +74,7 @@ class CreateForm extends Component {
           <Col xs='10' md='6'>
             <Card>
               <CardHeader>
-                <strong>Crear Pruebas E2E</strong>
+                <strong>Registrar estado</strong>
               </CardHeader>
               <CardBody>
                 <Form action='' method='post' encType='multipart/form-data' className='form-horizontal'>

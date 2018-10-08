@@ -3,7 +3,7 @@ export default {
     {
       name: 'Dashboard',
       url: '/dashboard',
-      icon: 'icon-speedometer',
+      icon: 'icon-speedometer'
     },
     {
       title: true,
@@ -17,20 +17,20 @@ export default {
     {
       name: 'Registro Aplicacion',
       url: '/registerApplication',
-      icon: 'icon-pencil',
+      icon: 'icon-pencil'
     },
     {
       name: 'Lista Aplicaciones',
       url: '/listApplication',
-      icon: 'icon-list',
+      icon: 'icon-list'
     },
     {
       title: true,
       name: 'Pruebas',
       wrapper: {
         element: '',
-        attributes: {},
-      },
+        attributes: {}
+      }
     },
     {
       name: 'Pruebas E2E',
@@ -39,19 +39,19 @@ export default {
         {
           name: 'Crear Prueba',
           url: '/testingE2E/create',
-          icon: 'icon-puzzle',
+          icon: 'icon-puzzle'
         },
         {
           name: 'Ejecutar Pruebas',
           url: '/testingE2E/start',
-          icon: 'icon-puzzle',
+          icon: 'icon-puzzle'
         },
         {
           name: 'Informe Pruebas',
           url: '/testingE2E/report',
-          icon: 'icon-puzzle',
-        },
-      ],
+          icon: 'icon-puzzle'
+        }
+      ]
     },
     {
       name: 'Pruebas Monkey',
@@ -60,19 +60,19 @@ export default {
         {
           name: 'Crear Prueba',
           url: '/base/breadcrumbs',
-          icon: 'icon-cursor',
+          icon: 'icon-cursor'
         },
         {
           name: 'Ejecutar Pruebas',
           url: '/base/cards',
-          icon: 'icon-cursor',
+          icon: 'icon-cursor'
         },
         {
           name: 'Informe Pruebas',
           url: '/base/carousels',
-          icon: 'icon-cursor',
-        },
-      ],
+          icon: 'icon-cursor'
+        }
+      ]
     },
     {
       name: 'Pruebas BDD',
@@ -81,19 +81,40 @@ export default {
         {
           name: 'Crear Prueba',
           url: '/base/breadcrumbs',
-          icon: 'icon-star',
+          icon: 'icon-star'
         },
         {
           name: 'Ejecutar Pruebas',
           url: '/base/cards',
-          icon: 'icon-star',
+          icon: 'icon-star'
         },
         {
           name: 'Informe Pruebas',
           url: '/base/carousels',
-          icon: 'icon-star',
-        },
-      ],
+          icon: 'icon-star'
+        }
+      ]
     },
-  ],
-};
+    {
+      name: 'Regresión Visual',
+      icon: 'icon-star',
+      children: [
+        {
+          name: 'Ejecutar Pruebas',
+          url: '/visualRegression/execute',
+          icon: 'icon-star'
+        },
+        {
+          name: 'Registrar estado',
+          url: '/visualRegression/register',
+          icon: 'icon-star'
+        },
+        {
+          name: 'Reportes',
+          url: '/visualRegression/reports',
+          icon: 'icon-star'
+        }
+      ]
+    }
+  ]
+}

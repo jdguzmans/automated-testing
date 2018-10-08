@@ -9,8 +9,8 @@ router.post('/createSnapshot', async (req, res, next) => {
 })
 
 router.get('/', async (req, res, next) => {
-  await visualRegressionLogic.getAllSnapshots()
-  res.sendStatus(200)
+  const snapshots = await visualRegressionLogic.getAllSnapshots()
+  return snapshots
 })
 
 module.exports = router
