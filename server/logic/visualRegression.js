@@ -33,7 +33,7 @@ module.exports = {
           fs.writeFileSync(`${dir}/electron.png`, electronScreenshot)
 
           const phantomScreenshot = await capturePhantom({ url })
-          fs.writeFileSync(`${dir}/phantomjs.png`, phantomScreenshot)
+          fs.writeFileSync(`${dir}/phantom.png`, phantomScreenshot)
 
           await Snapshots.updateOne({ _id }, {
             $set: { snapshots: [ time ] }
@@ -95,8 +95,8 @@ module.exports = {
           const snapshot1Electron = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/electron.png`)
           const snapshot2Electron = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/electron.png`)
 
-          const snapshot1Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/phantomjs.png`)
-          const snapshot2Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/phantomjs.png`)
+          const snapshot1Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/phantom.png`)
+          const snapshot2Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/phantom.png`)
 
           resemble(snapshot1Electron)
           .compareTo(snapshot2Electron)

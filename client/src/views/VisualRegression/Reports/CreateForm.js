@@ -18,54 +18,19 @@ class CreateForm extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: '',
-      application: '',
-      fileTest: '',
-      description: '',
-      serverports: []
+      snapshots: []
     }
-
-    this.handleChangeField = this.handleChangeField.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit () {
-    const { name, application, fileTest, description } = this.state
-
-    axios.post('http://localhost:8000/api/testingE2E', {
-      name,
-      application,
-      fileTest,
-      description
-    })
-    alert('Datos guardados')
-  }
-
-  handleChangeField (key, event) {
+  async componentDidMount () {
+    const { data: snapshots } = await axios.get('http://localhost:4000/visualRegression')
     this.setState({
-      [key]: event.target.value
-    })
-  }
-
-  componentDidMount () {
-    axios.get('http://localhost:8000/api/application')
-      .then(response => {
-        this.setState({ serverports: response.data.applications })
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
-  listOption () {
-    return this.state.serverports.map(function (object, i) {
-      return (
-        <option value={object._id}>{object.name}</option>
-      )
+      snapshots
     })
   }
 
   render () {
-    const { name, application, fileTest, description } = this.state
+    const { snapshots } = this.state
 
     return (
       <div className='animated fadeIn'>
@@ -74,68 +39,57 @@ class CreateForm extends Component {
           <Col xs='10' md='6'>
             <Card>
               <CardHeader>
-                <strong>Crear Pruebas E2E</strong>
+                <strong>Reportes</strong>
               </CardHeader>
               <CardBody>
-                <Form action='' method='post' encType='multipart/form-data' className='form-horizontal'>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='text-input'>Nombre Prueba</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('name', ev)}
-                        value={name}
-                        type='text'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='select'>Aplicacion</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('application', ev)}
-                        value={application}
-                        type='select'
-                      >
-                        <option value=''>Seleccione</option>
-                        {this.listOption()}
-                      </Input>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='text-input'>Archivo pruebas</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('fileTest', ev)}
-                        value={fileTest}
-                        type='text'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='textarea-input'>Descripcion</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('description', ev)}
-                        value={description}
-                        type='textarea'
-                        rows='9'
-                      />
-                    </Col>
-                  </FormGroup>
-                </Form>
+                {snapshots.map((snapshot, index) => {
+                  const { name, snapshots, _id } = snapshot
+                  return snapshots.map((s, index) => {
+                    if (index !== 0) {
+                      return (
+                        <div key={index}>
+                          <h2>{new Date(s).toDateString()}</h2>
+                          <div className='row'>
+                            <div className='col-sm-6'>
+                              <h3>Estado</h3>
+                              <h5>Electron</h5>
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '150px', height: '150px'}} />
+                              <h5>PhantomJS</h5>
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '150px', height: '150px'}} />
+                            </div>
+                            <div className='col-sm-6'>
+                              <h3>Cambios</h3>
+                              <h5>Electron</h5>
+                              <img src={`http://localhost:4000/static/${_id}/executions/${s}/electron.jpeg`} style={{width: '150px', height: '150px'}} />
+                              <h5>PhantomJS</h5>
+                              <img src={`http://localhost:4000/static/${_id}/executions/${s}/phantom.jpeg`} style={{width: '150px', height: '150px'}} />
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    } else {
+                      return (
+                        <div key={index}>
+                          <h1>{name}</h1>
+                          <h2>{new Date(s).toDateString()}</h2>
+                          <h3>Estado Inicial</h3>
+                          <div className='row'>
+                            <div className='col-sm-6'>
+                              <h5>Electron</h5>
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '180px', height: '180px'}} />
+                            </div>
+                            <div className='col-sm-6'>
+                              <h5>PhantomJS</h5>
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '180px', height: '180px'}} />
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    }
+                  })
+                })}
               </CardBody>
-              <CardFooter>
-                <Button onClick={this.handleSubmit} type='submit' size='sm' color='primary'><i className='fa fa-dot-circle-o' /> Submit</Button>
-                <Button type='reset' size='sm' color='danger'><i className='fa fa-ban' /> Reset</Button>
-              </CardFooter>
+              <CardFooter />
             </Card>
           </Col>
         </Row>
