@@ -35,8 +35,8 @@ class CreateForm extends Component {
     return (
       <div className='animated fadeIn'>
         <Row>
-          <Col xs='2' md='3' />
-          <Col xs='10' md='6'>
+          <Col xs='2' md='1' />
+          <Col xs='10' md='10'>
             <Card>
               <CardHeader>
                 <strong>Reportes</strong>
@@ -49,22 +49,35 @@ class CreateForm extends Component {
                       return (
                         <div key={index}>
                           <h2>{new Date(s).toDateString()}</h2>
+
+                          <h3>Estado</h3>
                           <div className='row'>
-                            <div className='col-sm-6'>
-                              <h3>Estado</h3>
+                            <div className='col-sm-4'>
                               <h5>Electron</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '150px', height: '150px'}} />
-                              <h5>PhantomJS</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '150px', height: '150px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '180px', height: '180px'}} />
                             </div>
-                            <div className='col-sm-6'>
-                              <h3>Cambios</h3>
-                              <h5>Electron</h5>
-                              <img src={`http://localhost:4000/static/${_id}/executions/${s}/electron.jpeg`} style={{width: '150px', height: '150px'}} />
+                            <div className='col-sm-4'>
                               <h5>PhantomJS</h5>
-                              <img src={`http://localhost:4000/static/${_id}/executions/${s}/phantom.jpeg`} style={{width: '150px', height: '150px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '180px', height: '180px'}} />
+                            </div>
+                            <div className='col-sm-4'>
+                              <h5>Cambios en navegador</h5>
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '180px', height: '180px'}} />
                             </div>
                           </div>
+                          <h3>Cambios en estado</h3>
+                          <div className='row'>
+                            <div className='col-sm-4'>
+                              <h5>Electron</h5>
+                              <img src={`http://localhost:4000/static/${_id}/executions/${s}/electron.jpeg`} style={{width: '180px', height: '180px'}} />
+                            </div>
+                            <div className='col-sm-4'>
+                              <h5>PhantomJS</h5>
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '180px', height: '180px'}} />
+                            </div>
+
+                          </div>
+
                         </div>
                       )
                     } else {
@@ -74,13 +87,17 @@ class CreateForm extends Component {
                           <h2>{new Date(s).toDateString()}</h2>
                           <h3>Estado Inicial</h3>
                           <div className='row'>
-                            <div className='col-sm-6'>
+                            <div className='col-sm-4'>
                               <h5>Electron</h5>
                               <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '180px', height: '180px'}} />
                             </div>
-                            <div className='col-sm-6'>
+                            <div className='col-sm-4'>
                               <h5>PhantomJS</h5>
                               <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '180px', height: '180px'}} />
+                            </div>
+                            <div className='col-sm-4'>
+                              <h5>Cambios en navegador</h5>
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '180px', height: '180px'}} />
                             </div>
                           </div>
                         </div>
