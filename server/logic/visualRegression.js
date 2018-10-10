@@ -85,7 +85,7 @@ module.exports = {
           fs.writeFileSync(`${dir}/electron.png`, electronScreenshot)
 
           const phantomScreenshot = await capturePhantom({ url })
-          fs.writeFileSync(`${dir}/phantomjs.png`, phantomScreenshot)
+          fs.writeFileSync(`${dir}/phantom.png`, phantomScreenshot)
 
           snapshots.push(time)
           await Snapshots.updateOne({ _id: ObjectId(_id) }, {
