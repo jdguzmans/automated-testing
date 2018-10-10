@@ -137,13 +137,15 @@ module.exports = {
 }
 
 // const prueba = async () => {
-//   resemble(fs.readFileSync('static/5bbaa7cbc775a547c1eecf30/snapshots/1538959307539/electron.png'))
-//   .compareTo(fs.readFileSync('static/5bbaa7cbc775a547c1eecf30/snapshots/1538959307539/phantomjs.png'))
+//   const snapshotElectron = fs.readFileSync(`${STATIC_PATH}/5bbacd3423fd2b7519feed12/snapshots/1539015967250/electron.png`)
+//   const snapshotPhantom = fs.readFileSync(`${STATIC_PATH}/5bbacd3423fd2b7519feed12/snapshots/1539015967250/phantom.png`)
+
+//   resemble(snapshotElectron)
+//   .compareTo(snapshotPhantom)
 //   .onComplete(data => {
 //     const hola = data.getDiffImageAsJPEG()
-//     console.log(data)
-//     console.log(hola)
-//     fs.writeFileSync(`puta.jpeg`, hola)
+//     fs.writeFileSync(`${STATIC_PATH}/5bbacd3423fd2b7519feed12/snapshots/1539015967250/browserDifferences.jpeg`, hola)
+//     console.log('ya')
 //   })
 // }
 
