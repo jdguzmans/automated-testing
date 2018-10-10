@@ -54,26 +54,26 @@ class CreateForm extends Component {
                           <div className='row'>
                             <div className='col-sm-4'>
                               <h5>Electron</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '180px', height: '180px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '220px', height: '220px'}} />
                             </div>
                             <div className='col-sm-4'>
                               <h5>PhantomJS</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '180px', height: '180px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '220px', height: '220px'}} />
                             </div>
                             <div className='col-sm-4'>
                               <h5>Cambios en navegador</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '180px', height: '180px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '220px', height: '220px'}} />
                             </div>
                           </div>
                           <h3>Cambios en estado</h3>
                           <div className='row'>
                             <div className='col-sm-4'>
                               <h5>Electron</h5>
-                              <img src={`http://localhost:4000/static/${_id}/executions/${s}/electron.jpeg`} style={{width: '180px', height: '180px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/executions/${s}/electron.jpeg`} style={{width: '220px', height: '220px'}} />
                             </div>
                             <div className='col-sm-4'>
                               <h5>PhantomJS</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '180px', height: '180px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '220px', height: '220px'}} />
                             </div>
 
                           </div>
@@ -89,15 +89,15 @@ class CreateForm extends Component {
                           <div className='row'>
                             <div className='col-sm-4'>
                               <h5>Electron</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '180px', height: '180px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '220px', height: '220px'}} />
                             </div>
                             <div className='col-sm-4'>
                               <h5>PhantomJS</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '180px', height: '180px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '220px', height: '220px'}} />
                             </div>
                             <div className='col-sm-4'>
                               <h5>Cambios en navegador</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '180px', height: '180px'}} />
+                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '220px', height: '220px'}} />
                             </div>
                           </div>
                         </div>
