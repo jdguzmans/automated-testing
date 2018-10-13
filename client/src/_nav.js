@@ -59,13 +59,13 @@ export default {
       children: [
         {
           name: 'Crear Prueba',
-          url: '/base/breadcrumbs',
-          icon: 'icon-cursor'
+          url: '/testingMonkey/create',
+          icon: 'icon-cursor',
         },
         {
           name: 'Ejecutar Pruebas',
-          url: '/base/cards',
-          icon: 'icon-cursor'
+          url: '/testingMonkey/start',
+          icon: 'icon-cursor',
         },
         {
           name: 'Informe Pruebas',
@@ -115,6 +115,27 @@ export default {
           icon: 'icon-star'
         }
       ]
-    }
+    },
+	{
+      name: 'Cargue Datos',
+      icon: 'icon-star',
+      children: [
+        {
+          name: 'Registrar Tabla',
+          url: '/datosAutomaticos/create',
+          icon: 'icon-star',
+        },
+        {
+          name: 'Ejecutar Cargue',
+          url: '/datosAutomaticos/start',
+          icon: 'icon-star',
+        },
+        {
+          name: 'Informe Cargue',
+          url: '/datosAutomaticos/report',
+          icon: 'icon-star',
+        },
+      ],
+    },
   ]
 }

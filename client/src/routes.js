@@ -37,6 +37,36 @@ const ReportE2E = Loadable({
   loading: Loading,
 });
 
+const ViewReportE2E = Loadable({
+  loader: () => import('./views/PruebasE2E/ViewReport'),
+  loading: Loading,
+});
+
+const CreateTestingMonkey = Loadable({
+  loader: () => import('./views/PruebasMonkey/CreateTest'),
+  loading: Loading,
+});
+
+const StartTestingMonkey = Loadable({
+  loader: () => import('./views/PruebasMonkey/StartTesting'),
+  loading: Loading,
+});
+
+const CreateUploadData = Loadable({
+  loader: () => import('./views/GAD/CreateForm'),
+  loading: Loading,
+});
+
+const StartUploadData = Loadable({
+  loader: () => import('./views/GAD/StartUpload'),
+  loading: Loading,
+});
+
+const ReportUploadData = Loadable({
+  loader: () => import('./views/GAD/ListReport'),
+  loading: Loading,
+});
+
 const Breadcrumbs = Loadable({
   loader: () => import('./views/Base/Breadcrumbs'),
   loading: Loading,
@@ -237,6 +267,13 @@ const routes = [
   { path: '/testingE2E/report', exact: true, name: 'Reporte Pruebas E2E', component: ReportE2E },
   { path: '/listApplication', exact: true, name: 'Lista de Aplicaciones', component: ListApplication },
   { path: '/testingE2E/matrizTest/:id', exact: true, name: 'Matriz de pruebas', component: MatrizTestE2E },
+  { path: '/testingE2E/viewreport/:id', exact: true, name: 'Vista Reportes', component: ViewReportE2E },
+  { path: '/testingMonkey/create', exact: true, name: 'Crear Pruebas Monkey', component: CreateTestingMonkey },
+  { path: '/testingMonkey/start', exact: true, name: 'Ejecutar Pruebas Monkey', component: StartTestingMonkey },
+  { path: '/datosAutomaticos/start', exact: true, name: 'Ejecutar Cargue Datos', component: StartUploadData },
+  { path: '/datosAutomaticos/create', exact: true, name: 'Crear Cargue Datos', component: CreateUploadData },
+  { path: '/datosAutomaticos/report', exact: true, name: 'Reporte Cargue Datos', component: ReportUploadData },
+
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },

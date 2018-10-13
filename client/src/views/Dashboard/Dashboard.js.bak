@@ -481,7 +481,7 @@ class Dashboard extends Component {
     return (
       <div className="animated fadeIn">
         <Row>
-          <Col xs="4" sm="18" lg="3"></Col>
+          <Col xs="8" sm="18" lg="4"></Col>
           <Col xs="4" sm="4" lg="3">
             <Widget03 dataBox={() => ({ variant: 'Pruebas E2E', friends: 'e2e', feeds: '' })} >
               <ButtonGroup className="iconConfig">
@@ -498,25 +498,9 @@ class Dashboard extends Component {
               </ButtonGroup>
             </Widget03>
           </Col>
-          <Col xs="4" sm="4" lg="3">
-            <Widget03 dataBox={() => ({ variant: 'Pruebas RVT', friends: 'rvt', feeds: '' })} >
-              <ButtonGroup className="iconConfig">
-                <ButtonDropdown id='card1' isOpen={this.state.card1} toggle={() => { this.setState({ card1: !this.state.card1 }); }}>
-                  <DropdownToggle caret className="p-0" color="transparent">
-                    <i className="icon-settings"></i>
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>Crear Prueba</DropdownItem>
-                    <DropdownItem>Ejecutar Pruebas</DropdownItem>
-                    <DropdownItem>Informe Pruebas</DropdownItem>
-                  </DropdownMenu>
-                </ButtonDropdown>
-              </ButtonGroup>
-            </Widget03>
-          </Col>
         </Row>
         <Row>
-          <Col xs="4" sm="18" lg="3"></Col>
+          <Col xs="8" sm="18" lg="4"></Col>
           <Col xs="4" sm="4" lg="3">
             <Widget03 dataBox={() => ({ variant: 'Pruebas Monkey', friends: 'monkey', feeds: '459' })} >
               <ButtonGroup className="iconConfig">
@@ -533,25 +517,9 @@ class Dashboard extends Component {
               </ButtonGroup>
             </Widget03>
           </Col>
-          <Col xs="4" sm="4" lg="3">
-            <Widget03 dataBox={() => ({ variant: 'Cargue Datos GAD', friends: 'gad', feeds: '' })} >
-              <ButtonGroup className="iconConfig">
-                <ButtonDropdown id='card1' isOpen={this.state.card1} toggle={() => { this.setState({ card1: !this.state.card1 }); }}>
-                  <DropdownToggle caret className="p-0" color="transparent">
-                    <i className="icon-settings"></i>
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>Crear Prueba</DropdownItem>
-                    <DropdownItem>Ejecutar Pruebas</DropdownItem>
-                    <DropdownItem>Informe Pruebas</DropdownItem>
-                  </DropdownMenu>
-                </ButtonDropdown>
-              </ButtonGroup>
-            </Widget03>
-          </Col>
         </Row>
         <Row>
-          <Col xs="4" sm="18" lg="3"></Col>
+          <Col xs="8" sm="18" lg="4"></Col>
           <Col xs="4" sm="4" lg="3">
             <Widget03 dataBox={() => ({ variant: 'Pruebas BDD', friends: 'bdd', feeds: '459' })} >
               <ButtonGroup className="iconConfig">

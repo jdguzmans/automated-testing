@@ -1,0 +1,6 @@
+{
+  "name": "View Report",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ViewReport.js"
+}

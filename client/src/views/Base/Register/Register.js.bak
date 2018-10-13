@@ -117,67 +117,6 @@ class Register extends Component {
                       />
                     </Col>
                   </FormGroup>
-                  <FormGroup row>
-                    <Col md="12">
-                      <strong>Datos de conexion a la Base de Datos</strong><hr/>
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="text-input">Host</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input
-                        onChange = {(ev) => this.handleChangeField('host', ev)}
-                        value    = ''
-                        type     = "text"
-                        name     = 'hostDb'
-                        id       = 'hostDb'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="text-input">Base de datos</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input
-                        onChange = {(ev) => this.handleChangeField('namedb', ev)}
-                        value    = ''
-                        type     = "text"
-                        name     = 'nameDb'
-                        id       = 'nameDb'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="text-input">Usuario</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input
-                        onChange = {(ev) => this.handleChangeField('user', ev)}
-                        value    = ''
-                        type     = "text"
-                        name     = 'userDb'
-                        id       = 'userDb'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md="3">
-                      <Label htmlFor="text-input">Contraseña</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input
-                        onChange = {(ev) => this.handleChangeField('pass', ev)}
-                        value    = ''
-                        type     = "pass"
-                        name     = 'passDb'
-                        id       = 'passDb'
-                      />
-                    </Col>
-                  </FormGroup>
                 </Form>
               </CardBody>
               <CardFooter>
