@@ -5,6 +5,8 @@ import { mapToCssModules } from 'reactstrap/lib/utils';
 import iconE2E from '../../../src/assets/img/general/e2e.png';
 import iconMonkey from '../../../src/assets/img/general/monkey.ico';
 import iconBdd from '../../../src/assets/img/general/bdd.png';
+import iconRvt from '../../../src/assets/img/general/vrt.png';
+import iconGad from '../../../src/assets/img/general/gad.png';
 
 const propTypes = {
   children: PropTypes.node,
@@ -45,6 +47,12 @@ class Widget03 extends Component {
         break;
       case 'bdd':
         icon = iconBdd;
+        break;
+      case 'rvt':
+        icon = iconRvt;
+        break;
+      case 'gad':
+        icon = iconGad;
         break;
       default:
         icon = iconE2E;
