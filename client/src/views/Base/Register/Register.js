@@ -33,10 +33,17 @@ class Register extends Component {
       message     : '',
     }
 
+    this.idRegister = this.props.match.params.id;
+
     this.handleChangeField = this.handleChangeField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggle = this.toggle.bind(this);
     this.clearField = this.clearField.bind(this);
+    this.getData = this.getData.bind(this);
+
+    if(this.idRegister !== undefined) {
+      this.getData();
+    }
   }
 
   toggle() {
@@ -58,32 +65,79 @@ class Register extends Component {
     });
   }
 
+  getData(){
+    const register = {
+      name: this.idRegister
+    };
+
+    axios.get(
+      'http://localhost:4000/application/'+this.idRegister
+    ).then(response => {
+
+      this.setState({
+        name        : response.data.application.name,
+        url         : response.data.application.url,
+        type        : response.data.application.type,
+        description : response.data.application.description,
+        host        : response.data.application.host,
+        nameDb      : response.data.application.nameDb,
+        userDb      : response.data.application.userDb,
+        passwordDB  : response.data.application.passwordDB
+      });
+    }).catch(function (error) {
+      alert('Error al cargar la informaciom');
+    })
+  }
 
   handleSubmit(){
     const { name, url, type, description, host, nameDb, userDb, passwordDB } = this.state;
 
-    axios.post(
-      'http://localhost:4000/application',
-      {
-        name,
-        url,
-        type,
-        description,
-        host,
-        nameDb,
-        userDb,
-        passwordDB
-      }
-    ).then(response => {
-      this.setState({ message: 'Registro guardado con exito' });
+    if(this.idRegister !== undefined){
+      axios.patch(
+        'http://localhost:4000/application/'+this.idRegister,
+        {
+          name,
+          url,
+          type,
+          description,
+          host,
+          nameDb,
+          userDb,
+          passwordDB
+        }
+      ).then(response => {
+        this.setState({ message: 'Actualizacion realizada con exito' });
 
-      this.setState({
-        modal: !this.state.modal,
-      });
-    })
-    .catch(function (error) {
-      alert(error);
-    })
+        this.setState({
+          modal: !this.state.modal,
+        });
+      }).catch(function (error) {
+        alert(error);
+      })
+    } else {
+      axios.post(
+        'http://localhost:4000/application',
+        {
+          name,
+          url,
+          type,
+          description,
+          host,
+          nameDb,
+          userDb,
+          passwordDB
+        }
+      ).then(response => {
+        this.setState({ message: 'Registro guardado con exito' });
+
+        this.setState({
+          modal: !this.state.modal,
+        });
+      }).catch(function (error) {
+        alert(error);
+      })
+    }
+
 
   }
 

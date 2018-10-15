@@ -262,6 +262,7 @@ const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/registerApplication', exact: true, name: 'Registrar Aplicacion', component: RegisterApplication },
+  { path: '/registerApplication/:id', exact: true, name: 'Registrar Aplicacion', component: RegisterApplication },
   { path: '/testingE2E/create', exact: true, name: 'Crear Pruebas E2E', component: CreateTestingE2E },
   { path: '/testingE2E/start', exact: true, name: 'Ejecutar Pruebas E2E', component: StartTestingE2E },
   { path: '/testingE2E/report', exact: true, name: 'Reporte Pruebas E2E', component: ReportE2E },

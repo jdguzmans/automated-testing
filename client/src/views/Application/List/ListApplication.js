@@ -17,7 +17,7 @@ class ListApplication extends Component {
   }
 
   componentDidMount(){
-    axios.get('http://localhost:8000/api/application')
+    axios.get('http://localhost:4000/application')
       .then(response => {
         this.setState({ serverports: response.data.applications });
       })
@@ -33,6 +33,11 @@ class ListApplication extends Component {
             <td>{object.url}</td>
             <td>{object.type}</td>
             <td>{object.description}</td>
+            <td>
+              <a href={'/#/registerApplication/'+ object._id}>
+                <i className="icon-note icons d-block mt-1"></i>
+              </a>
+            </td>
         </tr>
       );
     });
@@ -59,6 +64,7 @@ class ListApplication extends Component {
                     <th>URL</th>
                     <th>Tipo</th>
                     <th>Descripcion</th>
+                    <th>Editar</th>
                   </tr>
                   </thead>
                   <tbody>
