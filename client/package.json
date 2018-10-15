@@ -27,6 +27,7 @@
     "font-awesome": "^4.7.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
+    "react-ace": "^6.2.0",
     "react-bootstrap-dialog": "^0.10.0",
     "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.4.2",

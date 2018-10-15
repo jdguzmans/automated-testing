@@ -18,7 +18,7 @@ class StartTesting extends Component {
 
   // LISTA DE PRUEBAS REGISTRADAS
   componentDidMount(){
-    axios.get('http://localhost:8000/api/application')
+    axios.get('http://localhost:4000/application')
       .then(response => {
         this.setState({ listApplication: response.data.applications });
       })
@@ -26,7 +26,7 @@ class StartTesting extends Component {
         console.log(error);
       });
 
-    axios.get('http://localhost:8000/api/testingE2E')
+    axios.get('http://localhost:4000/testingE2E')
       .then(response => {
         this.setState({ serverports: response.data.testingsE2E });
       })
@@ -52,7 +52,16 @@ class StartTesting extends Component {
           <td>{object.name}</td>
           <td>{applications[object.application] }</td>
           <td>{object.description}</td>
-          <td><i className="icon-pencil icons d-block mt-1"></i></td>
+          <td>
+            <a href={'/#/testingE2E/create/'+ object._id}>
+              <i className="icon-pencil icons d-block mt-1"></i>
+            </a>
+          </td>
+          <td>
+            <a href={'/#/testingE2E/edit/'+ object._id}>
+              <i className="icon-note icons d-block mt-1"></i>
+            </a>
+          </td>
           <td>
             <a href={'/#/testingE2E/matrizTest/'+ object._id}>
               <i className="icon-control-play icons d-block mt-1"></i>
@@ -79,6 +88,7 @@ class StartTesting extends Component {
                     <th>Aplicacion</th>
                     <th>Descripcion</th>
                     <th>Editar</th>
+                    <th>Codigo</th>
                     <th>Ejecutar</th>
                   </tr>
                   </thead>

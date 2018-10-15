@@ -25,6 +25,8 @@ mongoose.set('debug', true);
 
 // Add models
 require('./models/Application');
+require('./models/TestingE2E');
+require('./models/ReportsE2E');
 
 const routes = fs.readdirSync('./routes')
 routes.forEach(routeStr => {

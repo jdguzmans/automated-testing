@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 
 import {
-  Button,
   Card,
   CardBody,
   CardHeader,
   Col,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
   Row,
-  Pagination, PaginationItem, PaginationLink,Table
+  Table
 } from 'reactstrap';
 
 class ListReport extends Component {

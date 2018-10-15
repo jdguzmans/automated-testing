@@ -27,6 +27,11 @@ const StartTestingE2E = Loadable({
   loading: Loading,
 });
 
+const EditTestingE2E = Loadable({
+  loader: () => import('./views/PruebasE2E/EditCode'),
+  loading: Loading,
+});
+
 const MatrizTestE2E = Loadable({
   loader: () => import('./views/Application/MatrizTestE2E'),
   loading: Loading,
@@ -264,6 +269,8 @@ const routes = [
   { path: '/registerApplication', exact: true, name: 'Registrar Aplicacion', component: RegisterApplication },
   { path: '/registerApplication/:id', exact: true, name: 'Registrar Aplicacion', component: RegisterApplication },
   { path: '/testingE2E/create', exact: true, name: 'Crear Pruebas E2E', component: CreateTestingE2E },
+  { path: '/testingE2E/create/:id', exact: true, name: 'Modificar Pruebas E2E', component: CreateTestingE2E },
+  { path: '/testingE2E/edit/:id', exact: true, name: 'Modificar codigo Pruebas E2E', component: EditTestingE2E },
   { path: '/testingE2E/start', exact: true, name: 'Ejecutar Pruebas E2E', component: StartTestingE2E },
   { path: '/testingE2E/report', exact: true, name: 'Reporte Pruebas E2E', component: ReportE2E },
   { path: '/listApplication', exact: true, name: 'Lista de Aplicaciones', component: ListApplication },

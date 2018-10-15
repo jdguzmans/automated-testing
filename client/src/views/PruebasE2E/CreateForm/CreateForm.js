@@ -10,7 +10,8 @@ import {
   FormGroup,
   Input,
   Label,
-  Row
+  Row,
+  Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap'
 import axios from 'axios/index'
 
@@ -18,27 +19,91 @@ class CreateForm extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      name: '',
-      application: '',
-      fileTest: '',
-      description: '',
-      serverports: []
+      name        : '',
+      application : '',
+      description : '',
+      message     : '',
+      serverports : []
     }
+
+    this.idRegister = this.props.match.params.id;
 
     this.handleChangeField = this.handleChangeField.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.clearField = this.clearField.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.getData = this.getData.bind(this);
+
+    if(this.idRegister !== undefined) {
+      this.getData();
+    }
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal,
+    });
+  }
+
+  getData(){
+    const register = {
+      name: this.idRegister
+    };
+
+    axios.get(
+      'http://localhost:4000/testingE2E/'+this.idRegister
+    ).then(response => {
+
+      this.setState({
+        name        : response.data.testingsE2E.name,
+        application : response.data.testingsE2E.application,
+        description : response.data.testingsE2E.description
+      });
+    }).catch(function (error) {
+      alert('Error al cargar la informaciom');
+    })
+  }
+
+  clearField() {
+    this.setState({
+      name        : '',
+      application : '',
+      description : '',
+    });
   }
 
   handleSubmit () {
-    const { name, application, fileTest, description } = this.state
+    const { name, application, description } = this.state
 
-    axios.post('http://localhost:8000/api/testingE2E', {
-      name,
-      application,
-      fileTest,
-      description
-    })
-    alert('Datos guardados')
+    if(this.idRegister !== undefined){
+      axios.patch('http://localhost:4000/testingE2E/'+this.idRegister, {
+        name,
+        application,
+        description
+      }).then(response => {
+        this.setState({ message: 'Actualizacion realizada con exito' });
+
+        this.setState({
+          modal: !this.state.modal,
+        });
+      }).catch(function (error) {
+        alert(error);
+      })
+    } else {
+      axios.post('http://localhost:4000/testingE2E', {
+        name,
+        application,
+        description
+      }).then(response => {
+        this.setState({ message: 'Registro guardado con exito' });
+
+        this.setState({
+          modal: !this.state.modal,
+        });
+      }).catch(function (error) {
+        alert(error);
+      })
+    }
   }
 
   handleChangeField (key, event) {
@@ -48,7 +113,7 @@ class CreateForm extends Component {
   }
 
   componentDidMount () {
-    axios.get('http://localhost:8000/api/application')
+    axios.get('http://localhost:4000/application')
       .then(response => {
         this.setState({ serverports: response.data.applications })
       })
@@ -65,10 +130,19 @@ class CreateForm extends Component {
   }
 
   render () {
-    const { name, application, fileTest, description } = this.state
+    const { name, application, description } = this.state
 
     return (
       <div className='animated fadeIn'>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>Mensaje</ModalHeader>
+          <ModalBody>
+            {this.state.message}
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Cerrar</Button>
+          </ModalFooter>
+        </Modal>
         <Row>
           <Col xs='2' md='3' />
           <Col xs='10' md='6'>
@@ -107,18 +181,6 @@ class CreateForm extends Component {
                   </FormGroup>
                   <FormGroup row>
                     <Col md='3'>
-                      <Label htmlFor='text-input'>Archivo pruebas</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('fileTest', ev)}
-                        value={fileTest}
-                        type='text'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
                       <Label htmlFor='textarea-input'>Descripcion</Label>
                     </Col>
                     <Col xs='12' md='9'>
@@ -133,8 +195,8 @@ class CreateForm extends Component {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button onClick={this.handleSubmit} type='submit' size='sm' color='primary'><i className='fa fa-dot-circle-o' /> Submit</Button>
-                <Button type='reset' size='sm' color='danger'><i className='fa fa-ban' /> Reset</Button>
+                <Button onClick={this.handleSubmit} type='submit' size='sm' color='primary'><i className='fa fa-dot-circle-o' /> Submit</Button>{' '}
+                <Button onClick={this.clearField} type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
               </CardFooter>
             </Card>
           </Col>

@@ -1,47 +1,42 @@
-
+const router = require('express').Router();
+const mongoose = require('mongoose');
+const ReportsE2E = mongoose.model('ReportsE2E');
 const exec = require('child_process').exec
-const CHROME = 'chrome'
+const fs = require('fs');
 
-// const CANARY = 'Canary'
-// const CHROMIUM = 'Chromium'
+var exports = module.exports = {};
 
-module.exports = {
-  headed: (dir, isParallel, browser) => {
+exports.testCafeStart = function (data) {
     return new Promise((resolve, reject) => {
-      const cBrowser = (browser === CHROME ? 'chrome' : 'firefox')
-      exec('./node_modules/cypress/bin/cypress run --headed --browser ' + cBrowser + (isParallel ? ' --parallel' : '') + ' --project ' + dir, (error, stdout, stderr) => {
-        if (error) {
-          console.log('ERROR')
-          console.log(error)
-          console.log('STDERR')
-          console.log(stderr)
-          reject(stderr)
+
+        const finalReportsE2E = new ReportsE2E(data);
+        finalReportsE2E.save()
+            .then()
+            .catch();
+
+        let properties = data.navegador;
+        if(data.mode === 'true'){
+            properties += ':headless';
         }
-        if (stdout) {
-          console.log('OUT')
-          console.log(stdout)
-          resolve()
-        }
-      })
-    })
-  },
-  headless: (dir, isParallel) => {
-    return new Promise((resolve, reject) => {
-      console.log('yava')
-      exec('./node_modules/cypress/bin/cypress run --project ' + dir + (isParallel ? '--parallel ' : ''), (error, stdout, stderr) => {
-        if (error) {
-          console.log('ERROR')
-          console.log(error)
-          console.log('STDERR')
-          console.log(stderr)
-          reject(stderr)
-        }
-        if (stdout) {
-          console.log('OUT')
-          console.log(stdout)
-          resolve()
-        }
-      })
-    })
-  }
+
+        const nameReport = finalReportsE2E.toJSON()._id;
+        exec('testcafe '+properties+' TestingE2E/'+data.pantalla+'/test1.js --reporter html', (error, stdout, stderr) => {
+            if (error) {
+                console.log('ERROR')
+                console.log(error)
+                console.log('STDERR')
+                console.log(stderr)
+                reject(stderr)
+            }
+            if (stdout) {
+                console.log('OUT')
+                fs.appendFile('TestingE2E/Report/'+nameReport+'.html', stdout, (err) => {
+                    if (err) throw err;
+                    console.log('The "data to append" was appended to file!');
+                });
+                console.log(stdout)
+                resolve()
+            }
+        })
+    });
 }
