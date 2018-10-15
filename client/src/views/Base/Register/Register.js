@@ -13,6 +13,7 @@ import {
   Input,
   Label,
   Row,
+  Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap';
 
 class Register extends Component {
@@ -24,22 +25,66 @@ class Register extends Component {
       url         : '',
       type        : '',
       description : '',
+      host        : '',
+      nameDb      : '',
+      userDb      : '',
+      passwordDB  : '',
+      modal       : false,
+      message     : '',
     }
 
     this.handleChangeField = this.handleChangeField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.clearField = this.clearField.bind(this);
   }
 
-  handleSubmit(){
-    const { name, url, type, description } = this.state;
-
-    axios.post('http://localhost:8000/api/application', {
-      name,
-      url,
-      type,
-      description
+  toggle() {
+    this.setState({
+      modal: !this.state.modal,
     });
-    alert('Datos guardados');
+  }
+
+  clearField() {
+    this.setState({
+      name        : '',
+      url         : '',
+      type        : '',
+      description : '',
+      host        : '',
+      nameDb      : '',
+      userDb      : '',
+      passwordDB  : ''
+    });
+  }
+
+
+  handleSubmit(){
+    const { name, url, type, description, host, nameDb, userDb, passwordDB } = this.state;
+
+    axios.post(
+      'http://localhost:4000/application',
+      {
+        name,
+        url,
+        type,
+        description,
+        host,
+        nameDb,
+        userDb,
+        passwordDB
+      }
+    ).then(response => {
+      this.setState({ message: 'Registro guardado con exito' });
+
+      this.setState({
+        modal: !this.state.modal,
+      });
+    })
+    .catch(function (error) {
+      alert(error);
+    })
+
   }
 
   handleChangeField(key, event) {
@@ -49,10 +94,19 @@ class Register extends Component {
   }
 
   render() {
-    const { name, url, type, description } = this.state;
+    const { name, url, type, description, host, nameDb, userDb, passwordDB} = this.state;
 
     return (
       <div className="animated fadeIn">
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>Mensaje</ModalHeader>
+          <ModalBody>
+            {this.state.message}
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Cerrar</Button>
+          </ModalFooter>
+        </Modal>
         <Row>
           <Col xs="2" md="3"></Col>
           <Col xs="10" md="6">
@@ -129,7 +183,7 @@ class Register extends Component {
                     <Col xs="12" md="9">
                       <Input
                         onChange = {(ev) => this.handleChangeField('host', ev)}
-                        value    = ''
+                        value    = {host}
                         type     = "text"
                         name     = 'hostDb'
                         id       = 'hostDb'
@@ -142,8 +196,8 @@ class Register extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input
-                        onChange = {(ev) => this.handleChangeField('namedb', ev)}
-                        value    = ''
+                        onChange = {(ev) => this.handleChangeField('nameDb', ev)}
+                        value    = {nameDb}
                         type     = "text"
                         name     = 'nameDb'
                         id       = 'nameDb'
@@ -156,8 +210,8 @@ class Register extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input
-                        onChange = {(ev) => this.handleChangeField('user', ev)}
-                        value    = ''
+                        onChange = {(ev) => this.handleChangeField('userDb', ev)}
+                        value    = {userDb}
                         type     = "text"
                         name     = 'userDb'
                         id       = 'userDb'
@@ -170,9 +224,9 @@ class Register extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input
-                        onChange = {(ev) => this.handleChangeField('pass', ev)}
-                        value    = ''
-                        type     = "pass"
+                        onChange = {(ev) => this.handleChangeField('passwordDB', ev)}
+                        value    = {passwordDB}
+                        type     = "password"
                         name     = 'passDb'
                         id       = 'passDb'
                       />
@@ -181,8 +235,8 @@ class Register extends Component {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button onClick={this.handleSubmit} type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
-                <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
+                <Button onClick={this.handleSubmit} type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>{' '}
+                <Button onClick={this.clearField} type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
               </CardFooter>
             </Card>
           </Col>
