@@ -6,6 +6,24 @@ const fs = require('fs');
 
 var exports = module.exports = {};
 
+exports.codeTestCafe  = function (data,id){
+    return new Promise((resolve, reject) => {
+        fs.writeFile('TestingE2E/test/'+id+'.js', data.code, (err) => {
+            if (err) throw err;
+            console.log('The "data to append" was appended to file!');
+        });
+        resolve()
+    });
+}
+
+exports.getCodeTestCafe  = function (id){
+    return new Promise((resolve, reject) => {
+        fs.readFile('TestingE2E/test/'+id+'.js','utf8', function(err, data) {
+            resolve(data);
+        });
+    });
+}
+
 exports.testCafeStart = function (data) {
     return new Promise((resolve, reject) => {
 

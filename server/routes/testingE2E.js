@@ -63,6 +63,19 @@ router.get('/:id', (req, res, next) => {
     }).catch(next);
 });
 
+
+router.patch('/dataCode/:id', async (req, res, next) => {
+    const { body } = req;
+    await e2e.codeTestCafe(body,req.params.id);
+    res.sendStatus(200);
+});
+
+router.get('/dataCode/:id', async (req, res, next) => {
+    return e2e.getCodeTestCafe(req.params.id)
+        .then((result) => res.json({ result: result }))
+        .catch(next);
+});
+
 router.patch('/:id', (req, res, next) => {
 
     return TestingE2E.findOne({

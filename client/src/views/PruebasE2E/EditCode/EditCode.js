@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AceEditor from 'react-ace';
 
-import 'brace/mode/javascript';
+import 'brace/mode/typescript';
 import 'brace/theme/terminal';
 
 import {
@@ -13,22 +13,68 @@ import {
   Row,
   Button
 } from 'reactstrap';
+import axios from "axios/index";
 
 class EditCode extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      code : '',
+      code : 'import { Selector } from \'testcafe\';\n' +
+      'import config from \'../config\';\n' +
+      '\n' +
+      'fixture `My Fixture`\n' +
+      '    .beforeEach( async t => {\n' +
+      '        await t.resizeWindow(\n' +
+      '            config.resizeWindow.width,\n' +
+      '            config.resizeWindow.height\n' +
+      '        );\n' +
+      '    })\n' +
+      '    .page (config.baseUrl);\n' +
+      '\n' +
+      '// Espacio para digitar el caso de prueba',
     }
+
+    this.idRegister = this.props.match.params.id;
 
     this.handleSubmit      = this.handleSubmit.bind(this);
     this.handleChangeField = this.handleChangeField.bind(this);
+    this.getData = this.getData.bind(this);
+
+    if(this.idRegister !== undefined) {
+      this.getData();
+    }
+  }
+
+  getData(){
+    axios.get(
+      'http://localhost:4000/testingE2E/dataCode/'+this.idRegister
+    ).then(response => {
+      if(response.data.result !== undefined){
+        this.setState({
+          code : response.data.result
+        });
+      }
+    }).catch(function (error) {
+      alert('Error al cargar la informacion');
+    })
   }
 
   handleSubmit(){
     const { code } = this.state;
-    alert(code);
+
+    axios.patch(
+      'http://localhost:4000/testingE2E/dataCode/'+this.idRegister, {code}
+    ).then(response => {
+      alert('Codigo guardado con exito');
+      /*this.setState({ message: 'Codigo guardado con exito' });
+
+      this.setState({
+        modal: !this.state.modal,
+      });*/
+    }).catch(function (error) {
+      alert('Error al guardar el codigo');
+    })
   }
 
   handleChangeField(key, event) {
@@ -50,7 +96,7 @@ class EditCode extends Component {
               <CardBody>
                 <AceEditor
                   onChange = {(ev) => this.handleChangeField('code', ev)}
-                  mode="javascript"
+                  mode="typescript"
                   theme="terminal"
                   name="blah2"
                   width = '100%'

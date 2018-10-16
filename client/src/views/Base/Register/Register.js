@@ -85,7 +85,7 @@ class Register extends Component {
         passwordDB  : response.data.application.passwordDB
       });
     }).catch(function (error) {
-      alert('Error al cargar la informaciom');
+      alert('Error al cargar la informacion');
     })
   }
 
