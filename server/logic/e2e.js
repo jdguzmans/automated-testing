@@ -1,11 +1,19 @@
 const router = require('express').Router();
 const mongoose = require('mongoose');
 const ReportsE2E = mongoose.model('ReportsE2E');
-const exec = require('child_process').exec
+const Application = mongoose.model('Application');
+const TestingE2E = mongoose.model('TestingE2E');
+const exec = require('child_process').exec;
 const fs = require('fs');
 
 var exports = module.exports = {};
 
+/**
+ * Metodo para guardar el codigo escrito para el test
+ * @param data
+ * @param id
+ * @returns {Promise<any>}
+ */
 exports.codeTestCafe  = function (data,id){
     return new Promise((resolve, reject) => {
         fs.writeFile('TestingE2E/test/'+id+'.js', data.code, (err) => {
@@ -16,6 +24,11 @@ exports.codeTestCafe  = function (data,id){
     });
 }
 
+/**
+ * Obtener el codigo fuente escrito para el test
+ * @param id
+ * @returns {Promise<any>}
+ */
 exports.getCodeTestCafe  = function (id){
     return new Promise((resolve, reject) => {
         fs.readFile('TestingE2E/test/'+id+'.js','utf8', function(err, data) {
@@ -24,37 +37,92 @@ exports.getCodeTestCafe  = function (id){
     });
 }
 
+/**
+ * Metodo para realizar la configuracion necesaria para la ejecucion de la prueba
+ * @param data
+ * @returns {Promise<any>}
+ */
+exports.configTest  = function (data){
+    return new Promise((resolve, reject) => {
+        fs.exists('TestingE2E/test/'+data.idTest+'.js',function(exists) {
+            if (exists) {
+                Application.findOne({
+                    _id: data.idApplication
+                }).then((application) => {
+                    let infoScreen = data.pantalla.split('x');
+                    let infoConfig = {
+                        baseUrl      : application.toJSON().url,
+                        resizeWindow : {
+                            width  : parseInt(infoScreen[0]),
+                            height : parseInt(infoScreen[1])
+                        }
+                    };
+
+                    try {
+                        fs.writeFileSync('TestingE2E/config.json', JSON.stringify(infoConfig));
+                        resolve(true);
+                    } catch(err) {
+                        reject('Se presento un error al configurar la prueba a ejecutar');
+                    }
+                });
+            } else {
+                reject('Esta prueba no ha sido escrita, por favor escriba la prueba a ejecutar');
+            }
+        });
+    });
+}
+
+/**
+ * Metodo para ejecutar el test
+ * @param data
+ * @returns {Promise<any>}
+ */
 exports.testCafeStart = function (data) {
     return new Promise((resolve, reject) => {
-
-        const finalReportsE2E = new ReportsE2E(data);
-        finalReportsE2E.save()
-            .then()
-            .catch();
-
         let properties = data.navegador;
         if(data.mode === 'true'){
             properties += ':headless';
         }
-
-        const nameReport = finalReportsE2E.toJSON()._id;
-        exec('testcafe '+properties+' TestingE2E/'+data.pantalla+'/test1.js --reporter html', (error, stdout, stderr) => {
-            if (error) {
+        exec('testcafe '+properties+' TestingE2E/test/'+data.idTest+'.js --reporter html', (er, stdout, stderr) => {
+            if (er) {
                 console.log('ERROR')
-                console.log(error)
+                console.log(er)
                 console.log('STDERR')
                 console.log(stderr)
-                reject(stderr)
+                reject(er)
             }
             if (stdout) {
-                console.log('OUT')
+                const finalReportsE2E = new ReportsE2E(data);
+                finalReportsE2E.save()
+                    .then()
+                    .catch();
+
+                const nameReport = finalReportsE2E.toJSON()._id;
+
                 fs.appendFile('TestingE2E/Report/'+nameReport+'.html', stdout, (err) => {
-                    if (err) throw err;
-                    console.log('The "data to append" was appended to file!');
+                    if (err){
+                        reject('Se presento un error al generar el reporte')
+                    };
+                    resolve('La prueba se realizo con exito');
                 });
-                console.log(stdout)
-                resolve()
             }
-        })
+        });
+    });
+}
+
+/**
+ * Funcion para obtener la informacion de la aplicacion mediante el id
+ * @param idTest
+ * @returns {Promise<any>}
+ */
+const dataApplication = async function (idTest){
+    return new Promise((resolve, reject) => {
+        TestingE2E.findById(data.idTest, function (error, testingE2E){
+            if(testingE2E){
+                resolve(JSON.stringify(testingE2E));
+            } else {
+                reject('Aplicacion no encontrada');
+            }
+        });
     });
 }

@@ -274,7 +274,7 @@ const routes = [
   { path: '/testingE2E/start', exact: true, name: 'Ejecutar Pruebas E2E', component: StartTestingE2E },
   { path: '/testingE2E/report', exact: true, name: 'Reporte Pruebas E2E', component: ReportE2E },
   { path: '/listApplication', exact: true, name: 'Lista de Aplicaciones', component: ListApplication },
-  { path: '/testingE2E/matrizTest/:id', exact: true, name: 'Matriz de pruebas', component: MatrizTestE2E },
+  { path: '/testingE2E/matrizTest/:idTest/:idApplication', exact: true, name: 'Matriz de pruebas', component: MatrizTestE2E },
   { path: '/testingE2E/viewreport/:id', exact: true, name: 'Vista Reportes', component: ViewReportE2E },
   { path: '/testingMonkey/create', exact: true, name: 'Crear Pruebas Monkey', component: CreateTestingMonkey },
   { path: '/testingMonkey/start', exact: true, name: 'Ejecutar Pruebas Monkey', component: StartTestingMonkey },

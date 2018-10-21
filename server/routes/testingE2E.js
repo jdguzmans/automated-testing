@@ -46,9 +46,41 @@ router.get('/', (req, res, next) => {
 // Ejecucion matriz de prueba
 router.post('/matrizTest', async (req, res, next) => {
     const { body } = req;
-    await e2e.testCafeStart(body);
-    res.sendStatus(200);
+    await e2e.configTest(body)
+        .then(async (configTest) => {
+            return res.status(200).json({
+                message: {
+                    name: configTest,
+                },
+            });
+        })
+        .catch((next) => {
+            return res.status(422).json({
+                message: {
+                    name: next,
+                },
+            });
+        });
+    //await e2e.testCafeStart(body);
+});
 
+router.post('/matrizTest/start', async (req, res, next) => {
+    const { body } = req;
+    await e2e.testCafeStart(body)
+        .then(async (testStart) => {
+            return res.status(200).json({
+                message: {
+                    name: testStart,
+                },
+            });
+        })
+        .catch((next) => {
+            return res.status(422).json({
+                message: {
+                    name: next,
+                },
+            });
+        });
 });
 
 router.get('/:id', (req, res, next) => {

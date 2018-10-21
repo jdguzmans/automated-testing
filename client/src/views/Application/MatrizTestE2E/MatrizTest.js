@@ -12,7 +12,8 @@ import {
   CardHeader,
   Col, Input,
   Row,
-  Table
+  Table,
+  Modal, ModalBody, ModalFooter, ModalHeader
 } from 'reactstrap';
 
 class MatrizTest extends Component {
@@ -21,25 +22,68 @@ class MatrizTest extends Component {
     super(props);
 
     this.state = {
-      idTest     : this.props.match.params.id,
-      navegador  : '',
-      pantalla   : '',
-      mode       : ''
+      idTest        : this.props.match.params.idTest,
+      idApplication : this.props.match.params.idApplication,
+      navegador     : 'chrome',
+      pantalla      : '414x736',
+      mode          : 'true',
+      message       : '',
     };
 
     this.handleChangeField = this.handleChangeField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal,
+    });
   }
 
   handleSubmit(){
-    const { idTest, navegador, pantalla, mode } = this.state;
+    const { idTest, idApplication, navegador, pantalla, mode } = this.state;
 
-    axios.post('http://localhost:8000/api/testingE2E/matrizTest', {
+    axios.post('http://localhost:4000/testingE2E/matrizTest', {
       idTest,
+      idApplication,
       navegador,
       pantalla,
       mode
-    });
+    })
+      .then(response => {
+        let stateModal = this.state.modal;
+        this.setState(
+          { message: 'Configuracion realizada, se inicia prueba. Por favor espere' }
+        );
+
+        this.setState({
+          modal: !stateModal,
+        });
+
+        axios.post('http://localhost:4000/testingE2E/matrizTest/start', {
+          idTest,
+          idApplication,
+          navegador,
+          pantalla,
+          mode
+        })
+          .then(response => {
+            this.setState(
+              { message: 'Prueba finalizada' }
+            );
+
+            this.setState({
+              modal: !stateModal,
+            });
+          })
+          .catch(function (error) {
+            alert(error);
+          });
+      })
+      .catch(function (error) {
+        alert('Este registro no tiene una prueba configurada');
+      });
   }
 
   handleChangeField(key, event) {
@@ -51,6 +95,15 @@ class MatrizTest extends Component {
   render() {
     return (
       <div className="animated fadeIn">
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>Mensaje</ModalHeader>
+          <ModalBody>
+            {this.state.message}
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Cerrar</Button>
+          </ModalFooter>
+        </Modal>
         <Row>
           <Col xs="12" lg="12">
             <Card>
@@ -73,6 +126,7 @@ class MatrizTest extends Component {
                               type="radio"
                               name="navegador"
                               value='chrome'
+                              checked
                             />
                             <img src={chrome} width='80px'/>
                         </th>
@@ -112,6 +166,7 @@ class MatrizTest extends Component {
                             type="radio"
                             name="pantalla"
                             value='414x736'
+                            checked
                           />
                           414 x 736
                         </th>
@@ -151,6 +206,7 @@ class MatrizTest extends Component {
                           type="radio"
                           name="mode"
                           value='true'
+                          checked
                         />
                         Headless
                       </th>
@@ -171,7 +227,11 @@ class MatrizTest extends Component {
                   <Button onClick={this.handleSubmit} type="submit" size="sm" color="primary" >
                     <i className="fa fa-dot-circle-o"></i> Ejecutar
                   </Button>&nbsp;
-                  <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Regresar</Button>
+                  <a href="/#/testingE2E/start">
+                    <Button type="reset" size="sm" color="danger">
+                      <i className="fa fa-ban"></i> Regresar
+                    </Button>
+                  </a>
               </CardFooter>
             </Card>
           </Col>
