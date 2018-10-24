@@ -20,6 +20,9 @@ test('My test', async t => {
 
         return targetLabels.map(label => label.children[0]);
     });
-
-    await t.click(checkBoxesStartingWithR.nth(0));
+    
+    await t
+      .takeScreenshot()
+      .click(checkBoxesStartingWithR.nth(0))
+      .takeScreenshot();
 });

@@ -83,7 +83,15 @@ exports.testCafeStart = function (data) {
         if(data.mode === 'true'){
             properties += ':headless';
         }
-        exec('testcafe '+properties+' TestingE2E/test/'+data.idTest+'.js --reporter html', (er, stdout, stderr) => {
+
+        const finalReportsE2E = new ReportsE2E(data);
+        finalReportsE2E.save()
+            .then()
+            .catch();
+
+        const nameReport = finalReportsE2E.toJSON()._id;
+
+        exec('testcafe '+properties+' TestingE2E/test/'+data.idTest+'.js --reporter html -s screenshots -p "TestingE2E/'+nameReport+'/${FILE_INDEX}.png"', (er, stdout, stderr) => {
             if (er) {
                 console.log('ERROR')
                 console.log(er)
@@ -92,13 +100,6 @@ exports.testCafeStart = function (data) {
                 reject(er)
             }
             if (stdout) {
-                const finalReportsE2E = new ReportsE2E(data);
-                finalReportsE2E.save()
-                    .then()
-                    .catch();
-
-                const nameReport = finalReportsE2E.toJSON()._id;
-
                 fs.appendFile('TestingE2E/Report/'+nameReport+'.html', stdout, (err) => {
                     if (err){
                         reject('Se presento un error al generar el reporte')
@@ -110,19 +111,3 @@ exports.testCafeStart = function (data) {
     });
 }
 
-/**
- * Funcion para obtener la informacion de la aplicacion mediante el id
- * @param idTest
- * @returns {Promise<any>}
- */
-const dataApplication = async function (idTest){
-    return new Promise((resolve, reject) => {
-        TestingE2E.findById(data.idTest, function (error, testingE2E){
-            if(testingE2E){
-                resolve(JSON.stringify(testingE2E));
-            } else {
-                reject('Aplicacion no encontrada');
-            }
-        });
-    });
-}

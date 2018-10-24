@@ -47,6 +47,11 @@ const ViewReportE2E = Loadable({
   loading: Loading,
 });
 
+const ViewScreenshotsE2E = Loadable({
+  loader: () => import('./views/PruebasE2E/ViewScreenshots'),
+  loading: Loading,
+});
+
 const CreateTestingMonkey = Loadable({
   loader: () => import('./views/PruebasMonkey/CreateTest'),
   loading: Loading,
@@ -276,6 +281,7 @@ const routes = [
   { path: '/listApplication', exact: true, name: 'Lista de Aplicaciones', component: ListApplication },
   { path: '/testingE2E/matrizTest/:idTest/:idApplication', exact: true, name: 'Matriz de pruebas', component: MatrizTestE2E },
   { path: '/testingE2E/viewreport/:id', exact: true, name: 'Vista Reportes', component: ViewReportE2E },
+  { path: '/testingE2E/viewscreenshots/:id', exact: true, name: 'Vista Screenshots', component: ViewScreenshotsE2E },
   { path: '/testingMonkey/create', exact: true, name: 'Crear Pruebas Monkey', component: CreateTestingMonkey },
   { path: '/testingMonkey/start', exact: true, name: 'Ejecutar Pruebas Monkey', component: StartTestingMonkey },
   { path: '/datosAutomaticos/start', exact: true, name: 'Ejecutar Cargue Datos', component: StartUploadData },

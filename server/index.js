@@ -13,6 +13,8 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname, 'TestingE2E/Report')));
+app.use(express.static(path.join(__dirname, 'screenshots/TestingE2E')));
 app.use('/static', express.static(path.join(__dirname, STATIC_PATH)))
 app.set('port', PORT)
 
