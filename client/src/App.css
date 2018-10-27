@@ -25,3 +25,18 @@
   background-color: #9f31eb !important;
 }
 
+.carousel-item .carousel-caption p{
+  font-weight: bold;
+  font-size: 28px;
+  -webkit-text-stroke: 1px black;
+}
+
+.carousel-indicators li{
+  background-color: #979f9f !important;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+  background-color: #00aced !important;
+  padding-top: 30px !important;
+}
+
