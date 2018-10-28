@@ -42,6 +42,11 @@ const ReportE2E = Loadable({
   loading: Loading,
 });
 
+const ReportTestingMonkey = Loadable({
+  loader: () => import('./views/PruebasMonkey/ListReport'),
+  loading: Loading,
+});
+
 const ViewReportE2E = Loadable({
   loader: () => import('./views/PruebasE2E/ViewReport'),
   loading: Loading,
@@ -279,14 +284,17 @@ const routes = [
   { path: '/testingE2E/start', exact: true, name: 'Ejecutar Pruebas E2E', component: StartTestingE2E },
   { path: '/testingE2E/report', exact: true, name: 'Reporte Pruebas E2E', component: ReportE2E },
   { path: '/listApplication', exact: true, name: 'Lista de Aplicaciones', component: ListApplication },
-  { path: '/testingE2E/matrizTest/:idTest/:idApplication', exact: true, name: 'Matriz de pruebas', component: MatrizTestE2E },
-  { path: '/testingE2E/viewreport/:id', exact: true, name: 'Vista Reportes', component: ViewReportE2E },
-  { path: '/testingE2E/viewscreenshots/:id', exact: true, name: 'Vista Screenshots', component: ViewScreenshotsE2E },
+  { path: '/matrizTest/:idTest/:idApplication', exact: true, name: 'Matriz de pruebas', component: MatrizTestE2E },
+  { path: '/matrizTest/:idApplicationRandom', exact: true, name: 'Matriz de pruebas random', component: MatrizTestE2E },
+  { path: '/viewreport/:id', exact: true, name: 'Vista Reportes', component: ViewReportE2E },
+  { path: '/viewscreenshots/:id', exact: true, name: 'Vista Screenshots', component: ViewScreenshotsE2E },
   { path: '/testingMonkey/create', exact: true, name: 'Crear Pruebas Monkey', component: CreateTestingMonkey },
   { path: '/testingMonkey/start', exact: true, name: 'Ejecutar Pruebas Monkey', component: StartTestingMonkey },
+  { path: '/testingMonkey/report', exact: true, name: 'Reporte Pruebas Random Testing', component: ReportTestingMonkey },
   { path: '/datosAutomaticos/start', exact: true, name: 'Ejecutar Cargue Datos', component: StartUploadData },
   { path: '/datosAutomaticos/create', exact: true, name: 'Crear Cargue Datos', component: CreateUploadData },
   { path: '/datosAutomaticos/report', exact: true, name: 'Reporte Cargue Datos', component: ReportUploadData },
+
 
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },

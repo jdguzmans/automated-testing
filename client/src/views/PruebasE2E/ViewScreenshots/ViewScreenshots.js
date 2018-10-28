@@ -73,7 +73,7 @@ class ViewScreenshots extends Component {
           onExited={this.onExited}
           key={item.src}
         >
-          <img className="d-block w-100" src={item.src} alt={item.altText} />
+          <img className="d-block w-100 imgReport" src={item.src} alt={item.altText} />
           <CarouselCaption captionText={item.caption} />
         </CarouselItem>
       );

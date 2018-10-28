@@ -14,7 +14,9 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'TestingE2E/Report')));
+app.use(express.static(path.join(__dirname, 'RandomTesting/Report')));
 app.use(express.static(path.join(__dirname, 'screenshots/TestingE2E')));
+app.use(express.static(path.join(__dirname, 'screenshots/RandomTesting')));
 app.use('/static', express.static(path.join(__dirname, STATIC_PATH)))
 app.set('port', PORT)
 
@@ -29,6 +31,7 @@ mongoose.set('debug', true);
 require('./models/Application');
 require('./models/TestingE2E');
 require('./models/ReportsE2E');
+require('./models/ReportRandom');
 
 const routes = fs.readdirSync('./routes')
 routes.forEach(routeStr => {

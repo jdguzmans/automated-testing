@@ -24,9 +24,11 @@ class MatrizTest extends Component {
     this.state = {
       idTest        : this.props.match.params.idTest,
       idApplication : this.props.match.params.idApplication,
+      idAppliRandom : this.props.match.params.idApplicationRandom,
       navegador     : 'chrome',
       pantalla      : '414x736',
       mode          : 'true',
+      event          : '',
       message       : '',
     };
 
@@ -42,48 +44,92 @@ class MatrizTest extends Component {
   }
 
   handleSubmit(){
-    const { idTest, idApplication, navegador, pantalla, mode } = this.state;
+    const { idTest, idApplication, navegador, pantalla, mode, idAppliRandom, event } = this.state;
 
-    axios.post('http://localhost:4000/testingE2E/matrizTest', {
-      idTest,
-      idApplication,
-      navegador,
-      pantalla,
-      mode
-    })
-      .then(response => {
-        let stateModal = this.state.modal;
-        this.setState(
-          { message: 'Configuracion realizada, se inicia prueba. Por favor espere' }
-        );
-
-        this.setState({
-          modal: !stateModal,
-        });
-
-        axios.post('http://localhost:4000/testingE2E/matrizTest/start', {
-          idTest,
-          idApplication,
-          navegador,
-          pantalla,
-          mode
-        })
-          .then(response => {
-            this.setState(
-              { message: 'Prueba finalizada' }
-            );
-
-            this.setState({
-              modal: !stateModal,
-            });
-          })
-          .catch(function (error) {
-            alert(error);
-          });
+    if(idAppliRandom !== undefined){
+      axios.post('http://localhost:4000/randomTesting/matrizTest', {
+        idAppliRandom,
+        navegador,
+        pantalla,
+        mode,
+        event
       })
-      .catch(function (error) {
-        alert('Este registro no tiene una prueba configurada');
-      });
+        .then(response => {
+          let stateModal = this.state.modal;
+          this.setState(
+            { message: 'Configuracion realizada, se inicia prueba. Por favor espere' }
+          );
+
+          this.setState({
+            modal: !stateModal,
+          });
+
+          axios.post('http://localhost:4000/randomTesting/matrizTest/start', {
+            idAppliRandom,
+            navegador,
+            pantalla,
+            mode,
+            event
+          })
+            .then(response => {
+              this.setState(
+                { message: 'Prueba finalizada' }
+              );
+
+              this.setState({
+                modal: !stateModal,
+              });
+            })
+            .catch(function (error) {
+              alert(error);
+            });
+        })
+        .catch(function (error) {
+          alert('Este registro no tiene una prueba configurada');
+        });
+    } else {
+      axios.post('http://localhost:4000/testingE2E/matrizTest', {
+        idTest,
+        idApplication,
+        navegador,
+        pantalla,
+        mode
+      })
+        .then(response => {
+          let stateModal = this.state.modal;
+          this.setState(
+            { message: 'Configuracion realizada, se inicia prueba. Por favor espere' }
+          );
+
+          this.setState({
+            modal: !stateModal,
+          });
+
+          axios.post('http://localhost:4000/testingE2E/matrizTest/start', {
+            idTest,
+            idApplication,
+            navegador,
+            pantalla,
+            mode
+          })
+            .then(response => {
+              this.setState(
+                { message: 'Prueba finalizada' }
+              );
+
+              this.setState({
+                modal: !stateModal,
+              });
+            })
+            .catch(function (error) {
+              alert(error);
+            });
+        })
+        .catch(function (error) {
+          alert('Este registro no tiene una prueba configurada');
+        });
+    }
+
   }
 
   handleChangeField(key, event) {
@@ -93,6 +139,25 @@ class MatrizTest extends Component {
   }
 
   render() {
+    const { idAppliRandom } = this.state;
+
+    let newRow = '';
+    if(idAppliRandom !== undefined){
+      newRow = <tr>
+                    <th>Numero de eventos</th>
+                    <th colSpan={2}>
+                      <Input
+                        onChange = {(ev) => this.handleChangeField('event', ev)}
+                        className="inputNum"
+                        type="number"
+                        name="event"
+                        min = "1"
+                      />
+                    </th>
+                    <th colSpan={2}></th>
+                  </tr>;
+    }
+
     return (
       <div className="animated fadeIn">
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
@@ -126,7 +191,6 @@ class MatrizTest extends Component {
                               type="radio"
                               name="navegador"
                               value='chrome'
-                              checked
                             />
                             <img src={chrome} width='80px'/>
                         </th>
@@ -166,7 +230,6 @@ class MatrizTest extends Component {
                             type="radio"
                             name="pantalla"
                             value='414x736'
-                            checked
                           />
                           414 x 736
                         </th>
@@ -206,7 +269,6 @@ class MatrizTest extends Component {
                           type="radio"
                           name="mode"
                           value='true'
-                          checked
                         />
                         Headless
                       </th>
@@ -220,6 +282,7 @@ class MatrizTest extends Component {
                         Sin headless
                       </th>
                     </tr>
+                    {newRow}
                   </tbody>
                 </Table>
               </CardBody>

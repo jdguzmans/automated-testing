@@ -54,14 +54,9 @@ export default {
       ]
     },
     {
-      name: 'Pruebas Monkey',
+      name: 'Pruebas Random',
       icon: 'icon-cursor',
       children: [
-        {
-          name: 'Crear Prueba',
-          url: '/testingMonkey/create',
-          icon: 'icon-cursor',
-        },
         {
           name: 'Ejecutar Pruebas',
           url: '/testingMonkey/start',
@@ -69,9 +64,10 @@ export default {
         },
         {
           name: 'Informe Pruebas',
-          url: '/base/carousels',
+          url: '/testingMonkey/report',
           icon: 'icon-cursor'
-        }
+        },
+
       ]
     },
     {

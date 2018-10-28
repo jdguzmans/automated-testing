@@ -18,17 +18,17 @@ class ListReport extends Component {
 
   // LISTA DE PRUEBAS REGISTRADAS
   componentDidMount(){
-    axios.get('http://localhost:4000/testingE2E')
+    axios.get('http://localhost:4000/application')
       .then(response => {
-        this.setState({ listTests: response.data.testingsE2E });
+        this.setState({ listTests: response.data.applications });
       })
       .catch(function (error) {
         console.log(error);
       });
 
-    axios.get('http://localhost:4000/reportsE2E')
+    axios.get('http://localhost:4000/randomTesting')
       .then(response => {
-        this.setState({ serverports: response.data.reportsE2E });
+        this.setState({ serverports: response.data.randomTestings });
       })
       .catch(function (error) {
         console.log(error);
@@ -49,7 +49,7 @@ class ListReport extends Component {
     return this.state.serverports.map(function(object, i){
       return (
         <tr>
-          <td>{tests[object.idTest] }</td>
+          <td>{tests[object.idAppliRandom] }</td>
           <td>{object.navegador}</td>
           <td>{object.pantalla}</td>
           <td>{object.date}</td>

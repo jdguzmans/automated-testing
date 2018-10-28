@@ -63,7 +63,7 @@ class StartTesting extends Component {
             </a>
           </td>
           <td>
-            <a href={'/#/testingE2E/matrizTest/'+ object._id+'/'+object.application}>
+            <a href={'/#/matrizTest/'+ object._id+'/'+object.application}>
               <i className="icon-control-play icons d-block mt-1"></i>
             </a>
           </td>

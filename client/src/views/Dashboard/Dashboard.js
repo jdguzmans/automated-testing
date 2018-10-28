@@ -518,7 +518,7 @@ class Dashboard extends Component {
         <Row>
           <Col xs="4" sm="18" lg="3"></Col>
           <Col xs="4" sm="4" lg="3">
-            <Widget03 dataBox={() => ({ variant: 'Pruebas Monkey', friends: 'monkey', feeds: '459' })} >
+            <Widget03 dataBox={() => ({ variant: 'Pruebas Random', friends: 'monkey', feeds: '459' })} >
               <ButtonGroup className="iconConfig">
                 <ButtonDropdown id='card2' isOpen={this.state.card2} toggle={() => { this.setState({ card2: !this.state.card2 }); }}>
                   <DropdownToggle caret className="p-0" color="transparent">
