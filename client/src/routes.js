@@ -272,6 +272,11 @@ const User = Loadable({
   loading: Loading,
 });
 
+const ViewE2EVR = Loadable({
+  loader: () => import('./views/VisualRegression/E2E'),
+  loading: Loading,
+});
+
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
@@ -295,6 +300,7 @@ const routes = [
   { path: '/datosAutomaticos/create', exact: true, name: 'Crear Cargue Datos', component: CreateUploadData },
   { path: '/datosAutomaticos/report', exact: true, name: 'Reporte Cargue Datos', component: ReportUploadData },
 
+  { path: '/viewE2EVR/:id', exact: true, name: 'Vista de Regresión Visual E2E', component: ViewE2EVR },
 
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },

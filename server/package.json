@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "DEV=1 nodemon index.js"
+    "dev": "DEV=1 nodemon --ignore static/ --ignore screenshots/ --ext js index.js",
+    "start": "node index.js"
   },
   "author": "",
   "license": "MIT",

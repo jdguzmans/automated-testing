@@ -1,22 +1,22 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const { Schema } = mongoose;
+const { Schema } = mongoose
 
 const TestingE2ESchema = new Schema({
-    name        : String,
-    application : String,
-    description : String,
-}, { timestamps: true });
+  name: String,
+  application: String,
+  description: String
+}, { timestamps: true })
 
-TestingE2ESchema.methods.toJSON = function() {
-    return {
-        _id         : this._id,
-        name        : this.name,
-        application : this.application,
-        description : this.description,
-        createdAt   : this.createdAt,
-        updatedAt   : this.updatedAt,
-    };
-};
+TestingE2ESchema.methods.toJSON = function () {
+  return {
+    _id: this._id,
+    name: this.name,
+    application: this.application,
+    description: this.description,
+    createdAt: this.createdAt,
+    updatedAt: this.updatedAt
+  }
+}
 
-mongoose.model('TestingE2E', TestingE2ESchema);
+mongoose.model('TestingE2E', TestingE2ESchema)
