@@ -300,7 +300,7 @@ const routes = [
   { path: '/datosAutomaticos/create', exact: true, name: 'Crear Cargue Datos', component: CreateUploadData },
   { path: '/datosAutomaticos/report', exact: true, name: 'Reporte Cargue Datos', component: ReportUploadData },
 
-  { path: '/viewE2EVR/:id', exact: true, name: 'Vista de Regresión Visual E2E', component: ViewE2EVR },
+  { path: '/viewE2EVR/:idTest/:id', exact: true, name: 'Vista de Regresión Visual E2E', component: ViewE2EVR },
 
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },

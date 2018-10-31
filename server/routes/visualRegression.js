@@ -13,6 +13,14 @@ router.get('/', async (req, res, next) => {
   res.send(snapshots)
 })
 
+router.get('/byIds/:testId/:snapshotId', async (req, res, next) => {
+  const { params: { testId, snapshotId } } = req
+  console.log(testId)
+  console.log(snapshotId)
+  const regressions = await visualRegressionLogic.getSnapshotById(testId, snapshotId)
+  res.send(regressions)
+})
+
 router.post('/execute', async (req, res, next) => {
   const { body: { _id } } = req
   await visualRegressionLogic.executeSnapshot(_id)

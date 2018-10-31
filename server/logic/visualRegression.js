@@ -3,7 +3,7 @@ const captureElectron = require('capture-electron')
 const capturePhantom = require('capture-phantomjs')
 const resemble = require('node-resemble-js')
 const fs = require('fs')
-const MongoCLient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
 
 const { MONGODB_URI, STATIC_PATH } = require('../config')
@@ -11,7 +11,7 @@ const { MONGODB_URI, STATIC_PATH } = require('../config')
 module.exports = {
   createSnapshot: async (name, url) => {
     return new Promise((resolve, reject) => {
-      MongoCLient.connect(MONGODB_URI, async (err, client) => {
+      MongoClient.connect(MONGODB_URI, async (err, client) => {
         if (err) reject(err)
         else {
           let Snapshots = client.db().collection('snapshot')
@@ -54,7 +54,7 @@ module.exports = {
   },
   getAllSnapshots: () => {
     return new Promise((resolve, reject) => {
-      MongoCLient.connect(MONGODB_URI, (err, client) => {
+      MongoClient.connect(MONGODB_URI, (err, client) => {
         if (err) reject(err)
         else {
           let Snapshots = client.db().collection('snapshot')
@@ -67,9 +67,31 @@ module.exports = {
       })
     })
   },
+  getSnapshotById: (testId, snapshotId) => {
+    return new Promise((resolve, reject) => {
+      MongoClient.connect(MONGODB_URI, async (err, client) => {
+        if (err) reject(err)
+        else {
+          const Snapshots = client.db().collection('snapshot')
+          let { snapshots } = await Snapshots.findOne({_id: ObjectId(testId)})
+
+          let sn1
+          let sn2
+          for (let i = 0; i < snapshots.length; i++) {
+            sn1 = snapshots[i]
+            const { report } = sn1
+            if (report.toString() === snapshotId && i !== 0) {
+              sn2 = snapshots[i - 1]
+            }
+          }
+          resolve({ snapshots: { sn1, sn2 }, testId })
+        }
+      })
+    })
+  },
   executeSnapshot: (_id) => {
     return new Promise((resolve, reject) => {
-      MongoCLient.connect(MONGODB_URI, async (err, client) => {
+      MongoClient.connect(MONGODB_URI, async (err, client) => {
         if (err) reject(err)
         else {
           const Snapshots = client.db().collection('snapshot')

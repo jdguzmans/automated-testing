@@ -15,101 +15,76 @@ class CreateForm extends Component {
     super(props)
     console.log(props)
     this.state = {
-      snapshots: []
+      snapshots: null,
+      testId: null
     }
   }
 
   async componentDidMount () {
-    const { match: { params: { id } } } = this.props
-    const { data: snapshots } = await axios.get(`http://localhost:4000/visualRegression/e2e/${id}`)
+    const { match: { params: { idTest, id } } } = this.props
+    const { data: { snapshots, testId } } = await axios.get(`http://localhost:4000/visualRegression/byIds/${idTest}/${id}`)
     this.setState({
-      snapshots
+      snapshots,
+      testId
     })
   }
 
   render () {
-    const { snapshots } = this.state
+    const { snapshots, testId } = this.state
 
-    return (
-      <div className='animated fadeIn'>
-        <Row>
-          <Col xs='2' md='1' />
-          <Col xs='10' md='10'>
-            <Card>
-              <CardHeader>
-                <strong>Reportes</strong>
-              </CardHeader>
-              <CardBody>
-                {snapshots.map((snapshot, index) => {
-                  const { name, snapshots, _id } = snapshot
-                  return snapshots.map((s, index) => {
-                    if (index !== 0) {
-                      return (
-                        <div key={index}>
-                          <h2>{new Date(s).toDateString()}</h2>
+    if (!snapshots && !testId) return <div><h1>Cargando...</h1></div>
+    else {
+      const { sn1: { pictures: pics1, report: r1, time: t1 }, sn1: { pictures: pics2, report: r2, time: t2 } } = snapshots
 
-                          <h3>Estado</h3>
-                          <div className='row'>
-                            <div className='col-sm-4'>
-                              <h5>Electron</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '220px', height: '220px'}} />
-                            </div>
-                            <div className='col-sm-4'>
-                              <h5>PhantomJS</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '220px', height: '220px'}} />
-                            </div>
-                            <div className='col-sm-4'>
-                              <h5>Cambios en navegador</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '220px', height: '220px'}} />
-                            </div>
-                          </div>
-                          <h3>Cambios en estado</h3>
-                          <div className='row'>
-                            <div className='col-sm-4'>
-                              <h5>Electron</h5>
-                              <img src={`http://localhost:4000/static/${_id}/executions/${s}/electron.jpeg`} style={{width: '220px', height: '220px'}} />
-                            </div>
-                            <div className='col-sm-4'>
-                              <h5>PhantomJS</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '220px', height: '220px'}} />
-                            </div>
+      return (
+        <div className='animated fadeIn'>
+          <Row>
+            <Col xs='2' md='1' />
+            <Col xs='10' md='10'>
+              <Card>
+                <CardHeader>
+                  <strong>Reportes</strong>
+                </CardHeader>
+                <CardBody>
+                  <Row>
+                    <Col xs='4' md='4'>
+                      <h1>Estado anterior</h1>
+                      <h2>{new Date(t2).toDateString()}</h2>
+                    </Col>
+                    <Col xs='4' md='4'>
+                      <h1>Estado actual</h1>
+                      <h2>{new Date(t1).toDateString()}</h2>
+                    </Col>
+                    <Col xs='4' md='4'>
+                      <h1>Cambios</h1>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs='4' md='4'>
+                      { pics2.map((pic, i) => {
+                        return <img key={i} src={`http://localhost:4000/static/vr/e2e/${testId}/snapshots/${r2}/${pic}`} style={{width: '220px', height: '220px'}} />
+                      })}
+                    </Col>
+                    <Col xs='4' md='4'>
+                      { pics1.map((pic, i) => {
+                        return <img key={i} src={`http://localhost:4000/static/vr/e2e/${testId}/snapshots/${r1}/${pic}`} style={{width: '220px', height: '220px'}} />
+                      })}
+                    </Col>
+                    <Col xs='4' md='4'>
+                      { pics1.map((pic, i) => {
+                        return <img key={i} src={`http://localhost:4000/static/vr/e2e/${testId}/executions/${r1}/${pic}`} style={{width: '220px', height: '220px'}} />
+                      })}
+                    </Col>
+                  </Row>
 
-                          </div>
-
-                        </div>
-                      )
-                    } else {
-                      return (
-                        <div key={index}>
-                          <h1>{name}</h1>
-                          <h2>{new Date(s).toDateString()}</h2>
-                          <h3>Estado Inicial</h3>
-                          <div className='row'>
-                            <div className='col-sm-4'>
-                              <h5>Electron</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/electron.png`} style={{width: '220px', height: '220px'}} />
-                            </div>
-                            <div className='col-sm-4'>
-                              <h5>PhantomJS</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/phantom.png`} style={{width: '220px', height: '220px'}} />
-                            </div>
-                            <div className='col-sm-4'>
-                              <h5>Cambios en navegador</h5>
-                              <img src={`http://localhost:4000/static/${_id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '220px', height: '220px'}} />
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    }
-                  })
-                })}
-              </CardBody>
-              <CardFooter />
-            </Card>
-          </Col>
-        </Row>
-      </div>
-    )
+                </CardBody>
+                <CardFooter />
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      )
+    }
   }
 }
 

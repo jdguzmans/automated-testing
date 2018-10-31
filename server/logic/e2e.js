@@ -109,8 +109,7 @@ exports.testCafeStart = function (data) {
         if (!fs.existsSync(`./static/vr/e2e/${data.idTest}`)) await createScreenshotsDir(data.idTest)
 
         let dir = `${STATIC_PATH}/vr/e2e/${data.idTest}`
-        const time = new Date().getTime()
-        dir = `${dir}/snapshots/${time}`
+        dir = `${dir}/snapshots/${nameReport}`
         fs.mkdirSync(dir)
 
         const files = fs.readdirSync(`./screenshots/TestingE2E/${nameReport}`)
@@ -124,30 +123,31 @@ exports.testCafeStart = function (data) {
         for (let picture of pictures) {
           const filePath = `./screenshots/TestingE2E/${nameReport}/${picture}`
 
-          fs.copyFileSync(filePath, `${STATIC_PATH}/vr/e2e/${data.idTest}/snapshots/${time}/${picture}`)
+          fs.copyFileSync(filePath, `${STATIC_PATH}/vr/e2e/${data.idTest}/snapshots/${nameReport}/p${picture}`)
         }
 
         MongoCLient.connect(MONGODB_URI, async (err, client) => {
           if (err) throw err
           else {
+            const time = new Date().getTime()
             const Snapshots = client.db().collection('snapshot')
             let { snapshots } = await Snapshots.findOne({_id: ObjectId(data.idTest)})
 
-            snapshots.push({time, pictures})
+            snapshots.push({ report: nameReport, time, pictures })
             await Snapshots.updateOne({ _id: ObjectId(data.idTest) }, {
               $set: { snapshots }
             })
 
             if (snapshots.length !== 1) {
-              fs.mkdirSync(`${STATIC_PATH}/vr/e2e/${data.idTest}/executions/${time}`)
+              fs.mkdirSync(`${STATIC_PATH}/vr/e2e/${data.idTest}/executions/${nameReport}`)
 
-              const { pictures: pictures1, time: time1 } = snapshots[(snapshots.length - 2)]
-              const { pictures: pictures2, time: time2 } = snapshots[(snapshots.length - 1)]
+              const { pictures: pictures1, report: report1 } = snapshots[(snapshots.length - 2)]
+              const { pictures: pictures2, report: report2 } = snapshots[(snapshots.length - 1)]
 
               for (let pic1 of pictures1) {
                 for (let pic2 of pictures2) {
                   if (pic1 === pic2) {
-                    await comparePictures(`${STATIC_PATH}/vr/e2e/${data.idTest}`, { pic: pic1, time: time1 }, { pic: pic2, time: time2 })
+                    await comparePictures(`${STATIC_PATH}/vr/e2e/${data.idTest}`, { pic: pic1, report: report1 }, { pic: pic2, report: report2 })
                   }
                 }
               }
@@ -190,19 +190,19 @@ const createScreenshotsDir = (id) => {
 }
 
 const comparePictures = (path, sn1, sn2) => {
-  const { pic: pic1, time: time1 } = sn1
-  const { pic: pic2, time: time2 } = sn2
+  const { pic: pic1, report: report1 } = sn1
+  const { pic: pic2, report: report2 } = sn2
 
   return new Promise((resolve, reject) => {
-    const snapshot1 = fs.readFileSync(`${path}/snapshots/${time1}/${pic1}`)
-    const snapshot2 = fs.readFileSync(`${path}/snapshots/${time2}/${pic2}`)
+    const snapshot1 = fs.readFileSync(`${path}/snapshots/${report1}/${pic1}`)
+    const snapshot2 = fs.readFileSync(`${path}/snapshots/${report2}/${pic2}`)
 
     resemble(snapshot1)
     .compareTo(snapshot2)
     .onComplete(data => {
       const { getDiffImageAsJPEG } = data
       const differences = getDiffImageAsJPEG()
-      fs.writeFileSync(`${path}/executions/${time2}/${pic2}`, differences)
+      fs.writeFileSync(`${path}/executions/${report2}/${pic2}`, differences)
       resolve()
     })
   })

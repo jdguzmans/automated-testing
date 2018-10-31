@@ -47,6 +47,7 @@ class ListReport extends Component {
     const tests = this.listTestings()
 
     return this.state.serverports.map(function (object, i) {
+      console.log(object)
       return (
         <tr>
           <td>{tests[object.idTest] }</td>
@@ -64,7 +65,7 @@ class ListReport extends Component {
             </a>
           </td>
           <td>
-            <a href={`/#/viewE2EVR/${object._id}`}>
+            <a href={`/#/viewE2EVR/${object.idTest}/${object._id}`}>
               <i className='icon-picture icons d-block mt-1' />
             </a>
           </td>
