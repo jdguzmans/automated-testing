@@ -133,7 +133,11 @@ exports.testCafeStart = function (data) {
             const Snapshots = client.db().collection('snapshot')
             let { snapshots } = await Snapshots.findOne({_id: ObjectId(data.idTest)})
 
-            snapshots.push({ report: nameReport, time, pictures })
+            const picturesDB = pictures.map(picture => {
+              return `p${picture}`
+            })
+
+            snapshots.push({ report: nameReport, time, pictures: picturesDB })
             await Snapshots.updateOne({ _id: ObjectId(data.idTest) }, {
               $set: { snapshots }
             })

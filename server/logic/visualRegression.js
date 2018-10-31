@@ -19,7 +19,7 @@ module.exports = {
           const { ops } = await Snapshots.insertOne({name, url, snapshots: []})
           const { _id } = ops[0]
 
-          let dir = `${STATIC_PATH}/${_id.toString()}`
+          let dir = `${STATIC_PATH}/vr_simple/${_id.toString()}`
           fs.mkdirSync(dir)
 
           dir = `${dir}/snapshots`
@@ -58,7 +58,7 @@ module.exports = {
         if (err) reject(err)
         else {
           let Snapshots = client.db().collection('snapshot')
-          Snapshots.find({}).toArray((err, points) => {
+          Snapshots.find({ url: { $exists: true } }).toArray((err, points) => {
             if (err) reject(err)
             else resolve(points)
             client.close()
@@ -97,7 +97,7 @@ module.exports = {
           const Snapshots = client.db().collection('snapshot')
           let { snapshots, url } = await Snapshots.findOne({_id: ObjectId(_id)})
 
-          let dir = `${STATIC_PATH}/${_id}/snapshots`
+          let dir = `${STATIC_PATH}/vr_simple/${_id}/snapshots`
 
           const time = new Date().getTime()
           dir = `${dir}/${time}`
@@ -121,7 +121,7 @@ module.exports = {
             const differences = getDiffImageAsJPEG()
             fs.writeFileSync(`${dir}/browserDifferences.jpeg`, differences)
 
-            dir = `${STATIC_PATH}/${_id}/executions`
+            dir = `${STATIC_PATH}/vr_simple/${_id}/executions`
             if (!fs.existsSync(dir)) fs.mkdirSync(dir)
             dir = `${dir}/${time}`
             if (!fs.existsSync(dir)) fs.mkdirSync(dir)
@@ -129,11 +129,11 @@ module.exports = {
             const snapshot1 = snapshots[(snapshots.length - 2)]
             const snapshot2 = snapshots[(snapshots.length - 1)]
 
-            const snapshot1Electron = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/electron.png`)
-            const snapshot2Electron = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/electron.png`)
+            const snapshot1Electron = fs.readFileSync(`${STATIC_PATH}/vr_simple/${_id}/snapshots/${snapshot1}/electron.png`)
+            const snapshot2Electron = fs.readFileSync(`${STATIC_PATH}/vr_simple/${_id}/snapshots/${snapshot2}/electron.png`)
 
-            const snapshot1Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot1}/phantom.png`)
-            const snapshot2Phantom = fs.readFileSync(`${STATIC_PATH}/${_id}/snapshots/${snapshot2}/phantom.png`)
+            const snapshot1Phantom = fs.readFileSync(`${STATIC_PATH}/vr_simple/${_id}/snapshots/${snapshot1}/phantom.png`)
+            const snapshot2Phantom = fs.readFileSync(`${STATIC_PATH}/vr_simple/${_id}/snapshots/${snapshot2}/phantom.png`)
 
             resemble(snapshot1Electron)
             .compareTo(snapshot2Electron)

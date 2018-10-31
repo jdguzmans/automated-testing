@@ -33,8 +33,11 @@ class CreateForm extends Component {
     const { snapshots, testId } = this.state
 
     if (!snapshots && !testId) return <div><h1>Cargando...</h1></div>
+    else if (!snapshots.sn2) return <div><h1>Sobre esto no hay Regresión</h1></div>
     else {
-      const { sn1: { pictures: pics1, report: r1, time: t1 }, sn1: { pictures: pics2, report: r2, time: t2 } } = snapshots
+      const { sn1: { pictures: pics1, report: r1, time: t1 }, sn2: { pictures: pics2, report: r2, time: t2 } } = snapshots
+
+      const pics = pics2.length > pics1.length ? pics2 : pics1
 
       return (
         <div className='animated fadeIn'>
@@ -43,7 +46,7 @@ class CreateForm extends Component {
             <Col xs='10' md='10'>
               <Card>
                 <CardHeader>
-                  <strong>Reportes</strong>
+                  <strong>Reportes de Regresión Visual</strong>
                 </CardHeader>
                 <CardBody>
                   <Row>
@@ -59,24 +62,29 @@ class CreateForm extends Component {
                       <h1>Cambios</h1>
                     </Col>
                   </Row>
-                  <Row>
-                    <Col xs='4' md='4'>
-                      { pics2.map((pic, i) => {
-                        return <img key={i} src={`http://localhost:4000/static/vr/e2e/${testId}/snapshots/${r2}/${pic}`} style={{width: '220px', height: '220px'}} />
-                      })}
-                    </Col>
-                    <Col xs='4' md='4'>
-                      { pics1.map((pic, i) => {
-                        return <img key={i} src={`http://localhost:4000/static/vr/e2e/${testId}/snapshots/${r1}/${pic}`} style={{width: '220px', height: '220px'}} />
-                      })}
-                    </Col>
-                    <Col xs='4' md='4'>
-                      { pics1.map((pic, i) => {
-                        return <img key={i} src={`http://localhost:4000/static/vr/e2e/${testId}/executions/${r1}/${pic}`} style={{width: '220px', height: '220px'}} />
-                      })}
-                    </Col>
-                  </Row>
-
+                  { pics.map((p, i) => {
+                    return (
+                      <div>
+                        <Row>
+                          <Col xs='4' md='4' />
+                          <Col xs='8' md='8'>
+                            <h1>Screenshot {i}</h1>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col xs='4' md='4'>
+                            <img key={`1${i}`} src={`http://localhost:4000/static/vr/e2e/${testId}/snapshots/${r2}/${pics2[i]}`} style={{width: '220px', height: '220px'}} />
+                          </Col>
+                          <Col xs='4' md='4'>
+                            <img key={`2${i}`} src={`http://localhost:4000/static/vr/e2e/${testId}/snapshots/${r1}/${pics1[i]}`} style={{width: '220px', height: '220px'}} />
+                          </Col>
+                          <Col xs='4' md='4'>
+                            <img key={`3${i}`} src={`http://localhost:4000/static/vr/e2e/${testId}/executions/${r1}/${pics2[i]}`} style={{width: '220px', height: '220px'}} />
+                          </Col>
+                        </Row>
+                      </div>
+                    )
+                  })}
                 </CardBody>
                 <CardFooter />
               </Card>
