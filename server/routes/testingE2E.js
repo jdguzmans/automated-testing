@@ -61,7 +61,6 @@ router.post('/matrizTest', async (req, res, next) => {
             }
           })
         })
-    // await e2e.testCafeStart(body);
 })
 
 router.post('/matrizTest/start', async (req, res, next) => {
