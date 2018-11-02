@@ -1,0 +1,560 @@
+{
+  "dataUpload": [
+    {
+      "name" : "Animal Common Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Animal Scientific Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "App Bundle ID",
+      "type" : ["all"]
+    },
+    {
+      "name" : "App Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "App Version",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Avatar",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Base64 Image URL",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Binomial Distribution",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Bitcoin Address",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Blank",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Boolean",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Buzzword",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Car Make",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Car Model",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Car Model Year",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Car VIN",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Catch Phrase",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Character Sequence",
+      "type" : ["all"]
+    },
+    {
+      "name" : "City",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Color",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Company Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Country",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Country Code",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Credit Card #",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Credit Card Type",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Currency",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Currency Code",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Custom List",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Dataset Column",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Date",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Department (Corporate)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Department (Retail)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Digit Sequence",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Domain Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Drug Company",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Drug Name (Brand)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Drug Name (Generic)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Dummy Image URL",
+      "type" : ["all"]
+    },
+    {
+      "name" : "DUNS Number",
+      "type" : ["all"]
+    },
+    {
+      "name" : "EIN",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Email Address",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Encrypt",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Exponential Distribution",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Fake Company Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Family Name (Chinese)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "FDA NDC Code",
+      "type" : ["all"]
+    },
+    {
+      "name" : "File Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "First Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "First Name (European)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "First Name (Female)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "First Name (Male)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Formula",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Frequency",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Full Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Gender",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Gender (abbrev)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Geometric Distribution",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Given Name (Chinese)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "GUID",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Hex Color",
+      "type" : ["all"]
+    },
+    {
+      "name" : "IBAN",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD10 Diagnosis Code",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD10 Dx Desc (Long)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD10 Dx Desc (Short)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD10 Proc Desc (Long)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD10 Proc Desc (Short)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD10 Procedure Code",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD9 Diagnosis Code",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD9 Dx Desc (Long)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD9 Dx Desc (Short)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD9 Proc Desc (Long)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD9 Proc Desc (Short)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "ICD9 Procedure Code",
+      "type" : ["all"]
+    },
+    {
+      "name" : "IP Address v4",
+      "type" : ["all"]
+    },
+    {
+      "name" : "IP Address v4 CIDR",
+      "type" : ["all"]
+    },
+    {
+      "name" : "IP Address v6 CIDR",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Job Title",
+      "type" : ["all"]
+    },
+    {
+      "name" : "JSON Array",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Language",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Last Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Latitude",
+      "type" : ["all"]
+    },
+    {
+      "name" : "LinkedIn Skill",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Longitude",
+      "type" : ["all"]
+    },
+    {
+      "name" : "MAC Address",
+      "type" : ["all"]
+    },
+    {
+      "name" : "MD5",
+      "type" : ["all"]
+    },
+    {
+      "name" : "MIME Type",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Money",
+      "type" : ["all"]
+    },
+    {
+      "name" : "MongoDB ObjectID",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Movie Genres",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Movie Title",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Naughty String",
+      "type" : ["all"]
+    },
+    {
+      "name" : "NHS Number",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Normal Distribution",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Number",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Paragraphs",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Password",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Phone",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Plant Common Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Plant Family",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Plant Scientific Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Poisson Distribution",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Postal Code",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Product (Grocery)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Race",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Regular Expression",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Repeating Element",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Row Number",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Scenario",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Sentences",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Sequence",
+      "type" : ["all"]
+    },
+    {
+      "name" : "SHA1",
+      "type" : ["all"]
+    },
+    {
+      "name" : "SHA256",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Shirt Size",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Short Hex Color",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Slogan",
+      "type" : ["all"]
+    },
+    {
+      "name" : "SQL Expression",
+      "type" : ["all"]
+    },
+    {
+      "name" : "SSN",
+      "type" : ["all"]
+    },
+    {
+      "name" : "State",
+      "type" : ["all"]
+    },
+    {
+      "name" : "State (abbrev)",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Stock Industry",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Stock Market",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Stock Market Cap",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Stock Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Stock Sector",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Stock Symbol",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Street Address",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Street Name",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Street Number",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Street Suffix",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Suffix",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Template",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Time",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Time Zone",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Title",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Top Level Domain",
+      "type" : ["all"]
+    },
+    {
+      "name" : "University",
+      "type" : ["all"]
+    },
+    {
+      "name" : "User Agent",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Username",
+      "type" : ["all"]
+    },
+    {
+      "name" : "Words",
+      "type" : ["all"]
+    }
+  ]
+}

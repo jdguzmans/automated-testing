@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import configDataUpload from './dataUpload';
+
 import {
   Button,
   Card,
@@ -18,6 +20,7 @@ import axios from "axios/index";
 class CreateForm extends Component {
 
   constructor(props) {
+    //alert(JSON.stringify(configDataUpload));
     super(props);
     this.state = {
       nameTable     : '',
@@ -28,9 +31,10 @@ class CreateForm extends Component {
       nameDB        : '',
       listSelect    : [],
       listRow       : [],
-      serverports   : []
+      serverports   : [],
     };
 
+    this.dataUpload = []
     this.handleChangeField = this.handleChangeField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -67,7 +71,7 @@ class CreateForm extends Component {
   }
 
   /* Metodos para cargar la lista de la tablas de la DB seleccionada */
-  handleChangeField(key, event) {
+  handleChangeField(key, event, keyRegister=null) {
     if(key == 'application'){
       if(event.target.value != ''){
         this.setState({ messageSelect: 'Cargando tablas de la DB ...' })
@@ -95,9 +99,13 @@ class CreateForm extends Component {
       }
     }
 
-    this.setState({
-      [key]: event.target.value,
-    });
+    if(keyRegister == null){
+      this.setState({
+        [key]: event.target.value,
+      });
+    } else {
+      this.dataUpload[keyRegister] = event.target.value
+    }
   }
 
   listOptionTables () {
@@ -110,7 +118,22 @@ class CreateForm extends Component {
   }
 
   tabRow () {
-    return this.state.listRow.map(function (object, i) {
+    return this.state.listRow.map((object, i) => {
+      let selectTypeData = ''
+
+      if(object.Key != 'PRI'){
+        selectTypeData =  <Input
+                            onChange = {(ev) => this.handleChangeField('dataUpload', ev, i)}
+                            value    = {this.dataUpload[i]}
+                            type     = "select"
+                          >
+                            <option value="">Seleccione</option>
+                            <option value="1">Prueba1</option>
+                            <option value="2">Prueba2</option>
+                            <option value="3">Prueba3</option>
+                          </Input>
+      }
+
       return (
         <tr>
           <td>{object.Field}</td>
@@ -119,7 +142,7 @@ class CreateForm extends Component {
           <td>{object.Key}</td>
           <td>{object.Default}</td>
           <td>
-            Espacio campo seleccion dato
+            {selectTypeData}
           </td>
         </tr>
       )

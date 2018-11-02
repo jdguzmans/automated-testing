@@ -17,7 +17,7 @@ exports.getListTableDB = function (data) {
             });
             connection.connect(function(error){
                 if(error){
-                    throw error;
+                    reject(error);
                 }
             });
 
@@ -26,7 +26,7 @@ exports.getListTableDB = function (data) {
             } else {
                 connection.query('SHOW FULL TABLES FROM '+application.nameDb, function(error, result){
                         if(error){
-                            throw error;
+                            reject(error);
                         } else {
                             let dataReturn = {
                                 nameDb    : application.nameDb,
@@ -60,7 +60,7 @@ exports.getRowTable = function (data) {
             });
             connection.connect(function(error){
                 if(error){
-                    throw error;
+                    reject(error);
                 }
             });
 
@@ -69,7 +69,7 @@ exports.getRowTable = function (data) {
             } else {
                 connection.query('SHOW COLUMNS FROM '+data.nameTableDb+' FROM '+application.nameDb, function(error, result){
                         if(error){
-                            throw error;
+                            reject(error);
                         } else {
                             resolve(result)
                         }
