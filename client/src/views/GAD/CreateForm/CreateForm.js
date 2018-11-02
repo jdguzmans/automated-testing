@@ -24,6 +24,7 @@ class CreateForm extends Component {
     super(props);
     this.state = {
       nameTable     : '',
+      numRegister   : '',
       application   : '',
       fileTest      : '',
       description   : '',
@@ -118,19 +119,22 @@ class CreateForm extends Component {
   }
 
   tabRow () {
+    //alert(JSON.stringify(configDataUpload.dataUpload));
+    let optionType = configDataUpload.dataUpload.map((object, i) => {
+      return <option value={object.name}>{object.name}</option>
+    })
+
     return this.state.listRow.map((object, i) => {
       let selectTypeData = ''
 
       if(object.Key != 'PRI'){
         selectTypeData =  <Input
-                            onChange = {(ev) => this.handleChangeField('dataUpload', ev, i)}
-                            value    = {this.dataUpload[i]}
+                            onChange = {(ev) => this.handleChangeField('dataUpload', ev, object.Field)}
+                            value    = {this.dataUpload[object.Field]}
                             type     = "select"
                           >
                             <option value="">Seleccione</option>
-                            <option value="1">Prueba1</option>
-                            <option value="2">Prueba2</option>
-                            <option value="3">Prueba3</option>
+                            {optionType}
                           </Input>
       }
 
@@ -150,7 +154,7 @@ class CreateForm extends Component {
   }
 
   render() {
-    const { nameTable, application, fileTest, description, messageSelect } = this.state;
+    const { nameTable, application, fileTest, description, messageSelect, numRegister } = this.state;
 
     return (
       <div className="animated fadeIn">
@@ -194,6 +198,20 @@ class CreateForm extends Component {
                     </Col>
                   </FormGroup>
                   <FormGroup row>
+                    <Col md="3">
+                      <Label htmlFor="text-input">Numero registros</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input
+                        onChange = {(ev) => this.handleChangeField('numRegister', ev)}
+                        value    = {numRegister}
+                        type     = "number"
+                        min      = '1'
+                      >
+                      </Input>
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
                     <Col md="12">
                       <strong>Relacion Columnas</strong><hr/>
                     </Col>
@@ -220,7 +238,7 @@ class CreateForm extends Component {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button onClick={this.handleSubmit} type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
+                <Button onClick={this.handleSubmit} type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>&nbsp;
                 <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
               </CardFooter>
             </Card>
