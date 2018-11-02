@@ -69,6 +69,11 @@ class ListReport extends Component {
               <i className='icon-picture icons d-block mt-1' />
             </a>
           </td>
+          <td>
+            <a href={`/#/viewE2EMutation/${object.idTest}/${object._id}`}>
+              <i className='icon-picture icons d-block mt-1' />
+            </a>
+          </td>
         </tr>
       )
     })
@@ -94,6 +99,7 @@ class ListReport extends Component {
                       <th>Reporte</th>
                       <th>Screenshots</th>
                       <th>VR</th>
+                      <th>Mutaciones</th>
                     </tr>
                   </thead>
                   <tbody>

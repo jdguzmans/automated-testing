@@ -106,64 +106,86 @@ exports.testCafeStart = function (data) {
         reject(er)
       }
       if (stdout) {
-        if (!fs.existsSync(`./static/vr/e2e/${data.idTest}`)) await createScreenshotsDir(data.idTest)
-
-        let dir = `${STATIC_PATH}/vr/e2e/${data.idTest}`
-        dir = `${dir}/snapshots/${nameReport}`
-        fs.mkdirSync(dir)
-
-        const files = fs.readdirSync(`./screenshots/TestingE2E/${nameReport}`)
-
-        const pictures = files.filter(file => {
-          const filePath = `./screenshots/TestingE2E/${nameReport}/${file}`
-          const stat = fs.statSync(filePath)
-          return stat.isFile()
-        })
-
-        for (let picture of pictures) {
-          const filePath = `./screenshots/TestingE2E/${nameReport}/${picture}`
-
-          fs.copyFileSync(filePath, `${STATIC_PATH}/vr/e2e/${data.idTest}/snapshots/${nameReport}/p${picture}`)
-        }
-
-        MongoCLient.connect(MONGODB_URI, async (err, client) => {
+        exec('cd TestingE2E/test && mutode ./' + data.idTest + '.js', async (err, stdout, stderr) => {
           if (err) throw err
           else {
-            const time = new Date().getTime()
-            const Snapshots = client.db().collection('snapshot')
-            let { snapshots } = await Snapshots.findOne({_id: ObjectId(data.idTest)})
+            let dir = `${STATIC_PATH}/mutation/e2e/${data.idTest}`
+            if (!fs.existsSync(dir)) fs.mkdirSync(dir)
 
-            const picturesDB = pictures.map(picture => {
-              return `p${picture}`
+            dir = `${dir}/${nameReport}`
+            fs.mkdirSync(dir)
+
+            const filesMutation = fs.readdirSync(`TestingE2E/test/.mutode`)
+
+            filesMutation.forEach(file => {
+              if (file.startsWith('mutants')) {
+                fs.copyFileSync(`TestingE2E/test/.mutode/${file}`, `${dir}/mutants.log`)
+              } else {
+                fs.copyFileSync(`TestingE2E/test/.mutode/${file}`, `${dir}/mutode.log`)
+              }
+              fs.unlinkSync(`TestingE2E/test/.mutode/${file}`)
             })
 
-            snapshots.push({ report: nameReport, time, pictures: picturesDB })
-            await Snapshots.updateOne({ _id: ObjectId(data.idTest) }, {
-              $set: { snapshots }
+            if (!fs.existsSync(`./static/vr/e2e/${data.idTest}`)) await createScreenshotsDir(data.idTest)
+
+            dir = `${STATIC_PATH}/vr/e2e/${data.idTest}`
+            dir = `${dir}/snapshots/${nameReport}`
+            fs.mkdirSync(dir)
+
+            const filesVR = fs.readdirSync(`./screenshots/TestingE2E/${nameReport}`)
+
+            const picturesVR = filesVR.filter(file => {
+              const filePath = `./screenshots/TestingE2E/${nameReport}/${file}`
+              const stat = fs.statSync(filePath)
+              return stat.isFile()
             })
 
-            if (snapshots.length !== 1) {
-              fs.mkdirSync(`${STATIC_PATH}/vr/e2e/${data.idTest}/executions/${nameReport}`)
+            for (let picture of picturesVR) {
+              const filePath = `./screenshots/TestingE2E/${nameReport}/${picture}`
 
-              const { pictures: pictures1, report: report1 } = snapshots[(snapshots.length - 2)]
-              const { pictures: pictures2, report: report2 } = snapshots[(snapshots.length - 1)]
+              fs.copyFileSync(filePath, `${STATIC_PATH}/vr/e2e/${data.idTest}/snapshots/${nameReport}/p${picture}`)
+            }
 
-              for (let pic1 of pictures1) {
-                for (let pic2 of pictures2) {
-                  if (pic1 === pic2) {
-                    await comparePictures(`${STATIC_PATH}/vr/e2e/${data.idTest}`, { pic: pic1, report: report1 }, { pic: pic2, report: report2 })
+            MongoCLient.connect(MONGODB_URI, async (err, client) => {
+              if (err) throw err
+              else {
+                const time = new Date().getTime()
+                const Snapshots = client.db().collection('snapshot')
+                let { snapshots } = await Snapshots.findOne({_id: ObjectId(data.idTest)})
+
+                const picturesDB = picturesVR.map(picture => {
+                  return `p${picture}`
+                })
+
+                snapshots.push({ report: nameReport, time, pictures: picturesDB })
+                await Snapshots.updateOne({ _id: ObjectId(data.idTest) }, {
+                  $set: { snapshots }
+                })
+
+                if (snapshots.length !== 1) {
+                  fs.mkdirSync(`${STATIC_PATH}/vr/e2e/${data.idTest}/executions/${nameReport}`)
+
+                  const { pictures: pictures1, report: report1 } = snapshots[(snapshots.length - 2)]
+                  const { pictures: pictures2, report: report2 } = snapshots[(snapshots.length - 1)]
+
+                  for (let pic1 of pictures1) {
+                    for (let pic2 of pictures2) {
+                      if (pic1 === pic2) {
+                        await comparePictures(`${STATIC_PATH}/vr/e2e/${data.idTest}`, { pic: pic1, report: report1 }, { pic: pic2, report: report2 })
+                      }
+                    }
                   }
                 }
               }
-            }
-          }
-        })
+            })
 
-        fs.appendFile('TestingE2E/Report/' + nameReport + '.html', stdout, (err) => {
-          if (err) {
-            reject('Se presento un error al generar el reporte')
-          };
-          resolve('La prueba se realizo con exito')
+            fs.appendFile('TestingE2E/Report/' + nameReport + '.html', stdout, (err) => {
+              if (err) {
+                reject('Se presento un error al generar el reporte')
+              };
+              resolve('La prueba se realizo con exito')
+            })
+          }
         })
       }
     })

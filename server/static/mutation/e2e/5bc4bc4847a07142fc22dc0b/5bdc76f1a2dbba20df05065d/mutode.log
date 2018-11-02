@@ -1,0 +1,52 @@
+Mutode 154117503 running
+Creating a copy of your module... Done
+Loading mutators... Done
+Verifying and timing your test suite
+Took 0.24 seconds to run full test suite
+Creating 3 extra copies of your module... 1.. 2.. 3.. Done
+Running mutants for ./5bc4bc4847a07142fc22dc0b.js
+MUTANT 1:	NLM Line 21:	return targetLabels.map(label => label.children[0[-1])...	survived 374 ms
+MUTANT 3:	NLM Line 21:	return targetLabels.map(label => label.children[070839])...	survived 368 ms
+MUTANT 4:	NLM Line 26:	.click(checkBoxesStartingWithR.nth(0(-1))...	survived 364 ms
+MUTANT 2:	NLM Line 21:	return targetLabels.map(label => label.children[01])...	survived 387 ms
+MUTANT 5:	NLM Line 26:	.click(checkBoxesStartingWithR.nth(01))...	survived 344 ms
+MUTANT 7:	RFCAM Line 11:	.page(config.baseUrl)()	survived 365 ms
+MUTANT 6:	NLM Line 26:	.click(checkBoxesStartingWithR.nth(0604705))...	survived 413 ms
+MUTANT 8:	RFCAM Line 5:	.beforeEach(beforeEach(async t => {	survived 434 ms
+MUTANT 9:	RFCAM Line 7:	config.resizeWindow.width,	survived 365 ms
+MUTANT 10:	RFCAM Line 8:	config.resizeWindow.height	survived 363 ms
+MUTANT 11:	RFCAM Line 13:	test('My test', (async t => {	survived 373 ms
+MUTANT 12:	RFCAM Line 13:	test('My test'est('My test', async t => {	survived 363 ms
+MUTANT 13:	RFCAM Line 14:	const checkBoxesStartingWithR = Selector(onst checkBoxesStartingWithR = Selector(() => {	survived 393 ms
+MUTANT 14:	RFCAM Line 15:	let labels = document.querySelectorAll('label')()	survived 373 ms
+MUTANT 15:	RFCAM Line 17:	labels = Array.prototype.slice.call(labels)()	survived 357 ms
+MUTANT 16:	RFCAM Line 19:	const targetLabels = labels.filter(label => label.textContent.match(/^R/))()	survived 350 ms
+MUTANT 17:	RFCAM Line 19:	const targetLabels = labels.filter(label => label.textContent.match(/^R/))())	survived 358 ms
+MUTANT 18:	RFCAM Line 21:	return targetLabels.map(label => label.children[0])()	survived 379 ms
+MUTANT 19:	RFCAM Line 26:	.click(checkBoxesStartingWithR.nth(0))()	survived 378 ms
+MUTANT 20:	RFCAM Line 26:	.click(checkBoxesStartingWithR.nth(0))())	survived 375 ms
+MUTANT 21:	RFM Lines 5-10: Commented function (anonymous / assigned)	survived 354 ms
+MUTANT 22:	RFM Lines 13-28: Commented function (anonymous / assigned)	survived 360 ms
+MUTANT 23:	RFM Lines 14-22: Commented function (anonymous / assigned)	survived 348 ms
+MUTANT 24:	RFM Lines 19-19: Commented function (anonymous / assigned)	survived 367 ms
+MUTANT 25:	RFM Lines 21-21: Commented function (anonymous / assigned)	survived 373 ms
+MUTANT 26:	RLM Commented line 1:	import { Selector } from 'testcafe'	survived 381 ms
+MUTANT 28:	RLM Commented line 15:	let labels = document.querySelectorAll('label')	survived 456 ms
+MUTANT 27:	RLM Commented line 2:	import config from '../config'	survived 530 ms
+MUTANT 29:	RLM Commented line 17:	labels = Array.prototype.slice.call(labels)	survived 389 ms
+MUTANT 30:	RLM Commented line 19:	const targetLabels = labels.filter(label => label.textContent.match(/^R/))	survived 370 ms
+MUTANT 32:	SLM Line 1:	import { Selector } from 'testcafe'''...	survived 364 ms
+MUTANT 31:	RLM Commented line 21:	return targetLabels.map(label => label.children[0])	survived 415 ms
+MUTANT 33:	SLM Line 1:	import { Selector } from 'testcafen7VIPOE4'...	survived 363 ms
+MUTANT 34:	SLM Line 2:	import config from '../config'''...	survived 349 ms
+MUTANT 36:	SLM Line 13:	test('My('', test', async t => {...	survived 359 ms
+MUTANT 35:	SLM Line 2:	import config from '../config'f897KiUTP'...	survived 434 ms
+MUTANT 37:	SLM Line 13:	test('My testTHNbvkG', async t => {...	survived 368 ms
+MUTANT 38:	SLM Line 15:	let labels = document.querySelectorAll('label')('')...	survived 421 ms
+MUTANT 39:	SLM Line 15:	let labels = document.querySelectorAll('labelPeVpS')...	survived 287 ms
+
+Out of 39 mutants, 0 were killed, 39 survived and 0 were discarded
+Mutant coverage: 0%
+Deleting copies...Done
+Mutode 154117503 finished. Took 4.3s
+
