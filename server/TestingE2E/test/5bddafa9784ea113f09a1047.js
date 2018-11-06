@@ -1,16 +1,15 @@
-import { Selector } from 'testcafe';
-import config from '../config';
+import { Selector } from 'testcafe'
+import config from '../config'
 
-fixture `My Fixture`
-    .beforeEach( async t => {
-        await t.resizeWindow(
+fixture`My Fixture`
+    .beforeEach(async t => {
+      await t.resizeWindow(
             config.resizeWindow.width,
             config.resizeWindow.height
-        );
+        )
     })
-    .page (config.baseUrl);
+    .page(config.baseUrl)
 
-// Espacio para digitar el caso de prueba
 test('My test', async t => {
   const checkBoxesStartingWithR = Selector(() => {
     let labels = document.querySelectorAll('label')
@@ -26,5 +25,4 @@ test('My test', async t => {
       .takeScreenshot()
       .click(checkBoxesStartingWithR.nth(0))
       .takeScreenshot()
-      
 })
