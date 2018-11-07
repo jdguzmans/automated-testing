@@ -1,7 +1,10 @@
-client/node_modules/*
-server/node_modules/*
-server/node_modules/
 server/cypress/videos/*
 server/cypress/screenshots/*
 .idea
+
 .env
+*.pem
+
+package-lock.json
+node_modules/
+tmp/

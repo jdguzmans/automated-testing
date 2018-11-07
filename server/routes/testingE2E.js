@@ -3,7 +3,9 @@ const router = require('express').Router()
 const TestingE2E = mongoose.model('TestingE2E')
 const e2e = require('../logic/e2e')
 
-router.post('/', (req, res, next) => {
+const fileStorage = require('../functions/fileStorage')
+
+router.post('/', async (req, res, next) => {
   const { body } = req
 
   if (!body.name) {
@@ -31,9 +33,9 @@ router.post('/', (req, res, next) => {
   }
 
   const finalTestingE2E = new TestingE2E(body)
-  return finalTestingE2E.save()
-        .then(() => res.json({ applicaton: finalTestingE2E.toJSON() }))
-        .catch(next)
+  await finalTestingE2E.save()
+  await fileStorage.generateE2ETemplate(finalTestingE2E._id)
+  res.json({ applicaton: finalTestingE2E })
 })
 
 router.get('/', (req, res, next) => {
@@ -101,9 +103,8 @@ router.patch('/dataCode/:id', async (req, res, next) => {
 })
 
 router.get('/dataCode/:id', async (req, res, next) => {
-  return e2e.getCodeTestCafe(req.params.id)
-        .then((result) => res.json({ result: result }))
-        .catch(next)
+  const result = await e2e.getCodeTestCafe(req.params.id)
+  res.json({ result: result })
 })
 
 router.patch('/:id', (req, res, next) => {

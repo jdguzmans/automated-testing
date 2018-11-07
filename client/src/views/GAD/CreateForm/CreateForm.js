@@ -42,7 +42,7 @@ class CreateForm extends Component {
   handleSubmit () {
     const { name, application, fileTest, description } = this.state
 
-    axios.post('http://localhost:8000/api/testingE2E', {
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/testingE2E`, {
       name,
       application,
       fileTest,

@@ -6,5 +6,7 @@ module.exports = {
   STATIC_PATH: process.env.STATIC_PATH,
   DEV: isDev,
 
-  MONGODB_URI: process.env.MONGODB_URI
+  MONGODB_URI: process.env.MONGODB_URI,
+
+  AWS_BUCKET: process.env.AWS_BUCKET
 }

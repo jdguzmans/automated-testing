@@ -22,11 +22,11 @@ class StartUpload extends Component {
 
   handleSubmit () {
     // DATOS API MOOCKAROO
-    axios.post('https://api.mockaroo.com/api/generate.json?key=825fa840', { schema: 'Libros'})
+    axios.post('https://api.mockaroo.com/api/generate.json?key=825fa840', { schema: 'Libros' })
       .then(response => {
         this.setState({ listData: response.data })
 
-        axios.post('http://localhost:8000/api/uploadData/startUpload', { schema: this.state.listData})
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/uploadData/startUpload`, { schema: this.state.listData })
           .then(() => {
             alert('Datos cargados con exito')
           })
@@ -42,7 +42,7 @@ class StartUpload extends Component {
 
   // LISTA DE PRUEBAS REGISTRADAS
   componentDidMount () {
-    axios.get('http://localhost:8000/api/application')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/application`)
       .then(response => {
         this.setState({ listApplication: response.data.applications })
       })
@@ -50,7 +50,7 @@ class StartUpload extends Component {
         console.log(error)
       })
 
-    axios.get('http://localhost:8000/api/testingE2E')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/testingE2E`)
       .then(response => {
         this.setState({ serverports: response.data.testingsE2E })
       })

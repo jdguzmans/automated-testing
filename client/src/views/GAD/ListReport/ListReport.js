@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {
   Button,
@@ -11,47 +11,47 @@ import {
   InputGroup,
   InputGroupAddon,
   Row,
-  Pagination, PaginationItem, PaginationLink,Table
-} from 'reactstrap';
-import axios from "axios/index";
+  Pagination, PaginationItem, PaginationLink, Table
+} from 'reactstrap'
+import axios from 'axios/index'
 
 class ListReport extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {serverports: [],listTests: []};
+  constructor (props) {
+    super(props)
+    this.state = {serverports: [], listTests: []}
   }
 
   // LISTA DE PRUEBAS REGISTRADAS
-  componentDidMount(){
-    axios.get('http://localhost:8000/api/testingE2E')
+  componentDidMount () {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/testingE2E`)
       .then(response => {
-        this.setState({ listTests: response.data.testingsE2E });
+        this.setState({ listTests: response.data.testingsE2E })
       })
       .catch(function (error) {
-        console.log(error);
-      });
+        console.log(error)
+      })
 
-    axios.get('http://localhost:8000/api/reportsE2E')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/reportsE2E`)
       .then(response => {
-        this.setState({ serverports: response.data.reportsE2E });
+        this.setState({ serverports: response.data.reportsE2E })
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error)
       })
   }
 
-  listTestings(){
-    let tests = new Array();
-    this.state.listTests.map(function(object, i){
-      tests[object._id] = object.name;
-    });
-    return tests;
+  listTestings () {
+    let tests = new Array()
+    this.state.listTests.map(function (object, i) {
+      tests[object._id] = object.name
+    })
+    return tests
   }
 
-  tabRow(){
-    const tests = this.listTestings();
+  tabRow () {
+    const tests = this.listTestings()
 
-    return this.state.serverports.map(function(object, i){
+    return this.state.serverports.map(function (object, i) {
       return (
         <tr>
           <td>{tests[object.idTest] }</td>
@@ -59,37 +59,37 @@ class ListReport extends Component {
           <td>{object.pantalla}</td>
           <td>{object.date}</td>
           <td>
-            <a href={'/#/testingE2E/viewreport/'+ object._id}>
-              <i className="icon-note icons d-block mt-1"></i>
+            <a href={'/#/testingE2E/viewreport/' + object._id}>
+              <i className='icon-note icons d-block mt-1' />
             </a>
           </td>
         </tr>
-      );
-    });
+      )
+    })
   }
 
-  render() {
+  render () {
     return (
-      <div className="animated fadeIn">
+      <div className='animated fadeIn'>
         <Row>
-          <Col xs="12" lg="12">
+          <Col xs='12' lg='12'>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Lista Reportes Pruebas E2E
+                <i className='fa fa-align-justify' /> Lista Reportes Pruebas E2E
               </CardHeader>
               <CardBody>
                 <Table responsive striped>
                   <thead>
-                  <tr>
-                    <th>Caso Prueba</th>
-                    <th>Navegador</th>
-                    <th>Tamaño Pantalla</th>
-                    <th>Fecha Ejecucion</th>
-                    <th>Reporte</th>
-                  </tr>
+                    <tr>
+                      <th>Caso Prueba</th>
+                      <th>Navegador</th>
+                      <th>Tamaño Pantalla</th>
+                      <th>Fecha Ejecucion</th>
+                      <th>Reporte</th>
+                    </tr>
                   </thead>
                   <tbody>
-                  {this.tabRow()}
+                    {this.tabRow()}
                   </tbody>
                 </Table>
               </CardBody>
@@ -98,8 +98,8 @@ class ListReport extends Component {
         </Row>
       </div>
 
-    );
+    )
   }
 }
 
-export default ListReport;
+export default ListReport

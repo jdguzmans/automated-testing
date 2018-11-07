@@ -1,11 +1,15 @@
-const router = require('express').Router()
+
 const mongoose = require('mongoose')
 const ReportsE2E = mongoose.model('ReportsE2E')
 const Application = mongoose.model('Application')
-const TestingE2E = mongoose.model('TestingE2E')
 const exec = require('child_process').exec
 const fs = require('fs')
 const resemble = require('node-resemble-js')
+
+const AWS = require('aws-sdk')
+const s3 = new AWS.S3()
+
+const fileStorage = require('../functions/fileStorage')
 
 var exports = module.exports = {}
 
@@ -20,12 +24,10 @@ const { MONGODB_URI, STATIC_PATH } = require('../config')
  * @param id
  * @returns {Promise<any>}
  */
-exports.codeTestCafe = function (data, id) {
-  return new Promise((resolve, reject) => {
-    fs.writeFile('TestingE2E/test/' + id + '.js', data.code, (err) => {
-      if (err) throw err
-      console.log('The "data to append" was appended to file!')
-    })
+exports.codeTestCafe = (data, id) => {
+  return new Promise(async (resolve, reject) => {
+    fs.writeFileSync(`tmp/${id}`, data.code)
+    fileStorage.saveE2EFile(id)
     resolve()
   })
 }
@@ -36,10 +38,11 @@ exports.codeTestCafe = function (data, id) {
  * @returns {Promise<any>}
  */
 exports.getCodeTestCafe = function (id) {
-  return new Promise((resolve, reject) => {
-    fs.readFile('TestingE2E/test/' + id + '.js', 'utf8', function (err, data) {
-      resolve(data)
-    })
+  return new Promise(async(resolve, reject) => {
+    const fileBuffer = await fileStorage.getE2EFile(id)
+    fs.writeFileSync(`./tmp/${id}`, fileBuffer)
+    const file = fs.readFileSync(`./tmp/${id}`, 'utf8')
+    resolve(file)
   })
 }
 
