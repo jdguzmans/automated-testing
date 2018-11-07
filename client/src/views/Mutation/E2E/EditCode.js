@@ -48,7 +48,7 @@ class EditCode extends Component {
 
   getData () {
     axios.get(
-      'http://localhost:4000/testingE2E/dataCode/' + this.idRegister
+      `${process.env.REACT_APP_BACKEND_URL}/testingE2E/dataCode/${this.idRegister}`
     ).then(response => {
       if (response.data.result !== undefined) {
         this.setState({
@@ -64,7 +64,7 @@ class EditCode extends Component {
     const { code } = this.state
 
     axios.patch(
-      'http://localhost:4000/testingE2E/dataCode/' + this.idRegister, {code}
+      `${process.env.REACT_APP_BACKEND_URL}/testingE2E/dataCode/${this.idRegister}`, {code}
     ).then(response => {
       alert('Codigo guardado con exito')
       /* this.setState({ message: 'Codigo guardado con exito' });

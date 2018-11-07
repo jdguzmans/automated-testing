@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import chrome from '../../../../src/assets/img/navegador/chrome.png';
-import firefox from '../../../../src/assets/img/navegador/firefox.png';
-import opera from '../../../../src/assets/img/navegador/opera.png';
-import explorer from '../../../../src/assets/img/navegador/explorer.png';
+import React, { Component } from 'react'
+import axios from 'axios'
+import chrome from '../../../../src/assets/img/navegador/chrome.png'
+import firefox from '../../../../src/assets/img/navegador/firefox.png'
+import opera from '../../../../src/assets/img/navegador/opera.png'
+import explorer from '../../../../src/assets/img/navegador/explorer.png'
 
 import {
   Button,
@@ -14,40 +14,39 @@ import {
   Row,
   Table,
   Modal, ModalBody, ModalFooter, ModalHeader
-} from 'reactstrap';
+} from 'reactstrap'
 
 class MatrizTest extends Component {
-
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
-      idTest        : this.props.match.params.idTest,
-      idApplication : this.props.match.params.idApplication,
-      idAppliRandom : this.props.match.params.idApplicationRandom,
-      navegador     : 'chrome',
-      pantalla      : '414x736',
-      mode          : 'true',
-      event          : '',
-      message       : '',
-    };
+      idTest: this.props.match.params.idTest,
+      idApplication: this.props.match.params.idApplication,
+      idAppliRandom: this.props.match.params.idApplicationRandom,
+      navegador: 'chrome',
+      pantalla: '414x736',
+      mode: 'true',
+      event: '',
+      message: ''
+    }
 
-    this.handleChangeField = this.handleChangeField.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.toggle = this.toggle.bind(this);
+    this.handleChangeField = this.handleChangeField.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.toggle = this.toggle.bind(this)
   }
 
-  toggle() {
+  toggle () {
     this.setState({
-      modal: !this.state.modal,
-    });
+      modal: !this.state.modal
+    })
   }
 
-  handleSubmit(){
-    const { idTest, idApplication, navegador, pantalla, mode, idAppliRandom, event } = this.state;
+  handleSubmit () {
+    const { idTest, idApplication, navegador, pantalla, mode, idAppliRandom, event } = this.state
 
-    if(idAppliRandom !== undefined){
-      axios.post('http://localhost:4000/randomTesting/matrizTest', {
+    if (idAppliRandom !== undefined) {
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/matrizTest`, {
         idAppliRandom,
         navegador,
         pantalla,
@@ -55,16 +54,16 @@ class MatrizTest extends Component {
         event
       })
         .then(response => {
-          let stateModal = this.state.modal;
+          let stateModal = this.state.modal
           this.setState(
             { message: 'Configuracion realizada, se inicia prueba. Por favor espere' }
-          );
+          )
 
           this.setState({
-            modal: !stateModal,
-          });
+            modal: !stateModal
+          })
 
-          axios.post('http://localhost:4000/randomTesting/matrizTest/start', {
+          axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/matrizTest/start`, {
             idAppliRandom,
             navegador,
             pantalla,
@@ -74,21 +73,21 @@ class MatrizTest extends Component {
             .then(response => {
               this.setState(
                 { message: 'Prueba finalizada' }
-              );
+              )
 
               this.setState({
-                modal: !stateModal,
-              });
+                modal: !stateModal
+              })
             })
             .catch(function (error) {
-              alert(error);
-            });
+              alert(error)
+            })
         })
         .catch(function (error) {
-          alert('Este registro no tiene una prueba configurada');
-        });
+          alert('Este registro no tiene una prueba configurada')
+        })
     } else {
-      axios.post('http://localhost:4000/testingE2E/matrizTest', {
+      axios.post(`${process.env.REACT_APP_BACKEND_URL}/testingE2E/matrizTest`, {
         idTest,
         idApplication,
         navegador,
@@ -96,16 +95,16 @@ class MatrizTest extends Component {
         mode
       })
         .then(response => {
-          let stateModal = this.state.modal;
+          let stateModal = this.state.modal
           this.setState(
             { message: 'Configuracion realizada, se inicia prueba. Por favor espere' }
-          );
+          )
 
           this.setState({
-            modal: !stateModal,
-          });
+            modal: !stateModal
+          })
 
-          axios.post('http://localhost:4000/testingE2E/matrizTest/start', {
+          axios.post(`${process.env.REACT_APP_BACKEND_URL}/testingE2E/matrizTest/start`, {
             idTest,
             idApplication,
             navegador,
@@ -115,148 +114,147 @@ class MatrizTest extends Component {
             .then(response => {
               this.setState(
                 { message: 'Prueba finalizada' }
-              );
+              )
 
               this.setState({
-                modal: !stateModal,
-              });
+                modal: !stateModal
+              })
             })
             .catch(function (error) {
-              alert(error);
-            });
+              alert(error)
+            })
         })
         .catch(function (error) {
-          alert('Este registro no tiene una prueba configurada');
-        });
+          alert('Este registro no tiene una prueba configurada')
+        })
     }
-
   }
 
-  handleChangeField(key, event) {
+  handleChangeField (key, event) {
     this.setState({
-      [key]: event.target.value,
-    });
+      [key]: event.target.value
+    })
   }
 
-  render() {
-    const { idAppliRandom } = this.state;
+  render () {
+    const { idAppliRandom } = this.state
 
-    let newRow = '';
-    if(idAppliRandom !== undefined){
+    let newRow = ''
+    if (idAppliRandom !== undefined) {
       newRow = <tr>
-                    <th>Numero de eventos</th>
-                    <th colSpan={2}>
-                      <Input
-                        onChange = {(ev) => this.handleChangeField('event', ev)}
-                        className="inputNum"
-                        type="number"
-                        name="event"
-                        min = "1"
+        <th>Numero de eventos</th>
+        <th colSpan={2}>
+          <Input
+            onChange={(ev) => this.handleChangeField('event', ev)}
+            className='inputNum'
+            type='number'
+            name='event'
+            min='1'
                       />
-                    </th>
-                    <th colSpan={2}></th>
-                  </tr>;
+        </th>
+        <th colSpan={2} />
+      </tr>
     }
 
     return (
-      <div className="animated fadeIn">
+      <div className='animated fadeIn'>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Mensaje</ModalHeader>
           <ModalBody>
             {this.state.message}
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Cerrar</Button>
+            <Button color='primary' onClick={this.toggle}>Cerrar</Button>
           </ModalFooter>
         </Modal>
         <Row>
-          <Col xs="12" lg="12">
+          <Col xs='12' lg='12'>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Matriz de Pruebas
+                <i className='fa fa-align-justify' /> Matriz de Pruebas
               </CardHeader>
               <CardBody>
                 <Table responsive striped>
                   <thead>
-                  <tr>
-                    <th colspan='5'>MATRIZ DE PRUEBAS</th>
-                  </tr>
+                    <tr>
+                      <th colspan='5'>MATRIZ DE PRUEBAS</th>
+                    </tr>
                   </thead>
                   <tbody>
                     <tr>
-                        <th>Navegador</th>
-                        <th>
-                            <Input
-                              onChange = {(ev) => this.handleChangeField('navegador', ev)}
-                              type="radio"
-                              name="navegador"
-                              value='chrome'
+                      <th>Navegador</th>
+                      <th>
+                        <Input
+                          onChange={(ev) => this.handleChangeField('navegador', ev)}
+                          type='radio'
+                          name='navegador'
+                          value='chrome'
                             />
-                            <img src={chrome} width='80px'/>
-                        </th>
-                        <th>
-                          <Input
-                            onChange = {(ev) => this.handleChangeField('navegador', ev)}
-                            type="radio"
-                            name="navegador"
-                            value='firefox'
+                        <img src={chrome} width='80px' />
+                      </th>
+                      <th>
+                        <Input
+                          onChange={(ev) => this.handleChangeField('navegador', ev)}
+                          type='radio'
+                          name='navegador'
+                          value='firefox'
                           />
-                          <img src={firefox} width='80px'/>
-                        </th>
-                        <th>
-                          <Input
-                            onChange = {(ev) => this.handleChangeField('navegador', ev)}
-                            type="radio"
-                            name="navegador"
-                            value='opera'
+                        <img src={firefox} width='80px' />
+                      </th>
+                      <th>
+                        <Input
+                          onChange={(ev) => this.handleChangeField('navegador', ev)}
+                          type='radio'
+                          name='navegador'
+                          value='opera'
                           />
-                          <img src={opera} width='80px'/>
-                        </th>
-                        <th>
-                          <Input
-                            onChange = {(ev) => this.handleChangeField('navegador', ev)}
-                            type="radio"
-                            name="navegador"
-                            value='ie'
+                        <img src={opera} width='80px' />
+                      </th>
+                      <th>
+                        <Input
+                          onChange={(ev) => this.handleChangeField('navegador', ev)}
+                          type='radio'
+                          name='navegador'
+                          value='ie'
                           />
-                          <img src={explorer} width='80px'/>
-                        </th>
+                        <img src={explorer} width='80px' />
+                      </th>
                     </tr>
                     <tr>
-                        <th>Tamaño Pantalla</th>
-                        <th>
-                          <Input
-                            onChange = {(ev) => this.handleChangeField('pantalla', ev)}
-                            type="radio"
-                            name="pantalla"
-                            value='414x736'
+                      <th>Tamaño Pantalla</th>
+                      <th>
+                        <Input
+                          onChange={(ev) => this.handleChangeField('pantalla', ev)}
+                          type='radio'
+                          name='pantalla'
+                          value='414x736'
                           />
                           414 x 736
                         </th>
-                        <th>
-                          <Input
-                            onChange = {(ev) => this.handleChangeField('pantalla', ev)}
-                            type="radio"
-                            name="pantalla"
-                            value='800x1280'
+                      <th>
+                        <Input
+                          onChange={(ev) => this.handleChangeField('pantalla', ev)}
+                          type='radio'
+                          name='pantalla'
+                          value='800x1280'
                           />
                           800 x 1280
                         </th>
-                        <th>
-                          <Input
-                            onChange = {(ev) => this.handleChangeField('pantalla', ev)}
-                            type="radio"
-                            name="pantalla"
-                            value='1024x600'
+                      <th>
+                        <Input
+                          onChange={(ev) => this.handleChangeField('pantalla', ev)}
+                          type='radio'
+                          name='pantalla'
+                          value='1024x600'
                           />
                           1024 x 600
                         </th>
-                        <th>
-                          <Input
-                            onChange = {(ev) => this.handleChangeField('pantalla', ev)}
-                            type="radio"
-                            name="pantalla"
-                            value='1280x800'
+                      <th>
+                        <Input
+                          onChange={(ev) => this.handleChangeField('pantalla', ev)}
+                          type='radio'
+                          name='pantalla'
+                          value='1280x800'
                           />
                           1280 x 800
                         </th>
@@ -265,18 +263,18 @@ class MatrizTest extends Component {
                       <th>Modo</th>
                       <th colSpan={2}>
                         <Input
-                          onChange = {(ev) => this.handleChangeField('mode', ev)}
-                          type="radio"
-                          name="mode"
+                          onChange={(ev) => this.handleChangeField('mode', ev)}
+                          type='radio'
+                          name='mode'
                           value='true'
                         />
                         Headless
                       </th>
                       <th colSpan={2}>
                         <Input
-                          onChange = {(ev) => this.handleChangeField('mode', ev)}
-                          type="radio"
-                          name="mode"
+                          onChange={(ev) => this.handleChangeField('mode', ev)}
+                          type='radio'
+                          name='mode'
                           value='false'
                         />
                         Sin headless
@@ -287,22 +285,22 @@ class MatrizTest extends Component {
                 </Table>
               </CardBody>
               <CardFooter>
-                  <Button onClick={this.handleSubmit} type="submit" size="sm" color="primary" >
-                    <i className="fa fa-dot-circle-o"></i> Ejecutar
+                <Button onClick={this.handleSubmit} type='submit' size='sm' color='primary' >
+                  <i className='fa fa-dot-circle-o' /> Ejecutar
                   </Button>&nbsp;
-                  <a href="/#/testingE2E/start">
-                    <Button type="reset" size="sm" color="danger">
-                      <i className="fa fa-ban"></i> Regresar
+                <a href='/#/testingE2E/start'>
+                  <Button type='reset' size='sm' color='danger'>
+                    <i className='fa fa-ban' /> Regresar
                     </Button>
-                  </a>
+                </a>
               </CardFooter>
             </Card>
           </Col>
         </Row>
       </div>
 
-    );
+    )
   }
 }
 
-export default MatrizTest;
+export default MatrizTest

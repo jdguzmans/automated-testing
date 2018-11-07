@@ -30,7 +30,7 @@ class CreateForm extends Component {
     const { name, url } = this.state
 
     try {
-      await axios.post('http://localhost:4000/visualRegression/createSnapshot', {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/visualRegression/createSnapshot`, {
         name,
         url
       })

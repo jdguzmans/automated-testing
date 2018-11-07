@@ -21,8 +21,8 @@ class CreateForm extends Component {
 
   async componentDidMount () {
     const { match: { params: { idTest, id } } } = this.props
-    const { data: mutants } = await axios.get(`http://localhost:4000/static/mutation/e2e/${idTest}/${id}/mutants.log`)
-    const { data: mutode } = await axios.get(`http://localhost:4000/static/mutation/e2e/${idTest}/${id}/mutode.log`)
+    const { data: mutants } = await axios.get(`${process.env.REACT_APP_FS_URL}/mutation/e2e/${idTest}/${id}/mutants.log`)
+    const { data: mutode } = await axios.get(`${process.env.REACT_APP_FS_URL}/mutation/e2e/${idTest}/${id}/mutode.log`)
 
     const mutodeMap = mutode.split('\n').filter(line => {
       return !line.startsWith('Mutode') && !line.startsWith('Creating') && !line.startsWith('Loading mutators...') &&

@@ -18,7 +18,7 @@ class ListReport extends Component {
 
   // LISTA DE PRUEBAS REGISTRADAS
   componentDidMount () {
-    axios.get('http://localhost:4000/testingE2E')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/testingE2E`)
       .then(response => {
         this.setState({ listTests: response.data.testingsE2E })
       })
@@ -26,7 +26,7 @@ class ListReport extends Component {
         console.log(error)
       })
 
-    axios.get('http://localhost:4000/reportsE2E')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/reportsE2E`)
       .then(response => {
         this.setState({ serverports: response.data.reportsE2E })
       })

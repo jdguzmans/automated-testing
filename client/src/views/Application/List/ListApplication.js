@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'
+import axios from 'axios'
 
 import {
   Card,
@@ -8,67 +8,63 @@ import {
   Col,
   Row,
   Table
-} from 'reactstrap';
+} from 'reactstrap'
 
 class ListApplication extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {serverports: []};
+  constructor (props) {
+    super(props)
+    this.state = {serverports: []}
   }
 
-  componentDidMount(){
-    axios.get('http://localhost:4000/application')
+  componentDidMount () {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/application`)
       .then(response => {
-        this.setState({ serverports: response.data.applications });
+        this.setState({ serverports: response.data.applications })
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error)
       })
   }
-  tabRow(){
-    return this.state.serverports.map(function(object, i){
+  tabRow () {
+    return this.state.serverports.map(function (object, i) {
       return (
         <tr>
-            <td>{object.name}</td>
-            <td>{object.url}</td>
-            <td>{object.type}</td>
-            <td>{object.description}</td>
-            <td>
-              <a href={'/#/registerApplication/'+ object._id}>
-                <i className="icon-note icons d-block mt-1"></i>
-              </a>
-            </td>
+          <td>{object.name}</td>
+          <td>{object.url}</td>
+          <td>{object.type}</td>
+          <td>{object.description}</td>
+          <td>
+            <a href={'/#/registerApplication/' + object._id}>
+              <i className='icon-note icons d-block mt-1' />
+            </a>
+          </td>
         </tr>
-      );
-    });
+      )
+    })
   }
 
-  render() {
-    const applications = axios.get('http://localhost:8000/api/application', function (req, res) {
-      return req.params.query;
-    });
-
+  render () {
     return (
-      <div className="animated fadeIn">
+      <div className='animated fadeIn'>
         <Row>
-          <Col xs="12" lg="12">
+          <Col xs='12' lg='12'>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Lista de Aplicaciones
+                <i className='fa fa-align-justify' /> Lista de Aplicaciones
               </CardHeader>
               <CardBody>
                 <Table responsive striped>
                   <thead>
-                  <tr>
-                    <th>Aplicaciones</th>
-                    <th>URL</th>
-                    <th>Tipo</th>
-                    <th>Descripcion</th>
-                    <th>Editar</th>
-                  </tr>
+                    <tr>
+                      <th>Aplicaciones</th>
+                      <th>URL</th>
+                      <th>Tipo</th>
+                      <th>Descripcion</th>
+                      <th>Editar</th>
+                    </tr>
                   </thead>
                   <tbody>
-                  {this.tabRow()}
+                    {this.tabRow()}
                   </tbody>
                 </Table>
               </CardBody>
@@ -77,8 +73,8 @@ class ListApplication extends Component {
         </Row>
       </div>
 
-    );
+    )
   }
 }
 
-export default ListApplication;
+export default ListApplication

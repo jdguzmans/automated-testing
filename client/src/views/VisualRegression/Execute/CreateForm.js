@@ -39,14 +39,14 @@ class CreateForm extends Component {
   }
 
   async handleExecute (snapshotId) {
-    await axios.post('http://localhost:4000/visualRegression/execute', {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/visualRegression/execute`, {
       _id: snapshotId
     })
     alert('listo')
   }
 
   async componentDidMount () {
-    const { data: snapshots } = await axios.get('http://localhost:4000/visualRegression')
+    const { data: snapshots } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/visualRegression`)
     this.setState({
       snapshots
     })

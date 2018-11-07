@@ -4,3 +4,4 @@ server/node_modules/
 server/cypress/videos/*
 server/cypress/screenshots/*
 .idea
+.env

@@ -22,7 +22,7 @@ class CreateForm extends Component {
 
   async componentDidMount () {
     const { match: { params: { idTest, id } } } = this.props
-    const { data: { snapshots, testId } } = await axios.get(`http://localhost:4000/visualRegression/byIds/${idTest}/${id}`)
+    const { data: { snapshots, testId } } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/visualRegression/byIds/${idTest}/${id}`)
     this.setState({
       snapshots,
       testId
@@ -73,13 +73,13 @@ class CreateForm extends Component {
                         </Row>
                         <Row>
                           <Col xs='4' md='4'>
-                            <img key={`1${i}`} src={`http://localhost:4000/static/vr/e2e/${testId}/snapshots/${r2}/${pics2[i]}`} style={{width: '220px', height: '220px'}} />
+                            <img key={`1${i}`} src={`${process.env.REACT_APP_BACKEND_URL}/vr/e2e/${testId}/snapshots/${r2}/${pics2[i]}`} style={{width: '220px', height: '220px'}} />
                           </Col>
                           <Col xs='4' md='4'>
-                            <img key={`2${i}`} src={`http://localhost:4000/static/vr/e2e/${testId}/snapshots/${r1}/${pics1[i]}`} style={{width: '220px', height: '220px'}} />
+                            <img key={`2${i}`} src={`${process.env.REACT_APP_BACKEND_URL}/vr/e2e/${testId}/snapshots/${r1}/${pics1[i]}`} style={{width: '220px', height: '220px'}} />
                           </Col>
                           <Col xs='4' md='4'>
-                            <img key={`3${i}`} src={`http://localhost:4000/static/vr/e2e/${testId}/executions/${r1}/${pics2[i]}`} style={{width: '220px', height: '220px'}} />
+                            <img key={`3${i}`} src={`${process.env.REACT_APP_BACKEND_URL}/vr/e2e/${testId}/executions/${r1}/${pics2[i]}`} style={{width: '220px', height: '220px'}} />
                           </Col>
                         </Row>
                       </div>
