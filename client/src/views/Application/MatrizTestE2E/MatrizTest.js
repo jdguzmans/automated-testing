@@ -1,3 +1,5 @@
+/* global alert */
+
 import React, { Component } from 'react'
 import axios from 'axios'
 import chrome from '../../../../src/assets/img/navegador/chrome.png'
@@ -42,92 +44,27 @@ class MatrizTest extends Component {
     })
   }
 
-  handleSubmit () {
+  async handleSubmit () {
     const { idTest, idApplication, navegador, pantalla, mode, idAppliRandom, event } = this.state
 
     if (idAppliRandom !== undefined) {
-      axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/matrizTest`, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/matrizTest`, {
         idAppliRandom,
         navegador,
         pantalla,
         mode,
         event
       })
-        .then(response => {
-          let stateModal = this.state.modal
-          this.setState(
-            { message: 'Configuracion realizada, se inicia prueba. Por favor espere' }
-          )
-
-          this.setState({
-            modal: !stateModal
-          })
-
-          axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/matrizTest/start`, {
-            idAppliRandom,
-            navegador,
-            pantalla,
-            mode,
-            event
-          })
-            .then(response => {
-              this.setState(
-                { message: 'Prueba finalizada' }
-              )
-
-              this.setState({
-                modal: !stateModal
-              })
-            })
-            .catch(function (error) {
-              alert(error)
-            })
-        })
-        .catch(function (error) {
-          alert('Este registro no tiene una prueba configurada')
-        })
     } else {
-      axios.post(`${process.env.REACT_APP_BACKEND_URL}/testingE2E/matrizTest`, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/testingE2E/matrizTest`, {
         idTest,
         idApplication,
         navegador,
         pantalla,
         mode
       })
-        .then(response => {
-          let stateModal = this.state.modal
-          this.setState(
-            { message: 'Configuracion realizada, se inicia prueba. Por favor espere' }
-          )
-
-          this.setState({
-            modal: !stateModal
-          })
-
-          axios.post(`${process.env.REACT_APP_BACKEND_URL}/testingE2E/matrizTest/start`, {
-            idTest,
-            idApplication,
-            navegador,
-            pantalla,
-            mode
-          })
-            .then(response => {
-              this.setState(
-                { message: 'Prueba finalizada' }
-              )
-
-              this.setState({
-                modal: !stateModal
-              })
-            })
-            .catch(function (error) {
-              alert(error)
-            })
-        })
-        .catch(function (error) {
-          alert('Este registro no tiene una prueba configurada')
-        })
     }
+    alert('Muy bien')
   }
 
   handleChangeField (key, event) {

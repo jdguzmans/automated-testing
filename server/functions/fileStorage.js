@@ -5,13 +5,17 @@ const s3 = new AWS.S3()
 
 const { AWS_BUCKET } = require('../config')
 
-const E2E_FILE_PATH = 'e2e/test-files'
+const E2E_FILE_PATH = 'e2e/test'
+const E2E_REPORT_PATH = 'e2e/report'
+const E2E_MUTATION_PATH = 'e2e/mutation'
+const E2E_SCREENSHOT_PATH = 'e2e/screenshot'
+const E2E_VR_PATH = 'e2e/vr'
 
-const saveFile = (name, type, buffer) => {
+const saveFile = (key, buffer) => {
   return new Promise((resolve, reject) => {
     s3.putObject({
       Bucket: AWS_BUCKET,
-      Key: `${type}/${name}`,
+      Key: key,
       Body: buffer,
       ACL: 'public-read'
     }, (err, data) => {
@@ -23,11 +27,11 @@ const saveFile = (name, type, buffer) => {
   })
 }
 
-const getFile = (name, type) => {
+const getFile = (key) => {
   return new Promise((resolve, reject) => {
     s3.getObject({
       Bucket: AWS_BUCKET,
-      Key: `${type}/${name}`
+      Key: key
     }, (err, data) => {
       if (err) console.log(err, err.stack)
       else {
@@ -37,11 +41,11 @@ const getFile = (name, type) => {
   })
 }
 
-const deleteFile = (name, type) => {
+const deleteFile = (key, type) => {
   return new Promise((resolve, reject) => {
     s3.deleteObject({
       Bucket: AWS_BUCKET,
-      Key: `${type}/${name}`
+      Key: key
     }, (err, data) => {
       if (err) console.log(err, err.stack)
       else {
@@ -55,14 +59,14 @@ module.exports = {
   generateE2ETemplate: async (id) => {
     return new Promise(async (resolve, reject) => {
       const templateBuffer = fs.readFileSync('./templates/e2e.js')
-      await saveFile(id, E2E_FILE_PATH, templateBuffer)
+      await saveFile(`${E2E_FILE_PATH}/${id}`, templateBuffer)
       resolve()
     })
   },
 
   getE2EFile: async (id) => {
     return new Promise(async (resolve, reject) => {
-      const file = await getFile(id, E2E_FILE_PATH)
+      const file = await getFile(`${E2E_FILE_PATH}/${id}`)
       resolve(file)
     })
   },
@@ -70,8 +74,54 @@ module.exports = {
   saveE2EFile: async (id) => {
     return new Promise(async (resolve, reject) => {
       const buffer = fs.readFileSync(`./tmp/${id}`)
-      await deleteFile(id, E2E_FILE_PATH)
-      await saveFile(id, E2E_FILE_PATH, buffer)
+      await deleteFile(`${E2E_FILE_PATH}/${id}`)
+      await saveFile(`${E2E_FILE_PATH}/${id}`, buffer)
+      resolve()
+    })
+  },
+
+  saveE2EMutationMutantLog: async (id, file) => {
+    return new Promise(async (resolve, reject) => {
+      const buffer = fs.readFileSync(`./tmp/.mutode/${file}`)
+      await saveFile(`${E2E_MUTATION_PATH}/${id}/mutant.log`, buffer)
+      resolve()
+    })
+  },
+
+  saveE2EMutationMutodeLog: async (id, file) => {
+    return new Promise(async (resolve, reject) => {
+      const buffer = fs.readFileSync(`./tmp/.mutode/${file}`)
+      await saveFile(`${E2E_MUTATION_PATH}/${id}/mutode.log`, buffer)
+      resolve()
+    })
+  },
+
+  saveE2EScreenshot: async (id, screenshot) => {
+    return new Promise(async (resolve, reject) => {
+      const buffer = fs.readFileSync(`./tmp/screenshots/${screenshot}`)
+      await saveFile(`${E2E_SCREENSHOT_PATH}/${id}/${screenshot}`, buffer)
+      resolve()
+    })
+  },
+
+  getE2EScreenshot: async (id, screenshot) => {
+    return new Promise(async (resolve, reject) => {
+      const file = await getFile(`${E2E_SCREENSHOT_PATH}/${id}/${screenshot}`)
+      resolve(file)
+    })
+  },
+
+  saveE2EScreenshotComparation: async (report, pic, file) => {
+    return new Promise(async (resolve, reject) => {
+      await saveFile(`${E2E_VR_PATH}/${report}/${pic}`, file)
+      resolve()
+    })
+  },
+
+  saveE2EReport: async (id) => {
+    return new Promise(async (resolve, reject) => {
+      const buffer = fs.readFileSync(`./tmp/${id}.html`)
+      await saveFile(`${E2E_REPORT_PATH}/${id}.html`, buffer)
       resolve()
     })
   }

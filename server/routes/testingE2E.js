@@ -3,8 +3,6 @@ const router = require('express').Router()
 const TestingE2E = mongoose.model('TestingE2E')
 const e2e = require('../logic/e2e')
 
-const fileStorage = require('../functions/fileStorage')
-
 router.post('/', async (req, res, next) => {
   const { body } = req
 
@@ -32,10 +30,8 @@ router.post('/', async (req, res, next) => {
     })
   }
 
-  const finalTestingE2E = new TestingE2E(body)
-  await finalTestingE2E.save()
-  await fileStorage.generateE2ETemplate(finalTestingE2E._id)
-  res.json({ applicaton: finalTestingE2E })
+  const response = await e2e.createTest(body)
+  res.status(200).json(response)
 })
 
 router.get('/', (req, res, next) => {
@@ -48,40 +44,13 @@ router.get('/', (req, res, next) => {
 // Ejecucion matriz de prueba
 router.post('/matrizTest', async (req, res, next) => {
   const { body } = req
-  await e2e.configTest(body)
-        .then(async (configTest) => {
-          return res.status(200).json({
-            message: {
-              name: configTest
-            }
-          })
-        })
-        .catch((next) => {
-          return res.status(422).json({
-            message: {
-              name: next
-            }
-          })
-        })
-})
 
-router.post('/matrizTest/start', async (req, res, next) => {
-  const { body } = req
-  await e2e.testCafeStart(body)
-        .then(async (testStart) => {
-          return res.status(200).json({
-            message: {
-              name: testStart
-            }
-          })
-        })
-        .catch((next) => {
-          return res.status(422).json({
-            message: {
-              name: next
-            }
-          })
-        })
+  const testStart = await e2e.testCafeStart(body)
+  res.status(200).json({
+    message: {
+      name: testStart
+    }
+  })
 })
 
 router.get('/:id', (req, res, next) => {
@@ -107,29 +76,28 @@ router.get('/dataCode/:id', async (req, res, next) => {
   res.json({ result: result })
 })
 
-router.patch('/:id', (req, res, next) => {
-  return TestingE2E.findOne({
+router.patch('/:id', async (req, res, next) => {
+  const testingsE2E = await TestingE2E.findOne({
     _id: req.params.id
-  }).then((testingsE2E) => {
-    const { body } = req
-    req.testingsE2E = testingsE2E
-
-    if (typeof body.name !== 'undefined') {
-      req.testingsE2E.name = body.name
-    }
-
-    if (typeof body.application !== 'undefined') {
-      req.testingsE2E.application = body.application
-    }
-
-    if (typeof body.description !== 'undefined') {
-      req.testingsE2E.description = body.description
-    }
-
-    return req.testingsE2E.save()
-            .then(() => res.json({ testingsE2E: req.testingsE2E.toJSON() }))
-            .catch(next)
   })
+
+  const { body } = req
+  req.testingsE2E = testingsE2E
+
+  if (typeof body.name !== 'undefined') {
+    req.testingsE2E.name = body.name
+  }
+
+  if (typeof body.application !== 'undefined') {
+    req.testingsE2E.application = body.application
+  }
+
+  if (typeof body.description !== 'undefined') {
+    req.testingsE2E.description = body.description
+  }
+
+  await req.testingsE2E.save()
+  res.json({ testingsE2E: req.testingsE2E.toJSON() })
 })
 
 module.exports = router

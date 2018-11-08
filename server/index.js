@@ -34,8 +34,8 @@ routes.forEach(routeStr => {
   app.use('/' + routeName, route)
 })
 
-const staticServer = http.createServer(app)
-staticServer.listen(PORT)
-staticServer.on('listening', () => {
+const server = http.createServer(app)
+server.listen(PORT)
+server.on('listening', () => {
   console.log(`server is running on port ${PORT}`)
 })
