@@ -11,14 +11,20 @@ const E2E_MUTATION_PATH = 'e2e/mutation'
 const E2E_SCREENSHOT_PATH = 'e2e/screenshot'
 const E2E_VR_PATH = 'e2e/vr'
 
-const saveFile = (key, buffer) => {
+const saveFile = (key, buffer, contentType) => {
   return new Promise((resolve, reject) => {
-    s3.putObject({
+    let params = {
       Bucket: AWS_BUCKET,
       Key: key,
       Body: buffer,
       ACL: 'public-read'
-    }, (err, data) => {
+    }
+
+    if (contentType) {
+      params.ContentType = contentType
+    }
+
+    s3.putObject(params, (err, data) => {
       if (err) {
         console.log(err)
         reject(err)
@@ -80,6 +86,20 @@ module.exports = {
     })
   },
 
+  getMutantFile: async (id) => {
+    return new Promise(async (resolve, reject) => {
+      const file = await getFile(`${E2E_MUTATION_PATH}/${id}/mutant.log`)
+      resolve(file)
+    })
+  },
+
+  getMutodeFile: async (id) => {
+    return new Promise(async (resolve, reject) => {
+      const file = await getFile(`${E2E_MUTATION_PATH}/${id}/mutode.log`)
+      resolve(file)
+    })
+  },
+
   saveE2EMutationMutantLog: async (id, file) => {
     return new Promise(async (resolve, reject) => {
       const buffer = fs.readFileSync(`./tmp/.mutode/${file}`)
@@ -121,7 +141,7 @@ module.exports = {
   saveE2EReport: async (id) => {
     return new Promise(async (resolve, reject) => {
       const buffer = fs.readFileSync(`./tmp/${id}.html`)
-      await saveFile(`${E2E_REPORT_PATH}/${id}.html`, buffer)
+      await saveFile(`${E2E_REPORT_PATH}/${id}.html`, buffer, 'text/html')
       resolve()
     })
   }

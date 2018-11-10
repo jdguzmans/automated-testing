@@ -20,9 +20,9 @@ class CreateForm extends Component {
   }
 
   async componentDidMount () {
-    const { match: { params: { idTest, id } } } = this.props
-    const { data: mutants } = await axios.get(`${process.env.REACT_APP_FS_URL}/mutation/e2e/${idTest}/${id}/mutants.log`)
-    const { data: mutode } = await axios.get(`${process.env.REACT_APP_FS_URL}/mutation/e2e/${idTest}/${id}/mutode.log`)
+    const { match: { params: { id } } } = this.props
+    const { data: { result: mutants } } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/testingE2E/mutation/mutant/${id}`)
+    const { data: { result: mutode } } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/testingE2E/mutation/mutode/${id}`)
 
     const mutodeMap = mutode.split('\n').filter(line => {
       return !line.startsWith('Mutode') && !line.startsWith('Creating') && !line.startsWith('Loading mutators...') &&
@@ -48,7 +48,7 @@ class CreateForm extends Component {
               <Card>
                 <CardHeader>
                   <i className='fa fa-align-justify' /> Editor Codigo Pruebas E2E
-              </CardHeader>
+                </CardHeader>
                 <CardBody>
                   <h1>Mutantes</h1>
                   <AceEditor

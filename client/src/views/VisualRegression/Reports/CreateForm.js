@@ -74,7 +74,7 @@ class CreateForm extends Component {
                   />
                   <Button onClick={onSnapshotSelected}>Ir</Button>
                 </div>
-              }
+                }
                 { snapshot && snapshot.snapshots.map((s, index) => {
                   console.log(snapshot)
                   if (index !== 0) {
@@ -86,26 +86,26 @@ class CreateForm extends Component {
                         <div className='row'>
                           <div className='col-sm-4'>
                             <h5>Electron</h5>
-                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/electron.png`} style={{width: '220px', height: '220px'}} />
+                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/electron.png`} style={{ width: '220px', height: '220px' }} />
                           </div>
                           <div className='col-sm-4'>
                             <h5>PhantomJS</h5>
-                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/phantom.png`} style={{width: '220px', height: '220px'}} />
+                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/phantom.png`} style={{ width: '220px', height: '220px' }} />
                           </div>
                           <div className='col-sm-4'>
                             <h5>Cambios en navegador</h5>
-                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '220px', height: '220px'}} />
+                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/browserDifferences.jpeg`} style={{ width: '220px', height: '220px' }} />
                           </div>
                         </div>
                         <h3>Cambios en estado</h3>
                         <div className='row'>
                           <div className='col-sm-4'>
                             <h5>Electron</h5>
-                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/executions/${s}/electron.jpeg`} style={{width: '220px', height: '220px'}} />
+                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/executions/${s}/electron.jpeg`} style={{ width: '220px', height: '220px' }} />
                           </div>
                           <div className='col-sm-4'>
                             <h5>PhantomJS</h5>
-                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/executions/${s}/phantom.jpeg`} style={{width: '220px', height: '220px'}} />
+                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/executions/${s}/phantom.jpeg`} style={{ width: '220px', height: '220px' }} />
                           </div>
 
                         </div>
@@ -121,15 +121,15 @@ class CreateForm extends Component {
                         <div className='row'>
                           <div className='col-sm-4'>
                             <h5>Electron</h5>
-                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/electron.png`} style={{width: '220px', height: '220px'}} />
+                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/electron.png`} style={{ width: '220px', height: '220px' }} />
                           </div>
                           <div className='col-sm-4'>
                             <h5>PhantomJS</h5>
-                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/phantom.png`} style={{width: '220px', height: '220px'}} />
+                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/phantom.png`} style={{ width: '220px', height: '220px' }} />
                           </div>
                           <div className='col-sm-4'>
                             <h5>Cambios en navegador</h5>
-                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/browserDifferences.jpeg`} style={{width: '220px', height: '220px'}} />
+                            <img src={`${process.env.REACT_APP_FS_URL}/vr_simple/${snapshot._id}/snapshots/${s}/browserDifferences.jpeg`} style={{ width: '220px', height: '220px' }} />
                           </div>
                         </div>
                       </div>

@@ -8,11 +8,11 @@ export default {
     {
       title: true,
       name: 'Configuracion General',
-      wrapper: {            // optional wrapper object
-        element: '',        // required valid HTML5 element tag
-        attributes: {}        // optional valid JS object with JS API naming ex: { className: "my-class", style: { fontFamily: "Verdana" }, id: "my-id"}
+      wrapper: { // optional wrapper object
+        element: '', // required valid HTML5 element tag
+        attributes: {} // optional valid JS object with JS API naming ex: { className: "my-class", style: { fontFamily: "Verdana" }, id: "my-id"}
       },
-      class: ''             // optional class names space delimited list for title item ex: "text-center"
+      class: '' // optional class names space delimited list for title item ex: "text-center"
     },
     {
       name: 'Registro Aplicacion',
@@ -60,37 +60,37 @@ export default {
         {
           name: 'Ejecutar Pruebas',
           url: '/testingMonkey/start',
-          icon: 'icon-cursor',
+          icon: 'icon-cursor'
         },
         {
           name: 'Informe Pruebas',
           url: '/testingMonkey/report',
           icon: 'icon-cursor'
-        },
+        }
 
       ]
     },
-    {
-      name: 'Pruebas BDD',
-      icon: 'icon-star',
-      children: [
-        {
-          name: 'Crear Prueba',
-          url: '/base/breadcrumbs',
-          icon: 'icon-star'
-        },
-        {
-          name: 'Ejecutar Pruebas',
-          url: '/base/cards',
-          icon: 'icon-star'
-        },
-        {
-          name: 'Informe Pruebas',
-          url: '/base/carousels',
-          icon: 'icon-star'
-        }
-      ]
-    },
+    // {
+    //   name: 'Pruebas BDD',
+    //   icon: 'icon-star',
+    //   children: [
+    //     {
+    //       name: 'Crear Prueba',
+    //       url: '/base/breadcrumbs',
+    //       icon: 'icon-star'
+    //     },
+    //     {
+    //       name: 'Ejecutar Pruebas',
+    //       url: '/base/cards',
+    //       icon: 'icon-star'
+    //     },
+    //     {
+    //       name: 'Informe Pruebas',
+    //       url: '/base/carousels',
+    //       icon: 'icon-star'
+    //     }
+    //   ]
+    // },
     {
       name: 'Regresión Visual',
       icon: 'icon-star',
@@ -112,26 +112,26 @@ export default {
         }
       ]
     },
-	{
+    {
       name: 'Cargue Datos',
       icon: 'icon-star',
       children: [
         {
           name: 'Registrar Tabla',
           url: '/datosAutomaticos/create',
-          icon: 'icon-star',
+          icon: 'icon-star'
         },
         {
           name: 'Ejecutar Cargue',
           url: '/datosAutomaticos/start',
-          icon: 'icon-star',
+          icon: 'icon-star'
         },
         {
           name: 'Informe Cargue',
           url: '/datosAutomaticos/report',
-          icon: 'icon-star',
-        },
-      ],
-    },
+          icon: 'icon-star'
+        }
+      ]
+    }
   ]
 }

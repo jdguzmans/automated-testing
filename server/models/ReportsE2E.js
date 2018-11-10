@@ -6,7 +6,8 @@ const ReportE2ESchema = new Schema({
   idTest: String,
   navegador: String,
   pantalla: String,
-  mode: String
+  mode: String,
+  screenshotsLength: Number
 }, { timestamps: true })
 
 ReportE2ESchema.methods.toJSON = function () {
@@ -16,7 +17,8 @@ ReportE2ESchema.methods.toJSON = function () {
     navegador: this.navegador,
     pantalla: this.pantalla,
     mode: this.mode,
-    date: this.createdAt
+    date: this.createdAt,
+    screenshotsLength: this.screenshotsLength
   }
 }
 

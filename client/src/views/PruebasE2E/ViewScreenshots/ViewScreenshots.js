@@ -1,40 +1,42 @@
 import React, { Component } from 'react'
 import { Card, CardBody, CardHeader, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselItem, Col, Row } from 'reactstrap'
 
-function getImage () {
-  let items = []
-  var http = new XMLHttpRequest()
-  var url = window.location.href.split('/')
-  var idTest = url[url.length - 1]
-
-  for (var i = 1; i > 0; i++) {
-    http.open('HEAD', `${process.env.REACT_APP_BACKEND_URL}/idTest/${i}.png`, false)
-    http.send()
-
-    if (http.status == 404) {
-      break
-    } else {
-      items.push({
-        src: `${process.env.REACT_APP_FS_URL}/${idTest}/${i}.png`,
-        altText: 'Screenshot ' + i,
-        caption: 'Screenshot ' + i
-      })
-    }
-  }
-
-  return items
-}
+const axios = require('axios')
 
 class ViewScreenshots extends Component {
   constructor (props) {
     super(props)
-    this.items = getImage()
+    this.items = []
     this.state = { activeIndex: 0 }
     this.next = this.next.bind(this)
     this.previous = this.previous.bind(this)
     this.goToIndex = this.goToIndex.bind(this)
     this.onExiting = this.onExiting.bind(this)
     this.onExited = this.onExited.bind(this)
+    this.getImage = this.getImage.bind(this)
+  }
+
+  async getImage () {
+    const id = this.props.match.params.id
+
+    const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/reportsE2E/${id}`)
+
+    let items = []
+
+    for (var i = 0; i < data.screenshotsLength; i++) {
+      items.push({
+        src: `${process.env.REACT_APP_FS_URL}/e2e/screenshot/${id}/${i + 1}.png`,
+        altText: 'Screenshot ' + i,
+        caption: 'Screenshot ' + i
+      })
+    }
+
+    return items
+  }
+
+  async componentDidMount () {
+    const items = await this.getImage()
+    this.items = items
   }
 
   onExiting () {
@@ -79,7 +81,7 @@ class ViewScreenshots extends Component {
     })
 
     let content = 'Esta prueba no contiene screenshots'
-    if (slides2 != '') {
+    if (slides2 !== '') {
       content = <Carousel activeIndex={activeIndex} next={this.next} previous={this.previous}>
         <CarouselIndicators items={this.items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
         {slides2}

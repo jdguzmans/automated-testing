@@ -36,9 +36,9 @@ router.post('/', async (req, res, next) => {
 
 router.get('/', (req, res, next) => {
   return TestingE2E.find()
-        .sort({ createdAt: 'descending' })
-        .then((testingsE2E) => res.json({ testingsE2E: testingsE2E.map(testingE2E => testingE2E.toJSON()) }))
-        .catch(next)
+    .sort({ createdAt: 'descending' })
+    .then((testingsE2E) => res.json({ testingsE2E: testingsE2E.map(testingE2E => testingE2E.toJSON()) }))
+    .catch(next)
 })
 
 // Ejecucion matriz de prueba
@@ -55,6 +55,7 @@ router.post('/matrizTest', async (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   let id = req.params.id
+
   return TestingE2E.findById(id, (err, testingsE2E) => {
     if (err) {
       return res.sendStatus(404)
@@ -73,6 +74,16 @@ router.patch('/dataCode/:id', async (req, res, next) => {
 
 router.get('/dataCode/:id', async (req, res, next) => {
   const result = await e2e.getCodeTestCafe(req.params.id)
+  res.json({ result: result })
+})
+
+router.get('/mutation/mutant/:id', async (req, res, next) => {
+  const result = await e2e.getCodeMutant(req.params.id)
+  res.json({ result: result })
+})
+
+router.get('/mutation/mutode/:id', async (req, res, next) => {
+  const result = await e2e.getCodeMutode(req.params.id)
   res.json({ result: result })
 })
 

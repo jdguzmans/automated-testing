@@ -73,13 +73,13 @@ class CreateForm extends Component {
                         </Row>
                         <Row>
                           <Col xs='4' md='4'>
-                            <img key={`1${i}`} src={`${process.env.REACT_APP_BACKEND_URL}/vr/e2e/${testId}/snapshots/${r2}/${pics2[i]}`} style={{width: '220px', height: '220px'}} />
+                            <img key={`1${i}`} src={`${process.env.REACT_APP_FS_URL}/e2e/screenshot/${r2}/${pics2[i]}`} style={{ width: '220px', height: '220px' }} />
                           </Col>
                           <Col xs='4' md='4'>
-                            <img key={`2${i}`} src={`${process.env.REACT_APP_BACKEND_URL}/vr/e2e/${testId}/snapshots/${r1}/${pics1[i]}`} style={{width: '220px', height: '220px'}} />
+                            <img key={`2${i}`} src={`${process.env.REACT_APP_FS_URL}/e2e/screenshot/${r1}/${pics1[i]}`} style={{ width: '220px', height: '220px' }} />
                           </Col>
                           <Col xs='4' md='4'>
-                            <img key={`3${i}`} src={`${process.env.REACT_APP_BACKEND_URL}/vr/e2e/${testId}/executions/${r1}/${pics2[i]}`} style={{width: '220px', height: '220px'}} />
+                            <img key={`3${i}`} src={`${process.env.REACT_APP_FS_URL}/e2e/vr/${r1}/${pics2[i]}`} style={{ width: '220px', height: '220px' }} />
                           </Col>
                         </Row>
                       </div>

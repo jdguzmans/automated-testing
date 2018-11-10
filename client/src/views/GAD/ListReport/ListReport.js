@@ -1,24 +1,19 @@
 import React, { Component } from 'react'
 
 import {
-  Button,
   Card,
   CardBody,
   CardHeader,
   Col,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
   Row,
-  Pagination, PaginationItem, PaginationLink, Table
+  Table
 } from 'reactstrap'
 import axios from 'axios/index'
 
 class ListReport extends Component {
   constructor (props) {
     super(props)
-    this.state = {serverports: [], listTests: []}
+    this.state = { serverports: [], listTests: [] }
   }
 
   // LISTA DE PRUEBAS REGISTRADAS
@@ -59,7 +54,7 @@ class ListReport extends Component {
           <td>{object.pantalla}</td>
           <td>{object.date}</td>
           <td>
-            <a href={'/#/testingE2E/viewreport/' + object._id}>
+            <a href={`/#/testingE2E/viewreport/${object._id}`}>
               <i className='icon-note icons d-block mt-1' />
             </a>
           </td>

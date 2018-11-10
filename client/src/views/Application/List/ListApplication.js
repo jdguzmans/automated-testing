@@ -13,7 +13,7 @@ import {
 class ListApplication extends Component {
   constructor (props) {
     super(props)
-    this.state = {serverports: []}
+    this.state = { serverports: [] }
   }
 
   componentDidMount () {
