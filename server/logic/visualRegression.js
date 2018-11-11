@@ -2,56 +2,14 @@
 const captureElectron = require('capture-electron')
 const capturePhantom = require('capture-phantomjs')
 const resemble = require('node-resemble-js')
-const fs = require('fs')
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
+const fs = require('fs')
+const fileStorage = require('../functions/fileStorage')
 
-const { MONGODB_URI, STATIC_PATH } = require('../config')
+const { MONGODB_URI } = require('../config')
 
 module.exports = {
-  createSnapshot: async (name, url) => {
-    return new Promise((resolve, reject) => {
-      MongoClient.connect(MONGODB_URI, async (err, client) => {
-        if (err) reject(err)
-        else {
-          let Snapshots = client.db().collection('snapshot')
-
-          const { ops } = await Snapshots.insertOne({name, url, snapshots: []})
-          const { _id } = ops[0]
-
-          let dir = `${STATIC_PATH}/vr_simple/${_id.toString()}`
-          fs.mkdirSync(dir)
-
-          dir = `${dir}/snapshots`
-          fs.mkdirSync(dir)
-
-          const time = new Date().getTime()
-          dir = `${dir}/${time}`
-          fs.mkdirSync(dir)
-
-          const electronScreenshot = await captureElectron({ url })
-          fs.writeFileSync(`${dir}/electron.png`, electronScreenshot)
-
-          const phantomScreenshot = await capturePhantom({ url })
-          fs.writeFileSync(`${dir}/phantom.png`, phantomScreenshot)
-
-          resemble(electronScreenshot)
-          .compareTo(phantomScreenshot)
-          .onComplete(async data => {
-            const { getDiffImageAsJPEG } = data
-            const differences = getDiffImageAsJPEG()
-            fs.writeFileSync(`${dir}/browserDifferences.jpeg`, differences)
-
-            await Snapshots.updateOne({ _id }, {
-              $set: { snapshots: [ time ] }
-            })
-
-            resolve()
-          })
-        }
-      })
-    })
-  },
   getAllSnapshots: () => {
     return new Promise((resolve, reject) => {
       MongoClient.connect(MONGODB_URI, (err, client) => {
@@ -67,13 +25,14 @@ module.exports = {
       })
     })
   },
+
   getSnapshotById: (testId, snapshotId) => {
     return new Promise((resolve, reject) => {
       MongoClient.connect(MONGODB_URI, async (err, client) => {
         if (err) reject(err)
         else {
           const Snapshots = client.db().collection('snapshot')
-          let { snapshots } = await Snapshots.findOne({_id: ObjectId(testId)})
+          let { snapshots } = await Snapshots.findOne({ _id: ObjectId(testId) })
 
           let sn1
           let sn2
@@ -89,25 +48,58 @@ module.exports = {
       })
     })
   },
+
+  createSnapshot: async (name, url) => {
+    return new Promise((resolve, reject) => {
+      MongoClient.connect(MONGODB_URI, async (err, client) => {
+        if (err) reject(err)
+        else {
+          const time = new Date().getTime()
+          let Snapshots = client.db().collection('snapshot')
+
+          const { ops } = await Snapshots.insertOne({ name,
+            url,
+            snapshots: [
+              time
+            ]
+          })
+          const { _id } = ops[0]
+
+          const electronScreenshot = await captureElectron({ url })
+          await fileStorage.saveRegressionElectronSnapshot(electronScreenshot, _id, time)
+
+          const phantomScreenshot = await capturePhantom({ url })
+          await fileStorage.saveRegressionPhantomSnapshot(phantomScreenshot, _id, time)
+
+          resemble(electronScreenshot)
+            .compareTo(phantomScreenshot)
+            .onComplete(async data => {
+              const { getDiffImageAsJPEG } = data
+              const differences = getDiffImageAsJPEG()
+              await fileStorage.saveRegressionElectronPhantomDifferencesSnapshot(differences, _id, time)
+
+              resolve()
+            })
+        }
+      })
+    })
+  },
+
   executeSnapshot: (_id) => {
     return new Promise((resolve, reject) => {
       MongoClient.connect(MONGODB_URI, async (err, client) => {
         if (err) reject(err)
         else {
           const Snapshots = client.db().collection('snapshot')
-          let { snapshots, url } = await Snapshots.findOne({_id: ObjectId(_id)})
-
-          let dir = `${STATIC_PATH}/vr_simple/${_id}/snapshots`
+          let { snapshots, url } = await Snapshots.findOne({ _id: ObjectId(_id) })
 
           const time = new Date().getTime()
-          dir = `${dir}/${time}`
-          fs.mkdirSync(dir)
 
           const electronScreenshot = await captureElectron({ url })
-          fs.writeFileSync(`${dir}/electron.png`, electronScreenshot)
+          await fileStorage.saveRegressionElectronSnapshot(electronScreenshot, _id, time)
 
           const phantomScreenshot = await capturePhantom({ url })
-          fs.writeFileSync(`${dir}/phantom.png`, phantomScreenshot)
+          await fileStorage.saveRegressionPhantomSnapshot(phantomScreenshot, _id, time)
 
           snapshots.push(time)
           await Snapshots.updateOne({ _id: ObjectId(_id) }, {
@@ -115,43 +107,57 @@ module.exports = {
           })
 
           resemble(electronScreenshot)
-          .compareTo(phantomScreenshot)
-          .onComplete(data => {
-            const { getDiffImageAsJPEG } = data
-            const differences = getDiffImageAsJPEG()
-            fs.writeFileSync(`${dir}/browserDifferences.jpeg`, differences)
-
-            dir = `${STATIC_PATH}/vr_simple/${_id}/executions`
-            if (!fs.existsSync(dir)) fs.mkdirSync(dir)
-            dir = `${dir}/${time}`
-            if (!fs.existsSync(dir)) fs.mkdirSync(dir)
-
-            const snapshot1 = snapshots[(snapshots.length - 2)]
-            const snapshot2 = snapshots[(snapshots.length - 1)]
-
-            const snapshot1Electron = fs.readFileSync(`${STATIC_PATH}/vr_simple/${_id}/snapshots/${snapshot1}/electron.png`)
-            const snapshot2Electron = fs.readFileSync(`${STATIC_PATH}/vr_simple/${_id}/snapshots/${snapshot2}/electron.png`)
-
-            const snapshot1Phantom = fs.readFileSync(`${STATIC_PATH}/vr_simple/${_id}/snapshots/${snapshot1}/phantom.png`)
-            const snapshot2Phantom = fs.readFileSync(`${STATIC_PATH}/vr_simple/${_id}/snapshots/${snapshot2}/phantom.png`)
-
-            resemble(snapshot1Electron)
-            .compareTo(snapshot2Electron)
-            .onComplete(data => {
+            .compareTo(phantomScreenshot)
+            .onComplete(async data => {
               const { getDiffImageAsJPEG } = data
               const differences = getDiffImageAsJPEG()
-              fs.writeFileSync(`${dir}/electron.jpeg`, differences)
+              await fileStorage.saveRegressionElectronPhantomDifferencesSnapshot(differences, _id, time)
 
-              resemble(snapshot1Phantom)
-              .compareTo(snapshot2Phantom)
-              .onComplete(data => {
-                const { getDiffImageAsJPEG } = data
-                const differences = getDiffImageAsJPEG()
-                fs.writeFileSync(`${dir}/phantom.jpeg`, differences)
-                resolve()
-              })
+              const snapshot1 = snapshots[(snapshots.length - 2)]
+              const snapshot2 = snapshots[(snapshots.length - 1)]
+
+              const snapshot1Electron = await fileStorage.getRegressionElectronSnapshot(_id, snapshot1)
+              // await fs.writeFileSync(`./tmp/${_id}-elec1`, snapshot1ElectronBuffer)
+              // const snapshot1Electron = fs.readFileSync(`./tmp/${_id}-elec1`)
+
+              const snapshot2Electron = await fileStorage.getRegressionElectronSnapshot(_id, snapshot2)
+              // await fs.writeFileSync(`./tmp/${_id}-elec2`, snapshot2ElectronBuffer)
+              // const snapshot2Electron = fs.readFileSync(`./tmp/${_id}-elec2`)
+
+              console.log(snapshot1Electron)
+              console.log(snapshot2Electron)
+
+              console.log(0)
+              resemble(snapshot1Electron)
+                .compareTo(snapshot2Electron)
+                .onComplete(async data => {
+                  const { getDiffImageAsJPEG } = data
+
+                  const differences = getDiffImageAsJPEG()
+                  await fileStorage.saveRegressionElectronExecution(differences, _id, time)
+
+                  const snapshot1Phantom = await fileStorage.getRegressionPhantomSnapshot(_id, snapshot1)
+
+                  const snapshot2Phantom = await fileStorage.getRegressionPhantomSnapshot(_id, snapshot2)
+
+                  console.log(snapshot1Phantom)
+                  console.log(snapshot2Phantom)
+
+                  resemble(snapshot1Phantom)
+                    .compareTo(snapshot2Phantom)
+                    .onComplete(async data => {
+                      console.log(4)
+
+                      const { getDiffImageAsJPEG } = data
+                      const differences = getDiffImageAsJPEG()
+                      await fileStorage.saveRegressionPhantomExecution(differences, _id, time)
+
+                      console.log(5)
+
+                      resolve()
+                    })
+                })
             })
-          })
         }
       })
     })

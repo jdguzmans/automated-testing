@@ -11,6 +11,8 @@ const E2E_MUTATION_PATH = 'e2e/mutation'
 const E2E_SCREENSHOT_PATH = 'e2e/screenshot'
 const E2E_VR_PATH = 'e2e/vr'
 
+const VR_PATH = 'vr'
+
 const saveFile = (key, buffer, contentType) => {
   return new Promise((resolve, reject) => {
     let params = {
@@ -142,6 +144,56 @@ module.exports = {
     return new Promise(async (resolve, reject) => {
       const buffer = fs.readFileSync(`./tmp/${id}.html`)
       await saveFile(`${E2E_REPORT_PATH}/${id}.html`, buffer, 'text/html')
+      resolve()
+    })
+  },
+
+  saveRegressionElectronSnapshot: async (capture, id, time) => {
+    return new Promise(async (resolve, reject) => {
+      await saveFile(`${VR_PATH}/snapshots/${id}/${time}/electron.png`, capture)
+      resolve()
+    })
+  },
+
+  getRegressionElectronSnapshot: async (id, time) => {
+    return new Promise(async (resolve, reject) => {
+      const file = await getFile(`${VR_PATH}/snapshots/${id}/${time}/electron.png`)
+      resolve(file)
+    })
+  },
+
+  saveRegressionPhantomSnapshot: async (capture, id, time) => {
+    return new Promise(async (resolve, reject) => {
+      await saveFile(`${VR_PATH}/snapshots/${id}/${time}/phantom.png`, capture)
+      resolve()
+    })
+  },
+
+  getRegressionPhantomSnapshot: async (id, time) => {
+    return new Promise(async (resolve, reject) => {
+      console.log(`${VR_PATH}/snapshots/${id}/${time}/phantom.png`)
+      const file = await getFile(`${VR_PATH}/snapshots/${id}/${time}/phantom.png`)
+      resolve(file)
+    })
+  },
+
+  saveRegressionElectronPhantomDifferencesSnapshot: async (capture, id, time) => {
+    return new Promise(async (resolve, reject) => {
+      await saveFile(`${VR_PATH}/snapshots/${id}/${time}/phantomElectron.jpeg`, capture)
+      resolve()
+    })
+  },
+
+  saveRegressionElectronExecution: async (capture, id, time) => {
+    return new Promise(async (resolve, reject) => {
+      await saveFile(`${VR_PATH}/executions/${id}/${time}/electron.jpeg`, capture)
+      resolve()
+    })
+  },
+
+  saveRegressionPhantomExecution: async (capture, id, time) => {
+    return new Promise(async (resolve, reject) => {
+      await saveFile(`${VR_PATH}/executions/${id}/${time}/phantom.jpeg`, capture)
       resolve()
     })
   }
