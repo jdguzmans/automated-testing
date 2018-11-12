@@ -152,20 +152,74 @@ class CreateForm extends Component {
   tabRow () {
     //alert(JSON.stringify(configDataUpload.dataUpload));
     let optionType = this.state.lisDataUpload.map((object, i) => {
-      return <option value={object.name}>{object.name}</option>
+      return <option value={object.name}>{object.name} {object.type}</option>
+    })
+
+    let optionTypeString = this.state.lisDataUpload.map((object, i) => {
+      if(object.type == 'string' ){
+        return <option value={object.name}>{object.name}</option>
+      }
+    })
+
+    let optionTypeInteger = this.state.lisDataUpload.map((object, i) => {
+      if(object.type == 'integer' || object.type == 'boolean'){
+        return <option value={object.name}>{object.name}</option>
+      }
+    })
+
+    let optionTypeBoolean = this.state.lisDataUpload.map((object, i) => {
+      if(object.type == 'boolean' ){
+        return <option value={object.name}>{object.name} {object.type}</option>
+      }
+    })
+
+    let optionTypeFloat = this.state.lisDataUpload.map((object, i) => {
+      if(object.type == 'float' ){
+        return <option value={object.name}>{object.name} {object.type}</option>
+      }
+    })
+
+    let optionTypeDatetime = this.state.lisDataUpload.map((object, i) => {
+      if(object.type == 'datetime' ){
+        return <option value={object.name}>{object.name}</option>
+      }
     })
 
     return this.state.listRow.map((object, i) => {
       let selectTypeData = ''
+      let options = '';
 
       if(object.Key != 'PRI'){
+        switch(object.Type.split("(")[0]){
+          case 'varchar':
+          case 'text':
+            options = optionTypeString
+            break;
+          case 'int':
+          case 'smallint':
+          case 'tinyint':
+            options = optionTypeInteger
+            break;
+          case 'timestamp':
+          case 'date':
+          case 'datetime':
+            options = optionTypeDatetime
+            break
+          case 'float':
+            options = optionTypeFloat
+            break
+          default:
+            options = optionType
+            break;
+        }
+
         selectTypeData =  <Input
                             onChange = {(ev) => this.handleChangeField('dataUpload', ev, object.Field)}
                             value    = {this.state.dataUpload[object.Field]}
                             type     = "select"
                           >
                             <option value="">Seleccione</option>
-                            {optionType}
+                            {options}
                           </Input>
       }
 
