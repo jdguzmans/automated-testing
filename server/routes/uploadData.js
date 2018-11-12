@@ -1,5 +1,7 @@
+const mongoose = require('mongoose')
 const router = require('express').Router();
 const uploadData = require('../logic/uploadData');
+const UploadData = mongoose.model('UploadData')
 
 router.post('/getTablesDb', async (req, res, next) => {
     const { body } = req
@@ -40,21 +42,40 @@ router.post('/getRowTable', async (req, res, next) => {
             })
         })
 });
-// Ejecucion cargue datos
-/*router.post('/getTablesDb', async (req, res, next) => {
-    const { body } = req;
-    await uploadData.mockaroo(body);
-    res.sendStatus(200);
 
-});
-
-router.post('/matrizTest', async (req, res, next) => {
+router.post('/save', (req, res, next) => {
     const { body } = req
-    await e2e.configTest(body)
-        .then(async (configTest) => {
+    let dataJson  = {};
+    body.dataJson = JSON.parse(body.dataJson)
+
+    for(var key in body.dataJson) {
+        for(var name in body.dataJson[key]) {
+            dataJson[name] = body.dataJson[key][name]
+        }
+    }
+
+    body.dataJson = dataJson
+
+    const finalUploadData = new UploadData(body)
+    return finalUploadData.save()
+        .then(() => res.json({ register: finalUploadData.toJSON() }))
+        .catch(next)
+})
+
+router.get('/', (req, res, next) => {
+    return UploadData.find()
+        .sort({ createdAt: 'descending' })
+        .then((uploadDatas) => res.json({ uploadDatas: uploadDatas.map(uploadData => uploadData.toJSON()) }))
+        .catch(next)
+})
+
+router.post('/start', async (req, res, next) => {
+    const { body } = req
+    await uploadData.uploadStart(body)
+        .then(async (testStart) => {
             return res.status(200).json({
                 message: {
-                    name: configTest
+                    name: testStart
                 }
             })
         })
@@ -65,6 +86,5 @@ router.post('/matrizTest', async (req, res, next) => {
                 }
             })
         })
-})*/
-
+})
 module.exports = router;

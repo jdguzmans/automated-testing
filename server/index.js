@@ -26,6 +26,7 @@ require('./models/Application')
 require('./models/TestingE2E')
 require('./models/ReportsE2E')
 require('./models/ReportRandom')
+require('./models/UploadData');
 
 const routes = fs.readdirSync('./routes')
 routes.forEach(routeStr => {

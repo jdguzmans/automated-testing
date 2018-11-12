@@ -1,34 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 import {
+  Button,
   Card,
   CardBody,
   CardHeader,
   Col,
+  FormGroup,
+  Input,
+  InputGroup,
+  InputGroupAddon,
   Row,
-  Table
-} from 'reactstrap'
-import axios from 'axios/index'
+  Pagination, PaginationItem, PaginationLink,Table
+} from 'reactstrap';
+import axios from "axios/index";
 
 class ListReport extends Component {
-  constructor (props) {
-    super(props)
-    this.state = { serverports: [], listTests: [] }
+  constructor(props) {
+    super(props);
+    this.state = {serverports: [],listTests: []};
   }
 
   // LISTA DE PRUEBAS REGISTRADAS
   componentDidMount () {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/testingE2E`)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/application`)
       .then(response => {
-        this.setState({ listTests: response.data.testingsE2E })
+        this.setState({ listTests: response.data.applications })
       })
       .catch(function (error) {
         console.log(error)
       })
 
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/reportsE2E`)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/uploadData`)
       .then(response => {
-        this.setState({ serverports: response.data.reportsE2E })
+        this.setState({ serverports: response.data.randomTestings })
       })
       .catch(function (error) {
         console.log(error)
@@ -36,7 +41,7 @@ class ListReport extends Component {
   }
 
   listTestings () {
-    let tests = new Array()
+    let tests = []
     this.state.listTests.map(function (object, i) {
       tests[object._id] = object.name
     })
@@ -49,12 +54,11 @@ class ListReport extends Component {
     return this.state.serverports.map(function (object, i) {
       return (
         <tr>
-          <td>{tests[object.idTest] }</td>
-          <td>{object.navegador}</td>
-          <td>{object.pantalla}</td>
-          <td>{object.date}</td>
+          <td>{object.nameTable}</td>
+          <td>{tests[object.idAppliRandom] }</td>
+          <td>{object.numRegister}</td>
           <td>
-            <a href={`/#/testingE2E/viewreport/${object._id}`}>
+            <a href={'/#/viewreport/' + object._id}>
               <i className='icon-note icons d-block mt-1' />
             </a>
           </td>
@@ -63,28 +67,27 @@ class ListReport extends Component {
     })
   }
 
-  render () {
+  render() {
     return (
-      <div className='animated fadeIn'>
+      <div className="animated fadeIn">
         <Row>
-          <Col xs='12' lg='12'>
+          <Col xs="12" lg="12">
             <Card>
               <CardHeader>
-                <i className='fa fa-align-justify' /> Lista Reportes Pruebas E2E
+                <i className="fa fa-align-justify"></i> Lista Reportes Pruebas E2E
               </CardHeader>
               <CardBody>
                 <Table responsive striped>
                   <thead>
-                    <tr>
-                      <th>Caso Prueba</th>
-                      <th>Navegador</th>
-                      <th>Tamaño Pantalla</th>
-                      <th>Fecha Ejecucion</th>
-                      <th>Reporte</th>
-                    </tr>
+                  <tr>
+                    <th>Nombre Tabla</th>
+                    <th>Aplicacion</th>
+                    <th>Numero registros</th>
+                    <th>Ejecutar</th>
+                  </tr>
                   </thead>
                   <tbody>
-                    {this.tabRow()}
+                  {this.tabRow()}
                   </tbody>
                 </Table>
               </CardBody>
@@ -93,8 +96,8 @@ class ListReport extends Component {
         </Row>
       </div>
 
-    )
+    );
   }
 }
 
-export default ListReport
+export default ListReport;
