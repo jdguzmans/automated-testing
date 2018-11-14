@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const router = require('express').Router();
 const uploadData = require('../logic/uploadData');
 const UploadData = mongoose.model('UploadData')
+const ReportGad = mongoose.model('ReportGad')
 
 router.post('/getTablesDb', async (req, res, next) => {
     const { body } = req
@@ -66,6 +67,13 @@ router.get('/', (req, res, next) => {
     return UploadData.find()
         .sort({ createdAt: 'descending' })
         .then((uploadDatas) => res.json({ uploadDatas: uploadDatas.map(uploadData => uploadData.toJSON()) }))
+        .catch(next)
+})
+
+router.get('/report', (req, res, next) => {
+    return ReportGad.find()
+        .sort({ createdAt: 'descending' })
+        .then((reportsGad) => res.json({ reportsGad: reportsGad.map(reportGad => reportGad.toJSON()) }))
         .catch(next)
 })
 
