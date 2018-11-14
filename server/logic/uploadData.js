@@ -5,6 +5,7 @@ const Application = mongoose.model('Application')
 const UploadData = mongoose.model('UploadData')
 const ReportGad = mongoose.model('ReportGad')
 var exports = module.exports = {};
+const fs = require('fs')
 
 
 exports.uploadStart = function(data){
@@ -65,27 +66,46 @@ exports.uploadStart = function(data){
                                     finalReportGad.numRegister = result[0].NUM
                                     await finalReportGad.save()
 
+
                                     // CARGUE DE LA INFORMACION
+                                    let cont = 0
                                     for(var key in records) {
                                         let fieldTable = '';
+                                        let fieldTableCSV = '';
                                         let bindTable  = '';
+                                        let contRegister  = '';
                                         let dataTable  = [];
                                         for(var name in records[key]) {
                                             dataTable.push(records[key][name]);
                                             fieldTable  += name+',';
+                                            fieldTableCSV  += name+';';
                                             bindTable   += '?,';
+                                            contRegister +=  records[key][name]+';';
                                         }
                                         fieldTable = fieldTable.slice(0,-1);
                                         bindTable  = bindTable.slice(0,-1);
+                                        contRegister  = contRegister.slice(0,-1);
+
+                                        if(cont == 0){
+                                            fs.appendFile('ReportGAD/'+finalReportGad._id+'.csv', fieldTableCSV+'stateRegister\r\n', (err) => {
+                                                if (err) throw err;
+                                                console.log('The "data to append" was appended to file!');
+                                            });
+
+                                            cont++
+                                        }
 
                                         try{
                                             connection.query('INSERT INTO '+register.nameTable+' ('+fieldTable+') VALUES('+bindTable+')', dataTable, function(error, result){
+                                                    let state = ''
                                                     if(error){
-                                                        records[key]['state'] = false
+                                                        state = false
                                                         console.log(error)
                                                     }else{
-                                                        records[key]['state'] = true
+                                                        state = true
                                                     }
+                                                    contRegister +=  ';'+state+'\r\n'
+                                                    fs.appendFile('ReportGAD/'+finalReportGad._id+'.csv', contRegister)
                                                 }
                                             );
                                         } catch (e) {
