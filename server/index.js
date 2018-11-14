@@ -22,11 +22,17 @@ mongoose.connect(MONGODB_URI)
 mongoose.set('debug', true)
 
 // Add models
-require('./models/Application')
+/*require('./models/Application')
 require('./models/TestingE2E')
 require('./models/ReportsE2E')
 require('./models/ReportRandom')
 require('./models/UploadData');
+require('./models/ReportGad');*/
+const models = fs.readdirSync('./models')
+models.forEach(modelStr => {
+    let modelName = modelStr.slice(0, -3)
+    require('./models/' + modelName)
+})
 
 const routes = fs.readdirSync('./routes')
 routes.forEach(routeStr => {

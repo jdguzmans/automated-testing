@@ -3,95 +3,119 @@ const mongoose = require('mongoose')
 const Mockaroo = require('mockaroo');
 const Application = mongoose.model('Application')
 const UploadData = mongoose.model('UploadData')
+const ReportGad = mongoose.model('ReportGad')
 var exports = module.exports = {};
 
 
 exports.uploadStart = function(data){
-    return new Promise((resolve, reject) => {
-        UploadData.findOne({
-            _id: data.idRegister
-        }).then((register) => {
-            let field = [];
+        return new Promise(async (resolve, reject) => {
+            UploadData.findOne({
+                _id: data.idRegister
+            }).then(async (register) => {
+                let field = [];
 
-            for(var key in register.dataJson) {
-                field.push({
-                    name : key,
-                    type : register.dataJson[key]
-                });
-            }
-
-            let client = new Mockaroo.Client({
-                apiKey: '825fa840'
-            })
-
-            client.generate({
-                count: register.numRegister,
-                fields: field
-            }).then(function(records) {
-
-                // CONEXION BASE DE DATOS
-                Application.findOne({
-                    _id: register.application
-                }).then((application) => {
-
-                    var connection = mysql.createConnection({
-                        host     : application.host,
-                        user     : application.userDb,
-                        password : application.passwordDB,
-                        database : application.nameDb,
-                        port     : 3306
+                for(var key in register.dataJson) {
+                    field.push({
+                        name : key,
+                        type : register.dataJson[key]
                     });
-                    connection.connect(function(error){
-                        if(error){
-                            reject(error);
-                        }
-                    });
+                }
 
-                    // CARGUE DE LA INFORMACION
-                    for(var key in records) {
-                        let fieldTable = '';
-                        let bindTable  = '';
-                        let dataTable  = [];
-                        for(var name in records[key]) {
-                            dataTable.push(records[key][name]);
-                            fieldTable  += name+',';
-                            bindTable   += '?,';
-                        }
-                        fieldTable = fieldTable.slice(0,-1);
-                        bindTable  = bindTable.slice(0,-1);
-
-                        try{
-                            connection.query('INSERT INTO '+register.nameTable+' ('+fieldTable+') VALUES('+bindTable+')', dataTable, function(error, result){
-                                    if(error){
-                                        records[key]['state'] = false
-                                        console.log(error)
-                                    }else{
-                                        records[key]['state'] = true
-                                    }
-                                }
-                            );
-                        } catch (e) {
-                            records[key]['state'] = false
-                        }
-
-                        console.log(records)
-                    }
-
-                    //console.log(records)
-
-                    resolve('Proceso finaliado')
-                }).catch((next) => {
-                    reject('Se presento un error al consultar las tablas de la DB')
+                let client = new Mockaroo.Client({
+                    apiKey: '825fa840'
                 })
 
-                /*for (var i=0; i<records.length; i++) {
-                    var record = records[i];
-                    console.log(record)
-                    console.log('record ' + i, 'id:' + record.id + ', transactionType:' + record.transactionType);
-                }*/
-            });
+                client.generate({
+                    count: register.numRegister,
+                    fields: field
+                }).then(async (records) =>{
+
+                    // CONEXION BASE DE DATOS
+                    Application.findOne({
+                        _id: register.application
+                    }).then(async (application) => {
+
+                        var connection = mysql.createConnection({
+                            host     : application.host,
+                            user     : application.userDb,
+                            password : application.passwordDB,
+                            database : application.nameDb,
+                            port     : 3306
+                        });
+                        connection.connect(function(error){
+                            if(error){
+                                reject(error);
+                            }
+                        });
+
+                        let dataReportGad = {
+                            'idTable'        : data.idRegister,
+                            'numRegister'    : 0,
+                            'registered'     : 0,
+                            'configRegister' : register.numRegister
+                        }
+
+                        const finalReportGad = new ReportGad(dataReportGad)
+                        await finalReportGad.save()
+
+                        connection.query('SELECT COUNT(1) AS NUM FROM '+register.nameTable, async function(error, result){
+                                if(error){
+                                    reject(false)
+                                }else{
+                                    finalReportGad.numRegister = result[0].NUM
+                                    await finalReportGad.save()
+
+                                    // CARGUE DE LA INFORMACION
+                                    for(var key in records) {
+                                        let fieldTable = '';
+                                        let bindTable  = '';
+                                        let dataTable  = [];
+                                        for(var name in records[key]) {
+                                            dataTable.push(records[key][name]);
+                                            fieldTable  += name+',';
+                                            bindTable   += '?,';
+                                        }
+                                        fieldTable = fieldTable.slice(0,-1);
+                                        bindTable  = bindTable.slice(0,-1);
+
+                                        try{
+                                            connection.query('INSERT INTO '+register.nameTable+' ('+fieldTable+') VALUES('+bindTable+')', dataTable, function(error, result){
+                                                    if(error){
+                                                        records[key]['state'] = false
+                                                        console.log(error)
+                                                    }else{
+                                                        records[key]['state'] = true
+                                                    }
+                                                }
+                                            );
+                                        } catch (e) {
+                                            records[key]['state'] = false
+                                        }
+
+                                    }
+
+                                    await connection.query('SELECT COUNT(1) AS NUM FROM '+register.nameTable, async function(error, result){
+                                            if(error){
+                                                reject(false)
+                                            }else{
+                                                finalReportGad.registered = result[0].NUM - finalReportGad.numRegister
+                                                await finalReportGad.save()
+                                            }
+                                        }
+                                    );
+                                }
+                            }
+                        );
+
+
+                        resolve('Proceso finaliado')
+                    }).catch((next) => {
+                        reject('Se presento un error al consultar las tablas de la DB')
+                    })
+                });
+            })
         })
-    })
+
 }
 
 exports.getListTableDB = function (data) {
@@ -173,4 +197,34 @@ exports.getRowTable = function (data) {
             reject('Se presento un error al consultar las tablas de la DB')
         })
     });
+}
+
+let getNumRegister = function (data) {
+    return new Promise((resolve, reject) => {
+        UploadData.findOne({
+            _id: data.idRegister
+        }).then((register) => {
+            // CONEXION BASE DE DATOS
+            Application.findOne({
+                _id: register.application
+            }).then((application) => {
+
+                var connection = mysql.createConnection({
+                    host     : application.host,
+                    user     : application.userDb,
+                    password : application.passwordDB,
+                    database : application.nameDb,
+                    port     : 3306
+                });
+                connection.connect(function(error){
+                    if(error){
+                        reject(error);
+                    }
+                });
+
+            }).catch((next) => {
+                reject('Se presento un error al consultar las tablas de la DB')
+            })
+        })
+    })
 }

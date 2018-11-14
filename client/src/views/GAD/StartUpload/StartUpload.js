@@ -98,9 +98,9 @@ class StartUpload extends Component {
           <td>{applications[object.application] }</td>
           <td>{object.numRegister}</td>
           <td>
-            <button onClick={() => this.handleSubmit(object._id)} type="submit" >
+            <Button onClick={() => this.handleSubmit(object._id)} type="submit" color="primary">
               <i className="icon-control-play icons d-block mt-1"></i>
-            </button>
+            </Button>
           </td>
         </tr>
       );
