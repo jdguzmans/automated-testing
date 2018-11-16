@@ -41,7 +41,6 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
-// Ejecucion matriz de prueba
 router.post('/matrizTest', async (req, res, next) => {
   const { body } = req
 

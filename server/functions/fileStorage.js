@@ -11,6 +11,9 @@ const E2E_MUTATION_PATH = 'e2e/mutation'
 const E2E_SCREENSHOT_PATH = 'e2e/screenshot'
 const E2E_VR_PATH = 'e2e/vr'
 
+const RANDOM_REPORT_PATH = 'random/report'
+const RANDOM_SCREENSHOT_PATH = 'random/screenshot'
+
 const VR_PATH = 'vr'
 
 const saveFile = (key, buffer, contentType) => {
@@ -126,6 +129,14 @@ module.exports = {
     })
   },
 
+  saveRandomScreenshot: async (id, screenshot) => {
+    return new Promise(async (resolve, reject) => {
+      const buffer = fs.readFileSync(`./tmp/screenshots/${screenshot}`)
+      await saveFile(`${RANDOM_SCREENSHOT_PATH}/${id}/${screenshot}`, buffer)
+      resolve()
+    })
+  },
+
   getE2EScreenshot: async (id, screenshot) => {
     return new Promise(async (resolve, reject) => {
       const file = await getFile(`${E2E_SCREENSHOT_PATH}/${id}/${screenshot}`)
@@ -144,6 +155,14 @@ module.exports = {
     return new Promise(async (resolve, reject) => {
       const buffer = fs.readFileSync(`./tmp/${id}.html`)
       await saveFile(`${E2E_REPORT_PATH}/${id}.html`, buffer, 'text/html')
+      resolve()
+    })
+  },
+
+  saveRandomReport: async (id) => {
+    return new Promise(async (resolve, reject) => {
+      const buffer = fs.readFileSync(`./tmp/${id}.html`)
+      await saveFile(`${RANDOM_REPORT_PATH}/${id}.html`, buffer, 'text/html')
       resolve()
     })
   },

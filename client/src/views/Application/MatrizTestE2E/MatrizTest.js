@@ -87,7 +87,7 @@ class MatrizTest extends Component {
             type='number'
             name='event'
             min='1'
-                      />
+          />
         </th>
         <th colSpan={2} />
       </tr>
@@ -114,7 +114,7 @@ class MatrizTest extends Component {
                 <Table responsive striped>
                   <thead>
                     <tr>
-                      <th colspan='5'>MATRIZ DE PRUEBAS</th>
+                      <th colSpan='5'>MATRIZ DE PRUEBAS</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -126,7 +126,7 @@ class MatrizTest extends Component {
                           type='radio'
                           name='navegador'
                           value='chrome'
-                            />
+                        />
                         <img src={chrome} width='80px' />
                       </th>
                       <th>
@@ -135,7 +135,7 @@ class MatrizTest extends Component {
                           type='radio'
                           name='navegador'
                           value='firefox'
-                          />
+                        />
                         <img src={firefox} width='80px' />
                       </th>
                       <th>
@@ -144,7 +144,7 @@ class MatrizTest extends Component {
                           type='radio'
                           name='navegador'
                           value='opera'
-                          />
+                        />
                         <img src={opera} width='80px' />
                       </th>
                       <th>
@@ -153,7 +153,7 @@ class MatrizTest extends Component {
                           type='radio'
                           name='navegador'
                           value='ie'
-                          />
+                        />
                         <img src={explorer} width='80px' />
                       </th>
                     </tr>
@@ -165,36 +165,36 @@ class MatrizTest extends Component {
                           type='radio'
                           name='pantalla'
                           value='414x736'
-                          />
+                        />
                           414 x 736
-                        </th>
+                      </th>
                       <th>
                         <Input
                           onChange={(ev) => this.handleChangeField('pantalla', ev)}
                           type='radio'
                           name='pantalla'
                           value='800x1280'
-                          />
+                        />
                           800 x 1280
-                        </th>
+                      </th>
                       <th>
                         <Input
                           onChange={(ev) => this.handleChangeField('pantalla', ev)}
                           type='radio'
                           name='pantalla'
                           value='1024x600'
-                          />
+                        />
                           1024 x 600
-                        </th>
+                      </th>
                       <th>
                         <Input
                           onChange={(ev) => this.handleChangeField('pantalla', ev)}
                           type='radio'
                           name='pantalla'
                           value='1280x800'
-                          />
+                        />
                           1280 x 800
-                        </th>
+                      </th>
                     </tr>
                     <tr>
                       <th>Modo</th>
@@ -224,11 +224,11 @@ class MatrizTest extends Component {
               <CardFooter>
                 <Button onClick={this.handleSubmit} type='submit' size='sm' color='primary' >
                   <i className='fa fa-dot-circle-o' /> Ejecutar
-                  </Button>&nbsp;
+                </Button>&nbsp;
                 <a href='/#/testingE2E/start'>
                   <Button type='reset' size='sm' color='danger'>
                     <i className='fa fa-ban' /> Regresar
-                    </Button>
+                  </Button>
                 </a>
               </CardFooter>
             </Card>

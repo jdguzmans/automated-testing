@@ -13,7 +13,7 @@ import axios from 'axios/index'
 class ListReport extends Component {
   constructor (props) {
     super(props)
-    this.state = {serverports: [], listTests: []}
+    this.state = { serverports: [], listTests: [] }
   }
 
   // LISTA DE PRUEBAS REGISTRADAS
@@ -54,18 +54,8 @@ class ListReport extends Component {
           <td>{object.pantalla}</td>
           <td>{object.date}</td>
           <td>
-            <a href={'/#/viewreport/' + object._id}>
+            <a href={'/#/viewreportR/' + object._id}>
               <i className='icon-note icons d-block mt-1' />
-            </a>
-          </td>
-          <td>
-            <a href={'/#/viewscreenshots/' + object._id}>
-              <i className='icon-picture icons d-block mt-1' />
-            </a>
-          </td>
-          <td>
-            <a href={`/#/viewMonkeyVR/${object._id}`}>
-              <i className='icon-picture icons d-block mt-1' />
             </a>
           </td>
         </tr>
@@ -91,8 +81,6 @@ class ListReport extends Component {
                       <th>Tamaño Pantalla</th>
                       <th>Fecha Ejecucion</th>
                       <th>Reporte</th>
-                      <th>Screenshots</th>
-                      <th>VR</th>
                     </tr>
                   </thead>
                   <tbody>

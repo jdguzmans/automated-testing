@@ -1,17 +1,17 @@
-import {Selector, t} from 'testcafe'
-import config from '../config'
+import { Selector, t } from 'testcafe'
+import config from './config.json'
 import StructForm from './structForm'
 
 const structForm = new StructForm()
 
 fixture`My Fixture`
-    .beforeEach(async t => {
-      await t.resizeWindow(
-            config.resizeWindow.width,
-            config.resizeWindow.height
-        )
-    })
-    .page(config.baseUrl)
+  .beforeEach(async t => {
+    await t.resizeWindow(
+      config.resizeWindow.width,
+      config.resizeWindow.height
+    )
+  })
+  .page(config.baseUrl)
 
 test('Random Testing', async t => {
   let cont = 0

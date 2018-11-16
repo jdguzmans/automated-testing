@@ -52,6 +52,11 @@ const ViewReportE2E = Loadable({
   loading: Loading,
 });
 
+const ViewReportRandom = Loadable({
+  loader: () => import('./views/PruebasMonkey/ViewReport'),
+  loading: Loading,
+});
+
 const ViewScreenshotsE2E = Loadable({
   loader: () => import('./views/PruebasE2E/ViewScreenshots'),
   loading: Loading,
@@ -307,6 +312,8 @@ const routes = [
 
   { path: '/viewE2EVR/:idTest/:id', exact: true, name: 'Vista de Regresión Visual E2E', component: ViewE2EVR },
   { path: '/viewE2EMutation/:idTest/:id', exact: true, name: 'Vista de Mutation Testing en E2E', component: ViewE2EMutation },
+
+  { path: '/viewreportR/:id', exact: true, name: 'Vista Reportes', component: ViewReportRandom },
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },

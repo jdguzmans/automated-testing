@@ -7,7 +7,8 @@ const ReportRandomSchema = new Schema({
   navegador: String,
   pantalla: String,
   mode: String,
-  event: String
+  event: String,
+  screenshotsLength: Number
 }, { timestamps: true })
 
 ReportRandomSchema.methods.toJSON = function () {
@@ -18,7 +19,8 @@ ReportRandomSchema.methods.toJSON = function () {
     pantalla: this.pantalla,
     mode: this.mode,
     event: this.event,
-    date: this.createdAt
+    date: this.createdAt,
+    screenshotsLength: this.screenshotsLength
   }
 }
 

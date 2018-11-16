@@ -3,36 +3,44 @@ const ReportRandom = mongoose.model('ReportRandom')
 const Application = mongoose.model('Application')
 const exec = require('child_process').exec
 const fs = require('fs')
+const fileStorage = require('../functions/fileStorage')
+
+const MongoCLient = require('mongodb').MongoClient
+const ObjectId = require('mongodb').ObjectID
+
+const { MONGODB_URI } = require('../config')
 
 var exports = module.exports = {}
 
-/**
- * Metodo para realizar la configuracion necesaria para la ejecucion de la prueba
- * @param data
- * @returns {Promise<any>}
- */
-exports.configTest = function (data) {
+exports.findById = async (id) => {
   return new Promise((resolve, reject) => {
-    Application.findOne({
-      _id: data.idAppliRandom
-    }).then((application) => {
-      let infoScreen = data.pantalla.split('x')
-      let infoConfig = {
-        baseUrl: application.toJSON().url,
-        resizeWindow: {
-          width: parseInt(infoScreen[0]),
-          height: parseInt(infoScreen[1])
-        },
-        event: data.event
-      }
+    MongoCLient.connect(MONGODB_URI, async (err, client) => {
+      if (err) throw err
+      else {
+        const Reports = client.db().collection('reportrandoms')
+        const report = await Reports.findOne({ _id: ObjectId(id) })
 
-      try {
-        fs.writeFileSync('RandomTesting/config.json', JSON.stringify(infoConfig))
-        resolve(true)
-      } catch (err) {
-        reject('Se presento un error al configurar la prueba a ejecutar')
+        resolve(report)
       }
     })
+  })
+}
+
+exports.getCodeTestCafe = function (id) {
+  return new Promise(async (resolve, reject) => {
+    let files = []
+
+    const fileBuffers = await fileStorage.getRandomFiles(id)
+
+    fs.writeFileSync(`./tmp/${id}-code`, fileBuffers[0])
+    files[0] = fs.readFileSync(`./tmp/${id}-code`, 'utf8')
+    fs.unlinkSync(`./tmp/${id}-code`)
+
+    fs.writeFileSync(`./tmp/${id}-code`, fileBuffers[1])
+    files[1] = fs.readFileSync(`./tmp/${id}-code`, 'utf8')
+    fs.unlinkSync(`./tmp/${id}-code`)
+
+    resolve(files)
   })
 }
 
@@ -42,33 +50,82 @@ exports.configTest = function (data) {
  * @returns {Promise<any>}
  */
 exports.testCafeStart = function (data) {
-  return new Promise((resolve, reject) => {
-    let properties = data.navegador
-    if (data.mode === 'true') {
-      properties += ':headless'
+  return new Promise(async (resolve, reject) => {
+    const application = await Application.findOne({
+      _id: data.idAppliRandom
+    })
+
+    const infoScreen = data.pantalla.split('x')
+    const infoConfig = {
+      baseUrl: application.toJSON().url,
+      resizeWindow: {
+        width: parseInt(infoScreen[0]),
+        height: parseInt(infoScreen[1])
+      },
+      event: data.event
     }
 
     const finalReportRandom = new ReportRandom(data)
-    finalReportRandom.save()
-            .then()
-            .catch()
+    await finalReportRandom.save()
 
     const nameReport = finalReportRandom.toJSON()._id
 
-    exec('testcafe ' + properties + ' RandomTesting/test/randomTesting.js --reporter html -s screenshots -p "RandomTesting/' + nameReport + '/${FILE_INDEX}.png"', (er, stdout, stderr) => {
-      if (er) {
-        console.log('ERROR')
-        console.log(er)
-        console.log('STDERR')
-        console.log(stderr)
-        reject(er)
-      }
-      if (stdout) {
-        fs.appendFile('RandomTesting/report/' + nameReport + '.html', stdout, (err) => {
-          if (err) {
-            reject('Se presento un error al generar el reporte')
-          };
-          resolve('La prueba se realizo con exito')
+    MongoCLient.connect(MONGODB_URI, async (err, client) => {
+      if (err) throw err
+      else {
+        const Snapshots = client.db().collection('snapshot')
+        await Snapshots.insertOne({ _id: ObjectId(nameReport), snapshots: [] })
+
+        fs.writeFileSync('tmp/config.json', JSON.stringify(infoConfig))
+
+        let properties = data.navegador
+        if (data.mode === 'true') {
+          properties += ':headless'
+        }
+
+        fs.copyFileSync(`./templates/randomTesting.js`, `./tmp/randomTesting.js`)
+        fs.copyFileSync(`./templates/structForm.js`, `./tmp/structForm.js`)
+
+        exec(`testcafe ${properties} tmp/randomTesting.js --reporter html -s tmp/ -S tmp/ -p 'screenshots/\${FILE_INDEX}.png'`, async (er, stdout, stderr) => {
+          if (er) {
+            console.log('ERROR')
+            console.log(er)
+            console.log('STDERR')
+            console.log(stderr)
+            reject(er)
+          } else {
+            fs.unlinkSync('tmp/config.json')
+            fs.unlinkSync('tmp/randomTesting.js')
+            fs.unlinkSync('tmp/structForm.js')
+
+            const filesVR = fs.readdirSync(`./tmp/screenshots`)
+
+            const picturesVR = filesVR.filter(file => {
+              const stat = fs.statSync(`./tmp/screenshots/${file}`)
+              return stat.isFile()
+            })
+
+            for (let picture of picturesVR) {
+              await fileStorage.saveRandomScreenshot(nameReport, picture)
+              fs.unlinkSync(`./tmp/screenshots/${picture}`)
+            }
+
+            const screenshotsLength = picturesVR.length
+
+            const ReportsRandom = client.db().collection('reportrandoms')
+
+            await ReportsRandom.updateOne({
+              _id: ObjectId(nameReport)
+            }, {
+              $set: { screenshotsLength }
+            })
+
+            fs.appendFileSync(`tmp/${nameReport}.html`, stdout)
+            await fileStorage.saveRandomReport(nameReport)
+            fs.unlinkSync(`tmp/${nameReport}.html`)
+
+            resolve()
+          }
         })
       }
     })

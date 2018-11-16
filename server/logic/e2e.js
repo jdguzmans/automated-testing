@@ -39,10 +39,10 @@ exports.findById = async (id) => {
     MongoCLient.connect(MONGODB_URI, async (err, client) => {
       if (err) throw err
       else {
-        const Repores = client.db().collection('reportse2es')
-        const hola = await Repores.findOne({ _id: ObjectId(id) })
+        const Reports = client.db().collection('reportse2es')
+        const report = await Reports.findOne({ _id: ObjectId(id) })
 
-        resolve(hola)
+        resolve(report)
       }
     })
   })
@@ -108,8 +108,8 @@ exports.testCafeStart = (data) => {
       _id: data.idApplication
     })
 
-    let infoScreen = data.pantalla.split('x')
-    let infoConfig = {
+    const infoScreen = data.pantalla.split('x')
+    const infoConfig = {
       baseUrl: application.toJSON().url,
       resizeWindow: {
         width: parseInt(infoScreen[0]),
@@ -129,7 +129,7 @@ exports.testCafeStart = (data) => {
       properties += ':headless'
     }
 
-    const fileBuffer = await fileStorage.getE2EFile(data.idTest)
+    const fileBuffer = await fileStorage.getE2EFiless(data.idTest)
     fs.writeFileSync(`./tmp/${nameReport}.js`, fileBuffer)
 
     exec(`testcafe ${properties} tmp/${nameReport}.js --reporter html -s tmp/ -S tmp/ -p 'screenshots/\${FILE_INDEX}.png'`, async (er, stdout, stderr) => {
