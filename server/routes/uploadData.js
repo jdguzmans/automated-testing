@@ -1,98 +1,98 @@
 const mongoose = require('mongoose')
-const router = require('express').Router();
-const uploadData = require('../logic/uploadData');
+const router = require('express').Router()
+const uploadData = require('../logic/uploadData')
 const UploadData = mongoose.model('UploadData')
 const ReportGad = mongoose.model('ReportGad')
 
 router.post('/getTablesDb', async (req, res, next) => {
-    const { body } = req
+  const { body } = req
 
-    await uploadData.getListTableDB(body)
-        .then(async (listTableDb) => {
-            return res.status(200).json({
-                message: {
-                    name: listTableDb
-                }
-            })
-        })
-        .catch((next) => {
-            return res.status(422).json({
-                message: {
-                    name: next
-                }
-            })
-        })
-});
+  await uploadData.getListTableDB(body)
+    .then(async (listTableDb) => {
+      return res.status(200).json({
+        message: {
+          name: listTableDb
+        }
+      })
+    })
+    .catch((next) => {
+      return res.status(422).json({
+        message: {
+          name: next
+        }
+      })
+    })
+})
 
 router.post('/getRowTable', async (req, res, next) => {
-    const { body } = req
+  const { body } = req
 
-    await uploadData.getRowTable(body)
-        .then(async (listRowTable) => {
-            return res.status(200).json({
-                message: {
-                    name: listRowTable
-                }
-            })
-        })
-        .catch((next) => {
-            return res.status(422).json({
-                message: {
-                    name: next
-                }
-            })
-        })
-});
+  await uploadData.getRowTable(body)
+    .then(async (listRowTable) => {
+      return res.status(200).json({
+        message: {
+          name: listRowTable
+        }
+      })
+    })
+    .catch((next) => {
+      return res.status(422).json({
+        message: {
+          name: next
+        }
+      })
+    })
+})
 
 router.post('/save', (req, res, next) => {
-    const { body } = req
-    let dataJson  = {};
-    body.dataJson = JSON.parse(body.dataJson)
+  const { body } = req
+  let dataJson = {}
+  body.dataJson = JSON.parse(body.dataJson)
 
-    for(var key in body.dataJson) {
-        for(var name in body.dataJson[key]) {
-            dataJson[name] = body.dataJson[key][name]
-        }
+  for (var key in body.dataJson) {
+    for (var name in body.dataJson[key]) {
+      dataJson[name] = body.dataJson[key][name]
     }
+  }
 
-    body.dataJson = dataJson
+  body.dataJson = dataJson
 
-    const finalUploadData = new UploadData(body)
-    return finalUploadData.save()
-        .then(() => res.json({ register: finalUploadData.toJSON() }))
-        .catch(next)
+  const finalUploadData = new UploadData(body)
+  return finalUploadData.save()
+    .then(() => res.json({ register: finalUploadData.toJSON() }))
+    .catch(next)
 })
 
 router.get('/', (req, res, next) => {
-    return UploadData.find()
-        .sort({ createdAt: 'descending' })
-        .then((uploadDatas) => res.json({ uploadDatas: uploadDatas.map(uploadData => uploadData.toJSON()) }))
-        .catch(next)
+  return UploadData.find()
+    .sort({ createdAt: 'descending' })
+    .then((uploadDatas) => res.json({ uploadDatas: uploadDatas.map(uploadData => uploadData.toJSON()) }))
+    .catch(next)
 })
 
 router.get('/report', (req, res, next) => {
-    return ReportGad.find()
-        .sort({ createdAt: 'descending' })
-        .then((reportsGad) => res.json({ reportsGad: reportsGad.map(reportGad => reportGad.toJSON()) }))
-        .catch(next)
+  return ReportGad.find()
+    .sort({ createdAt: 'descending' })
+    .then((reportsGad) => res.json({ reportsGad: reportsGad.map(reportGad => reportGad.toJSON()) }))
+    .catch(next)
 })
 
 router.post('/start', async (req, res, next) => {
-    const { body } = req
-    await uploadData.uploadStart(body)
-        .then(async (testStart) => {
-            return res.status(200).json({
-                message: {
-                    name: testStart
-                }
-            })
-        })
-        .catch((next) => {
-            return res.status(422).json({
-                message: {
-                    name: next
-                }
-            })
-        })
+  const { body } = req
+  await uploadData.uploadStart(body)
+    .then(async (testStart) => {
+      return res.status(200).json({
+        message: {
+          name: testStart
+        }
+      })
+    })
+    .catch((next) => {
+      return res.status(422).json({
+        message: {
+          name: next
+        }
+      })
+    })
 })
-module.exports = router;
+module.exports = router
