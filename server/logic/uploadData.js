@@ -4,8 +4,10 @@ const Mockaroo = require('mockaroo')
 const Application = mongoose.model('Application')
 const UploadData = mongoose.model('UploadData')
 const ReportGad = mongoose.model('ReportGad')
-var exports = module.exports = {}
 const fs = require('fs')
+const fileStorage = require('../functions/fileStorage')
+
+var exports = module.exports = {}
 
 exports.uploadStart = function (data) {
   return new Promise(async (resolve, reject) => {
@@ -61,7 +63,6 @@ exports.uploadStart = function (data) {
               reject(new Error())
             } else {
               finalReportGad.numRegister = result[0].NUM
-              await finalReportGad.save()
 
               // CARGUE DE LA INFORMACION
               let cont = 0
@@ -83,16 +84,12 @@ exports.uploadStart = function (data) {
                 contRegister = contRegister.slice(0, -1)
 
                 if (cont === 0) {
-                  fs.appendFile('ReportGAD/' + finalReportGad._id + '.csv', fieldTableCSV + 'stateRegister\r\n', (err) => {
-                    if (err) throw err
-                    console.log('The "data to append" was appended to file!')
-                  })
-
+                  fs.appendFileSync(`tmp/${finalReportGad._id}.csv`, fieldTableCSV + 'stateRegister\r\n')
                   cont++
                 }
 
                 try {
-                  connection.query('INSERT INTO ' + register.nameTable + ' (' + fieldTable + ') VALUES(' + bindTable + ')', dataTable, function (error, result) {
+                  connection.query(`INSERT INTO ${register.nameTable} (${fieldTable}) VALUES (${bindTable})`, dataTable, async (error, result) => {
                     let state = ''
                     if (error) {
                       state = false
@@ -101,28 +98,28 @@ exports.uploadStart = function (data) {
                       state = true
                     }
                     contRegister += ';' + state + '\r\n'
-                    fs.appendFile('ReportGAD/' + finalReportGad._id + '.csv', contRegister)
+                    fs.appendFileSync(`tmp/${finalReportGad._id}.csv`, contRegister)
+                    await fileStorage.saveGADReport(finalReportGad._id)
+
+                    connection.query(`SELECT COUNT(1) AS NUM FROM ${register.nameTable}`, async function (error, result) {
+                      if (error) {
+                        reject(new Error())
+                      } else {
+                        finalReportGad.registered = result[0].NUM - finalReportGad.numRegister
+                        await finalReportGad.save()
+                        // fs.unlinkSync(`tmp/${finalReportGad._id}.csv`)
+                        resolve('Proceso finaliado')
+                      }
+                    })
                   }
                   )
                 } catch (e) {
                   records[key]['state'] = false
                 }
               }
-
-              await connection.query('SELECT COUNT(1) AS NUM FROM ' + register.nameTable, async function (error, result) {
-                if (error) {
-                  reject(new Error())
-                } else {
-                  finalReportGad.registered = result[0].NUM - finalReportGad.numRegister
-                  await finalReportGad.save()
-                }
-              }
-              )
             }
           }
           )
-
-          resolve('Proceso finaliado')
         }).catch((next) => {
           reject(new Error('Se presento un error al consultar las tablas de la DB'))
         })
@@ -204,34 +201,6 @@ exports.getRowTable = function (data) {
       }
     }).catch((next) => {
       reject(new Error('Se presento un error al consultar las tablas de la DB'))
-    })
-  })
-}
-
-let getNumRegister = function (data) {
-  return new Promise((resolve, reject) => {
-    UploadData.findOne({
-      _id: data.idRegister
-    }).then((register) => {
-      // CONEXION BASE DE DATOS
-      Application.findOne({
-        _id: register.application
-      }).then((application) => {
-        var connection = mysql.createConnection({
-          host: application.host,
-          user: application.userDb,
-          password: application.passwordDB,
-          database: application.nameDb,
-          port: 3306
-        })
-        connection.connect(function (error) {
-          if (error) {
-            reject(error)
-          }
-        })
-      }).catch((next) => {
-        reject(new Error('Se presento un error al consultar las tablas de la DB'))
-      })
     })
   })
 }

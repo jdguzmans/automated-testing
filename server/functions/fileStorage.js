@@ -10,6 +10,7 @@ const E2E_REPORT_PATH = 'e2e/report'
 const E2E_MUTATION_PATH = 'e2e/mutation'
 const E2E_SCREENSHOT_PATH = 'e2e/screenshot'
 const E2E_VR_PATH = 'e2e/vr'
+const GAD_REPORT_PATH = 'gad'
 
 const RANDOM_REPORT_PATH = 'random/report'
 const RANDOM_SCREENSHOT_PATH = 'random/screenshot'
@@ -163,6 +164,14 @@ module.exports = {
     return new Promise(async (resolve, reject) => {
       const buffer = fs.readFileSync(`./tmp/${id}.html`)
       await saveFile(`${RANDOM_REPORT_PATH}/${id}.html`, buffer, 'text/html')
+      resolve()
+    })
+  },
+
+  saveGADReport: async (id) => {
+    return new Promise(async (resolve, reject) => {
+      const buffer = fs.readFileSync(`./tmp/${id}.csv`)
+      await saveFile(`${GAD_REPORT_PATH}/${id}.csv`, buffer)
       resolve()
     })
   },

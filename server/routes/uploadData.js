@@ -88,6 +88,7 @@ router.post('/start', async (req, res, next) => {
       })
     })
     .catch((next) => {
+      console.log(next)
       return res.status(422).json({
         message: {
           name: next
