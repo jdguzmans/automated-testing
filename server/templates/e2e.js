@@ -2,13 +2,13 @@ import { Selector } from 'testcafe'
 import config from './config'
 
 fixture`My Fixture`
-    .beforeEach(async t => {
-      await t.resizeWindow(
-            config.resizeWindow.width,
-            config.resizeWindow.height
-        )
-    })
-    .page(config.baseUrl)
+  .beforeEach(async t => {
+    await t.resizeWindow(
+      config.resizeWindow.width,
+      config.resizeWindow.height
+    )
+  })
+  .page(config.baseUrl)
 
 // Espacio para digitar el caso de prueba
 test('My test', async t => {
@@ -23,7 +23,7 @@ test('My test', async t => {
   })
 
   await t
-        .takeScreenshot()
-        .click(checkBoxesStartingWithR.nth(0))
-        .takeScreenshot()
+    .takeScreenshot()
+    .click(checkBoxesStartingWithR.nth(0))
+    .takeScreenshot()
 })

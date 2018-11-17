@@ -129,7 +129,8 @@ exports.testCafeStart = (data) => {
       properties += ':headless'
     }
 
-    const fileBuffer = await fileStorage.getE2EFiless(data.idTest)
+    const fileBuffer = await fileStorage.getE2EFile(data.idTest)
+
     fs.writeFileSync(`./tmp/${nameReport}.js`, fileBuffer)
 
     exec(`testcafe ${properties} tmp/${nameReport}.js --reporter html -s tmp/ -S tmp/ -p 'screenshots/\${FILE_INDEX}.png'`, async (er, stdout, stderr) => {

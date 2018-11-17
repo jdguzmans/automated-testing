@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {
-  Button,
   Card,
   CardBody,
   CardHeader,
   Col,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
   Row,
-  Pagination, PaginationItem, PaginationLink,Table
-} from 'reactstrap';
-import axios from "axios/index";
+  Table
+} from 'reactstrap'
+
+import axios from 'axios/index'
 
 class ListReport extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
-      listTable       : [],
-      listApplication : [],
-      listReport      : []
-    };
+      listTable: [],
+      listApplication: [],
+      listReport: []
+    }
   }
 
   // LISTA DE PRUEBAS REGISTRADAS
@@ -84,15 +80,17 @@ class ListReport extends Component {
     const idApllication = this.listTableVsAppl()
 
     return this.state.listReport.map(function (object, i) {
+      console.log(object)
       return (
         <tr>
+          <td>{object.date }</td>
           <td>{tables[object.idTable] }</td>
           <td>{applications[idApllication[object.idTable]] }</td>
           <td>{object.configRegister}</td>
           <td>{object.registered}</td>
           <td>{object.configRegister - object.registered}</td>
           <td>
-            <a href={`${process.env.REACT_APP_BACKEND_URL}/` + object._id+`.csv`}>
+            <a href={`${process.env.REACT_APP_FS_URL}/gad/${object._id}.csv`}>
               <i className='cui-cloud-download icons d-block mt-1' />
             </a>
           </td>
@@ -101,29 +99,30 @@ class ListReport extends Component {
     })
   }
 
-  render() {
+  render () {
     return (
-      <div className="animated fadeIn">
+      <div className='animated fadeIn'>
         <Row>
-          <Col xs="12" lg="12">
+          <Col xs='12' lg='12'>
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Lista Reportes Cargue Datos
+                <i className='fa fa-align-justify' /> Lista Reportes Cargue Datos
               </CardHeader>
               <CardBody>
                 <Table responsive striped>
                   <thead>
-                  <tr>
-                    <th>Nombre Tabla</th>
-                    <th>Aplicacion</th>
-                    <th>Registros configurados</th>
-                    <th>Registros cargados</th>
-                    <th>Error registros</th>
-                    <th>Reporte</th>
-                  </tr>
+                    <tr>
+                      <th>Fecha</th>
+                      <th>Nombre Tabla</th>
+                      <th>Aplicacion</th>
+                      <th>Registros configurados</th>
+                      <th>Registros cargados</th>
+                      <th>Error registros</th>
+                      <th>Reporte</th>
+                    </tr>
                   </thead>
                   <tbody>
-                  {this.tabRow()}
+                    {this.tabRow()}
                   </tbody>
                 </Table>
               </CardBody>
@@ -132,8 +131,8 @@ class ListReport extends Component {
         </Row>
       </div>
 
-    );
+    )
   }
 }
 
-export default ListReport;
+export default ListReport

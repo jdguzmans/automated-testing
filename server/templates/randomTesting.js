@@ -36,9 +36,6 @@ test('Random Testing', async t => {
       case 5:
         resultProcess = await structForm.textAreaFunction()
         break
-      case 5:
-        resultProcess = await structForm.selectFunction()
-        break
       case 6:
         resultProcess = await structForm.linksFunction()
         break
