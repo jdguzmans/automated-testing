@@ -40,6 +40,10 @@ module.exports = {
 
   sendE2ETestExecutedEmail: async () => {
     await sendEmail('Terminada de ejecutar la prueba E2E')
+  },
+
+  sendRandomTestExecutedEmail: async () => {
+    await sendEmail('Terminada de ejecutar la prueba Random')
   }
 
 }

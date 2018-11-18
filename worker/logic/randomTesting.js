@@ -1,6 +1,4 @@
-const mongoose = require('mongoose')
-const ReportRandom = mongoose.model('ReportRandom')
-const Application = mongoose.model('Application')
+
 const exec = require('child_process').exec
 const fs = require('fs')
 const fileStorage = require('../functions/fileStorage')
@@ -12,74 +10,41 @@ const { MONGODB_URI } = require('../config')
 
 var exports = module.exports = {}
 
-exports.findById = async (id) => {
-  return new Promise((resolve, reject) => {
-    MongoCLient.connect(MONGODB_URI, async (err, client) => {
-      if (err) throw err
-      else {
-        const Reports = client.db().collection('reportrandoms')
-        const report = await Reports.findOne({ _id: ObjectId(id) })
-
-        resolve(report)
-      }
-    })
-  })
-}
-
-exports.getCodeTestCafe = function (id) {
-  return new Promise(async (resolve, reject) => {
-    let files = []
-
-    const fileBuffers = await fileStorage.getRandomFiles(id)
-
-    fs.writeFileSync(`./tmp/${id}-code`, fileBuffers[0])
-    files[0] = fs.readFileSync(`./tmp/${id}-code`, 'utf8')
-    fs.unlinkSync(`./tmp/${id}-code`)
-
-    fs.writeFileSync(`./tmp/${id}-code`, fileBuffers[1])
-    files[1] = fs.readFileSync(`./tmp/${id}-code`, 'utf8')
-    fs.unlinkSync(`./tmp/${id}-code`)
-
-    resolve(files)
-  })
-}
-
 /**
  * Metodo para ejecutar el test
  * @param data
  * @returns {Promise<any>}
  */
-exports.testCafeStart = function (data) {
+exports.executeTest = function (_id) {
   return new Promise(async (resolve, reject) => {
-    const application = await Application.findOne({
-      _id: data.idAppliRandom
-    })
-
-    const infoScreen = data.pantalla.split('x')
-    const infoConfig = {
-      baseUrl: application.toJSON().url,
-      resizeWindow: {
-        width: parseInt(infoScreen[0]),
-        height: parseInt(infoScreen[1])
-      },
-      event: data.event
-    }
-
-    const finalReportRandom = new ReportRandom(data)
-    await finalReportRandom.save()
-
-    const nameReport = finalReportRandom.toJSON()._id
-
     MongoCLient.connect(MONGODB_URI, async (err, client) => {
       if (err) throw err
       else {
-        const Snapshots = client.db().collection('snapshot')
-        await Snapshots.insertOne({ _id: ObjectId(nameReport), snapshots: [] })
+        console.log(_id)
+        const ReportsRandom = client.db().collection('reportrandoms')
+        const report = await ReportsRandom.findOne({
+          _id: ObjectId(_id)
+        })
+
+        const infoScreen = report.pantalla.split('x')
+
+        const Application = client.db().collection('applications')
+        const application = await Application.findOne({
+          _id: ObjectId(report.idAppliRandom)
+        })
+
+        const infoConfig = {
+          baseUrl: application.url,
+          resizeWindow: {
+            width: parseInt(infoScreen[0]),
+            height: parseInt(infoScreen[1])
+          }
+        }
 
         fs.writeFileSync('tmp/config.json', JSON.stringify(infoConfig))
 
-        let properties = data.navegador
-        if (data.mode === 'true') {
+        let properties = report.navegador
+        if (report.mode === 'true') {
           properties += ':headless'
         }
 
@@ -106,7 +71,7 @@ exports.testCafeStart = function (data) {
             })
 
             for (let picture of picturesVR) {
-              await fileStorage.saveRandomScreenshot(nameReport, picture)
+              await fileStorage.saveRandomScreenshot(_id, picture)
               fs.unlinkSync(`./tmp/screenshots/${picture}`)
             }
 
@@ -115,14 +80,14 @@ exports.testCafeStart = function (data) {
             const ReportsRandom = client.db().collection('reportrandoms')
 
             await ReportsRandom.updateOne({
-              _id: ObjectId(nameReport)
+              _id: ObjectId(_id)
             }, {
               $set: { screenshotsLength }
             })
 
-            fs.appendFileSync(`tmp/${nameReport}.html`, stdout)
-            await fileStorage.saveRandomReport(nameReport)
-            fs.unlinkSync(`tmp/${nameReport}.html`)
+            fs.appendFileSync(`tmp/${_id}.html`, stdout)
+            await fileStorage.saveRandomReport(_id)
+            fs.unlinkSync(`tmp/${_id}.html`)
 
             resolve()
           }
