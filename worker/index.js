@@ -1,67 +1,36 @@
 require('dotenv').config()
 
 const cron = require('node-cron')
-const MongoClient = require('mongodb').MongoClient
-const ObjectId = require('mongodb').ObjectID
-const AWS = require('aws-sdk')
-const s3 = new AWS.S3()
 
-const { receiveMessages, deleteMessage } = require('./functions/queue')
+const email = require('./functions/email')
+const { receiveMessage, deleteMessage } = require('./functions/queue')
+const fs = require('fs')
 
-const { CRON_TIME, MONGODB_URI, AWS_CLOUDFRONT_URL, AWS_BUCKET } = require('./config')
+const { CRON_TIME, CREATE_E2E_TEST, EXECUTE_E2E_TEST } = require('./config')
+
+const models = fs.readdirSync('./models')
+models.forEach(modelStr => {
+  let modelName = modelStr.slice(0, -3)
+  require('./models/' + modelName)
+})
+
+const e2eLogic = require('./logic/e2e')
 
 cron.schedule(CRON_TIME, async () => {
   console.log('Cron started')
 
-  const messages = await receiveMessages()
-  if (messages) {
-    eachLimit(messages, 1, (message, cb) => {
-      const { MessageAttributes: { email: { StringValue: authorEmail }, videoPath: { StringValue: videoPath }, _id: { StringValue: _id }, campaignURL: { StringValue: campaignURL } }, ReceiptHandle: receiptHandle } = message
-      console.log(`id del submit a convertir: ${_id}`)
-      const rand = Math.floor((Math.random() * 1000) + 1)
-
-      request(`${AWS_CLOUDFRONT_URL}/vid1/${videoPath}`)
-        .pipe(fs.createWriteStream(`./tmp/${rand}-${videoPath}`))
-        .on('finish', async () => {
-          const formattedVideoPath = await convertVideo(videoPath, rand)
-
-          streamToBuffer(fs.createReadStream(`./tmp/${rand}-${formattedVideoPath}`), (err, buffer) => {
-            if (err) throw err
-            else {
-              s3.putObject({
-                Bucket: AWS_BUCKET,
-                Key: `vid2/${formattedVideoPath}`,
-                Body: buffer,
-                ACL: 'public-read'
-              }, (err, data) => {
-                if (err) throw (err)
-                else {
-                  fs.unlinkSync(`./tmp/${rand}-${videoPath}`)
-                  fs.unlinkSync(`./tmp/${rand}-${formattedVideoPath}`)
-
-                  if (err) throw err
-                  else {
-                    MongoClient.connect(MONGODB_URI, async (err, client) => {
-                      if (err) throw err
-                      else {
-                        const CampaignSubmit = client.db().collection('CampaignSubmit')
-
-                        await CampaignSubmit.updateOne({ _id: ObjectId(_id) }, {
-                          $set: { formattedVideoPath }
-                        })
-                        client.close()
-
-                        await sendVideoFormattedEmail(authorEmail, campaignURL)
-                        await deleteMessage(receiptHandle)
-                        console.log('terminado')
-                      }
-                    })
-                  }
-                }
-              })
-            }
-          })
-        })
-    })
+  const message = await receiveMessage()
+  console.log(message)
+  if (message) {
+    const { Body: type, ReceiptHandle: receiptHandle, MessageAttributes: { _id: { StringValue: _id } } } = message
+    if (type === CREATE_E2E_TEST) {
+      await e2eLogic.createTest(_id)
+      await email.sendE2ETestCreatedEmail()
+      await deleteMessage(receiptHandle)
+    } else if (type === EXECUTE_E2E_TEST) {
+      await e2eLogic.executeTest(_id)
+      await email.sendE2ETestExecutedEmail()
+      await deleteMessage(receiptHandle)
+    }
   }
 })

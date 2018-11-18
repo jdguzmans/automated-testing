@@ -9,5 +9,13 @@ module.exports = {
   AWS_CLOUDFRONT_URL: process.env.AWS_CLOUDFRONT_URL,
   AWS_QUEUE_URL: process.env.AWS_QUEUE_URL,
 
-  MONGODB_URI: process.env.MONGODB_URI
+  MONGODB_URI: process.env.MONGODB_URI,
+
+  CREATE_E2E_TEST: '0',
+  EXECUTE_E2E_TEST: '1',
+
+  EXECUTE_RANDOM_TEST: '2',
+
+  REGISTER_VR_TEST: '3',
+  EXECUTE_VR_TEST: '4'
 }

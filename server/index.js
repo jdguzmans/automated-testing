@@ -11,10 +11,10 @@ const { PORT, MONGODB_URI } = require('./config')
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
-//CODIGO REPORTE CARGUE DATOS
+// CODIGO REPORTE CARGUE DATOS
 const path = require('path')
-app.use(express.static(path.join(__dirname, 'ReportGAD')));
-//FIN CODIGO
+app.use(express.static(path.join(__dirname, 'ReportGAD')))
+// FIN CODIGO
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('port', PORT)
 
@@ -28,8 +28,8 @@ mongoose.set('debug', true)
 // Add models
 const models = fs.readdirSync('./models')
 models.forEach(modelStr => {
-    let modelName = modelStr.slice(0, -3)
-    require('./models/' + modelName)
+  let modelName = modelStr.slice(0, -3)
+  require('./models/' + modelName)
 })
 
 const routes = fs.readdirSync('./routes')

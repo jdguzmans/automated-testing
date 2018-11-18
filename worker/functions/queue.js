@@ -1,7 +1,7 @@
 
 const AWS = require('aws-sdk')
-AWS.config.update({region: 'us-east-1'})
-const sqs = new AWS.SQS({apiVersion: '2012-11-05'})
+AWS.config.update({ region: 'us-east-1' })
+const sqs = new AWS.SQS({ apiVersion: '2012-11-05' })
 
 const { AWS_QUEUE_URL } = require('../config')
 
@@ -34,7 +34,7 @@ module.exports = {
     })
   },
 
-  receiveMessages: () => {
+  receiveMessage: () => {
     return new Promise((resolve, reject) => {
       const params = {
         MaxNumberOfMessages: 1,
@@ -42,7 +42,7 @@ module.exports = {
           'All'
         ],
         QueueUrl: AWS_QUEUE_URL,
-        VisibilityTimeout: 100,
+        VisibilityTimeout: 200,
         WaitTimeSeconds: 0
       }
 
@@ -50,7 +50,7 @@ module.exports = {
         if (err) reject(err)
         else {
           const { Messages: messages } = data
-          resolve(messages)
+          resolve(messages ? messages[0] : null)
         }
       })
     })
