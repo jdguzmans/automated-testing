@@ -3,7 +3,7 @@ const AWS = require('aws-sdk')
 AWS.config.update({ region: 'us-east-1' })
 const sqs = new AWS.SQS({ apiVersion: '2012-11-05' })
 
-const { AWS_QUEUE_URL, CREATE_E2E_TEST, EXECUTE_E2E_TEST, EXECUTE_RANDOM_TEST } = require('../config')
+const { AWS_QUEUE_URL, CREATE_E2E_TEST, EXECUTE_E2E_TEST, EXECUTE_RANDOM_TEST, REGISTER_VR_TEST, EXECUTE_VR_TEST } = require('../config')
 
 module.exports = {
   sendCreateE2ETestMessage: async (id) => {
@@ -39,6 +39,36 @@ module.exports = {
   sendExecuteRandomTestMessage: async (id) => {
     const params = {
       MessageBody: EXECUTE_RANDOM_TEST,
+      QueueUrl: AWS_QUEUE_URL,
+      MessageAttributes: {
+        '_id': {
+          DataType: 'String',
+          StringValue: id.toString()
+        }
+      }
+    }
+
+    await sendMessage(params)
+  },
+
+  sendCreateVRSnapshotMessage: async (id) => {
+    const params = {
+      MessageBody: REGISTER_VR_TEST,
+      QueueUrl: AWS_QUEUE_URL,
+      MessageAttributes: {
+        '_id': {
+          DataType: 'String',
+          StringValue: id.toString()
+        }
+      }
+    }
+
+    await sendMessage(params)
+  },
+
+  sendExecuteVRSnapshotMessage: async (id) => {
+    const params = {
+      MessageBody: EXECUTE_VR_TEST,
       QueueUrl: AWS_QUEUE_URL,
       MessageAttributes: {
         '_id': {

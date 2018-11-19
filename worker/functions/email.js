@@ -44,6 +44,14 @@ module.exports = {
 
   sendRandomTestExecutedEmail: async () => {
     await sendEmail('Terminada de ejecutar la prueba Random')
+  },
+
+  sendVRCreationTestEmail: async () => {
+    await sendEmail('Terminado de crear el snapshot de VR')
+  },
+
+  sendVRExecutionTestEmail: async () => {
+    await sendEmail('Terminado de ejecutar el snapshot de VR')
   }
 
 }

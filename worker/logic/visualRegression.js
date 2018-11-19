@@ -4,66 +4,20 @@ const capturePhantom = require('capture-phantomjs')
 const resemble = require('node-resemble-js')
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('mongodb').ObjectID
-const fs = require('fs')
 const fileStorage = require('../functions/fileStorage')
 
 const { MONGODB_URI } = require('../config')
 
 module.exports = {
-  getAllSnapshots: () => {
-    return new Promise((resolve, reject) => {
-      MongoClient.connect(MONGODB_URI, (err, client) => {
-        if (err) reject(err)
-        else {
-          let Snapshots = client.db().collection('snapshot')
-          Snapshots.find({ url: { $exists: true } }).toArray((err, points) => {
-            if (err) reject(err)
-            else resolve(points)
-            client.close()
-          })
-        }
-      })
-    })
-  },
-
-  getSnapshotById: (testId, snapshotId) => {
+  createSnapshot: async (_id) => {
     return new Promise((resolve, reject) => {
       MongoClient.connect(MONGODB_URI, async (err, client) => {
         if (err) reject(err)
         else {
-          const Snapshots = client.db().collection('snapshot')
-          let { snapshots } = await Snapshots.findOne({ _id: ObjectId(testId) })
-
-          let sn1
-          let sn2
-          for (let i = 0; i < snapshots.length; i++) {
-            sn1 = snapshots[i]
-            const { report } = sn1
-            if (report.toString() === snapshotId && i !== 0) {
-              sn2 = snapshots[i - 1]
-            }
-          }
-          resolve({ snapshots: { sn1, sn2 }, testId })
-        }
-      })
-    })
-  },
-
-  createSnapshot: async (name, url) => {
-    return new Promise((resolve, reject) => {
-      MongoClient.connect(MONGODB_URI, async (err, client) => {
-        if (err) reject(err)
-        else {
-          const time = new Date().getTime()
           let Snapshots = client.db().collection('snapshot')
 
-          const { ops } = await Snapshots.insertOne({ name,
-            url,
-            snapshots: [
-              time
-            ]
-          })
-          const { _id } = ops[0]
+          const { url, snapshots } = await Snapshots.findOne({ _id: ObjectId(_id) })
+          const time = snapshots[0]
 
           const electronScreenshot = await captureElectron({ url })
           await fileStorage.saveRegressionElectronSnapshot(electronScreenshot, _id, time)
@@ -117,17 +71,9 @@ module.exports = {
               const snapshot2 = snapshots[(snapshots.length - 1)]
 
               const snapshot1Electron = await fileStorage.getRegressionElectronSnapshot(_id, snapshot1)
-              // await fs.writeFileSync(`./tmp/${_id}-elec1`, snapshot1ElectronBuffer)
-              // const snapshot1Electron = fs.readFileSync(`./tmp/${_id}-elec1`)
 
               const snapshot2Electron = await fileStorage.getRegressionElectronSnapshot(_id, snapshot2)
-              // await fs.writeFileSync(`./tmp/${_id}-elec2`, snapshot2ElectronBuffer)
-              // const snapshot2Electron = fs.readFileSync(`./tmp/${_id}-elec2`)
 
-              console.log(snapshot1Electron)
-              console.log(snapshot2Electron)
-
-              console.log(0)
               resemble(snapshot1Electron)
                 .compareTo(snapshot2Electron)
                 .onComplete(async data => {
@@ -140,19 +86,12 @@ module.exports = {
 
                   const snapshot2Phantom = await fileStorage.getRegressionPhantomSnapshot(_id, snapshot2)
 
-                  console.log(snapshot1Phantom)
-                  console.log(snapshot2Phantom)
-
                   resemble(snapshot1Phantom)
                     .compareTo(snapshot2Phantom)
                     .onComplete(async data => {
-                      console.log(4)
-
                       const { getDiffImageAsJPEG } = data
                       const differences = getDiffImageAsJPEG()
                       await fileStorage.saveRegressionPhantomExecution(differences, _id, time)
-
-                      console.log(5)
 
                       resolve()
                     })

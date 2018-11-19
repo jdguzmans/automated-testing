@@ -6,7 +6,7 @@ const email = require('./functions/email')
 const { receiveMessage, deleteMessage } = require('./functions/queue')
 const fs = require('fs')
 
-const { CRON_TIME, CREATE_E2E_TEST, EXECUTE_E2E_TEST, EXECUTE_RANDOM_TEST } = require('./config')
+const { CRON_TIME, CREATE_E2E_TEST, EXECUTE_E2E_TEST, EXECUTE_RANDOM_TEST, REGISTER_VR_TEST, EXECUTE_VR_TEST } = require('./config')
 
 const models = fs.readdirSync('./models')
 models.forEach(modelStr => {
@@ -16,6 +16,7 @@ models.forEach(modelStr => {
 
 const e2eLogic = require('./logic/e2e')
 const randomLogic = require('./logic/randomTesting')
+const vrLogic = require('./logic/visualRegression')
 
 cron.schedule(CRON_TIME, async () => {
   console.log('Cron started')
@@ -27,15 +28,19 @@ cron.schedule(CRON_TIME, async () => {
     if (type === CREATE_E2E_TEST) {
       await e2eLogic.createTest(_id)
       await email.sendE2ETestCreatedEmail()
-      await deleteMessage(receiptHandle)
     } else if (type === EXECUTE_E2E_TEST) {
       await e2eLogic.executeTest(_id)
       await email.sendE2ETestExecutedEmail()
-      await deleteMessage(receiptHandle)
     } else if (type === EXECUTE_RANDOM_TEST) {
       await randomLogic.executeTest(_id)
       await email.sendRandomTestExecutedEmail()
-      await deleteMessage(receiptHandle)
+    } else if (type === REGISTER_VR_TEST) {
+      await vrLogic.createSnapshot(_id)
+      await email.sendVRCreationTestEmail()
+    } else if (type === EXECUTE_VR_TEST) {
+      await vrLogic.executeSnapshot(_id)
+      await email.sendVRExecutionTestEmail()
     }
+    await deleteMessage(receiptHandle)
   }
 })
