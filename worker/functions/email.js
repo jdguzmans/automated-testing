@@ -9,7 +9,8 @@ const sendEmail = (message) => {
     const params = {
       Destination: {
         ToAddresses: [
-          'jd.guzman10@uniandes.edu.co'
+          'jd.guzman10@uniandes.edu.co',
+          'ja.sarmiento@uniandes.edu.co'
         ]
       },
       Message: {
