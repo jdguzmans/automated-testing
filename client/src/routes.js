@@ -37,6 +37,16 @@ const MatrizTestE2E = Loadable({
   loading: Loading,
 });
 
+const MatrizTestMovil = Loadable({
+  loader: () => import('./views/PruebasMonkey/MatrizTestMovil'),
+  loading: Loading,
+});
+
+const EmulatorAndroid = Loadable({
+  loader: () => import('./views/PruebasMonkey/EmulatorAndroid'),
+  loading: Loading,
+});
+
 const ReportE2E = Loadable({
   loader: () => import('./views/PruebasE2E/ListReport'),
   loading: Loading,
@@ -301,6 +311,7 @@ const routes = [
   { path: '/listApplication', exact: true, name: 'Lista de Aplicaciones', component: ListApplication },
   { path: '/matrizTest/:idTest/:idApplication', exact: true, name: 'Matriz de pruebas', component: MatrizTestE2E },
   { path: '/matrizTest/:idApplicationRandom', exact: true, name: 'Matriz de pruebas random', component: MatrizTestE2E },
+  { path: '/matrizTestMovil/:idApplicationRandom', exact: true, name: 'Matriz de pruebas random movil', component: MatrizTestMovil },
   { path: '/viewreport/:id', exact: true, name: 'Vista Reportes', component: ViewReportE2E },
   { path: '/viewscreenshots/:id', exact: true, name: 'Vista Screenshots', component: ViewScreenshotsE2E },
   { path: '/testingMonkey/create', exact: true, name: 'Crear Pruebas Monkey', component: CreateTestingMonkey },
@@ -309,6 +320,7 @@ const routes = [
   { path: '/datosAutomaticos/start', exact: true, name: 'Ejecutar Cargue Datos', component: StartUploadData },
   { path: '/datosAutomaticos/create', exact: true, name: 'Crear Cargue Datos', component: CreateUploadData },
   { path: '/datosAutomaticos/report', exact: true, name: 'Reporte Cargue Datos', component: ReportUploadData },
+  { path: '/EmulatorAndroid', exact: true, name: 'Emulador Android', component: EmulatorAndroid },
 
   { path: '/viewE2EVR/:idTest/:id', exact: true, name: 'Vista de Regresión Visual E2E', component: ViewE2EVR },
   { path: '/viewE2EMutation/:idTest/:id', exact: true, name: 'Vista de Mutation Testing en E2E', component: ViewE2EMutation },

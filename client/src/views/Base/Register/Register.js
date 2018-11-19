@@ -61,7 +61,8 @@ class Register extends Component {
       host: '',
       nameDb: '',
       userDb: '',
-      passwordDB: ''
+      passwordDB: '',
+      fileApk: ''
     })
   }
 
@@ -85,7 +86,7 @@ class Register extends Component {
   }
 
   handleSubmit () {
-    const { name, url, type, description, host, nameDb, userDb, passwordDB } = this.state
+    const { name, url, type, description, host, nameDb, userDb, passwordDB, fileApk } = this.state
 
     if (this.idRegister !== undefined) {
       axios.patch(
@@ -120,7 +121,8 @@ class Register extends Component {
           host,
           nameDb,
           userDb,
-          passwordDB
+          passwordDB,
+          fileApk
         }
       ).then(response => {
         this.setState({ message: 'Registro guardado con exito' })
@@ -138,6 +140,91 @@ class Register extends Component {
     this.setState({
       [key]: event.target.value
     })
+  }
+
+  fieldTypeApplication(){
+    let field = ''
+    const { type, host, nameDb, userDb, passwordDB, fileApk} = this.state
+
+    if(type == 'Web'){
+      field = <FormGroup row>
+                <Col md='12'>
+                  <strong>Datos de conexion a la Base de Datos</strong><hr />
+                </Col>
+                <Col md='3'>
+                  <Label htmlFor='text-input'>Host</Label>
+                </Col>
+                <Col xs='12' md='9'>
+                  <Input
+                    onChange={(ev) => this.handleChangeField('host', ev)}
+                    value={host}
+                    type='text'
+                    name='hostDb'
+                    id='hostDb'
+                  />
+                </Col>
+                <br></br><br></br><br></br>
+                <Col md='3'>
+                  <Label htmlFor='text-input'>Base de datos</Label>
+                </Col>
+                <Col xs='12' md='9'>
+                  <Input
+                    onChange={(ev) => this.handleChangeField('nameDb', ev)}
+                    value={nameDb}
+                    type='text'
+                    name='nameDb'
+                    id='nameDb'
+                  />
+                </Col>
+                <br></br><br></br><br></br>
+                <Col md='3'>
+                  <Label htmlFor='text-input'>Usuario</Label>
+                </Col>
+                <Col xs='12' md='9'>
+                  <Input
+                    onChange={(ev) => this.handleChangeField('userDb', ev)}
+                    value={userDb}
+                    type='text'
+                    name='userDb'
+                    id='userDb'
+                  />
+                </Col>
+                <br></br><br></br><br></br>
+                <Col md='3'>
+                  <Label htmlFor='text-input'>Contraseña</Label>
+                </Col>
+                <Col xs='12' md='9'>
+                  <Input
+                    onChange={(ev) => this.handleChangeField('passwordDB', ev)}
+                    value={passwordDB}
+                    type='password'
+                    name='passDb'
+                    id='passDb'
+                  />
+                </Col>
+              </FormGroup>
+    } else if(type == 'Movil'){
+      field = <FormGroup row>
+                <Col md='12'>
+                  <strong>Cargar Apk de la Aplicacion</strong><hr />
+                </Col>
+                <Col md='3'>
+                  <Label htmlFor='text-input'>APK</Label>
+                </Col>
+                <Col xs='12' md='9'>
+                  <Input
+                    onChange={(ev) => this.handleChangeField('fileApk', ev)}
+                    value={fileApk}
+                    type='file'
+                    name='fileApk'
+                    id='fileApk'
+                  />
+                </Col>
+              </FormGroup>
+    }
+    
+            
+    return field
   }
 
   render () {
@@ -218,67 +305,7 @@ class Register extends Component {
                       />
                     </Col>
                   </FormGroup>
-                  <FormGroup row>
-                    <Col md='12'>
-                      <strong>Datos de conexion a la Base de Datos</strong><hr />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='text-input'>Host</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('host', ev)}
-                        value={host}
-                        type='text'
-                        name='hostDb'
-                        id='hostDb'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='text-input'>Base de datos</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('nameDb', ev)}
-                        value={nameDb}
-                        type='text'
-                        name='nameDb'
-                        id='nameDb'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='text-input'>Usuario</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('userDb', ev)}
-                        value={userDb}
-                        type='text'
-                        name='userDb'
-                        id='userDb'
-                      />
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row>
-                    <Col md='3'>
-                      <Label htmlFor='text-input'>Contraseña</Label>
-                    </Col>
-                    <Col xs='12' md='9'>
-                      <Input
-                        onChange={(ev) => this.handleChangeField('passwordDB', ev)}
-                        value={passwordDB}
-                        type='password'
-                        name='passDb'
-                        id='passDb'
-                      />
-                    </Col>
-                  </FormGroup>
+                  {this.fieldTypeApplication()}
                 </Form>
               </CardBody>
               <CardFooter>
