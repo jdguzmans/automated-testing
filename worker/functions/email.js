@@ -52,6 +52,10 @@ module.exports = {
 
   sendVRExecutionTestEmail: async () => {
     await sendEmail('Terminado de ejecutar el snapshot de VR')
+  },
+
+  sendGADExecutedEmail: async () => {
+    await sendEmail('Terminado de ejecutar la carga de datos')
   }
 
 }

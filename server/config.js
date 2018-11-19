@@ -17,5 +17,7 @@ module.exports = {
   EXECUTE_RANDOM_TEST: '2',
 
   REGISTER_VR_TEST: '3',
-  EXECUTE_VR_TEST: '4'
+  EXECUTE_VR_TEST: '4',
+
+  UPLOAD_GAD_START: '5'
 }

@@ -11,10 +11,6 @@ const { PORT, MONGODB_URI } = require('./config')
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
-// CODIGO REPORTE CARGUE DATOS
-const path = require('path')
-app.use(express.static(path.join(__dirname, 'ReportGAD')))
-// FIN CODIGO
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('port', PORT)
 

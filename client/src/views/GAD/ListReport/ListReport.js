@@ -83,7 +83,7 @@ class ListReport extends Component {
       console.log(object)
       return (
         <tr>
-          <td>{object.date }</td>
+          <td>{ new Date(object.date).toString()}</td>
           <td>{tables[object.idTable] }</td>
           <td>{applications[idApllication[object.idTable]] }</td>
           <td>{object.configRegister}</td>

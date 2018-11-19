@@ -102,18 +102,3 @@ module.exports = {
     })
   }
 }
-
-// const prueba = async () => {
-//   const snapshotElectron = fs.readFileSync(`${STATIC_PATH}/5bbacd3423fd2b7519feed12/snapshots/1539015967250/electron.png`)
-//   const snapshotPhantom = fs.readFileSync(`${STATIC_PATH}/5bbacd3423fd2b7519feed12/snapshots/1539015967250/phantom.png`)
-
-//   resemble(snapshotElectron)
-//   .compareTo(snapshotPhantom)
-//   .onComplete(data => {
-//     const hola = data.getDiffImageAsJPEG()
-//     fs.writeFileSync(`${STATIC_PATH}/5bbacd3423fd2b7519feed12/snapshots/1539015967250/browserDifferences.jpeg`, hola)
-//     console.log('ya')
-//   })
-// }
-
-// prueba()

@@ -6,7 +6,7 @@ const email = require('./functions/email')
 const { receiveMessage, deleteMessage } = require('./functions/queue')
 const fs = require('fs')
 
-const { CRON_TIME, CREATE_E2E_TEST, EXECUTE_E2E_TEST, EXECUTE_RANDOM_TEST, REGISTER_VR_TEST, EXECUTE_VR_TEST } = require('./config')
+const { CRON_TIME, CREATE_E2E_TEST, EXECUTE_E2E_TEST, EXECUTE_RANDOM_TEST, REGISTER_VR_TEST, EXECUTE_VR_TEST, UPLOAD_GAD_START } = require('./config')
 
 const models = fs.readdirSync('./models')
 models.forEach(modelStr => {
@@ -17,6 +17,7 @@ models.forEach(modelStr => {
 const e2eLogic = require('./logic/e2e')
 const randomLogic = require('./logic/randomTesting')
 const vrLogic = require('./logic/visualRegression')
+const uploadGADLogic = require('./logic/uploadData')
 
 cron.schedule(CRON_TIME, async () => {
   console.log('Cron started')
@@ -40,6 +41,9 @@ cron.schedule(CRON_TIME, async () => {
     } else if (type === EXECUTE_VR_TEST) {
       await vrLogic.executeSnapshot(_id)
       await email.sendVRExecutionTestEmail()
+    } else if (type === UPLOAD_GAD_START) {
+      await uploadGADLogic.uploadStart(_id)
+      await email.sendGADExecutedEmail()
     }
     await deleteMessage(receiptHandle)
   }
