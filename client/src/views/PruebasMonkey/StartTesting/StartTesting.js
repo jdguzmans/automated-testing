@@ -29,13 +29,19 @@ class StartTesting extends Component {
   }
   tabRow () {
     return this.state.serverports.map(function (object, i) {
+      let urlMatriz = ''
+      if(object.type == 'Web'){
+        urlMatriz = '/#/matrizTest/' + object._id
+      } else {
+        urlMatriz = '/#/matrizTestMovil/' + object._id
+      }
       return (
         <tr>
           <td>{object.name}</td>
           <td>{object.description}</td>
           <td>{object.type}</td>
           <td>
-            <a href={'/#/matrizTest/' + object._id}>
+            <a href={urlMatriz}>
               <i className='icon-control-play icons d-block mt-1' />
             </a>
           </td>

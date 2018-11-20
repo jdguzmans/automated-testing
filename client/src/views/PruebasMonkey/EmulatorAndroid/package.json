@@ -1,0 +1,6 @@
+{
+  "name": "Emulator Android",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./EmulatorAndroid.js"
+}
