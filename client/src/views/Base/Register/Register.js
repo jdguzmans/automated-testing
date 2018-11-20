@@ -1,3 +1,5 @@
+/* global alert FileReader FormData fetch */
+
 import React, { Component } from 'react'
 import axios from 'axios'
 
@@ -30,7 +32,8 @@ class Register extends Component {
       userDb: '',
       passwordDB: '',
       modal: false,
-      message: ''
+      message: '',
+      apk: null
     }
 
     this.idRegister = this.props.match.params.id
@@ -40,6 +43,9 @@ class Register extends Component {
     this.toggle = this.toggle.bind(this)
     this.clearField = this.clearField.bind(this)
     this.getData = this.getData.bind(this)
+
+    this.fieldTypeApplication = this.fieldTypeApplication.bind(this)
+    this.handleAPKChange = this.handleAPKChange.bind(this)
 
     if (this.idRegister !== undefined) {
       this.getData()
@@ -62,7 +68,7 @@ class Register extends Component {
       nameDb: '',
       userDb: '',
       passwordDB: '',
-      fileApk: ''
+      apk: null
     })
   }
 
@@ -81,17 +87,28 @@ class Register extends Component {
         passwordDB: response.data.application.passwordDB
       })
     }).catch(function (error) {
+      console.log(error)
       alert('Error al cargar la informacion')
     })
   }
 
-  handleSubmit () {
-    const { name, url, type, description, host, nameDb, userDb, passwordDB, fileApk } = this.state
+  async handleAPKChange (e) {
+    let file = e.target.files[0]
+
+    let reader = new FileReader()
+    const apk = await readAPK(reader, file)
+
+    this.setState({
+      apk
+    })
+  }
+
+  async handleSubmit () {
+    const { name, url, type, description, host, nameDb, userDb, passwordDB, apk } = this.state
 
     if (this.idRegister !== undefined) {
       axios.patch(
-        `${process.env.REACT_APP_BACKEND_URL}/application/${this.idRegister}`,
-        {
+        `${process.env.REACT_APP_BACKEND_URL}/application/${this.idRegister}`, {
           name,
           url,
           type,
@@ -110,10 +127,23 @@ class Register extends Component {
       }).catch(function (error) {
         alert(error)
       })
+    } else if (apk) {
+      let data = new FormData()
+      data.append('name', name)
+      data.append('url', url)
+      data.append('type', type)
+      data.append('description', description)
+      data.append('apk', apk)
+
+      await fetch(`${process.env.REACT_APP_BACKEND_URL}/application`, {
+        mode: 'cors',
+        method: 'POST',
+        body: data
+      })
+      alert('Registro guardado con exito')
     } else {
       axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/application`,
-        {
+        `${process.env.REACT_APP_BACKEND_URL}/application`, {
           name,
           url,
           type,
@@ -121,8 +151,7 @@ class Register extends Component {
           host,
           nameDb,
           userDb,
-          passwordDB,
-          fileApk
+          passwordDB
         }
       ).then(response => {
         this.setState({ message: 'Registro guardado con exito' })
@@ -142,93 +171,84 @@ class Register extends Component {
     })
   }
 
-  fieldTypeApplication(){
-    let field = ''
-    const { type, host, nameDb, userDb, passwordDB, fileApk} = this.state
+  fieldTypeApplication () {
+    const { type, host, nameDb, userDb, passwordDB } = this.state
 
-    if(type == 'Web'){
-      field = <FormGroup row>
-                <Col md='12'>
-                  <strong>Datos de conexion a la Base de Datos</strong><hr />
-                </Col>
-                <Col md='3'>
-                  <Label htmlFor='text-input'>Host</Label>
-                </Col>
-                <Col xs='12' md='9'>
-                  <Input
-                    onChange={(ev) => this.handleChangeField('host', ev)}
-                    value={host}
-                    type='text'
-                    name='hostDb'
-                    id='hostDb'
-                  />
-                </Col>
-                <br></br><br></br><br></br>
-                <Col md='3'>
-                  <Label htmlFor='text-input'>Base de datos</Label>
-                </Col>
-                <Col xs='12' md='9'>
-                  <Input
-                    onChange={(ev) => this.handleChangeField('nameDb', ev)}
-                    value={nameDb}
-                    type='text'
-                    name='nameDb'
-                    id='nameDb'
-                  />
-                </Col>
-                <br></br><br></br><br></br>
-                <Col md='3'>
-                  <Label htmlFor='text-input'>Usuario</Label>
-                </Col>
-                <Col xs='12' md='9'>
-                  <Input
-                    onChange={(ev) => this.handleChangeField('userDb', ev)}
-                    value={userDb}
-                    type='text'
-                    name='userDb'
-                    id='userDb'
-                  />
-                </Col>
-                <br></br><br></br><br></br>
-                <Col md='3'>
-                  <Label htmlFor='text-input'>Contraseña</Label>
-                </Col>
-                <Col xs='12' md='9'>
-                  <Input
-                    onChange={(ev) => this.handleChangeField('passwordDB', ev)}
-                    value={passwordDB}
-                    type='password'
-                    name='passDb'
-                    id='passDb'
-                  />
-                </Col>
-              </FormGroup>
-    } else if(type == 'Movil'){
-      field = <FormGroup row>
-                <Col md='12'>
-                  <strong>Cargar Apk de la Aplicacion</strong><hr />
-                </Col>
-                <Col md='3'>
-                  <Label htmlFor='text-input'>APK</Label>
-                </Col>
-                <Col xs='12' md='9'>
-                  <Input
-                    onChange={(ev) => this.handleChangeField('fileApk', ev)}
-                    value={fileApk}
-                    type='file'
-                    name='fileApk'
-                    id='fileApk'
-                  />
-                </Col>
-              </FormGroup>
+    if (type === 'Web') {
+      return <FormGroup row>
+        <Col md='12'>
+          <strong>Datos de conexion a la Base de Datos</strong><hr />
+        </Col>
+        <Col md='3'>
+          <Label htmlFor='text-input'>Host</Label>
+        </Col>
+        <Col xs='12' md='9'>
+          <Input
+            onChange={(ev) => this.handleChangeField('host', ev)}
+            value={host}
+            type='text'
+            name='hostDb'
+            id='hostDb'
+          />
+        </Col>
+        <br /><br /><br />
+        <Col md='3'>
+          <Label htmlFor='text-input'>Base de datos</Label>
+        </Col>
+        <Col xs='12' md='9'>
+          <Input
+            onChange={(ev) => this.handleChangeField('nameDb', ev)}
+            value={nameDb}
+            type='text'
+            name='nameDb'
+            id='nameDb'
+          />
+        </Col>
+        <br /><br /><br />
+        <Col md='3'>
+          <Label htmlFor='text-input'>Usuario</Label>
+        </Col>
+        <Col xs='12' md='9'>
+          <Input
+            onChange={(ev) => this.handleChangeField('userDb', ev)}
+            value={userDb}
+            type='text'
+            name='userDb'
+            id='userDb'
+          />
+        </Col>
+        <br /><br /><br />
+        <Col md='3'>
+          <Label htmlFor='text-input'>Contraseña</Label>
+        </Col>
+        <Col xs='12' md='9'>
+          <Input
+            onChange={(ev) => this.handleChangeField('passwordDB', ev)}
+            value={passwordDB}
+            type='password'
+            name='passDb'
+            id='passDb'
+          />
+        </Col>
+      </FormGroup>
+    } else if (type === 'Movil') {
+      return (<FormGroup row>
+        <Col md='12'>
+          <strong>Cargar Apk de la Aplicacion</strong><hr />
+        </Col>
+        <Col md='3'>
+          <Label htmlFor='text-input'>APK</Label>
+        </Col>
+        <Col xs='12' md='9'>
+          <input type='file' className='form-control-file' onChange={this.handleAPKChange} accept='.apk' />
+        </Col>
+      </FormGroup>
+      )
     }
-    
-            
-    return field
   }
 
   render () {
-    const { name, url, type, description, host, nameDb, userDb, passwordDB} = this.state
+    const { name, url, type, description } = this.state
 
     return (
       <div className='animated fadeIn'>
@@ -305,7 +325,7 @@ class Register extends Component {
                       />
                     </Col>
                   </FormGroup>
-                  {this.fieldTypeApplication()}
+                  { this.fieldTypeApplication() }
                 </Form>
               </CardBody>
               <CardFooter>
@@ -318,6 +338,15 @@ class Register extends Component {
       </div>
     )
   }
+}
+
+const readAPK = (reader, file) => {
+  return new Promise((resolve, reject) => {
+    reader.onloadend = () => {
+      resolve(file)
+    }
+    reader.readAsDataURL(file)
+  })
 }
 
 export default Register

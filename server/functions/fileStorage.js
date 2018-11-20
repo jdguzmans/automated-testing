@@ -16,6 +16,7 @@ const RANDOM_REPORT_PATH = 'random/report'
 const RANDOM_SCREENSHOT_PATH = 'random/screenshot'
 
 const VR_PATH = 'vr'
+const APK_PATH = 'apk'
 
 const saveFile = (key, buffer, contentType) => {
   return new Promise((resolve, reject) => {
@@ -69,161 +70,107 @@ const deleteFile = (key, type) => {
 
 module.exports = {
   generateE2ETemplate: async (id) => {
-    return new Promise(async (resolve, reject) => {
-      const templateBuffer = fs.readFileSync('./templates/e2e.js')
-      await saveFile(`${E2E_FILE_PATH}/${id}`, templateBuffer)
-      resolve()
-    })
+    const templateBuffer = fs.readFileSync('./templates/e2e.js')
+    await saveFile(`${E2E_FILE_PATH}/${id}`, templateBuffer)
   },
 
   getE2EFile: async (id) => {
-    return new Promise(async (resolve, reject) => {
-      const file = await getFile(`${E2E_FILE_PATH}/${id}`)
-      resolve(file)
-    })
+    const file = await getFile(`${E2E_FILE_PATH}/${id}`)
+    return file
   },
 
   saveE2EFile: async (id) => {
-    return new Promise(async (resolve, reject) => {
-      const buffer = fs.readFileSync(`./tmp/${id}`)
-      await deleteFile(`${E2E_FILE_PATH}/${id}`)
-      await saveFile(`${E2E_FILE_PATH}/${id}`, buffer)
-      resolve()
-    })
+    const buffer = fs.readFileSync(`./tmp/${id}`)
+    await deleteFile(`${E2E_FILE_PATH}/${id}`)
+    await saveFile(`${E2E_FILE_PATH}/${id}`, buffer)
   },
 
   getMutantFile: async (id) => {
-    return new Promise(async (resolve, reject) => {
-      const file = await getFile(`${E2E_MUTATION_PATH}/${id}/mutant.log`)
-      resolve(file)
-    })
+    const file = await getFile(`${E2E_MUTATION_PATH}/${id}/mutant.log`)
+    return file
   },
 
   getMutodeFile: async (id) => {
-    return new Promise(async (resolve, reject) => {
-      const file = await getFile(`${E2E_MUTATION_PATH}/${id}/mutode.log`)
-      resolve(file)
-    })
+    const file = await getFile(`${E2E_MUTATION_PATH}/${id}/mutode.log`)
+    return file
   },
 
   saveE2EMutationMutantLog: async (id, file) => {
-    return new Promise(async (resolve, reject) => {
-      const buffer = fs.readFileSync(`./tmp/.mutode/${file}`)
-      await saveFile(`${E2E_MUTATION_PATH}/${id}/mutant.log`, buffer)
-      resolve()
-    })
+    const buffer = fs.readFileSync(`./tmp/.mutode/${file}`)
+    await saveFile(`${E2E_MUTATION_PATH}/${id}/mutant.log`, buffer)
   },
 
   saveE2EMutationMutodeLog: async (id, file) => {
-    return new Promise(async (resolve, reject) => {
-      const buffer = fs.readFileSync(`./tmp/.mutode/${file}`)
-      await saveFile(`${E2E_MUTATION_PATH}/${id}/mutode.log`, buffer)
-      resolve()
-    })
+    const buffer = fs.readFileSync(`./tmp/.mutode/${file}`)
+    await saveFile(`${E2E_MUTATION_PATH}/${id}/mutode.log`, buffer)
   },
 
   saveE2EScreenshot: async (id, screenshot) => {
-    return new Promise(async (resolve, reject) => {
-      const buffer = fs.readFileSync(`./tmp/screenshots/${screenshot}`)
-      await saveFile(`${E2E_SCREENSHOT_PATH}/${id}/${screenshot}`, buffer)
-      resolve()
-    })
+    const buffer = fs.readFileSync(`./tmp/screenshots/${screenshot}`)
+    await saveFile(`${E2E_SCREENSHOT_PATH}/${id}/${screenshot}`, buffer)
   },
 
   saveRandomScreenshot: async (id, screenshot) => {
-    return new Promise(async (resolve, reject) => {
-      const buffer = fs.readFileSync(`./tmp/screenshots/${screenshot}`)
-      await saveFile(`${RANDOM_SCREENSHOT_PATH}/${id}/${screenshot}`, buffer)
-      resolve()
-    })
+    const buffer = fs.readFileSync(`./tmp/screenshots/${screenshot}`)
+    await saveFile(`${RANDOM_SCREENSHOT_PATH}/${id}/${screenshot}`, buffer)
   },
 
   getE2EScreenshot: async (id, screenshot) => {
-    return new Promise(async (resolve, reject) => {
-      const file = await getFile(`${E2E_SCREENSHOT_PATH}/${id}/${screenshot}`)
-      resolve(file)
-    })
+    const file = await getFile(`${E2E_SCREENSHOT_PATH}/${id}/${screenshot}`)
+    return file
   },
 
   saveE2EScreenshotComparation: async (report, pic, file) => {
-    return new Promise(async (resolve, reject) => {
-      await saveFile(`${E2E_VR_PATH}/${report}/${pic}`, file)
-      resolve()
-    })
+    await saveFile(`${E2E_VR_PATH}/${report}/${pic}`, file)
   },
 
   saveE2EReport: async (id) => {
-    return new Promise(async (resolve, reject) => {
-      const buffer = fs.readFileSync(`./tmp/${id}.html`)
-      await saveFile(`${E2E_REPORT_PATH}/${id}.html`, buffer, 'text/html')
-      resolve()
-    })
+    const buffer = fs.readFileSync(`./tmp/${id}.html`)
+    await saveFile(`${E2E_REPORT_PATH}/${id}.html`, buffer, 'text/html')
   },
 
   saveRandomReport: async (id) => {
-    return new Promise(async (resolve, reject) => {
-      const buffer = fs.readFileSync(`./tmp/${id}.html`)
-      await saveFile(`${RANDOM_REPORT_PATH}/${id}.html`, buffer, 'text/html')
-      resolve()
-    })
+    const buffer = fs.readFileSync(`./tmp/${id}.html`)
+    await saveFile(`${RANDOM_REPORT_PATH}/${id}.html`, buffer, 'text/html')
   },
 
   saveGADReport: async (id) => {
-    return new Promise(async (resolve, reject) => {
-      const buffer = fs.readFileSync(`./tmp/${id}.csv`)
-      await saveFile(`${GAD_REPORT_PATH}/${id}.csv`, buffer)
-      resolve()
-    })
+    const buffer = fs.readFileSync(`./tmp/${id}.csv`)
+    await saveFile(`${GAD_REPORT_PATH}/${id}.csv`, buffer)
   },
 
   saveRegressionElectronSnapshot: async (capture, id, time) => {
-    return new Promise(async (resolve, reject) => {
-      await saveFile(`${VR_PATH}/snapshots/${id}/${time}/electron.png`, capture)
-      resolve()
-    })
+    await saveFile(`${VR_PATH}/snapshots/${id}/${time}/electron.png`, capture)
   },
 
   getRegressionElectronSnapshot: async (id, time) => {
-    return new Promise(async (resolve, reject) => {
-      const file = await getFile(`${VR_PATH}/snapshots/${id}/${time}/electron.png`)
-      resolve(file)
-    })
+    const file = await getFile(`${VR_PATH}/snapshots/${id}/${time}/electron.png`)
+    return file
   },
 
   saveRegressionPhantomSnapshot: async (capture, id, time) => {
-    return new Promise(async (resolve, reject) => {
-      await saveFile(`${VR_PATH}/snapshots/${id}/${time}/phantom.png`, capture)
-      resolve()
-    })
+    await saveFile(`${VR_PATH}/snapshots/${id}/${time}/phantom.png`, capture)
   },
 
   getRegressionPhantomSnapshot: async (id, time) => {
-    return new Promise(async (resolve, reject) => {
-      console.log(`${VR_PATH}/snapshots/${id}/${time}/phantom.png`)
-      const file = await getFile(`${VR_PATH}/snapshots/${id}/${time}/phantom.png`)
-      resolve(file)
-    })
+    const file = await getFile(`${VR_PATH}/snapshots/${id}/${time}/phantom.png`)
+    return file
   },
 
   saveRegressionElectronPhantomDifferencesSnapshot: async (capture, id, time) => {
-    return new Promise(async (resolve, reject) => {
-      await saveFile(`${VR_PATH}/snapshots/${id}/${time}/phantomElectron.jpeg`, capture)
-      resolve()
-    })
+    await saveFile(`${VR_PATH}/snapshots/${id}/${time}/phantomElectron.jpeg`, capture)
   },
 
   saveRegressionElectronExecution: async (capture, id, time) => {
-    return new Promise(async (resolve, reject) => {
-      await saveFile(`${VR_PATH}/executions/${id}/${time}/electron.jpeg`, capture)
-      resolve()
-    })
+    await saveFile(`${VR_PATH}/executions/${id}/${time}/electron.jpeg`, capture)
   },
 
   saveRegressionPhantomExecution: async (capture, id, time) => {
-    return new Promise(async (resolve, reject) => {
-      await saveFile(`${VR_PATH}/executions/${id}/${time}/phantom.jpeg`, capture)
-      resolve()
-    })
+    await saveFile(`${VR_PATH}/executions/${id}/${time}/phantom.jpeg`, capture)
+  },
+
+  saveAPK: async (id, apk) => {
+    await saveFile(`${APK_PATH}/${id}.apk`, apk)
   }
 
 }
