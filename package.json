@@ -1,0 +1,23 @@
+{
+  "name": "automated-testing",
+  "version": "1.0.0",
+  "description": "Tool for your tests",
+  "main": "index.js",
+  "scripts": {
+    "first-deploy": "cd server && npm install && npm run deploy && cd ../worker && npm install && npm run deploy",
+    "deploy": "pm2 delete pruebas-server && pm2 delete pruebas-worker && cd server && npm install && npm run deploy && cd ../worker && npm install && npm run deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdguzmans/automated-testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdguzmans/automated-testing/issues"
+  },
+  "homepage": "https://github.com/jdguzmans/automated-testing#readme",
+  "dependencies": {
+    "standard": "^12.0.1"
+  }
+}
