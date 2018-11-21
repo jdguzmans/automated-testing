@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "DEV=1 nodemon --ignore static/ --ignore screenshots/ --ignore tmp/ --ext js index.js"
+    "dev": "DEV=1 nodemon --ignore static/ --ignore screenshots/ --ignore tmp/ --ext js index.js",
+    "deploy": "pm2 start index.js --name pruebas-worker"
   },
   "author": "",
   "license": "ISC",
