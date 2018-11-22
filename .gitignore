@@ -8,3 +8,4 @@ server/cypress/screenshots/*
 package-lock.json
 node_modules/
 tmp/
+build/
