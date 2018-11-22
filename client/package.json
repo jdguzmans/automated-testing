@@ -49,6 +49,7 @@
     "react-scripts": "^1.1.5"
   },
   "scripts": {
+    "deploy": "npm run build && rsync -r ./build/ /var/www/pruebas.jdguzmans.com/html",
     "build-css": "node-sass-chokidar --include-path ./node_modules ./src/scss -o ./src/scss",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./node_modules ./src/scss -o ./src/scss --watch --recursive",
     "start-js": "react-scripts start",
