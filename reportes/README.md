@@ -1,13 +1,8 @@
-# JJSS
-Tool for your tests
+# REPORTES
+Esta carpeta contiene los reportes generados por la aplicacion desarrollada sobre las pruebas realizadas
+a las aplicaciones seleccionadas al inicio del proyecto
 
-## Prerequisistes
-In order to run this project it should be installed:
-- [NodeJS](https://nodejs.org/en/).
-
-## Installing
-- Run `npm install` to install all the dependencies locally.
-
-## Running JJSS
-- Run the command `npm start`.
-
+## Aplicaciones
+Las aplicaciones seleccionadas son:
+- K-9 Mail como aplicacion movil
+- LimeSurvey como aplicacion web
