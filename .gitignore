@@ -8,3 +8,5 @@ server/cypress/screenshots/*
 package-lock.json
 node_modules/
 tmp/
+build/
+v8-compile-cache-0/
