@@ -1,0 +1,2345 @@
+Numero de eventos  :10000
+Dispositivo       :Samsung Galaxy S6
+Version Android   :butomo1989/docker-android-x86-7.1.1
+
+:Monkey: seed=1543022493400 count=10000
+:AllowPackage: com.fsck.k9
+:IncludeCategory: android.intent.category.LAUNCHER
+:IncludeCategory: android.intent.category.MONKEY
+// Event percentages:
+//   0: 15.0%
+//   1: 10.0%
+//   2: 2.0%
+//   3: 15.0%
+//   4: -0.0%
+//   5: -0.0%
+//   6: 25.0%
+//   7: 15.0%
+//   8: 2.0%
+//   9: 2.0%
+//   10: 1.0%
+//   11: 13.0%
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(270.0,400.0)
+:Sending Touch (ACTION_UP): 0:(189.43144,343.3449)
+    // Allowing start of Intent { cmp=com.fsck.k9/.activity.setup.WelcomeMessage } in package com.fsck.k9
+    // activityResuming(com.fsck.k9)
+:Sending Touch (ACTION_DOWN): 0:(119.0,241.0)
+:Sending Touch (ACTION_UP): 0:(118.16262,250.79208)
+:Sending Touch (ACTION_DOWN): 0:(220.0,423.0)
+:Sending Touch (ACTION_UP): 0:(129.40247,377.48285)
+:Sending Touch (ACTION_DOWN): 0:(309.0,675.0)
+:Sending Touch (ACTION_UP): 0:(307.91266,678.989)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(11.0,72.0)
+:Sending Touch (ACTION_UP): 0:(57.266792,107.60654)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(267.0,6.0)
+:Sending Touch (ACTION_UP): 0:(246.47772,10.1395235)
+:Sending Touch (ACTION_DOWN): 0:(404.0,29.0)
+:Sending Touch (ACTION_UP): 0:(400.51968,18.369244)
+:Sending Touch (ACTION_DOWN): 0:(416.0,373.0)
+    //[calendar_time:2018-11-23 16:58:51.413  system_uptime:104788]
+    // Sending event #100
+:Sending Touch (ACTION_UP): 0:(307.51086,370.6255)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(332.0,319.0)
+:Sending Touch (ACTION_UP): 0:(337.1272,331.23392)
+:Sending Touch (ACTION_DOWN): 0:(149.0,715.0)
+:Sending Touch (ACTION_UP): 0:(180.80212,676.9178)
+:Sending Touch (ACTION_DOWN): 0:(371.0,268.0)
+:Sending Touch (ACTION_UP): 0:(358.0432,293.08307)
+    // Rejecting start of Intent { act=android.intent.action.VIEW dat=https://github.com/... cmp=android/com.android.internal.app.ResolverActivity } in package android
+:Sending Touch (ACTION_DOWN): 0:(196.0,193.0)
+:Sending Touch (ACTION_UP): 0:(198.79819,175.82085)
+:Sending Touch (ACTION_DOWN): 0:(418.0,424.0)
+:Sending Touch (ACTION_UP): 0:(413.2347,417.40826)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(314.0,375.0)
+:Sending Touch (ACTION_UP): 0:(307.4155,355.13196)
+:Sending Touch (ACTION_DOWN): 0:(412.0,454.0)
+:Sending Touch (ACTION_UP): 0:(403.8567,466.8638)
+    // Rejecting start of Intent { act=android.intent.action.VIEW dat=https://github.com/... cmp=android/com.android.internal.app.ResolverActivity } in package android
+:Sending Touch (ACTION_DOWN): 0:(25.0,34.0)
+:Sending Touch (ACTION_UP): 0:(22.835197,37.444054)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(419.0,327.0)
+:Sending Touch (ACTION_UP): 0:(434.23392,328.74115)
+    //[calendar_time:2018-11-23 16:58:51.908  system_uptime:105282]
+    // Sending event #200
+    // Rejecting start of Intent { act=android.intent.action.VIEW dat=https://github.com/... cmp=android/com.android.internal.app.ResolverActivity } in package android
+:Sending Touch (ACTION_DOWN): 0:(405.0,185.0)
+:Sending Touch (ACTION_UP): 0:(405.86273,176.93991)
+:Sending Touch (ACTION_DOWN): 0:(338.0,14.0)
+:Sending Touch (ACTION_UP): 0:(336.46283,29.545673)
+    // Rejecting start of Intent { act=android.intent.action.VIEW dat=https://github.com/... cmp=android/com.android.internal.app.ResolverActivity } in package android
+:Sending Touch (ACTION_DOWN): 0:(132.0,455.0)
+:Sending Touch (ACTION_UP): 0:(136.60628,456.48035)
+:Sending Flip keyboardOpen=true
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(416.0,832.0)
+:Sending Touch (ACTION_UP): 0:(430.32214,830.80835)
+:Sending Touch (ACTION_DOWN): 0:(277.0,635.0)
+:Sending Touch (ACTION_UP): 0:(259.91333,635.2374)
+    // Allowing start of Intent { cmp=com.fsck.k9/.activity.setup.AccountSetupBasics } in package com.fsck.k9
+    // activityResuming(com.fsck.k9)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(230.0,237.0)
+:Sending Touch (ACTION_UP): 0:(238.34772,254.20772)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.google.android.music/com.android.music.activitymanagement.TopLevelActivity } in package com.google.android.music
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(415.0,91.0)
+:Sending Touch (ACTION_UP): 0:(340.7387,160.90764)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-3.0)
+    //[calendar_time:2018-11-23 16:58:53.490  system_uptime:106863]
+    // Sending event #300
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(376.0,348.0)
+:Sending Touch (ACTION_UP): 0:(379.8449,353.1787)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(354.0,617.0)
+:Sending Touch (ACTION_UP): 0:(354.9751,613.0525)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(436.0,498.0)
+:Sending Touch (ACTION_UP): 0:(442.56137,481.43713)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(50.0,696.0)
+:Sending Touch (ACTION_UP): 0:(61.571682,672.4898)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(415.0,50.0)
+:Sending Touch (ACTION_UP): 0:(442.55356,53.7094)
+:Sending Touch (ACTION_DOWN): 0:(153.0,145.0)
+:Sending Touch (ACTION_UP): 0:(136.65833,145.56963)
+:Sending Touch (ACTION_DOWN): 0:(246.0,396.0)
+    //[calendar_time:2018-11-23 16:58:56.310  system_uptime:109683]
+    // Sending event #400
+:Sending Touch (ACTION_UP): 0:(195.6944,368.90268)
+:Sending Touch (ACTION_DOWN): 0:(458.0,561.0)
+:Sending Touch (ACTION_UP): 0:(471.46365,662.9874)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(119.0,348.0)
+:Sending Touch (ACTION_UP): 0:(90.29784,264.05493)
+:Sending Touch (ACTION_DOWN): 0:(20.0,547.0)
+:Sending Touch (ACTION_UP): 0:(6.1842384,537.01196)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(404.0,825.0)
+:Sending Touch (ACTION_UP): 0:(414.1806,822.2645)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-5.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(426.0,833.0)
+:Sending Touch (ACTION_UP): 0:(474.0,812.9773)
+    //[calendar_time:2018-11-23 16:58:57.283  system_uptime:110656]
+    // Sending event #500
+    //[calendar_time:2018-11-23 16:58:57.283  system_uptime:110656]
+    // Sending event #500
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(172.0,87.0)
+:Sending Touch (ACTION_UP): 0:(175.8484,80.54395)
+:Sending Touch (ACTION_DOWN): 0:(258.0,221.0)
+:Sending Touch (ACTION_UP): 0:(273.2162,194.88109)
+:Sending Touch (ACTION_DOWN): 0:(447.0,188.0)
+:Sending Touch (ACTION_UP): 0:(454.533,171.5277)
+:Sending Touch (ACTION_DOWN): 0:(351.0,335.0)
+:Sending Touch (ACTION_UP): 0:(333.58737,264.5983)
+:Sending Touch (ACTION_DOWN): 0:(225.0,648.0)
+:Sending Touch (ACTION_UP): 0:(311.78082,576.6823)
+:Sending Touch (ACTION_DOWN): 0:(426.0,77.0)
+:Sending Touch (ACTION_UP): 0:(425.61053,78.5571)
+:Sending Touch (ACTION_DOWN): 0:(115.0,371.0)
+:Sending Touch (ACTION_UP): 0:(177.42924,441.50568)
+:Sending Touch (ACTION_DOWN): 0:(126.0,268.0)
+:Sending Touch (ACTION_UP): 0:(144.3158,297.9687)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+    //[calendar_time:2018-11-23 16:58:57.418  system_uptime:110791]
+    // Sending event #600
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(29.0,719.0)
+:Sending Touch (ACTION_UP): 0:(24.657066,710.8294)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(48.0,639.0)
+:Sending Touch (ACTION_UP): 0:(80.47413,593.5133)
+    // Rejecting start of Intent { act=android.intent.action.SHOW_BRIGHTNESS_DIALOG cmp=com.android.systemui/.settings.BrightnessDialog } in package com.android.systemui
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(338.0,585.0)
+:Sending Touch (ACTION_UP): 0:(343.25876,589.1844)
+    // Rejecting start of Intent { act=android.intent.action.SHOW_BRIGHTNESS_DIALOG cmp=com.android.systemui/.settings.BrightnessDialog } in package com.android.systemui
+    //[calendar_time:2018-11-23 16:58:58.438  system_uptime:111812]
+    // Sending event #700
+    //[calendar_time:2018-11-23 16:58:58.439  system_uptime:111812]
+    // Sending event #700
+:Sending Touch (ACTION_DOWN): 0:(389.0,78.0)
+:Sending Touch (ACTION_UP): 0:(443.3905,117.864975)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(30.0,694.0)
+:Sending Touch (ACTION_UP): 0:(0.0,625.8676)
+:Sending Touch (ACTION_DOWN): 0:(240.0,65.0)
+:Sending Touch (ACTION_UP): 0:(192.15642,15.117451)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(96.0,47.0)
+:Sending Touch (ACTION_UP): 0:(74.35405,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(132.0,425.0)
+:Sending Touch (ACTION_UP): 0:(144.17554,442.61902)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-1.0)
+    //[calendar_time:2018-11-23 16:58:59.102  system_uptime:112475]
+    // Sending event #800
+:Sending Touch (ACTION_DOWN): 0:(51.0,405.0)
+:Sending Touch (ACTION_UP): 0:(52.104,409.3025)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-1.0)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(328.0,784.0)
+:Sending Touch (ACTION_UP): 0:(327.9176,777.82794)
+:Sending Touch (ACTION_DOWN): 0:(219.0,205.0)
+:Sending Touch (ACTION_UP): 0:(193.25941,140.57594)
+:Sending Touch (ACTION_DOWN): 0:(462.0,42.0)
+:Sending Touch (ACTION_UP): 0:(474.0,46.27819)
+:Sending Touch (ACTION_DOWN): 0:(408.0,248.0)
+:Sending Touch (ACTION_UP): 0:(395.33685,248.23047)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(121.0,276.0)
+:Sending Touch (ACTION_UP): 0:(113.22625,270.95258)
+    // Injection Failed
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+    //[calendar_time:2018-11-23 16:59:00.367  system_uptime:113741]
+    // Sending event #900
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(173.0,208.0)
+:Sending Touch (ACTION_UP): 0:(171.31566,199.04591)
+:Sending Touch (ACTION_DOWN): 0:(107.0,732.0)
+:Sending Touch (ACTION_UP): 0:(106.18033,731.9174)
+:Sending Touch (ACTION_DOWN): 0:(387.0,48.0)
+:Sending Touch (ACTION_UP): 0:(388.92395,61.884037)
+:Sending Touch (ACTION_DOWN): 0:(65.0,371.0)
+:Sending Touch (ACTION_UP): 0:(81.06771,369.56665)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(468.0,715.0)
+:Sending Touch (ACTION_UP): 0:(466.0614,716.7445)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(339.0,487.0)
+:Sending Touch (ACTION_UP): 0:(333.31586,492.04572)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-4.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(135.0,832.0)
+:Sending Touch (ACTION_UP): 0:(138.02518,829.72076)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-5.0)
+    //[calendar_time:2018-11-23 16:59:01.505  system_uptime:114878]
+    // Sending event #1000
+:Sending Touch (ACTION_DOWN): 0:(429.0,609.0)
+:Sending Touch (ACTION_UP): 0:(430.92383,615.7185)
+:Sending Touch (ACTION_DOWN): 0:(150.0,63.0)
+:Sending Touch (ACTION_UP): 0:(139.56802,58.04439)
+:Sending Touch (ACTION_DOWN): 0:(434.0,427.0)
+:Sending Touch (ACTION_UP): 0:(451.26724,435.25888)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(435.0,220.0)
+:Sending Touch (ACTION_UP): 0:(428.00372,156.54884)
+:Sending Touch (ACTION_DOWN): 0:(268.0,152.0)
+:Sending Touch (ACTION_UP): 0:(258.36346,170.36789)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Flip keyboardOpen=false
+:Sending Touch (ACTION_DOWN): 0:(110.0,836.0)
+:Sending Touch (ACTION_UP): 0:(109.34116,831.5727)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(292.0,730.0)
+    //[calendar_time:2018-11-23 16:59:02.500  system_uptime:115873]
+    // Sending event #1100
+:Sending Touch (ACTION_UP): 0:(295.7828,717.75586)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(331.0,189.0)
+:Sending Touch (ACTION_UP): 0:(310.03256,196.53882)
+:Sending Touch (ACTION_DOWN): 0:(318.0,536.0)
+:Sending Touch (ACTION_UP): 0:(280.6193,530.6697)
+:Sending Flip keyboardOpen=true
+:Sending Touch (ACTION_DOWN): 0:(373.0,112.0)
+:Sending Touch (ACTION_UP): 0:(385.72858,96.51893)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(79.0,594.0)
+:Sending Touch (ACTION_UP): 0:(79.2057,572.8967)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Flip keyboardOpen=false
+:Sending Touch (ACTION_DOWN): 0:(465.0,270.0)
+:Sending Touch (ACTION_UP): 0:(463.03384,274.66998)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(473.0,31.0)
+:Sending Touch (ACTION_UP): 0:(466.71118,27.157228)
+:Sending Touch (ACTION_DOWN): 0:(66.0,294.0)
+:Sending Touch (ACTION_UP): 0:(67.418846,300.21674)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+    //[calendar_time:2018-11-23 16:59:03.930  system_uptime:117303]
+    // Sending event #1200
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(332.0,99.0)
+:Sending Touch (ACTION_UP): 0:(328.65442,103.00737)
+    // Injection Failed
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(170.0,491.0)
+:Sending Touch (ACTION_UP): 0:(167.19115,492.1002)
+:Sending Touch (ACTION_DOWN): 0:(117.0,525.0)
+:Sending Touch (ACTION_UP): 0:(117.70003,536.7042)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(116.0,93.0)
+:Sending Touch (ACTION_UP): 0:(109.39224,98.4642)
+:Sending Touch (ACTION_DOWN): 0:(292.0,107.0)
+:Sending Touch (ACTION_UP): 0:(187.70125,187.8502)
+    //[calendar_time:2018-11-23 16:59:04.752  system_uptime:118125]
+    // Sending event #1300
+:Sending Touch (ACTION_DOWN): 0:(457.0,114.0)
+:Sending Touch (ACTION_UP): 0:(448.35968,113.67912)
+:Sending Touch (ACTION_DOWN): 0:(159.0,684.0)
+:Sending Touch (ACTION_UP): 0:(162.71059,659.3426)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(419.0,159.0)
+:Sending Touch (ACTION_UP): 0:(406.82147,153.5786)
+:Sending Touch (ACTION_DOWN): 0:(5.0,437.0)
+:Sending Touch (ACTION_UP): 0:(0.0,457.6066)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(447.0,329.0)
+:Sending Touch (ACTION_UP): 0:(448.05374,329.12332)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(339.0,710.0)
+:Sending Touch (ACTION_UP): 0:(300.43954,722.88153)
+:Sending Touch (ACTION_DOWN): 0:(150.0,559.0)
+:Sending Touch (ACTION_UP): 0:(41.887108,598.4573)
+:Sending Touch (ACTION_DOWN): 0:(420.0,677.0)
+:Sending Touch (ACTION_UP): 0:(369.71072,671.7685)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(450.0,269.0)
+:Sending Touch (ACTION_UP): 0:(453.79565,264.7149)
+:Sending Touch (ACTION_DOWN): 0:(355.0,88.0)
+:Sending Touch (ACTION_UP): 0:(343.9596,93.417435)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,3.0)
+    //[calendar_time:2018-11-23 16:59:06.673  system_uptime:120046]
+    // Sending event #1400
+:Sending Touch (ACTION_DOWN): 0:(221.0,99.0)
+:Sending Touch (ACTION_UP): 0:(216.94914,101.65853)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-5.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(468.0,113.0)
+:Sending Touch (ACTION_UP): 0:(392.61893,102.51333)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+    //[calendar_time:2018-11-23 16:59:07.793  system_uptime:121166]
+    // Sending event #1500
+    //[calendar_time:2018-11-23 16:59:07.793  system_uptime:121166]
+    // Sending event #1500
+:Sending Touch (ACTION_DOWN): 0:(196.0,333.0)
+:Sending Touch (ACTION_UP): 0:(184.84268,334.40253)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(418.0,174.0)
+:Sending Touch (ACTION_UP): 0:(419.86423,173.33731)
+:Sending Touch (ACTION_DOWN): 0:(73.0,611.0)
+:Sending Touch (ACTION_UP): 0:(79.61682,606.69434)
+:Sending Touch (ACTION_DOWN): 0:(383.0,831.0)
+:Sending Touch (ACTION_UP): 0:(373.7388,839.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(120.0,323.0)
+:Sending Touch (ACTION_UP): 0:(108.22746,315.7012)
+:Sending Touch (ACTION_DOWN): 0:(234.0,736.0)
+:Sending Touch (ACTION_UP): 0:(267.7063,836.7707)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(90.0,42.0)
+:Sending Touch (ACTION_UP): 0:(0.0,96.44541)
+:Sending Touch (ACTION_DOWN): 0:(182.0,557.0)
+:Sending Touch (ACTION_UP): 0:(186.49802,551.17194)
+    //[calendar_time:2018-11-23 16:59:08.718  system_uptime:122091]
+    // Sending event #1600
+    //[calendar_time:2018-11-23 16:59:08.718  system_uptime:122092]
+    // Sending event #1600
+:Sending Touch (ACTION_DOWN): 0:(219.0,398.0)
+:Sending Touch (ACTION_UP): 0:(183.6744,481.65314)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(75.0,548.0)
+:Sending Touch (ACTION_UP): 0:(53.05632,545.93286)
+:Sending Touch (ACTION_DOWN): 0:(158.0,696.0)
+:Sending Touch (ACTION_UP): 0:(134.2252,686.8781)
+:Sending Touch (ACTION_DOWN): 0:(404.0,297.0)
+:Sending Touch (ACTION_UP): 0:(411.25327,297.50864)
+:Sending Touch (ACTION_DOWN): 0:(168.0,177.0)
+:Sending Touch (ACTION_UP): 0:(192.4843,199.23927)
+:Sending Touch (ACTION_DOWN): 0:(220.0,798.0)
+:Sending Touch (ACTION_UP): 0:(203.01276,772.88184)
+:Sending Flip keyboardOpen=true
+:Sending Touch (ACTION_DOWN): 0:(295.0,397.0)
+:Sending Touch (ACTION_UP): 0:(306.31613,402.96884)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(120.0,49.0)
+:Sending Touch (ACTION_UP): 0:(105.58789,49.78181)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)
+    //[calendar_time:2018-11-23 16:59:10.213  system_uptime:123586]
+    // Sending event #1700
+:Sending Touch (ACTION_DOWN): 0:(34.0,542.0)
+:Sending Touch (ACTION_UP): 0:(32.252037,543.0234)
+    // Rejecting start of Intent { act=android.intent.action.ASSIST cmp=com.google.android.googlequicksearchbox/.SearchActivity } in package com.google.android.googlequicksearchbox
+:Sending Touch (ACTION_DOWN): 0:(229.0,537.0)
+:Sending Touch (ACTION_UP): 0:(278.31036,635.8287)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(279.0,604.0)
+:Sending Touch (ACTION_UP): 0:(275.21204,505.63232)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(471.0,768.0)
+:Sending Touch (ACTION_UP): 0:(474.0,750.98486)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+    //[calendar_time:2018-11-23 16:59:11.570  system_uptime:124943]
+    // Sending event #1800
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(353.0,225.0)
+:Sending Touch (ACTION_UP): 0:(340.8073,236.14105)
+:Sending Touch (ACTION_DOWN): 0:(52.0,253.0)
+:Sending Touch (ACTION_UP): 0:(56.455124,255.01324)
+:Sending Touch (ACTION_DOWN): 0:(208.0,738.0)
+:Sending Touch (ACTION_UP): 0:(224.45546,773.8463)
+:Sending Touch (ACTION_DOWN): 0:(360.0,13.0)
+:Sending Touch (ACTION_UP): 0:(352.91016,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(434.0,727.0)
+:Sending Touch (ACTION_UP): 0:(435.68146,733.5462)
+:Sending Touch (ACTION_DOWN): 0:(66.0,335.0)
+:Sending Touch (ACTION_UP): 0:(73.214935,338.1245)
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-4.0)
+    // Rejecting start of Intent { act=android.intent.action.SHOW_BRIGHTNESS_DIALOG cmp=com.android.systemui/.settings.BrightnessDialog } in package com.android.systemui
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-5.0)
+    //[calendar_time:2018-11-23 16:59:12.814  system_uptime:126187]
+    // Sending event #1900
+    //[calendar_time:2018-11-23 16:59:12.814  system_uptime:126187]
+    // Sending event #1900
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(170.0,261.0)
+:Sending Touch (ACTION_UP): 0:(170.29681,265.34473)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(237.0,285.0)
+:Sending Touch (ACTION_UP): 0:(237.24086,275.9293)
+:Sending Touch (ACTION_DOWN): 0:(413.0,822.0)
+:Sending Touch (ACTION_UP): 0:(423.51535,815.92816)
+:Sending Touch (ACTION_DOWN): 0:(416.0,669.0)
+:Sending Touch (ACTION_UP): 0:(416.30035,666.4849)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(431.0,275.0)
+:Sending Touch (ACTION_UP): 0:(429.00494,271.05853)
+:Sending Flip keyboardOpen=true
+:Sending Trackball (ACTION_MOVE): 0:(1.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(437.0,598.0)
+    //[calendar_time:2018-11-23 16:59:13.740  system_uptime:127113]
+    // Sending event #2000
+:Sending Touch (ACTION_UP): 0:(441.8106,553.9116)
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(1.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(25.0,196.0)
+:Sending Touch (ACTION_UP): 0:(24.679976,182.68254)
+:Sending Touch (ACTION_DOWN): 0:(409.0,202.0)
+:Sending Touch (ACTION_UP): 0:(408.93942,201.75238)
+:Sending Touch (ACTION_DOWN): 0:(331.0,662.0)
+:Sending Touch (ACTION_UP): 0:(286.08365,614.9169)
+:Sending Touch (ACTION_DOWN): 0:(69.0,765.0)
+:Sending Touch (ACTION_UP): 0:(68.32248,775.1451)
+:Sending Touch (ACTION_DOWN): 0:(455.0,495.0)
+:Sending Touch (ACTION_UP): 0:(466.7845,487.08963)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(132.0,365.0)
+:Sending Touch (ACTION_UP): 0:(103.262375,364.60104)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(426.0,419.0)
+:Sending Touch (ACTION_UP): 0:(443.04865,406.7555)
+:Sending Touch (ACTION_DOWN): 0:(354.0,2.0)
+:Sending Touch (ACTION_UP): 0:(350.269,0.0)
+:Sending Touch (ACTION_DOWN): 0:(108.0,562.0)
+:Sending Touch (ACTION_UP): 0:(133.20903,545.19476)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+    //[calendar_time:2018-11-23 16:59:14.776  system_uptime:128149]
+    // Sending event #2100
+    //[calendar_time:2018-11-23 16:59:14.776  system_uptime:128149]
+    // Sending event #2100
+:Sending Touch (ACTION_DOWN): 0:(316.0,164.0)
+:Sending Touch (ACTION_UP): 0:(386.50223,277.22345)
+:Sending Touch (ACTION_DOWN): 0:(421.0,445.0)
+:Sending Touch (ACTION_UP): 0:(413.02444,445.00833)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(377.0,129.0)
+:Sending Touch (ACTION_UP): 0:(379.21466,125.48489)
+:Sending Touch (ACTION_DOWN): 0:(23.0,148.0)
+:Sending Touch (ACTION_UP): 0:(21.557669,136.83278)
+:Sending Touch (ACTION_DOWN): 0:(19.0,51.0)
+:Sending Touch (ACTION_UP): 0:(23.711967,60.678467)
+:Sending Touch (ACTION_DOWN): 0:(20.0,740.0)
+:Sending Touch (ACTION_UP): 0:(6.269533,632.24634)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(367.0,561.0)
+:Sending Touch (ACTION_UP): 0:(368.79272,560.5057)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.contacts/.activities.PeopleActivity } in package com.android.contacts
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+    //[calendar_time:2018-11-23 16:59:15.753  system_uptime:129127]
+    // Sending event #2200
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(293.0,720.0)
+:Sending Touch (ACTION_UP): 0:(291.38602,717.6908)
+:Sending Touch (ACTION_DOWN): 0:(249.0,233.0)
+:Sending Touch (ACTION_UP): 0:(247.84634,239.28821)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(23.0,153.0)
+:Sending Touch (ACTION_UP): 0:(22.970318,169.56255)
+:Sending Touch (ACTION_DOWN): 0:(185.0,555.0)
+:Sending Touch (ACTION_UP): 0:(182.83438,550.78253)
+:Sending Touch (ACTION_DOWN): 0:(331.0,641.0)
+:Sending Touch (ACTION_UP): 0:(327.05264,632.7934)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,4.0)
+    //[calendar_time:2018-11-23 16:59:16.377  system_uptime:129750]
+    // Sending event #2300
+:Sending Touch (ACTION_DOWN): 0:(440.0,20.0)
+:Sending Touch (ACTION_UP): 0:(456.3181,24.997644)
+:Sending Touch (ACTION_DOWN): 0:(135.0,602.0)
+:Sending Touch (ACTION_UP): 0:(132.49103,604.2361)
+:Sending Touch (ACTION_DOWN): 0:(129.0,625.0)
+:Sending Touch (ACTION_UP): 0:(70.347885,601.8166)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(254.0,647.0)
+:Sending Touch (ACTION_UP): 0:(255.80484,647.76404)
+:Sending Touch (ACTION_DOWN): 0:(201.0,545.0)
+:Sending Touch (ACTION_UP): 0:(244.11166,533.34894)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(156.0,306.0)
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+:Sending Touch (ACTION_UP): 0:(177.28816,259.05206)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(271.0,790.0)
+:Sending Touch (ACTION_UP): 0:(274.01254,793.4828)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-1.0)
+    //[calendar_time:2018-11-23 16:59:17.604  system_uptime:130978]
+    // Sending event #2400
+:Sending Touch (ACTION_DOWN): 0:(117.0,159.0)
+:Sending Touch (ACTION_UP): 0:(128.46883,166.5451)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(82.0,782.0)
+:Sending Touch (ACTION_UP): 0:(68.144516,784.28973)
+:Sending Touch (ACTION_DOWN): 0:(44.0,60.0)
+:Sending Touch (ACTION_UP): 0:(109.1391,0.0)
+:Sending Touch (ACTION_DOWN): 0:(105.0,671.0)
+:Sending Touch (ACTION_UP): 0:(130.1226,672.6009)
+:Sending Touch (ACTION_DOWN): 0:(345.0,389.0)
+:Sending Touch (ACTION_UP): 0:(344.61487,388.32788)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+    // Rejecting start of Intent { act=android.speech.action.WEB_SEARCH cmp=com.google.android.googlequicksearchbox/.SearchActivity } in package com.google.android.googlequicksearchbox
+:Sending Touch (ACTION_DOWN): 0:(105.0,666.0)
+:Sending Touch (ACTION_UP): 0:(225.20401,638.6477)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(251.0,4.0)
+:Sending Touch (ACTION_UP): 0:(248.9414,4.2455435)
+    //[calendar_time:2018-11-23 16:59:18.329  system_uptime:131702]
+    // Sending event #2500
+    //[calendar_time:2018-11-23 16:59:18.329  system_uptime:131702]
+    // Sending event #2500
+:Sending Touch (ACTION_DOWN): 0:(297.0,835.0)
+:Sending Touch (ACTION_UP): 0:(306.39026,830.5739)
+:Sending Touch (ACTION_DOWN): 0:(351.0,512.0)
+:Sending Touch (ACTION_UP): 0:(344.9548,571.9155)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(192.0,191.0)
+:Sending Touch (ACTION_UP): 0:(134.00623,212.13393)
+:Sending Touch (ACTION_DOWN): 0:(107.0,342.0)
+:Sending Touch (ACTION_UP): 0:(222.87267,236.79938)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(162.0,667.0)
+:Sending Touch (ACTION_UP): 0:(155.53029,648.4234)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(370.0,577.0)
+:Sending Touch (ACTION_UP): 0:(238.54498,583.9501)
+:Sending Touch (ACTION_DOWN): 0:(243.0,611.0)
+:Sending Touch (ACTION_UP): 0:(147.06282,618.0936)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-2.0)
+    //[calendar_time:2018-11-23 16:59:19.354  system_uptime:132728]
+    // Sending event #2600
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(369.0,164.0)
+:Sending Touch (ACTION_UP): 0:(386.31015,161.06726)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(189.0,278.0)
+:Sending Touch (ACTION_UP): 0:(178.88306,280.40958)
+:Sending Touch (ACTION_DOWN): 0:(262.0,727.0)
+:Sending Touch (ACTION_UP): 0:(211.00237,759.84247)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(51.0,229.0)
+:Sending Touch (ACTION_UP): 0:(22.83799,323.14502)
+:Sending Touch (ACTION_DOWN): 0:(357.0,685.0)
+:Sending Touch (ACTION_UP): 0:(412.66864,669.5246)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,3.0)
+    //[calendar_time:2018-11-23 16:59:20.605  system_uptime:133979]
+    // Sending event #2700
+:Sending Touch (ACTION_DOWN): 0:(99.0,205.0)
+:Sending Touch (ACTION_UP): 0:(105.64453,188.07118)
+:Sending Touch (ACTION_DOWN): 0:(187.0,583.0)
+:Sending Touch (ACTION_UP): 0:(194.08492,581.2219)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(284.0,493.0)
+:Sending Touch (ACTION_UP): 0:(277.71753,540.28046)
+:Sending Touch (ACTION_DOWN): 0:(399.0,122.0)
+:Sending Touch (ACTION_UP): 0:(396.4508,126.26276)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(66.0,458.0)
+:Sending Touch (ACTION_UP): 0:(10.056123,380.24625)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(185.0,173.0)
+:Sending Touch (ACTION_UP): 0:(83.64291,158.52031)
+:Sending Touch (ACTION_DOWN): 0:(393.0,549.0)
+:Sending Touch (ACTION_UP): 0:(402.90256,594.4039)
+:Sending Touch (ACTION_DOWN): 0:(245.0,536.0)
+:Sending Touch (ACTION_UP): 0:(252.24605,546.6524)
+:Sending Touch (ACTION_DOWN): 0:(247.0,126.0)
+:Sending Touch (ACTION_UP): 0:(246.2763,125.67048)
+:Sending Touch (ACTION_DOWN): 0:(62.0,566.0)
+    //[calendar_time:2018-11-23 16:59:21.629  system_uptime:135002]
+    // Sending event #2800
+:Sending Touch (ACTION_UP): 0:(105.721115,609.9623)
+:Sending Touch (ACTION_DOWN): 0:(263.0,661.0)
+:Sending Touch (ACTION_UP): 0:(192.58592,672.5188)
+:Sending Touch (ACTION_DOWN): 0:(182.0,633.0)
+:Sending Touch (ACTION_UP): 0:(127.30934,694.56885)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,2.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(279.0,775.0)
+:Sending Touch (ACTION_UP): 0:(292.65576,762.9031)
+:Sending Touch (ACTION_DOWN): 0:(446.0,18.0)
+:Sending Touch (ACTION_UP): 0:(444.18506,10.607451)
+:Sending Touch (ACTION_DOWN): 0:(426.0,824.0)
+:Sending Touch (ACTION_UP): 0:(425.94437,824.4982)
+:Sending Touch (ACTION_DOWN): 0:(210.0,47.0)
+:Sending Touch (ACTION_UP): 0:(216.57133,47.994022)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(234.0,228.0)
+:Sending Touch (ACTION_UP): 0:(237.27252,231.1863)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(37.0,505.0)
+:Sending Touch (ACTION_UP): 0:(36.890903,516.40234)
+:Sending Touch (ACTION_DOWN): 0:(298.0,324.0)
+:Sending Touch (ACTION_UP): 0:(279.8526,322.71344)
+:Sending Touch (ACTION_DOWN): 0:(460.0,644.0)
+:Sending Touch (ACTION_UP): 0:(474.0,626.2777)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-5.0)
+    //[calendar_time:2018-11-23 16:59:22.727  system_uptime:136100]
+    // Sending event #2900
+:Sending Touch (ACTION_DOWN): 0:(357.0,397.0)
+:Sending Touch (ACTION_UP): 0:(359.2852,402.83463)
+:Sending Touch (ACTION_DOWN): 0:(190.0,260.0)
+:Sending Touch (ACTION_UP): 0:(159.89066,195.66498)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(23.0,30.0)
+:Sending Touch (ACTION_UP): 0:(0.6317806,41.44494)
+:Sending Touch (ACTION_DOWN): 0:(341.0,81.0)
+:Sending Touch (ACTION_UP): 0:(342.30145,63.01377)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(203.0,42.0)
+:Sending Touch (ACTION_UP): 0:(156.82295,0.0)
+:Sending Touch (ACTION_DOWN): 0:(127.0,704.0)
+:Sending Touch (ACTION_UP): 0:(117.96062,707.41016)
+:Sending Touch (ACTION_DOWN): 0:(85.0,567.0)
+:Sending Touch (ACTION_UP): 0:(77.169846,552.19916)
+:Sending Touch (ACTION_DOWN): 0:(312.0,787.0)
+:Sending Touch (ACTION_UP): 0:(378.03253,803.8211)
+:Sending Touch (ACTION_DOWN): 0:(266.0,724.0)
+:Sending Touch (ACTION_UP): 0:(278.16046,721.2849)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+    // Injection Failed
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+    //[calendar_time:2018-11-23 16:59:23.384  system_uptime:136757]
+    // Sending event #3000
+:Sending Trackball (ACTION_MOVE): 0:(3.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(9.0,254.0)
+:Sending Touch (ACTION_UP): 0:(9.212023,255.9359)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(73.0,390.0)
+:Sending Touch (ACTION_UP): 0:(37.887745,417.26443)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(286.0,151.0)
+:Sending Touch (ACTION_UP): 0:(344.40775,170.40895)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(325.0,623.0)
+:Sending Touch (ACTION_UP): 0:(331.954,614.1844)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+    //[calendar_time:2018-11-23 16:59:24.880  system_uptime:138254]
+    // Sending event #3100
+:Sending Touch (ACTION_DOWN): 0:(272.0,820.0)
+:Sending Touch (ACTION_UP): 0:(272.075,821.3536)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.contacts/.activities.PeopleActivity } in package com.android.contacts
+:Sending Touch (ACTION_DOWN): 0:(471.0,301.0)
+:Sending Touch (ACTION_UP): 0:(458.38846,283.3758)
+:Sending Touch (ACTION_DOWN): 0:(74.0,308.0)
+:Sending Touch (ACTION_UP): 0:(64.75259,290.23096)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(398.0,592.0)
+:Sending Touch (ACTION_UP): 0:(407.34216,647.16486)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(281.0,642.0)
+:Sending Touch (ACTION_UP): 0:(267.72244,643.48956)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+    //[calendar_time:2018-11-23 16:59:25.661  system_uptime:139076]
+    // Sending event #3200
+    //[calendar_time:2018-11-23 16:59:25.704  system_uptime:139077]
+    // Sending event #3200
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(447.0,342.0)
+:Sending Touch (ACTION_UP): 0:(446.33777,360.25366)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(135.0,277.0)
+:Sending Touch (ACTION_UP): 0:(128.52298,274.9607)
+:Sending Touch (ACTION_DOWN): 0:(105.0,309.0)
+:Sending Touch (ACTION_UP): 0:(106.15398,310.03384)
+:Sending Touch (ACTION_DOWN): 0:(9.0,458.0)
+:Sending Touch (ACTION_UP): 0:(0.0,431.45294)
+:Sending Touch (ACTION_DOWN): 0:(18.0,454.0)
+:Sending Touch (ACTION_UP): 0:(76.54171,468.71182)
+:Sending Touch (ACTION_DOWN): 0:(381.0,676.0)
+:Sending Touch (ACTION_UP): 0:(391.03482,676.35)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,0.0)
+    //[calendar_time:2018-11-23 16:59:26.162  system_uptime:139535]
+    // Sending event #3300
+:Sending Touch (ACTION_DOWN): 0:(225.0,277.0)
+:Sending Touch (ACTION_UP): 0:(200.98135,177.56583)
+:Sending Touch (ACTION_DOWN): 0:(16.0,3.0)
+:Sending Touch (ACTION_UP): 0:(36.749115,0.0)
+:Sending Touch (ACTION_DOWN): 0:(104.0,587.0)
+:Sending Touch (ACTION_UP): 0:(114.85166,616.1193)
+:Sending Touch (ACTION_DOWN): 0:(104.0,3.0)
+:Sending Touch (ACTION_UP): 0:(112.61006,7.070311)
+:Sending Touch (ACTION_DOWN): 0:(203.0,831.0)
+:Sending Touch (ACTION_UP): 0:(218.59027,830.47906)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(15.0,341.0)
+:Sending Touch (ACTION_UP): 0:(24.385307,346.90945)
+:Sending Touch (ACTION_DOWN): 0:(442.0,252.0)
+:Sending Touch (ACTION_UP): 0:(434.70422,238.71025)
+:Sending Touch (ACTION_DOWN): 0:(421.0,625.0)
+:Sending Touch (ACTION_UP): 0:(447.88315,653.9933)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(369.0,165.0)
+:Sending Touch (ACTION_UP): 0:(362.26688,169.97302)
+    // Rejecting start of Intent { act=android.intent.action.ASSIST cmp=com.google.android.googlequicksearchbox/.SearchActivity } in package com.google.android.googlequicksearchbox
+:Sending Flip keyboardOpen=true
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+    //[calendar_time:2018-11-23 16:59:27.561  system_uptime:140935]
+    // Sending event #3400
+    //[calendar_time:2018-11-23 16:59:27.561  system_uptime:140935]
+    // Sending event #3400
+:Sending Touch (ACTION_DOWN): 0:(400.0,392.0)
+:Sending Touch (ACTION_UP): 0:(410.3072,427.45514)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(128.0,826.0)
+:Sending Touch (ACTION_UP): 0:(129.67104,822.8933)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(366.0,292.0)
+:Sending Touch (ACTION_UP): 0:(352.56967,280.70724)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,4.0)
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(2.0,2.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(36.0,669.0)
+    //[calendar_time:2018-11-23 16:59:28.443  system_uptime:141817]
+    // Sending event #3500
+:Sending Touch (ACTION_UP): 0:(106.328575,690.5421)
+:Sending Touch (ACTION_DOWN): 0:(267.0,720.0)
+:Sending Touch (ACTION_UP): 0:(284.73138,708.09625)
+:Sending Touch (ACTION_DOWN): 0:(402.0,475.0)
+:Sending Touch (ACTION_UP): 0:(399.80618,476.8256)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(287.0,402.0)
+:Sending Touch (ACTION_UP): 0:(271.33655,387.62216)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(216.0,99.0)
+:Sending Touch (ACTION_UP): 0:(118.22032,1.846386)
+:Sending Touch (ACTION_DOWN): 0:(109.0,403.0)
+:Sending Touch (ACTION_UP): 0:(95.7489,391.9578)
+:Sending Touch (ACTION_DOWN): 0:(65.0,787.0)
+:Sending Touch (ACTION_UP): 0:(53.994606,822.8436)
+:Sending Touch (ACTION_DOWN): 0:(264.0,737.0)
+:Sending Touch (ACTION_UP): 0:(229.41469,759.8837)
+:Sending Touch (ACTION_DOWN): 0:(292.0,675.0)
+:Sending Touch (ACTION_UP): 0:(291.17023,670.27606)
+:Sending Touch (ACTION_DOWN): 0:(165.0,451.0)
+:Sending Touch (ACTION_UP): 0:(175.0745,450.8994)
+:Sending Touch (ACTION_DOWN): 0:(421.0,450.0)
+:Sending Touch (ACTION_UP): 0:(420.455,447.27866)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(438.0,244.0)
+:Sending Touch (ACTION_UP): 0:(430.02417,240.97836)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-5.0)
+    //[calendar_time:2018-11-23 16:59:29.105  system_uptime:142478]
+    // Sending event #3600
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(163.0,237.0)
+:Sending Touch (ACTION_UP): 0:(169.76831,234.95934)
+:Sending Touch (ACTION_DOWN): 0:(35.0,131.0)
+:Sending Touch (ACTION_UP): 0:(74.85103,185.719)
+:Sending Touch (ACTION_DOWN): 0:(358.0,751.0)
+:Sending Touch (ACTION_UP): 0:(386.95056,675.7753)
+:Sending Touch (ACTION_DOWN): 0:(462.0,193.0)
+:Sending Touch (ACTION_UP): 0:(459.56128,202.23822)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(216.0,426.0)
+:Sending Touch (ACTION_UP): 0:(221.73534,436.5754)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,0.0)
+    //[calendar_time:2018-11-23 16:59:30.051  system_uptime:143424]
+    // Sending event #3700
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(126.0,816.0)
+:Sending Touch (ACTION_UP): 0:(129.49167,813.3395)
+:Sending Touch (ACTION_DOWN): 0:(93.0,29.0)
+:Sending Touch (ACTION_UP): 0:(97.20188,26.783182)
+:Sending Touch (ACTION_DOWN): 0:(99.0,637.0)
+:Sending Touch (ACTION_UP): 0:(92.5519,638.69244)
+:Sending Touch (ACTION_DOWN): 0:(292.0,19.0)
+:Sending Touch (ACTION_UP): 0:(291.97656,5.802088)
+:Sending Touch (ACTION_DOWN): 0:(34.0,183.0)
+:Sending Touch (ACTION_UP): 0:(85.42108,91.0855)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,0.0)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.google.android.music/com.android.music.activitymanagement.TopLevelActivity } in package com.google.android.music
+:Sending Touch (ACTION_DOWN): 0:(180.0,700.0)
+:Sending Touch (ACTION_UP): 0:(183.17288,693.7844)
+:Sending Touch (ACTION_DOWN): 0:(437.0,269.0)
+:Sending Touch (ACTION_UP): 0:(443.18607,269.8278)
+:Sending Touch (ACTION_DOWN): 0:(28.0,544.0)
+:Sending Touch (ACTION_UP): 0:(27.454266,540.73065)
+:Sending Touch (ACTION_DOWN): 0:(143.0,750.0)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+:Sending Touch (ACTION_UP): 0:(97.9121,813.89557)
+:Sending Touch (ACTION_DOWN): 0:(88.0,419.0)
+:Sending Touch (ACTION_UP): 0:(197.85628,442.03564)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(384.0,350.0)
+    //[calendar_time:2018-11-23 16:59:30.849  system_uptime:144222]
+    // Sending event #3800
+:Sending Touch (ACTION_UP): 0:(348.03192,408.49887)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(380.0,580.0)
+:Sending Touch (ACTION_UP): 0:(429.95526,542.7198)
+:Sending Touch (ACTION_DOWN): 0:(235.0,506.0)
+:Sending Touch (ACTION_UP): 0:(281.53357,557.0761)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(127.0,511.0)
+:Sending Touch (ACTION_UP): 0:(136.43782,497.45633)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(444.0,520.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_UP): 0:(391.3237,449.78384)
+:Sending Touch (ACTION_DOWN): 0:(101.0,764.0)
+:Sending Touch (ACTION_UP): 0:(97.81904,759.0475)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-4.0)
+    //[calendar_time:2018-11-23 16:59:31.710  system_uptime:145083]
+    // Sending event #3900
+:Sending Touch (ACTION_DOWN): 0:(233.0,665.0)
+:Sending Touch (ACTION_UP): 0:(234.53479,667.44946)
+:Sending Touch (ACTION_DOWN): 0:(375.0,78.0)
+:Sending Touch (ACTION_UP): 0:(363.2788,91.31521)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(212.0,175.0)
+:Sending Touch (ACTION_UP): 0:(204.78577,176.05627)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(233.0,488.0)
+:Sending Touch (ACTION_UP): 0:(274.46323,521.36176)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,0.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(431.0,281.0)
+:Sending Touch (ACTION_UP): 0:(429.5512,274.97562)
+:Sending Touch (ACTION_DOWN): 0:(14.0,612.0)
+:Sending Touch (ACTION_UP): 0:(25.33652,586.00543)
+:Sending Touch (ACTION_DOWN): 0:(210.0,655.0)
+:Sending Touch (ACTION_UP): 0:(206.25684,666.32904)
+:Sending Touch (ACTION_DOWN): 0:(471.0,7.0)
+:Sending Touch (ACTION_UP): 0:(468.12766,4.8439054)
+    //[calendar_time:2018-11-23 16:59:32.437  system_uptime:145810]
+    // Sending event #4000
+    //[calendar_time:2018-11-23 16:59:32.437  system_uptime:145810]
+    // Sending event #4000
+:Sending Flip keyboardOpen=true
+:Sending Touch (ACTION_DOWN): 0:(202.0,92.0)
+:Sending Touch (ACTION_UP): 0:(203.15652,101.80292)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.chrome/com.google.android.apps.chrome.Main } in package com.android.chrome
+:Sending Touch (ACTION_DOWN): 0:(350.0,459.0)
+:Sending Touch (ACTION_UP): 0:(347.46616,481.47577)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(0.0,781.0)
+:Sending Touch (ACTION_UP): 0:(0.0,743.9774)
+:Sending Touch (ACTION_DOWN): 0:(435.0,157.0)
+:Sending Touch (ACTION_UP): 0:(402.6668,199.44557)
+:Sending Touch (ACTION_DOWN): 0:(70.0,256.0)
+:Sending Touch (ACTION_UP): 0:(73.67346,274.11276)
+:Sending Touch (ACTION_DOWN): 0:(404.0,215.0)
+:Sending Touch (ACTION_UP): 0:(444.70013,282.31342)
+:Sending Touch (ACTION_DOWN): 0:(30.0,462.0)
+:Sending Touch (ACTION_UP): 0:(57.970375,441.9906)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-4.0)
+    //[calendar_time:2018-11-23 16:59:32.783  system_uptime:146157]
+    // Sending event #4100
+:Sending Touch (ACTION_DOWN): 0:(335.0,198.0)
+:Sending Touch (ACTION_UP): 0:(305.4903,276.13565)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(320.0,121.0)
+:Sending Touch (ACTION_UP): 0:(311.58322,120.766525)
+:Sending Touch (ACTION_DOWN): 0:(34.0,323.0)
+:Sending Touch (ACTION_UP): 0:(37.41969,323.42194)
+:Sending Touch (ACTION_DOWN): 0:(48.0,713.0)
+:Sending Touch (ACTION_UP): 0:(26.603205,707.2234)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(330.0,0.0)
+:Sending Touch (ACTION_UP): 0:(324.77814,0.0)
+:Sending Touch (ACTION_DOWN): 0:(20.0,1.0)
+:Sending Touch (ACTION_UP): 0:(59.41475,0.0)
+:Sending Touch (ACTION_DOWN): 0:(118.0,272.0)
+:Sending Touch (ACTION_UP): 0:(96.16886,274.79208)
+:Sending Touch (ACTION_DOWN): 0:(231.0,584.0)
+:Sending Touch (ACTION_UP): 0:(236.58363,576.11066)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(124.0,791.0)
+:Sending Touch (ACTION_UP): 0:(111.090126,790.6933)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-4.0)
+    //[calendar_time:2018-11-23 16:59:33.784  system_uptime:147157]
+    // Sending event #4200
+:Sending Touch (ACTION_DOWN): 0:(43.0,593.0)
+:Sending Touch (ACTION_UP): 0:(37.7482,596.97485)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(131.0,654.0)
+:Sending Touch (ACTION_UP): 0:(129.1884,640.55194)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(416.0,572.0)
+:Sending Touch (ACTION_UP): 0:(418.61768,576.41174)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(156.0,683.0)
+:Sending Touch (ACTION_UP): 0:(150.62372,684.1314)
+:Sending Touch (ACTION_DOWN): 0:(101.0,527.0)
+:Sending Touch (ACTION_UP): 0:(96.638084,520.7983)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(115.0,40.0)
+:Sending Touch (ACTION_UP): 0:(110.65948,23.136463)
+:Sending Touch (ACTION_DOWN): 0:(184.0,281.0)
+:Sending Touch (ACTION_UP): 0:(171.35846,379.598)
+:Sending Touch (ACTION_DOWN): 0:(383.0,797.0)
+:Sending Touch (ACTION_UP): 0:(391.16425,802.57056)
+    //[calendar_time:2018-11-23 16:59:34.727  system_uptime:148100]
+    // Sending event #4300
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+    // Rejecting start of Intent { act=android.intent.action.ASSIST cmp=com.google.android.googlequicksearchbox/.SearchActivity } in package com.google.android.googlequicksearchbox
+:Sending Touch (ACTION_DOWN): 0:(408.0,692.0)
+:Sending Touch (ACTION_UP): 0:(401.78223,698.1605)
+:Sending Touch (ACTION_DOWN): 0:(109.0,27.0)
+:Sending Touch (ACTION_UP): 0:(98.267494,28.29235)
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(417.0,117.0)
+:Sending Touch (ACTION_UP): 0:(434.33606,98.468864)
+:Sending Touch (ACTION_DOWN): 0:(355.0,259.0)
+:Sending Touch (ACTION_UP): 0:(355.54312,259.13464)
+:Sending Touch (ACTION_DOWN): 0:(134.0,123.0)
+:Sending Touch (ACTION_UP): 0:(206.30652,133.35208)
+:Sending Touch (ACTION_DOWN): 0:(195.0,555.0)
+:Sending Touch (ACTION_UP): 0:(113.69576,570.6852)
+:Sending Touch (ACTION_DOWN): 0:(440.0,217.0)
+    //[calendar_time:2018-11-23 16:59:35.935  system_uptime:149308]
+    // Sending event #4400
+:Sending Touch (ACTION_UP): 0:(435.68134,208.5605)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(472.0,492.0)
+:Sending Touch (ACTION_UP): 0:(474.0,500.05118)
+:Sending Touch (ACTION_DOWN): 0:(308.0,301.0)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+:Sending Touch (ACTION_UP): 0:(400.1419,287.68378)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-5.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(121.0,424.0)
+:Sending Touch (ACTION_UP): 0:(103.627045,438.49728)
+:Sending Touch (ACTION_DOWN): 0:(88.0,659.0)
+:Sending Touch (ACTION_UP): 0:(114.79581,621.03577)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(124.0,42.0)
+:Sending Touch (ACTION_UP): 0:(124.310905,39.878838)
+:Sending Touch (ACTION_DOWN): 0:(292.0,696.0)
+:Sending Touch (ACTION_UP): 0:(290.17844,691.9877)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(314.0,565.0)
+:Sending Touch (ACTION_UP): 0:(314.75534,564.7948)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,0.0)
+    //[calendar_time:2018-11-23 16:59:36.501  system_uptime:149874]
+    // Sending event #4500
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(401.0,162.0)
+:Sending Touch (ACTION_UP): 0:(411.9824,202.00078)
+:Sending Touch (ACTION_DOWN): 0:(141.0,485.0)
+:Sending Touch (ACTION_UP): 0:(142.51909,442.6293)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(198.0,645.0)
+:Sending Touch (ACTION_UP): 0:(201.89394,640.1747)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(433.0,594.0)
+:Sending Touch (ACTION_UP): 0:(474.0,614.13055)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(96.0,154.0)
+:Sending Touch (ACTION_UP): 0:(85.820946,162.96144)
+:Sending Touch (ACTION_DOWN): 0:(86.0,432.0)
+:Sending Touch (ACTION_UP): 0:(191.19043,469.7975)
+    //[calendar_time:2018-11-23 16:59:37.233  system_uptime:150606]
+    // Sending event #4600
+    //[calendar_time:2018-11-23 16:59:37.233  system_uptime:150607]
+    // Sending event #4600
+:Sending Touch (ACTION_DOWN): 0:(91.0,185.0)
+:Sending Touch (ACTION_UP): 0:(159.77888,88.76176)
+:Sending Touch (ACTION_DOWN): 0:(359.0,174.0)
+:Sending Touch (ACTION_UP): 0:(350.81772,170.82751)
+:Sending Touch (ACTION_DOWN): 0:(319.0,494.0)
+:Sending Touch (ACTION_UP): 0:(268.95596,445.15295)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(164.0,598.0)
+:Sending Touch (ACTION_UP): 0:(158.89157,591.97797)
+:Sending Touch (ACTION_DOWN): 0:(88.0,135.0)
+:Sending Touch (ACTION_UP): 0:(86.49199,128.58592)
+:Sending Touch (ACTION_DOWN): 0:(10.0,304.0)
+:Sending Touch (ACTION_UP): 0:(88.90202,396.7726)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(120.0,701.0)
+:Sending Touch (ACTION_UP): 0:(119.27036,698.5145)
+:Sending Touch (ACTION_DOWN): 0:(448.0,448.0)
+:Sending Touch (ACTION_UP): 0:(405.96545,390.36328)
+:Sending Touch (ACTION_DOWN): 0:(174.0,238.0)
+:Sending Touch (ACTION_UP): 0:(187.67548,232.13217)
+:Sending Touch (ACTION_DOWN): 0:(30.0,317.0)
+:Sending Touch (ACTION_UP): 0:(20.04504,315.83847)
+:Sending Touch (ACTION_DOWN): 0:(336.0,732.0)
+:Sending Touch (ACTION_UP): 0:(333.8148,750.0243)
+:Sending Touch (ACTION_DOWN): 0:(242.0,94.0)
+    //[calendar_time:2018-11-23 16:59:37.834  system_uptime:151207]
+    // Sending event #4700
+:Sending Touch (ACTION_UP): 0:(247.14043,91.567604)
+:Sending Touch (ACTION_DOWN): 0:(466.0,544.0)
+:Sending Touch (ACTION_UP): 0:(447.43808,503.71124)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(281.0,340.0)
+:Sending Touch (ACTION_UP): 0:(304.84268,418.99426)
+:Sending Touch (ACTION_DOWN): 0:(415.0,734.0)
+:Sending Touch (ACTION_UP): 0:(419.1518,733.85724)
+:Sending Touch (ACTION_DOWN): 0:(15.0,746.0)
+:Sending Touch (ACTION_UP): 0:(16.851315,761.9431)
+:Sending Touch (ACTION_DOWN): 0:(95.0,531.0)
+:Sending Touch (ACTION_UP): 0:(89.11038,524.887)
+:Sending Flip keyboardOpen=true
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Flip keyboardOpen=false
+:Sending Touch (ACTION_DOWN): 0:(172.0,539.0)
+:Sending Touch (ACTION_UP): 0:(176.00568,532.51733)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-4.0)
+    //[calendar_time:2018-11-23 16:59:39.079  system_uptime:152452]
+    // Sending event #4800
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(261.0,429.0)
+:Sending Touch (ACTION_UP): 0:(257.82794,423.54123)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(115.0,338.0)
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+:Sending Touch (ACTION_UP): 0:(55.582695,260.06683)
+    // Injection Failed
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(151.0,169.0)
+:Sending Touch (ACTION_UP): 0:(140.27496,163.54591)
+:Sending Touch (ACTION_DOWN): 0:(168.0,683.0)
+:Sending Touch (ACTION_UP): 0:(159.45786,683.5889)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,0.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(400.0,546.0)
+    //[calendar_time:2018-11-23 16:59:39.613  system_uptime:152986]
+    // Sending event #4900
+:Sending Touch (ACTION_UP): 0:(459.43582,530.9489)
+:Sending Touch (ACTION_DOWN): 0:(179.0,727.0)
+:Sending Touch (ACTION_UP): 0:(167.0224,733.3121)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(122.0,133.0)
+:Sending Touch (ACTION_UP): 0:(61.29251,155.29523)
+:Sending Touch (ACTION_DOWN): 0:(241.0,276.0)
+:Sending Touch (ACTION_UP): 0:(167.93718,324.23474)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,2.0)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(27.0,415.0)
+:Sending Touch (ACTION_UP): 0:(25.982882,415.0888)
+:Sending Touch (ACTION_DOWN): 0:(149.0,264.0)
+:Sending Touch (ACTION_UP): 0:(149.57094,254.71439)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(56.0,265.0)
+:Sending Touch (ACTION_UP): 0:(88.62725,216.36214)
+:Sending Touch (ACTION_DOWN): 0:(394.0,99.0)
+:Sending Touch (ACTION_UP): 0:(397.41516,89.241325)
+    //[calendar_time:2018-11-23 16:59:40.321  system_uptime:153695]
+    // Sending event #5000
+    //[calendar_time:2018-11-23 16:59:40.322  system_uptime:153695]
+    // Sending event #5000
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(356.0,314.0)
+:Sending Touch (ACTION_UP): 0:(350.4264,312.9887)
+:Sending Touch (ACTION_DOWN): 0:(162.0,480.0)
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+:Sending Touch (ACTION_UP): 0:(153.19637,506.21964)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(113.0,276.0)
+:Sending Touch (ACTION_UP): 0:(135.4875,269.32672)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(314.0,809.0)
+:Sending Touch (ACTION_UP): 0:(303.89645,810.6553)
+:Sending Touch (ACTION_DOWN): 0:(77.0,106.0)
+:Sending Touch (ACTION_UP): 0:(170.12938,6.4498253)
+:Sending Touch (ACTION_DOWN): 0:(411.0,270.0)
+:Sending Touch (ACTION_UP): 0:(378.07324,279.79037)
+:Sending Touch (ACTION_DOWN): 0:(351.0,734.0)
+:Sending Touch (ACTION_UP): 0:(318.91888,721.6919)
+:Sending Touch (ACTION_DOWN): 0:(465.0,102.0)
+    //[calendar_time:2018-11-23 16:59:40.739  system_uptime:154112]
+    // Sending event #5100
+:Sending Touch (ACTION_UP): 0:(474.0,27.120323)
+:Sending Touch (ACTION_DOWN): 0:(27.0,403.0)
+:Sending Touch (ACTION_UP): 0:(19.061836,397.66656)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(269.0,738.0)
+:Sending Touch (ACTION_UP): 0:(285.36267,738.3505)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(393.0,684.0)
+:Sending Touch (ACTION_UP): 0:(473.3949,655.4246)
+:Sending Touch (ACTION_DOWN): 0:(159.0,38.0)
+:Sending Touch (ACTION_UP): 0:(150.55728,38.698727)
+:Sending Touch (ACTION_DOWN): 0:(203.0,59.0)
+:Sending Touch (ACTION_UP): 0:(195.76411,50.35384)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(54.0,163.0)
+:Sending Touch (ACTION_UP): 0:(34.86837,135.1526)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.google.android.gm/.ConversationListActivityGmail } in package com.google.android.gm
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.chrome/com.google.android.apps.chrome.Main } in package com.android.chrome
+:Sending Touch (ACTION_DOWN): 0:(389.0,229.0)
+:Sending Touch (ACTION_UP): 0:(396.94833,229.58891)
+:Sending Touch (ACTION_DOWN): 0:(215.0,215.0)
+:Sending Touch (ACTION_UP): 0:(228.48756,215.60074)
+:Sending Touch (ACTION_DOWN): 0:(234.0,538.0)
+:Sending Touch (ACTION_UP): 0:(174.60692,527.37836)
+:Sending Touch (ACTION_DOWN): 0:(107.0,667.0)
+:Sending Touch (ACTION_UP): 0:(114.296906,666.65546)
+:Sending Touch (ACTION_DOWN): 0:(363.0,694.0)
+:Sending Touch (ACTION_UP): 0:(361.5948,734.62665)
+:Sending Touch (ACTION_DOWN): 0:(302.0,665.0)
+:Sending Touch (ACTION_UP): 0:(297.64368,663.1498)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,4.0)
+    //[calendar_time:2018-11-23 16:59:41.266  system_uptime:154639]
+    // Sending event #5200
+:Sending Touch (ACTION_DOWN): 0:(366.0,417.0)
+:Sending Touch (ACTION_UP): 0:(376.36777,404.91724)
+:Sending Touch (ACTION_DOWN): 0:(8.0,462.0)
+:Sending Touch (ACTION_UP): 0:(159.81714,404.46912)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(221.0,427.0)
+:Sending Touch (ACTION_UP): 0:(204.28845,403.0177)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(3.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(380.0,575.0)
+:Sending Touch (ACTION_UP): 0:(361.7022,576.37665)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(397.0,71.0)
+:Sending Touch (ACTION_UP): 0:(439.53702,116.01706)
+:Sending Touch (ACTION_DOWN): 0:(180.0,263.0)
+    //[calendar_time:2018-11-23 16:59:41.965  system_uptime:155338]
+    // Sending event #5300
+:Sending Touch (ACTION_UP): 0:(245.67505,167.62471)
+:Sending Touch (ACTION_DOWN): 0:(160.0,27.0)
+:Sending Touch (ACTION_UP): 0:(161.57794,18.45683)
+:Sending Touch (ACTION_DOWN): 0:(161.0,251.0)
+:Sending Touch (ACTION_UP): 0:(167.72679,341.17035)
+:Sending Flip keyboardOpen=true
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(351.0,629.0)
+:Sending Touch (ACTION_UP): 0:(351.4087,637.9207)
+    // Injection Failed
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(216.0,511.0)
+:Sending Touch (ACTION_UP): 0:(213.89207,469.89026)
+:Sending Touch (ACTION_DOWN): 0:(228.0,735.0)
+:Sending Touch (ACTION_UP): 0:(222.68384,737.01807)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(285.0,398.0)
+:Sending Touch (ACTION_UP): 0:(279.7087,327.8145)
+:Sending Touch (ACTION_DOWN): 0:(125.0,808.0)
+:Sending Touch (ACTION_UP): 0:(125.96915,802.7934)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(159.0,411.0)
+    //[calendar_time:2018-11-23 16:59:42.575  system_uptime:155948]
+    // Sending event #5400
+:Sending Touch (ACTION_UP): 0:(162.93785,416.65262)
+:Sending Touch (ACTION_DOWN): 0:(456.0,391.0)
+:Sending Touch (ACTION_UP): 0:(448.79822,392.22473)
+:Sending Touch (ACTION_DOWN): 0:(45.0,784.0)
+:Sending Touch (ACTION_UP): 0:(10.911071,839.0)
+:Sending Touch (ACTION_DOWN): 0:(455.0,611.0)
+:Sending Touch (ACTION_UP): 0:(422.59317,668.2658)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(126.0,308.0)
+:Sending Touch (ACTION_UP): 0:(195.22064,363.19424)
+:Sending Touch (ACTION_DOWN): 0:(185.0,595.0)
+:Sending Touch (ACTION_UP): 0:(181.97188,594.7019)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(385.0,482.0)
+:Sending Touch (ACTION_UP): 0:(363.35535,543.03564)
+:Sending Touch (ACTION_DOWN): 0:(81.0,389.0)
+:Sending Touch (ACTION_UP): 0:(85.81297,405.1204)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-2.0)
+    //[calendar_time:2018-11-23 16:59:43.257  system_uptime:156631]
+    // Sending event #5500
+:Sending Flip keyboardOpen=false
+:Sending Touch (ACTION_DOWN): 0:(50.0,337.0)
+:Sending Touch (ACTION_UP): 0:(44.103363,299.72607)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(165.0,298.0)
+:Sending Touch (ACTION_UP): 0:(160.95815,294.10544)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,4.0)
+:Sending Flip keyboardOpen=true
+:Sending Touch (ACTION_DOWN): 0:(108.0,643.0)
+:Sending Touch (ACTION_UP): 0:(108.03764,637.9057)
+:Sending Touch (ACTION_DOWN): 0:(66.0,484.0)
+:Sending Touch (ACTION_UP): 0:(84.565445,477.45065)
+:Sending Touch (ACTION_DOWN): 0:(145.0,814.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_UP): 0:(239.57973,839.0)
+:Sending Touch (ACTION_DOWN): 0:(196.0,120.0)
+:Sending Touch (ACTION_UP): 0:(212.43954,151.60031)
+:Sending Touch (ACTION_DOWN): 0:(224.0,4.0)
+:Sending Touch (ACTION_UP): 0:(217.80948,0.41329384)
+:Sending Touch (ACTION_DOWN): 0:(300.0,642.0)
+:Sending Touch (ACTION_UP): 0:(252.31206,585.2071)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(238.0,489.0)
+:Sending Touch (ACTION_UP): 0:(246.17476,505.4844)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+    //[calendar_time:2018-11-23 16:59:44.470  system_uptime:157843]
+    // Sending event #5600
+    //[calendar_time:2018-11-23 16:59:44.470  system_uptime:157843]
+    // Sending event #5600
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(429.0,67.0)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+:Sending Touch (ACTION_UP): 0:(441.5007,67.98227)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(251.0,643.0)
+:Sending Touch (ACTION_UP): 0:(252.52023,624.9372)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(299.0,687.0)
+:Sending Touch (ACTION_UP): 0:(258.1377,611.7967)
+:Sending Touch (ACTION_DOWN): 0:(295.0,590.0)
+:Sending Touch (ACTION_UP): 0:(295.7415,649.2996)
+:Sending Touch (ACTION_DOWN): 0:(206.0,674.0)
+:Sending Touch (ACTION_UP): 0:(218.51425,670.31055)
+:Sending Touch (ACTION_DOWN): 0:(327.0,10.0)
+:Sending Touch (ACTION_UP): 0:(326.4356,3.5129776)
+:Sending Touch (ACTION_DOWN): 0:(350.0,774.0)
+:Sending Touch (ACTION_UP): 0:(343.14056,774.1168)
+    //[calendar_time:2018-11-23 16:59:45.346  system_uptime:158720]
+    // Sending event #5700
+    //[calendar_time:2018-11-23 16:59:45.347  system_uptime:158720]
+    // Sending event #5700
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(235.0,18.0)
+:Sending Touch (ACTION_UP): 0:(229.5671,25.507347)
+:Sending Touch (ACTION_DOWN): 0:(369.0,827.0)
+:Sending Touch (ACTION_UP): 0:(376.34793,826.27185)
+:Sending Flip keyboardOpen=false
+:Sending Touch (ACTION_DOWN): 0:(77.0,604.0)
+:Sending Touch (ACTION_UP): 0:(0.0,520.0263)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-5.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(209.0,834.0)
+:Sending Touch (ACTION_UP): 0:(208.50935,839.0)
+:Sending Touch (ACTION_DOWN): 0:(248.0,324.0)
+:Sending Touch (ACTION_UP): 0:(245.20387,307.86584)
+:Sending Touch (ACTION_DOWN): 0:(146.0,437.0)
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+:Sending Touch (ACTION_UP): 0:(187.79108,522.99084)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(34.0,49.0)
+:Sending Touch (ACTION_UP): 0:(58.218334,43.025524)
+    //[calendar_time:2018-11-23 16:59:45.998  system_uptime:159371]
+    // Sending event #5800
+:Sending Touch (ACTION_DOWN): 0:(105.0,123.0)
+:Sending Touch (ACTION_UP): 0:(99.87733,150.76483)
+:Sending Touch (ACTION_DOWN): 0:(328.0,640.0)
+:Sending Touch (ACTION_UP): 0:(335.84338,623.1904)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(95.0,299.0)
+:Sending Touch (ACTION_UP): 0:(92.09173,276.19415)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-3.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-5.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+    //[calendar_time:2018-11-23 16:59:46.820  system_uptime:160193]
+    // Sending event #5900
+    //[calendar_time:2018-11-23 16:59:46.820  system_uptime:160193]
+    // Sending event #5900
+:Sending Touch (ACTION_DOWN): 0:(127.0,409.0)
+:Sending Touch (ACTION_UP): 0:(182.85968,351.9415)
+:Sending Touch (ACTION_DOWN): 0:(8.0,781.0)
+:Sending Touch (ACTION_UP): 0:(0.0,780.453)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(200.0,338.0)
+:Sending Touch (ACTION_UP): 0:(158.26306,339.36365)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(180.0,181.0)
+:Sending Touch (ACTION_UP): 0:(214.4002,220.32608)
+:Sending Touch (ACTION_DOWN): 0:(62.0,532.0)
+:Sending Touch (ACTION_UP): 0:(73.78164,527.61945)
+:Sending Touch (ACTION_DOWN): 0:(418.0,782.0)
+:Sending Touch (ACTION_UP): 0:(407.65054,775.26355)
+:Sending Touch (ACTION_DOWN): 0:(272.0,326.0)
+:Sending Touch (ACTION_UP): 0:(249.03348,420.9347)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(341.0,291.0)
+:Sending Touch (ACTION_UP): 0:(350.7506,291.01556)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(311.0,549.0)
+:Sending Touch (ACTION_UP): 0:(306.28226,552.8455)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+    //[calendar_time:2018-11-23 16:59:47.943  system_uptime:161316]
+    // Sending event #6000
+:Sending Touch (ACTION_DOWN): 0:(344.0,83.0)
+:Sending Touch (ACTION_UP): 0:(340.942,87.08641)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(249.0,462.0)
+:Sending Touch (ACTION_UP): 0:(254.49478,468.6011)
+:Sending Touch (ACTION_DOWN): 0:(367.0,832.0)
+:Sending Touch (ACTION_UP): 0:(359.29553,817.06903)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+:Sending Touch (ACTION_DOWN): 0:(447.0,453.0)
+:Sending Touch (ACTION_UP): 0:(414.80563,477.10413)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)
+    //[calendar_time:2018-11-23 16:59:49.176  system_uptime:162549]
+    // Sending event #6100
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(269.0,723.0)
+:Sending Touch (ACTION_UP): 0:(264.67352,717.5478)
+:Sending Touch (ACTION_DOWN): 0:(172.0,760.0)
+:Sending Touch (ACTION_UP): 0:(173.2637,765.3541)
+:Sending Touch (ACTION_DOWN): 0:(293.0,637.0)
+:Sending Touch (ACTION_UP): 0:(310.94305,654.2847)
+:Sending Touch (ACTION_DOWN): 0:(283.0,86.0)
+:Sending Touch (ACTION_UP): 0:(287.7982,65.21149)
+:Sending Touch (ACTION_DOWN): 0:(274.0,432.0)
+:Sending Touch (ACTION_UP): 0:(273.75854,433.42578)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-1.0)
+    //[calendar_time:2018-11-23 16:59:50.144  system_uptime:163517]
+    // Sending event #6200
+:Sending Touch (ACTION_DOWN): 0:(350.0,803.0)
+:Sending Touch (ACTION_UP): 0:(345.2074,796.14453)
+:Sending Touch (ACTION_DOWN): 0:(386.0,90.0)
+:Sending Touch (ACTION_UP): 0:(375.49146,91.301674)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(471.0,507.0)
+:Sending Touch (ACTION_UP): 0:(469.5309,588.47186)
+:Sending Touch (ACTION_DOWN): 0:(277.0,481.0)
+:Sending Touch (ACTION_UP): 0:(368.57858,533.1014)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(371.0,342.0)
+:Sending Touch (ACTION_UP): 0:(307.01276,269.19833)
+    //[calendar_time:2018-11-23 16:59:50.636  system_uptime:164009]
+    // Sending event #6300
+    //[calendar_time:2018-11-23 16:59:50.636  system_uptime:164009]
+    // Sending event #6300
+:Sending Flip keyboardOpen=true
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(113.0,499.0)
+:Sending Touch (ACTION_UP): 0:(99.170876,514.0752)
+:Sending Touch (ACTION_DOWN): 0:(267.0,648.0)
+:Sending Touch (ACTION_UP): 0:(256.6789,635.4196)
+    // Rejecting start of Intent { act=android.speech.action.WEB_SEARCH cmp=com.google.android.googlequicksearchbox/.SearchActivity } in package com.google.android.googlequicksearchbox
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.google.android.calendar/com.android.calendar.AllInOneActivity } in package com.google.android.calendar
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.android.chrome/com.google.android.apps.chrome.Main } in package com.android.chrome
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.google.android.calendar/com.android.calendar.AllInOneActivity } in package com.google.android.calendar
+:Sending Touch (ACTION_DOWN): 0:(402.0,363.0)
+:Sending Touch (ACTION_UP): 0:(401.6436,348.46075)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-4.0)
+    //[calendar_time:2018-11-23 16:59:51.871  system_uptime:165244]
+    // Sending event #6400
+:Sending Touch (ACTION_DOWN): 0:(280.0,723.0)
+:Sending Touch (ACTION_UP): 0:(221.10588,731.5241)
+:Sending Touch (ACTION_DOWN): 0:(65.0,296.0)
+:Sending Touch (ACTION_UP): 0:(81.96171,292.0247)
+:Sending Touch (ACTION_DOWN): 0:(223.0,536.0)
+:Sending Touch (ACTION_UP): 0:(307.23135,485.5161)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(245.0,788.0)
+:Sending Touch (ACTION_UP): 0:(226.72888,790.42847)
+:Sending Touch (ACTION_DOWN): 0:(15.0,212.0)
+:Sending Touch (ACTION_UP): 0:(35.71905,197.45195)
+:Sending Touch (ACTION_DOWN): 0:(92.0,213.0)
+:Sending Touch (ACTION_UP): 0:(92.84803,218.35204)
+:Sending Touch (ACTION_DOWN): 0:(358.0,339.0)
+:Sending Touch (ACTION_UP): 0:(348.19208,331.49548)
+    // Rejecting start of Intent { act=android.intent.action.ASSIST cmp=com.google.android.googlequicksearchbox/.SearchActivity } in package com.google.android.googlequicksearchbox
+:Sending Touch (ACTION_DOWN): 0:(252.0,579.0)
+:Sending Touch (ACTION_UP): 0:(252.93936,575.65393)
+:Sending Touch (ACTION_DOWN): 0:(87.0,28.0)
+:Sending Touch (ACTION_UP): 0:(90.2934,29.190096)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(293.0,417.0)
+:Sending Touch (ACTION_UP): 0:(186.89957,304.3121)
+    //[calendar_time:2018-11-23 16:59:53.728  system_uptime:167101]
+    // Sending event #6500
+:Sending Touch (ACTION_DOWN): 0:(405.0,446.0)
+:Sending Touch (ACTION_UP): 0:(415.35913,456.55917)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(310.0,371.0)
+:Sending Touch (ACTION_UP): 0:(311.0264,388.44244)
+:Sending Touch (ACTION_DOWN): 0:(335.0,473.0)
+:Sending Touch (ACTION_UP): 0:(392.91208,389.5721)
+:Sending Touch (ACTION_DOWN): 0:(8.0,838.0)
+:Sending Touch (ACTION_UP): 0:(9.124971,839.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(150.0,771.0)
+:Sending Touch (ACTION_UP): 0:(157.9041,787.51117)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,3.0)
+:Sending Flip keyboardOpen=true
+:Sending Touch (ACTION_DOWN): 0:(159.0,273.0)
+:Sending Touch (ACTION_UP): 0:(174.05978,272.84845)
+:Sending Touch (ACTION_DOWN): 0:(164.0,709.0)
+:Sending Touch (ACTION_UP): 0:(181.12352,710.3152)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(239.0,184.0)
+:Sending Touch (ACTION_UP): 0:(221.74307,185.12752)
+:Sending Touch (ACTION_DOWN): 0:(263.0,201.0)
+:Sending Touch (ACTION_UP): 0:(264.3517,196.53835)
+:Sending Touch (ACTION_DOWN): 0:(469.0,755.0)
+:Sending Touch (ACTION_UP): 0:(474.0,768.54364)
+    //[calendar_time:2018-11-23 16:59:54.466  system_uptime:167839]
+    // Sending event #6600
+    //[calendar_time:2018-11-23 16:59:54.466  system_uptime:167845]
+    // Sending event #6600
+:Sending Touch (ACTION_DOWN): 0:(453.0,18.0)
+:Sending Touch (ACTION_UP): 0:(446.6603,20.824865)
+:Sending Touch (ACTION_DOWN): 0:(427.0,270.0)
+:Sending Touch (ACTION_UP): 0:(425.22757,270.75128)
+:Sending Touch (ACTION_DOWN): 0:(377.0,648.0)
+:Sending Touch (ACTION_UP): 0:(377.66403,682.9869)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(326.0,506.0)
+:Sending Touch (ACTION_UP): 0:(309.27124,516.97186)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(82.0,151.0)
+:Sending Touch (ACTION_UP): 0:(81.604164,160.50314)
+:Sending Touch (ACTION_DOWN): 0:(415.0,789.0)
+:Sending Touch (ACTION_UP): 0:(414.24695,772.7144)
+:Sending Touch (ACTION_DOWN): 0:(311.0,441.0)
+:Sending Touch (ACTION_UP): 0:(304.73547,445.61023)
+:Sending Touch (ACTION_DOWN): 0:(180.0,414.0)
+    //[calendar_time:2018-11-23 16:59:55.698  system_uptime:169071]
+    // Sending event #6700
+:Sending Touch (ACTION_UP): 0:(180.42836,412.2008)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(52.0,565.0)
+:Sending Touch (ACTION_UP): 0:(91.906265,549.0301)
+:Sending Touch (ACTION_DOWN): 0:(46.0,682.0)
+:Sending Touch (ACTION_UP): 0:(48.50202,681.42706)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(168.0,778.0)
+:Sending Touch (ACTION_UP): 0:(169.64366,766.1602)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(275.0,462.0)
+:Sending Touch (ACTION_UP): 0:(149.42325,516.9843)
+:Sending Touch (ACTION_DOWN): 0:(77.0,789.0)
+:Sending Touch (ACTION_UP): 0:(64.6609,789.83606)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+    //[calendar_time:2018-11-23 16:59:56.368  system_uptime:169742]
+    // Sending event #6800
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(108.0,650.0)
+:Sending Touch (ACTION_UP): 0:(101.83902,649.9826)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(94.0,616.0)
+:Sending Touch (ACTION_UP): 0:(89.37669,623.7362)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,0.0)
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(290.0,384.0)
+:Sending Touch (ACTION_UP): 0:(283.5146,370.8735)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(115.0,766.0)
+:Sending Touch (ACTION_UP): 0:(117.885124,763.9221)
+:Sending Touch (ACTION_DOWN): 0:(444.0,202.0)
+:Sending Touch (ACTION_UP): 0:(439.66962,211.5954)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(71.0,267.0)
+:Sending Touch (ACTION_UP): 0:(73.80119,263.73218)
+    //[calendar_time:2018-11-23 16:59:58.059  system_uptime:171432]
+    // Sending event #6900
+    //[calendar_time:2018-11-23 16:59:58.059  system_uptime:171432]
+    // Sending event #6900
+:Sending Touch (ACTION_DOWN): 0:(365.0,89.0)
+:Sending Touch (ACTION_UP): 0:(352.17514,176.4369)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(263.0,16.0)
+:Sending Touch (ACTION_UP): 0:(276.543,13.964234)
+:Sending Touch (ACTION_DOWN): 0:(3.0,559.0)
+:Sending Touch (ACTION_UP): 0:(91.37509,555.504)
+:Sending Touch (ACTION_DOWN): 0:(94.0,762.0)
+:Sending Touch (ACTION_UP): 0:(97.522705,766.15)
+:Sending Touch (ACTION_DOWN): 0:(164.0,150.0)
+:Sending Touch (ACTION_UP): 0:(162.24406,153.51309)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(169.0,266.0)
+:Sending Touch (ACTION_UP): 0:(169.10736,285.97546)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,2.0)
+    //[calendar_time:2018-11-23 16:59:59.565  system_uptime:172938]
+    // Sending event #7000
+:Sending Touch (ACTION_DOWN): 0:(16.0,333.0)
+:Sending Touch (ACTION_UP): 0:(14.315683,332.65726)
+:Sending Touch (ACTION_DOWN): 0:(142.0,716.0)
+:Sending Touch (ACTION_UP): 0:(137.06404,710.62256)
+    // Rejecting start of Intent { act=android.intent.action.SHOW_BRIGHTNESS_DIALOG cmp=com.android.systemui/.settings.BrightnessDialog } in package com.android.systemui
+:Sending Touch (ACTION_DOWN): 0:(400.0,299.0)
+:Sending Touch (ACTION_UP): 0:(380.51993,240.76064)
+:Sending Touch (ACTION_DOWN): 0:(158.0,587.0)
+:Sending Touch (ACTION_UP): 0:(150.96626,590.6588)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(264.0,510.0)
+:Sending Touch (ACTION_UP): 0:(260.9568,513.3017)
+:Sending Touch (ACTION_DOWN): 0:(421.0,611.0)
+:Sending Touch (ACTION_UP): 0:(345.14062,503.61542)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(113.0,217.0)
+:Sending Touch (ACTION_UP): 0:(105.81378,239.5972)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+    //[calendar_time:2018-11-23 17:00:00.197  system_uptime:173570]
+    // Sending event #7100
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(434.0,277.0)
+:Sending Touch (ACTION_UP): 0:(427.90207,270.8048)
+:Sending Touch (ACTION_DOWN): 0:(359.0,43.0)
+:Sending Touch (ACTION_UP): 0:(364.57465,29.691183)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(399.0,343.0)
+:Sending Touch (ACTION_UP): 0:(414.4236,346.11237)
+:Sending Touch (ACTION_DOWN): 0:(473.0,506.0)
+:Sending Touch (ACTION_UP): 0:(472.76758,499.65753)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Flip keyboardOpen=true
+:Sending Touch (ACTION_DOWN): 0:(110.0,727.0)
+:Sending Touch (ACTION_UP): 0:(102.44194,729.83093)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,1.0)
+    //[calendar_time:2018-11-23 17:00:01.397  system_uptime:174773]
+    // Sending event #7200
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(57.0,80.0)
+:Sending Touch (ACTION_UP): 0:(128.04214,30.2388)
+:Sending Touch (ACTION_DOWN): 0:(107.0,388.0)
+:Sending Touch (ACTION_UP): 0:(122.74698,384.5595)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,0.0)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(327.0,284.0)
+:Sending Touch (ACTION_UP): 0:(326.9665,274.94128)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+    //[calendar_time:2018-11-23 17:00:02.098  system_uptime:175471]
+    // Sending event #7300
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(437.0,135.0)
+:Sending Touch (ACTION_UP): 0:(438.93225,140.60616)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(64.0,597.0)
+:Sending Touch (ACTION_UP): 0:(62.07538,588.3842)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+    //[calendar_time:2018-11-23 17:00:02.702  system_uptime:176075]
+    // Sending event #7400
+    //[calendar_time:2018-11-23 17:00:02.702  system_uptime:176075]
+    // Sending event #7400
+:Sending Touch (ACTION_DOWN): 0:(174.0,167.0)
+:Sending Touch (ACTION_UP): 0:(180.53615,171.0182)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(177.0,721.0)
+:Sending Touch (ACTION_UP): 0:(166.75308,721.59515)
+:Sending Touch (ACTION_DOWN): 0:(10.0,345.0)
+:Sending Touch (ACTION_UP): 0:(22.7602,349.61526)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(306.0,712.0)
+:Sending Touch (ACTION_UP): 0:(292.54312,712.8049)
+:Sending Touch (ACTION_DOWN): 0:(243.0,440.0)
+:Sending Touch (ACTION_UP): 0:(330.8664,452.6519)
+:Sending Touch (ACTION_DOWN): 0:(179.0,2.0)
+:Sending Touch (ACTION_UP): 0:(167.28706,0.0)
+:Sending Touch (ACTION_DOWN): 0:(311.0,738.0)
+:Sending Touch (ACTION_UP): 0:(309.46298,744.4399)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(267.0,595.0)
+:Sending Touch (ACTION_UP): 0:(277.4913,599.97723)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(30.0,571.0)
+:Sending Touch (ACTION_UP): 0:(36.48927,568.21075)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,0.0)
+    //[calendar_time:2018-11-23 17:00:03.391  system_uptime:176764]
+    // Sending event #7500
+:Sending Touch (ACTION_DOWN): 0:(193.0,219.0)
+:Sending Touch (ACTION_UP): 0:(191.56224,214.3903)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(203.0,468.0)
+:Sending Touch (ACTION_UP): 0:(125.822495,345.40414)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(50.0,583.0)
+:Sending Touch (ACTION_UP): 0:(37.760643,569.9662)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(157.0,533.0)
+:Sending Touch (ACTION_UP): 0:(156.67809,531.9985)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(157.0,74.0)
+:Sending Touch (ACTION_UP): 0:(159.08667,75.3458)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(82.0,716.0)
+:Sending Touch (ACTION_UP): 0:(82.350235,724.9359)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(216.0,626.0)
+:Sending Touch (ACTION_UP): 0:(237.63574,580.97327)
+:Sending Touch (ACTION_DOWN): 0:(71.0,760.0)
+:Sending Touch (ACTION_UP): 0:(62.16468,759.4354)
+:Sending Touch (ACTION_DOWN): 0:(200.0,539.0)
+:Sending Touch (ACTION_UP): 0:(199.39754,541.8915)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-4.0)
+    //[calendar_time:2018-11-23 17:00:04.399  system_uptime:177772]
+    // Sending event #7600
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(131.0,333.0)
+:Sending Touch (ACTION_UP): 0:(130.91605,339.9355)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(43.0,303.0)
+:Sending Touch (ACTION_UP): 0:(30.928936,305.0727)
+:Sending Touch (ACTION_DOWN): 0:(194.0,206.0)
+:Sending Touch (ACTION_UP): 0:(197.33713,194.15555)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(368.0,120.0)
+:Sending Touch (ACTION_UP): 0:(281.467,262.6825)
+:Sending Touch (ACTION_DOWN): 0:(203.0,752.0)
+:Sending Touch (ACTION_UP): 0:(207.34364,748.34576)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+    //[calendar_time:2018-11-23 17:00:05.765  system_uptime:179139]
+    // Sending event #7700
+:Sending Touch (ACTION_DOWN): 0:(182.0,309.0)
+:Sending Touch (ACTION_UP): 0:(169.05414,304.38095)
+:Sending Touch (ACTION_DOWN): 0:(13.0,547.0)
+:Sending Touch (ACTION_UP): 0:(36.172104,542.2358)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-4.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(182.0,713.0)
+:Sending Touch (ACTION_UP): 0:(176.56885,721.57007)
+:Sending Touch (ACTION_DOWN): 0:(83.0,226.0)
+:Sending Touch (ACTION_UP): 0:(98.60768,226.65598)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(89.0,448.0)
+:Sending Touch (ACTION_UP): 0:(89.660065,446.92917)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+:Sending Touch (ACTION_DOWN): 0:(347.0,198.0)
+:Sending Touch (ACTION_UP): 0:(356.65637,191.1411)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(108.0,40.0)
+    //[calendar_time:2018-11-23 17:00:07.568  system_uptime:180941]
+    // Sending event #7800
+:Sending Touch (ACTION_UP): 0:(135.73682,58.076427)
+:Sending Touch (ACTION_DOWN): 0:(9.0,636.0)
+:Sending Touch (ACTION_UP): 0:(28.750954,607.1196)
+:Sending Touch (ACTION_DOWN): 0:(136.0,672.0)
+:Sending Touch (ACTION_UP): 0:(116.716225,677.73364)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(440.0,707.0)
+:Sending Touch (ACTION_UP): 0:(452.04758,702.7917)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(83.0,134.0)
+:Sending Touch (ACTION_UP): 0:(73.80533,127.12182)
+:Sending Touch (ACTION_DOWN): 0:(422.0,86.0)
+:Sending Touch (ACTION_UP): 0:(382.3599,94.43112)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(164.0,610.0)
+:Sending Touch (ACTION_UP): 0:(162.61078,608.99493)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(372.0,808.0)
+    // Injection Failed
+    //[calendar_time:2018-11-23 17:00:08.215  system_uptime:181589]
+    // Sending event #7900
+:Sending Touch (ACTION_UP): 0:(436.88654,839.0)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(291.0,746.0)
+:Sending Touch (ACTION_UP): 0:(296.78363,757.96674)
+:Sending Touch (ACTION_DOWN): 0:(148.0,408.0)
+:Sending Touch (ACTION_UP): 0:(151.84021,412.45633)
+:Sending Touch (ACTION_DOWN): 0:(86.0,737.0)
+:Sending Touch (ACTION_UP): 0:(2.864212,657.7293)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(22.0,605.0)
+:Sending Touch (ACTION_UP): 0:(0.0,613.085)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(314.0,378.0)
+:Sending Touch (ACTION_UP): 0:(313.88104,384.63892)
+:Sending Touch (ACTION_DOWN): 0:(467.0,95.0)
+:Sending Touch (ACTION_UP): 0:(467.66837,93.14489)
+:Sending Touch (ACTION_DOWN): 0:(55.0,504.0)
+:Sending Touch (ACTION_UP): 0:(62.83881,505.84702)
+:Sending Touch (ACTION_DOWN): 0:(362.0,546.0)
+:Sending Touch (ACTION_UP): 0:(362.7972,553.9169)
+:Sending Touch (ACTION_DOWN): 0:(124.0,650.0)
+    //[calendar_time:2018-11-23 17:00:09.094  system_uptime:182467]
+    // Sending event #8000
+:Sending Touch (ACTION_UP): 0:(91.69832,640.35126)
+:Sending Touch (ACTION_DOWN): 0:(313.0,160.0)
+:Sending Touch (ACTION_UP): 0:(318.9085,180.55472)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(86.0,679.0)
+:Sending Touch (ACTION_UP): 0:(92.90468,670.84534)
+:Sending Touch (ACTION_DOWN): 0:(410.0,133.0)
+:Sending Touch (ACTION_UP): 0:(474.0,141.29628)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,4.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-1.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(302.0,152.0)
+:Sending Touch (ACTION_UP): 0:(301.61182,158.35971)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(300.0,96.0)
+:Sending Touch (ACTION_UP): 0:(276.13513,95.36231)
+:Sending Touch (ACTION_DOWN): 0:(350.0,381.0)
+:Sending Touch (ACTION_UP): 0:(349.47763,394.78873)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+    //[calendar_time:2018-11-23 17:00:09.885  system_uptime:183258]
+    // Sending event #8100
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(42.0,611.0)
+:Sending Touch (ACTION_UP): 0:(39.56136,607.9382)
+:Sending Touch (ACTION_DOWN): 0:(269.0,15.0)
+:Sending Touch (ACTION_UP): 0:(273.58557,17.327)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(106.0,135.0)
+:Sending Touch (ACTION_UP): 0:(147.81647,63.98862)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,4.0)
+    // Injection Failed
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(341.0,322.0)
+:Sending Touch (ACTION_UP): 0:(342.64825,332.8521)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(376.0,637.0)
+:Sending Touch (ACTION_UP): 0:(388.06198,547.7595)
+    //[calendar_time:2018-11-23 17:00:10.459  system_uptime:183833]
+    // Sending event #8200
+    //[calendar_time:2018-11-23 17:00:10.460  system_uptime:183833]
+    // Sending event #8200
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(319.0,304.0)
+:Sending Touch (ACTION_UP): 0:(317.72336,322.19034)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(356.0,556.0)
+:Sending Touch (ACTION_UP): 0:(470.41455,612.9628)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(11.0,557.0)
+:Sending Touch (ACTION_UP): 0:(7.9041986,549.2579)
+:Sending Touch (ACTION_DOWN): 0:(364.0,43.0)
+:Sending Touch (ACTION_UP): 0:(300.07248,0.0)
+:Sending Touch (ACTION_DOWN): 0:(17.0,616.0)
+:Sending Touch (ACTION_UP): 0:(6.148241,608.7359)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(91.0,460.0)
+    //[calendar_time:2018-11-23 17:00:11.670  system_uptime:185043]
+    // Sending event #8300
+:Sending Touch (ACTION_UP): 0:(186.02414,471.81006)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-5.0)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+:Sending Touch (ACTION_DOWN): 0:(24.0,472.0)
+:Sending Touch (ACTION_UP): 0:(40.235947,473.94897)
+:Sending Touch (ACTION_DOWN): 0:(418.0,313.0)
+:Sending Touch (ACTION_UP): 0:(436.65118,303.01868)
+:Sending Touch (ACTION_DOWN): 0:(56.0,124.0)
+:Sending Touch (ACTION_UP): 0:(55.082695,130.01643)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(412.0,96.0)
+:Sending Touch (ACTION_UP): 0:(401.97604,115.456184)
+:Sending Touch (ACTION_DOWN): 0:(392.0,275.0)
+:Sending Touch (ACTION_UP): 0:(404.90536,272.43478)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(143.0,101.0)
+:Sending Touch (ACTION_UP): 0:(128.24052,104.12169)
+:Sending Touch (ACTION_DOWN): 0:(48.0,573.0)
+:Sending Touch (ACTION_UP): 0:(52.134064,566.5482)
+:Sending Touch (ACTION_DOWN): 0:(293.0,36.0)
+:Sending Touch (ACTION_UP): 0:(342.42636,74.22839)
+    //[calendar_time:2018-11-23 17:00:12.721  system_uptime:186094]
+    // Sending event #8400
+    //[calendar_time:2018-11-23 17:00:12.721  system_uptime:186094]
+    // Sending event #8400
+:Sending Touch (ACTION_DOWN): 0:(423.0,443.0)
+:Sending Touch (ACTION_UP): 0:(382.43307,328.6874)
+:Sending Touch (ACTION_DOWN): 0:(323.0,488.0)
+:Sending Touch (ACTION_UP): 0:(317.99307,487.2798)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(36.0,764.0)
+:Sending Touch (ACTION_UP): 0:(78.97447,749.371)
+:Sending Touch (ACTION_DOWN): 0:(0.0,30.0)
+:Sending Touch (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(413.0,535.0)
+:Sending Touch (ACTION_UP): 0:(411.25723,527.16235)
+:Sending Touch (ACTION_DOWN): 0:(246.0,166.0)
+:Sending Touch (ACTION_UP): 0:(245.93654,177.63048)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(463.0,551.0)
+:Sending Touch (ACTION_UP): 0:(457.97757,543.97906)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(393.0,582.0)
+:Sending Touch (ACTION_UP): 0:(397.07504,584.3425)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,3.0)
+    //[calendar_time:2018-11-23 17:00:13.321  system_uptime:186695]
+    // Sending event #8500
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(95.0,788.0)
+:Sending Touch (ACTION_UP): 0:(94.07006,805.4656)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(386.0,333.0)
+:Sending Touch (ACTION_UP): 0:(388.4295,332.49103)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(348.0,121.0)
+:Sending Touch (ACTION_UP): 0:(322.4361,87.84503)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+    //[calendar_time:2018-11-23 17:00:13.681  system_uptime:187054]
+    // Sending event #8600
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(430.0,763.0)
+:Sending Touch (ACTION_UP): 0:(340.16986,667.78)
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(5.0,348.0)
+:Sending Touch (ACTION_UP): 0:(103.119385,323.57556)
+:Sending Touch (ACTION_DOWN): 0:(51.0,150.0)
+:Sending Touch (ACTION_UP): 0:(49.33073,143.65958)
+:Sending Touch (ACTION_DOWN): 0:(162.0,752.0)
+:Sending Touch (ACTION_UP): 0:(172.36414,759.2355)
+:Sending Touch (ACTION_DOWN): 0:(134.0,10.0)
+:Sending Touch (ACTION_UP): 0:(116.44977,0.0)
+:Sending Touch (ACTION_DOWN): 0:(426.0,577.0)
+:Sending Touch (ACTION_UP): 0:(435.78192,580.6152)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-1.0)
+    //[calendar_time:2018-11-23 17:00:14.153  system_uptime:187526]
+    // Sending event #8700
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(238.0,47.0)
+:Sending Touch (ACTION_UP): 0:(258.9333,71.78476)
+:Sending Touch (ACTION_DOWN): 0:(252.0,59.0)
+:Sending Touch (ACTION_UP): 0:(242.62315,128.72774)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,1.0)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(129.0,156.0)
+:Sending Touch (ACTION_UP): 0:(135.647,156.52477)
+:Sending Touch (ACTION_DOWN): 0:(305.0,787.0)
+:Sending Touch (ACTION_UP): 0:(259.72534,817.0449)
+:Sending Touch (ACTION_DOWN): 0:(308.0,787.0)
+:Sending Touch (ACTION_UP): 0:(290.92804,787.1674)
+:Sending Touch (ACTION_DOWN): 0:(436.0,781.0)
+:Sending Touch (ACTION_UP): 0:(430.61493,788.55963)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,4.0)
+    //[calendar_time:2018-11-23 17:00:16.086  system_uptime:189459]
+    // Sending event #8800
+:Sending Touch (ACTION_DOWN): 0:(263.0,732.0)
+:Sending Touch (ACTION_UP): 0:(256.47604,717.45386)
+:Sending Touch (ACTION_DOWN): 0:(390.0,371.0)
+:Sending Touch (ACTION_UP): 0:(392.86765,388.18115)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(408.0,336.0)
+:Sending Touch (ACTION_UP): 0:(427.00833,325.94745)
+:Sending Touch (ACTION_DOWN): 0:(41.0,378.0)
+:Sending Touch (ACTION_UP): 0:(78.445366,479.63306)
+:Sending Touch (ACTION_DOWN): 0:(141.0,276.0)
+:Sending Touch (ACTION_UP): 0:(146.13202,264.9875)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(29.0,44.0)
+:Sending Touch (ACTION_UP): 0:(29.282942,46.5307)
+:Sending Touch (ACTION_DOWN): 0:(264.0,520.0)
+:Sending Touch (ACTION_UP): 0:(246.20287,485.9983)
+:Sending Touch (ACTION_DOWN): 0:(376.0,784.0)
+:Sending Touch (ACTION_UP): 0:(373.34247,788.6206)
+:Sending Touch (ACTION_DOWN): 0:(123.0,184.0)
+:Sending Touch (ACTION_UP): 0:(159.00041,149.49896)
+:Sending Touch (ACTION_DOWN): 0:(451.0,575.0)
+:Sending Touch (ACTION_UP): 0:(452.8682,570.62885)
+:Sending Touch (ACTION_DOWN): 0:(45.0,305.0)
+:Sending Touch (ACTION_UP): 0:(49.432274,304.89273)
+    //[calendar_time:2018-11-23 17:00:16.926  system_uptime:190299]
+    // Sending event #8900
+    //[calendar_time:2018-11-23 17:00:16.926  system_uptime:190300]
+    // Sending event #8900
+:Sending Touch (ACTION_DOWN): 0:(249.0,673.0)
+:Sending Touch (ACTION_UP): 0:(263.00482,799.2581)
+:Sending Touch (ACTION_DOWN): 0:(324.0,335.0)
+:Sending Touch (ACTION_UP): 0:(324.74103,334.1461)
+:Sending Touch (ACTION_DOWN): 0:(471.0,775.0)
+:Sending Touch (ACTION_UP): 0:(472.1956,771.3298)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(25.0,356.0)
+:Sending Touch (ACTION_UP): 0:(10.958851,360.594)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,0.0)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(401.0,586.0)
+:Sending Touch (ACTION_UP): 0:(428.47168,547.24164)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-4.0)
+    //[calendar_time:2018-11-23 17:00:17.598  system_uptime:190971]
+    // Sending event #9000
+:Sending Touch (ACTION_DOWN): 0:(366.0,833.0)
+:Sending Touch (ACTION_UP): 0:(474.0,839.0)
+:Sending Touch (ACTION_DOWN): 0:(197.0,824.0)
+    // Injection Failed
+    // Injection Failed
+    // Injection Failed
+:Sending Touch (ACTION_UP): 0:(271.28973,839.0)
+    // Injection Failed
+:Sending Touch (ACTION_DOWN): 0:(31.0,122.0)
+:Sending Touch (ACTION_UP): 0:(30.495182,115.974686)
+:Sending Touch (ACTION_DOWN): 0:(70.0,525.0)
+:Sending Touch (ACTION_UP): 0:(61.183136,509.14127)
+:Sending Touch (ACTION_DOWN): 0:(314.0,228.0)
+:Sending Touch (ACTION_UP): 0:(326.97696,190.46599)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+:Sending Touch (ACTION_DOWN): 0:(221.0,340.0)
+:Sending Touch (ACTION_UP): 0:(218.45383,330.60718)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-3.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+    //[calendar_time:2018-11-23 17:00:18.439  system_uptime:191813]
+    // Sending event #9100
+:Sending Flip keyboardOpen=false
+:Sending Touch (ACTION_DOWN): 0:(269.0,525.0)
+:Sending Touch (ACTION_UP): 0:(267.10104,465.4125)
+:Sending Touch (ACTION_DOWN): 0:(58.0,658.0)
+:Sending Touch (ACTION_UP): 0:(42.912422,652.7907)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Flip keyboardOpen=true
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-5.0)
+    // Rejecting start of Intent { cmp=com.android.inputmethod.latin/.permissions.PermissionsActivity } in package com.android.inputmethod.latin
+:Sending Touch (ACTION_DOWN): 0:(449.0,639.0)
+:Sending Touch (ACTION_UP): 0:(474.0,628.28827)
+:Sending Touch (ACTION_DOWN): 0:(406.0,98.0)
+:Sending Touch (ACTION_UP): 0:(396.10986,104.76273)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(349.0,0.0)
+:Sending Touch (ACTION_UP): 0:(331.87445,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(92.0,548.0)
+:Sending Touch (ACTION_UP): 0:(96.52773,544.3613)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+    //[calendar_time:2018-11-23 17:00:19.265  system_uptime:192638]
+    // Sending event #9200
+:Sending Touch (ACTION_DOWN): 0:(390.0,422.0)
+:Sending Touch (ACTION_UP): 0:(409.0691,456.2647)
+:Sending Touch (ACTION_DOWN): 0:(159.0,250.0)
+:Sending Touch (ACTION_UP): 0:(155.0962,257.82477)
+:Sending Touch (ACTION_DOWN): 0:(381.0,295.0)
+:Sending Touch (ACTION_UP): 0:(386.5033,273.8618)
+:Sending Touch (ACTION_DOWN): 0:(277.0,757.0)
+:Sending Touch (ACTION_UP): 0:(278.54053,763.8565)
+:Sending Touch (ACTION_DOWN): 0:(330.0,595.0)
+:Sending Touch (ACTION_UP): 0:(360.13992,621.9384)
+:Sending Touch (ACTION_DOWN): 0:(204.0,33.0)
+:Sending Touch (ACTION_UP): 0:(197.42174,38.04959)
+:Sending Touch (ACTION_DOWN): 0:(341.0,347.0)
+:Sending Touch (ACTION_UP): 0:(340.7998,343.37384)
+:Sending Touch (ACTION_DOWN): 0:(381.0,778.0)
+:Sending Touch (ACTION_UP): 0:(382.12088,770.49603)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+:Sending Touch (ACTION_DOWN): 0:(101.0,110.0)
+:Sending Touch (ACTION_UP): 0:(107.23877,135.43085)
+:Sending Touch (ACTION_DOWN): 0:(188.0,103.0)
+:Sending Touch (ACTION_UP): 0:(143.13898,33.632336)
+:Sending Touch (ACTION_DOWN): 0:(340.0,287.0)
+:Sending Touch (ACTION_UP): 0:(348.61047,308.55667)
+:Sending Touch (ACTION_DOWN): 0:(366.0,160.0)
+:Sending Touch (ACTION_UP): 0:(258.15686,178.48466)
+:Sending Touch (ACTION_DOWN): 0:(444.0,496.0)
+:Sending Touch (ACTION_UP): 0:(465.19327,495.2945)
+:Sending Touch (ACTION_DOWN): 0:(83.0,142.0)
+:Sending Touch (ACTION_UP): 0:(64.98442,143.13922)
+:Sending Touch (ACTION_DOWN): 0:(295.0,754.0)
+:Sending Touch (ACTION_UP): 0:(289.22043,754.88165)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-4.0)
+    //[calendar_time:2018-11-23 17:00:19.798  system_uptime:193171]
+    // Sending event #9300
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(414.0,666.0)
+:Sending Touch (ACTION_UP): 0:(413.9077,665.5665)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(266.0,625.0)
+:Sending Touch (ACTION_UP): 0:(265.32352,617.77295)
+:Sending Touch (ACTION_DOWN): 0:(26.0,681.0)
+:Sending Touch (ACTION_UP): 0:(30.534588,679.633)
+:Sending Touch (ACTION_DOWN): 0:(358.0,621.0)
+:Sending Touch (ACTION_UP): 0:(355.2809,613.71686)
+:Sending Touch (ACTION_DOWN): 0:(8.0,781.0)
+:Sending Touch (ACTION_UP): 0:(0.0,773.3483)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(394.0,548.0)
+:Sending Touch (ACTION_UP): 0:(335.25668,595.39453)
+:Sending Touch (ACTION_DOWN): 0:(387.0,97.0)
+:Sending Touch (ACTION_UP): 0:(374.92508,113.24149)
+:Sending Touch (ACTION_DOWN): 0:(463.0,264.0)
+    //[calendar_time:2018-11-23 17:00:20.659  system_uptime:194032]
+    // Sending event #9400
+:Sending Touch (ACTION_UP): 0:(474.0,285.9679)
+:Sending Touch (ACTION_DOWN): 0:(269.0,698.0)
+:Sending Touch (ACTION_UP): 0:(269.15524,694.4314)
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(159.0,378.0)
+:Sending Touch (ACTION_UP): 0:(214.96909,412.62338)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(3.0,247.0)
+:Sending Touch (ACTION_UP): 0:(0.0,188.21085)
+    // Injection Failed
+:Sending Trackball (ACTION_MOVE): 0:(1.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(11.0,776.0)
+:Sending Touch (ACTION_UP): 0:(0.0,758.44745)
+:Sending Touch (ACTION_DOWN): 0:(249.0,655.0)
+:Sending Touch (ACTION_UP): 0:(246.41461,654.0066)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+    //[calendar_time:2018-11-23 17:00:21.468  system_uptime:194841]
+    // Sending event #9500
+    //[calendar_time:2018-11-23 17:00:21.468  system_uptime:194841]
+    // Sending event #9500
+:Sending Touch (ACTION_DOWN): 0:(132.0,739.0)
+:Sending Touch (ACTION_UP): 0:(123.97923,743.2206)
+:Sending Touch (ACTION_DOWN): 0:(23.0,158.0)
+:Sending Touch (ACTION_UP): 0:(0.0,238.2716)
+:Sending Flip keyboardOpen=false
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(23.0,464.0)
+:Sending Touch (ACTION_UP): 0:(27.597176,452.9204)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Touch (ACTION_DOWN): 0:(416.0,87.0)
+:Sending Touch (ACTION_UP): 0:(408.1877,51.838543)
+:Sending Touch (ACTION_DOWN): 0:(8.0,41.0)
+:Sending Touch (ACTION_UP): 0:(12.162735,31.750973)
+:Sending Touch (ACTION_DOWN): 0:(397.0,449.0)
+:Sending Touch (ACTION_UP): 0:(393.8204,446.6693)
+:Sending Touch (ACTION_DOWN): 0:(400.0,188.0)
+:Sending Touch (ACTION_UP): 0:(392.50784,184.77739)
+:Sending Touch (ACTION_DOWN): 0:(15.0,602.0)
+:Sending Touch (ACTION_UP): 0:(0.0,567.1932)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,4.0)
+:Sending Touch (ACTION_DOWN): 0:(162.0,200.0)
+    //[calendar_time:2018-11-23 17:00:22.014  system_uptime:195388]
+    // Sending event #9600
+:Sending Touch (ACTION_UP): 0:(148.62488,199.82635)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(423.0,609.0)
+:Sending Touch (ACTION_UP): 0:(446.9629,687.1915)
+    // Rejecting start of Intent { act=android.intent.action.ASSIST cmp=com.google.android.googlequicksearchbox/.SearchActivity } in package com.google.android.googlequicksearchbox
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Touch (ACTION_DOWN): 0:(336.0,793.0)
+:Sending Touch (ACTION_UP): 0:(255.936,817.4492)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(427.0,232.0)
+:Sending Touch (ACTION_UP): 0:(416.0464,235.63264)
+:Sending Touch (ACTION_DOWN): 0:(232.0,156.0)
+:Sending Touch (ACTION_UP): 0:(218.77785,170.88734)
+:Sending Touch (ACTION_DOWN): 0:(449.0,378.0)
+:Sending Touch (ACTION_UP): 0:(406.70978,339.51562)
+    //[calendar_time:2018-11-23 17:00:22.743  system_uptime:196116]
+    // Sending event #9700
+:Sending Trackball (ACTION_MOVE): 0:(1.0,2.0)
+:Sending Touch (ACTION_DOWN): 0:(231.0,835.0)
+:Sending Touch (ACTION_UP): 0:(247.31888,831.63214)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-5.0)
+:Sending Touch (ACTION_DOWN): 0:(27.0,593.0)
+:Sending Touch (ACTION_UP): 0:(18.875523,590.6927)
+:Sending Touch (ACTION_DOWN): 0:(439.0,381.0)
+:Sending Touch (ACTION_UP): 0:(474.0,400.51077)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-2.0)
+:Sending Trackball (ACTION_UP): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,1.0)
+:Sending Touch (ACTION_DOWN): 0:(409.0,748.0)
+:Sending Touch (ACTION_UP): 0:(327.05438,839.0)
+:Sending Touch (ACTION_DOWN): 0:(473.0,484.0)
+:Sending Touch (ACTION_UP): 0:(474.0,503.7605)
+    //[calendar_time:2018-11-23 17:00:23.098  system_uptime:196471]
+    // Sending event #9800
+    //[calendar_time:2018-11-23 17:00:23.098  system_uptime:196471]
+    // Sending event #9800
+    // Rejecting start of Intent { act=android.intent.action.CALL_BUTTON cmp=com.google.android.dialer/com.google.android.apps.dialer.extensions.GoogleDialtactsActivity } in package com.google.android.dialer
+    // Rejecting start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.HOME] cmp=com.google.android.apps.nexuslauncher/.NexusLauncherActivity } in package com.google.android.apps.nexuslauncher
+:Sending Touch (ACTION_DOWN): 0:(394.0,223.0)
+:Sending Touch (ACTION_UP): 0:(384.42035,168.78738)
+:Sending Touch (ACTION_DOWN): 0:(130.0,160.0)
+:Sending Touch (ACTION_UP): 0:(129.50119,178.7615)
+:Sending Touch (ACTION_DOWN): 0:(252.0,118.0)
+:Sending Touch (ACTION_UP): 0:(273.30093,107.15666)
+:Sending Touch (ACTION_DOWN): 0:(392.0,724.0)
+:Sending Touch (ACTION_UP): 0:(391.18137,717.8693)
+:Sending Touch (ACTION_DOWN): 0:(169.0,826.0)
+:Sending Touch (ACTION_UP): 0:(164.07343,788.6867)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,-2.0)
+:Sending Touch (ACTION_DOWN): 0:(462.0,266.0)
+:Sending Touch (ACTION_UP): 0:(474.0,234.067)
+:Sending Touch (ACTION_DOWN): 0:(260.0,312.0)
+:Sending Touch (ACTION_UP): 0:(244.93158,303.59164)
+:Sending Touch (ACTION_DOWN): 0:(84.0,705.0)
+    //[calendar_time:2018-11-23 17:00:24.053  system_uptime:197426]
+    // Sending event #9900
+:Sending Touch (ACTION_UP): 0:(82.15221,699.07336)
+:Sending Touch (ACTION_DOWN): 0:(417.0,658.0)
+:Sending Touch (ACTION_UP): 0:(406.3658,647.9112)
+:Sending Flip keyboardOpen=true
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-1.0)
+:Sending Touch (ACTION_DOWN): 0:(240.0,228.0)
+:Sending Touch (ACTION_UP): 0:(248.48062,215.30893)
+:Sending Touch (ACTION_DOWN): 0:(83.0,189.0)
+:Sending Touch (ACTION_UP): 0:(68.46136,199.2776)
+:Sending Touch (ACTION_DOWN): 0:(307.0,520.0)
+    // Rejecting start of Intent { act=com.android.keychain.CHOOSER pkg=com.android.keychain cmp=com.android.keychain/.KeyChainActivity } in package com.android.keychain
+:Sending Touch (ACTION_UP): 0:(306.24,555.5514)
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.fsck.k9/.activity.Accounts;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.fsck.k9/.activity.Accounts } in package com.fsck.k9
+:Sending Touch (ACTION_DOWN): 0:(288.0,657.0)
+:Sending Touch (ACTION_UP): 0:(288.57153,657.9239)
+:Sending Touch (ACTION_DOWN): 0:(462.0,759.0)
+:Sending Touch (ACTION_UP): 0:(462.17355,754.5603)
+:Sending Touch (ACTION_DOWN): 0:(48.0,272.0)
+:Sending Touch (ACTION_UP): 0:(32.08709,270.4676)
+:Sending Touch (ACTION_DOWN): 0:(248.0,42.0)
+:Sending Touch (ACTION_UP): 0:(259.52472,38.496975)
+:Sending Touch (ACTION_DOWN): 0:(283.0,716.0)
+Events injected: 10000
+:Sending rotation degree=0, persist=false
+:Dropped: keys=8 pointers=35 trackballs=0 flips=0 rotations=0
+## Network stats: elapsed time=96446ms (0ms mobile, 0ms wifi, 96446ms not connected)
+// Monkey finished

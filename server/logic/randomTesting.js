@@ -129,7 +129,11 @@ exports.randomStartMovil = function (data) {
       console.log('Se ejecuta la prueba')
       console.log('Se limpia carpeta')
       execSync('rm tmp/reportApk/*')
+    } catch(err) {
+        console.error(err);
+    }
 
+    try {
       let out = 'Numero de eventos  :'+data.event+'\r\n'
           out += 'Dispositivo       :'+data.device+'\r\n'
           out += 'Version Android   :'+data.typeAndroid+'\r\n'
