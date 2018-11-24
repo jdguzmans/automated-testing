@@ -30,29 +30,70 @@ class MatrizTestMovil extends Component {
       emulator      : false,
       modalEmulador : false,
       modal         : false,
-      message       : ''
+      message       : '',
+      viewEmulator  : 'Espacio para el emulador de Android',
+      random        : 0,
+      listDataPackage : [],
+      typePackage   : '',
+      reportTestD   : '',
+      reportTestV   : ''
     };
 
-    this.handleChangeField = this.handleChangeField.bind(this);
-    this.emulatorStart     = this.emulatorStart.bind(this);
-    this.buttonBack        = this.buttonBack.bind(this);
-    this.buttonReload      = this.buttonReload.bind(this);
-    this.buttonUpload      = this.buttonUpload.bind(this);
-    this.buttonStart       = this.buttonStart.bind(this);
-    this.toggleEmulador    = this.toggleEmulador.bind(this);
-    this.toggle            = this.toggle.bind(this);
-    
+    this.handleChangeField   = this.handleChangeField.bind(this);
+    this.emulatorStart       = this.emulatorStart.bind(this);
+    this.buttonBack          = this.buttonBack.bind(this);
+    this.buttonReload        = this.buttonReload.bind(this);
+    this.buttonUpload        = this.buttonUpload.bind(this);
+    this.buttonStart         = this.buttonStart.bind(this);
+    this.toggleEmulador      = this.toggleEmulador.bind(this);
+    this.toggle              = this.toggle.bind(this);
+    this.toggleClose         = this.toggleClose.bind(this);
+    this.emulatorDockerStart = this.emulatorDockerStart.bind(this);
+    this.buttonReloadIframe  = this.buttonReloadIframe.bind(this);
   }
 
   toggleEmulador() {
+    const { event, device, typeAndroid, idAppliRandom, typePackage} = this.state
+
     this.setState({
       modalEmulador: !this.state.modalEmulador,
     });
+
+    this.setState({
+      message      : 'Se inician las pruebas random. Por favor espere...',
+      modal        : !this.state.modal
+    });
+
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/randomStartMovil`,
+    { event, device, typeAndroid, idAppliRandom, typePackage}
+    )
+    .then(response => {
+      let buttonsD = <a href={`${process.env.REACT_APP_BACKEND_URL}/reportApk/${idAppliRandom}.csv`}><Button color="primary" >Descargar CSV</Button></a> 
+
+      this.setState({
+        message      : 'Prueba Finalizada',
+        modal        : true,
+        reportTestD  : buttonsD,
+      });
+    })
+    .catch( (error) => {
+      this.setState({
+        message: 'Se presento un error al iniciar la prueba' ,
+        reportTestD  : '',
+        reportTestV  : '',
+      });
+    })
   }
 
   toggle() {
     this.setState({
       modal: !this.state.modal,
+    });
+  }
+
+  toggleClose(){
+    this.setState({
+      modalEmulador: !this.state.modalEmulador,
     });
   }
 
@@ -62,13 +103,66 @@ class MatrizTestMovil extends Component {
     if(event == '' || device == '' || typeAndroid == ''){
       this.setState({
         message: 'Debe llenar todos los campos de configuracion para iniciar el emulador de Android',
-        modal: !this.state.modal
+        modal: !this.state.modal,
+        reportTestD  : '',
+        reportTestV  : '',
       });
     } else {
+      this.emulatorDockerStart()
       this.setState({
         emulator: true
       });
     }
+  }
+
+  emulatorDockerStart(){
+    const { event, device, typeAndroid} = this.state
+
+    this.setState({
+      message      : 'Se inicia el proceso para subir el contenedor. Por favor espere...',
+      modal        : !this.state.modal,
+      reportTestD  : '',
+      reportTestV  : '',
+    });
+
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/dockerStart`,
+    { event, device, typeAndroid}
+    )
+    .then(response => {
+      this.setState({
+        message      : 'El contenedor inicio de manera exitosa. Por favor actualice el iframe',
+        reportTestD  : '',
+        reportTestV  : '',
+      });
+
+      this.resetIframe()
+    })
+    .catch( (error) => {
+      this.setState({
+        message: 'Se presento un error al iniciar el contenedor' ,
+        reportTestD  : '',
+        reportTestV  : '',
+      });
+    })
+  }
+
+  resetIframe() {
+    this.setState({random: this.state.random + 1});
+    let iframe =  <iframe 
+                      src='http://localhost:6080/' 
+                      key={this.state.random} 
+                      width='100%' 
+                      height='850px' 
+                      frameborder='0' 
+                      allowfullscreen='true' 
+                      mozallowfullscreen='true' 
+                      webkitallowfullscreen='true' 
+                      scrolling="no" 
+                    />
+    
+    this.setState({
+      viewEmulator : iframe
+    });
   }
 
   buttonBack(){
@@ -78,17 +172,68 @@ class MatrizTestMovil extends Component {
   }
 
   buttonReload(){
-    alert('recargar emulador');
+    this.emulatorDockerStart()
+  }
+
+  buttonReloadIframe(){
+    this.resetIframe()
   }
 
   buttonUpload(){
-    alert('cargar emulador');
+    const { idAppliRandom} = this.state
+
+    this.setState({
+      message      : 'Se inicia el proceso de instalacion del APK. Por favor espere...',
+      modal        : !this.state.modal,
+      reportTestD  : '',
+      reportTestV  : '',
+    });
+
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/installApk`,
+    { idAppliRandom }
+    )
+    .then(response => {
+      this.setState({
+        message      : 'El APK se instalo de manera exitora',
+        reportTestD  : '',
+        reportTestV  : '',
+      });
+    })
+    .catch( (error) => {
+      this.setState({
+        message: 'Se presento un error al instalar el APK',
+        reportTestD  : '',
+        reportTestV  : '',
+      });
+    })
   }
 
   buttonStart(){
-    this.setState({
-      modalEmulador: !this.state.modalEmulador,
-    });
+
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/randomTesting/listPackage`)
+    .then(response => {
+      this.setState({
+        listDataPackage : response.data.message.name,
+        modalEmulador   : !this.state.modalEmulador
+      });
+    })
+    .catch( (error) => {
+      this.setState({
+        message: 'Se presento un error al consultar los paquetes ',
+        reportTestD  : '',
+        reportTestV  : '',
+      });
+    })
+  }
+
+  listOption () {
+    return this.state.listDataPackage.map(function (object, i) {
+      if(object != ''){
+        return (
+          <option value={object}>{object}</option>
+        )
+      }
+    })
   }
 
   handleChangeField(key, event) {
@@ -98,7 +243,7 @@ class MatrizTestMovil extends Component {
   }
 
   emulatorAndroid(){
-    const { event, device, typeAndroid, emulator} = this.state
+    const { event, device, typeAndroid, emulator, viewEmulator} = this.state
 
     if(emulator === true){
       return <Row>
@@ -111,7 +256,12 @@ class MatrizTestMovil extends Component {
                     <FormGroup row>
                       <Col xs="2" md="2">
                         <Button type='reset' size='sm' color='danger' onClick={this.buttonReload}>
-                          <i className='fa fa-refresh' /> Reiniciar Emulador
+                          <i className='fa fa-refresh' /> Reiniciar Contenedor
+                        </Button>
+                      </Col>
+                      <Col xs="2" md="2">
+                        <Button type='reset' size='sm' color='warning' onClick={this.buttonReloadIframe}>
+                          <i className='fa fa-refresh' /> Actualizar frame
                         </Button>
                       </Col>
                       <Col xs="2" md="2">
@@ -130,16 +280,7 @@ class MatrizTestMovil extends Component {
                         </Button>
                       </Col>
                     </FormGroup>
-                    <iframe 
-                        src='http://localhost:6080/' 
-                        width='100%' 
-                        height='850px' 
-                        frameborder='0' 
-                        allowfullscreen='true' 
-                        mozallowfullscreen='true' 
-                        webkitallowfullscreen='true' 
-                        scrolling="no" 
-                      />
+                    {viewEmulator}
                   </CardBody>
                 </Card>
                 </Col>
@@ -184,8 +325,8 @@ class MatrizTestMovil extends Component {
                               <option value='Nexus 4'>Nexus 4</option>
                               <option value='Nexus 5'>Nexus 5</option>
                               <option value='Nexus One'>Nexus One</option>
-                              <option value='Nexus One'>Nexus S</option>
-                              <option value='Nexus One'>Nexus 7</option>
+                              <option value='Nexus S'>Nexus S</option>
+                              <option value='Nexus 7'>Nexus 7</option>
                             </Input>
                         </Col>
                       </FormGroup>
@@ -230,26 +371,22 @@ class MatrizTestMovil extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <Modal isOpen={this.state.modalEmulador} toggle={this.toggleEmulador} className={this.props.className}>
-          <ModalHeader toggle={this.toggleEmulador}>Ubicacion del App</ModalHeader>
+        <Modal isOpen={this.state.modalEmulador} toggle={this.toggleClose} className={this.props.className}>
+          <ModalHeader toggle={this.toggleClose}>Paquete del App</ModalHeader>
           <ModalBody>
             <FormGroup row>
               <Col md="3">
-                <Label htmlFor="select">Carpeta</Label>
+                <Label htmlFor="select">Paquete</Label>
               </Col>
               <Col xs="12" md="9">
                 <Input
-                    onChange={(ev) => this.handleChangeField('typeAndroid', ev)}
-                    value=''
+                    onChange={(ev) => this.handleChangeField('typePackage', ev)}
+                    value={this.state.typePackage}
                     type='select'
-                    name='typeAndroid'
+                    name='typePackage'
                   >
                     <option value=''>Seleccionar</option>
-                    <option value='butomo1989/docker-android-x86-5.1.1'>Android 5.1.1</option>
-                    <option value='butomo1989/docker-android-x86-6.0'>Android 6.0</option>
-                    <option value='butomo1989/docker-android-x86-7.1.1'>Android 7.1.1</option>
-                    <option value='butomo1989/docker-android-x86-8.1'>Android 8.1</option>
-                    <option value='butomo1989/docker-android-x86-9.0'>Android 9.0</option>
+                    {this.listOption()}
                   </Input>
               </Col>
             </FormGroup>
@@ -264,6 +401,8 @@ class MatrizTestMovil extends Component {
             {this.state.message}
           </ModalBody>
           <ModalFooter>
+            {this.state.reportTestD}
+            {this.state.reportTestV}
             <Button color="primary" onClick={this.toggle}>Cerrar</Button>
           </ModalFooter>
         </Modal>

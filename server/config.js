@@ -9,6 +9,8 @@ module.exports = {
   AWS_QUEUE_URL: process.env.AWS_QUEUE_URL,
   AWS_BUCKET: process.env.AWS_BUCKET,
 
+  AWS_FS_URL: process.env.AWS_FS_URL,
+
   MONGODB_URI: process.env.MONGODB_URI,
 
   CREATE_E2E_TEST: '0',

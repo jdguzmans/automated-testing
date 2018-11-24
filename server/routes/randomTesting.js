@@ -41,4 +41,85 @@ router.get('/:id', (req, res, next) => {
   }).catch(next)
 })
 
+// RANDOM TESTING MOVIL
+router.post('/dockerStart', async (req, res, next) => {
+  const { body } = req
+
+  await randomTesting.dockerStart(body)
+    .then(async (result) => {
+      return res.status(200).json({
+        message: {
+          name: result
+        }
+      })
+    })
+    .catch((next) => {
+      return res.status(422).json({
+        message: {
+          name: next
+        }
+      })
+    })
+})
+
+router.post('/installApk', async (req, res, next) => {
+  const { body } = req
+
+  await randomTesting.installApk(body)
+    .then(async (result) => {
+      return res.status(200).json({
+        message: {
+          name: result
+        }
+      })
+    })
+    .catch((next) => {
+      return res.status(422).json({
+        message: {
+          name: next
+        }
+      })
+    })
+})
+
+router.post('/randomStartMovil', async (req, res, next) => {
+  const { body } = req
+
+  await randomTesting.randomStartMovil(body)
+    .then(async (result) => {
+      return res.status(200).json({
+        message: {
+          name: result
+        }
+      })
+    })
+    .catch((next) => {
+      return res.status(422).json({
+        message: {
+          name: next
+        }
+      })
+    })
+})
+
+router.post('/listPackage', async (req, res, next) => {
+  const { body } = req
+
+  await randomTesting.listPackage(body)
+    .then(async (result) => {
+      return res.status(200).json({
+        message: {
+          name: result
+        }
+      })
+    })
+    .catch((next) => {
+      return res.status(422).json({
+        message: {
+          name: next
+        }
+      })
+    })
+})
+
 module.exports = router

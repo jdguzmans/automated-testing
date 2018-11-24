@@ -14,6 +14,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('port', PORT)
 
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'tmp')));
+
 const mongoose = require('mongoose')
 
 mongoose.promise = global.Promise
