@@ -4,26 +4,18 @@ a las aplicaciones seleccionadas al inicio del proyecto
 
 ## Aplicaciones
 Las aplicaciones seleccionadas son:
-- K-9 Mail como aplicacion movil
+- K-9 Mail como aplicacion movil. A continuacion se presenta la matriz de pruebas usada para esta APK
+
+Emulator / Android    | 5.0.1    | 6.0      | 7.1.1    | 8.1      | 9.0
+:--------------------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+Samsung Galaxy S6     |    X     |    X     |    X     |          |          |
+Nexus 4               |    X     |    X     |    X     |          |          |
+Nexus 5               |    X     |    X     |    X     |          |          |
+Nexus One             |    X     |    X     |    X     |          |          |
+Nexus S               |    X     |    X     |    X     |          |          |
+Nexus 7               |          |    X     |    X     |          |          |
+
 - LimeSurvey como aplicacion web
-
-Samsung Galaxy S6 - Android 8.1 NO FUNCIONA BIEN
-Samsung Galaxy S6 - Android 9 NO FUNCIONA pantalla distorcionada
-Nexus 4 - Android 8.1 NO FUNCIONA BIEN
-Nexus 4 - Android 9 NO funciona pantanlla distorcionada
-
-Nexus 5 - 8.1 No funciona bien
-Nexus 5 - 9 NO funciona pantanlla distorcionada
-
-Nexus One - Android 8.1
-Nexus One - Android 9
-
-Nexus S - Android 8.1
-Nexus S - Android 9
-
-Nexus 7 - Android 5.1.1 Inestable
-Nexus 7 - Android 8.1 Inestable
-Nexus 7 - Android 9 Inestable
 
 
 
