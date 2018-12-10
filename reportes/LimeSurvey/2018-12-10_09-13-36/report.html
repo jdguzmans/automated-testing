@@ -1,0 +1,80 @@
+
+      <html lang="en">
+        <head>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Contents/bootstrap-sortable.css">
+          <script
+                  src="https://code.jquery.com/jquery-3.3.1.min.js"
+                  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                  crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <script src="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Scripts/bootstrap-sortable.js"></script>
+          <script src="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Scripts/moment.min.js"></script>
+        </head>
+        <body>
+          <div class="container">
+      
+            <h1 class="text-primary">TestCafe Test Summary</h1>
+            <br>
+            <div class="client-logo" style="padding:15px"></div>
+            <div class="bg-primary" style="padding:15px">
+              <h3>Summary</h3><br>
+              <p class="lead">Start Time: Mon Dec 10 2018 09:13:37 GMT-0500 (Colombia Standard Time)</p>
+              <p class="lead">Browsers: HeadlessChrome 70.0.3538 / Linux 0.0.0</p>
+              <p class="lead">Duration: 4m 55s</p>
+              <p class="lead">Tests Failed: 1 out of 1</p>
+              <p class="lead">Tests Skipped: 0</p>
+            </div><br>
+      
+            <table class="table sortable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Fixture</th>
+                  <th>Test Name</th>
+                  <th>Browsers</th>
+                  <th>Duration</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="danger">
+  <td>1</td>
+  <td>My Fixture</td>
+  <td>Random Testing</td>
+  <td>HeadlessChrome 70.0.3538 / Linux 0.0.0</td>
+  <td>4m 55s</td>
+  <td><a href="#test-1">failed</a></td>
+ </tr>
+
+              </tbody>
+            </table>
+            <br><br>
+      
+            <h3>Error Details</h3>
+            <br>
+             <h4 id="test-1">1. My Fixture - Random Testing</h4>
+ <pre>The element that matches the specified selector is not visible.
+
+Browser: HeadlessChrome 70.0.3538 / Linux 0.0.0
+Screenshot: /var/www/varios/pruebasA/proyectoJJSS/worker/templates/reporte/2018-12-10_09-13-36/test-1/HeadlessChrome_70.0.3538_Linux_0.0.0/errors/1.png
+
+   212 |        try{
+   213 |            let buttonCount = await this.button.count;
+   214 |
+   215 |            if(buttonCount > 0) {
+   216 |                let fieldRandom = this.intRandom(0, buttonCount);
+ > 217 |                await t.click(this.button.nth(fieldRandom));
+   218 |                return true;
+   219 |            } else {
+   220 |                return false;
+   221 |            }
+   222 |        } catch (e) {
+
+   at StructForm.click [as null] (/var/www/varios/pruebasA/proyectoJJSS/worker/templates/structForm.js:217:25) </pre>
+      
+          </div>
+        </body>
+      </html>
+      

@@ -1,0 +1,99 @@
+
+      <html lang="en">
+        <head>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Contents/bootstrap-sortable.css">
+          <script
+                  src="https://code.jquery.com/jquery-3.3.1.min.js"
+                  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                  crossorigin="anonymous"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <script src="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Scripts/bootstrap-sortable.js"></script>
+          <script src="https://cdn.rawgit.com/drvic10k/bootstrap-sortable/ff650fd1/Scripts/moment.min.js"></script>
+        </head>
+        <body>
+          <div class="container">
+      
+            <h1 class="text-primary">TestCafe Test Summary</h1>
+            <br>
+            <div class="client-logo" style="padding:15px"></div>
+            <div class="bg-primary" style="padding:15px">
+              <h3>Summary</h3><br>
+              <p class="lead">Start Time: Mon Dec 10 2018 09:23:11 GMT-0500 (Colombia Standard Time)</p>
+              <p class="lead">Browsers: HeadlessChrome 70.0.3538 / Linux 0.0.0</p>
+              <p class="lead">Duration: 43s</p>
+              <p class="lead">Tests Failed: 1 out of 1</p>
+              <p class="lead">Tests Skipped: 0</p>
+            </div><br>
+      
+            <table class="table sortable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Fixture</th>
+                  <th>Test Name</th>
+                  <th>Browsers</th>
+                  <th>Duration</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="danger">
+  <td>1</td>
+  <td>My Fixture</td>
+  <td>Random Testing</td>
+  <td>HeadlessChrome 70.0.3538 / Linux 0.0.0</td>
+  <td>43s</td>
+  <td><a href="#test-1">failed</a></td>
+ </tr>
+
+              </tbody>
+            </table>
+            <br><br>
+      
+            <h3>Error Details</h3>
+            <br>
+             <h4 id="test-1">1. My Fixture - Random Testing</h4>
+ <pre>Error on page "https://demo.limesurvey.org/index.php?r=admin/survey/sa/rendersidemenulink&subaction=presentation&surveyid=846453":
+
+TypeError: Cannot read property 'defaults' of undefined
+    at https://demo.limesurvey.org/tmp/assets/3e57994f/js/dataTables.bootstrap.min.js:6:364
+    at https://demo.limesurvey.org/tmp/assets/3e57994f/js/dataTables.bootstrap.min.js:6:283
+    at https://demo.limesurvey.org/tmp/assets/3e57994f/js/dataTables.bootstrap.min.js:6:310
+
+Browser: HeadlessChrome 70.0.3538 / Linux 0.0.0
+Screenshot: /var/www/varios/pruebasA/proyectoJJSS/worker/templates/reporte/2018-12-10_09-23-10/test-1/HeadlessChrome_70.0.3538_Linux_0.0.0/errors/1.png
+
+   193 |
+   194 |        try{
+   195 |            let linksCount = await this.linksHref.count;
+   196 |            if(linksCount > 0) {
+   197 |                let fieldRandom = this.intRandom(0, linksCount);
+ > 198 |                await t.click(this.linksHref.nth(fieldRandom));
+   199 |                return true;
+   200 |            } else {
+   201 |                return false;
+   202 |            }
+   203 |        } catch (e) {
+
+   at StructForm.click [as null] (/var/www/varios/pruebasA/proyectoJJSS/worker/templates/structForm.js:198:25) </pre> <pre>Error on page "https://demo.limesurvey.org/index.php?r=admin/survey/sa/rendersidemenulink&subaction=presentation&surveyid=846453":
+
+TypeError: Cannot read property 'unselectable' of null
+    at loadTheme (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/creators/themedui.js:421:38)
+    at Editor.<anonymous> (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/creators/themedui.js:330:4)
+    at Editor.listenerFirer (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/event.js:145:33)
+    at Editor.CKEDITOR.event.fire (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/event.js:291:41)
+    at Editor.CKEDITOR.editor.fire (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/editor_basic.js:25:40)
+    at Editor.fireOnce (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/event.js:335:20)
+    at Editor.CKEDITOR.editor.fireOnce (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/editor_basic.js:32:44)
+    at Object.<anonymous> (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/editor.js:625:12)
+    at doCallback (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/scriptloader.js:71:17)
+    at Array.checkLoaded (https://demo.limesurvey.org/tmp/assets/7956bc7e/core/scriptloader.js:85:7)
+
+Browser: HeadlessChrome 70.0.3538 / Linux 0.0.0 </pre>
+      
+          </div>
+        </body>
+      </html>
+      
