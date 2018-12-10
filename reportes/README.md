@@ -15,6 +15,11 @@ Nexus One             |    X     |    X     |    X     |          |          |
 Nexus S               |    X     |    X     |    X     |          |          |
 Nexus 7               |          |    X     |    X     |          |          |
 
+
+En el siguiente link se podra ver como funciona las pruebas random para los dispositivos moviles
+
+https://www.youtube.com/watch?v=HDLHZ-gY0KQ&feature=youtu.be
+
 - LimeSurvey como aplicacion web
 
 
