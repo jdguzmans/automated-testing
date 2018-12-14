@@ -20,6 +20,10 @@ test('Random Testing', async t => {
     let numEvent = Math.floor(Math.random() * (9 - 1)) + 1
     let resultProcess = false
 
+    if(x == 0){
+      numEvent = 7
+    }
+
     switch (numEvent) {
       case 1:
         resultProcess = await structForm.inputTextFunction()
