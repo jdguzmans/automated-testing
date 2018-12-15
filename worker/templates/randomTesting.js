@@ -1,4 +1,3 @@
-import { Selector, t } from 'testcafe'
 import config from './config.json'
 import StructForm from './structForm'
 
@@ -14,53 +13,43 @@ fixture`My Fixture`
   .page(config.baseUrl)
 
 test('Random Testing', async t => {
-  let cont = 0
   await t.takeScreenshot()
-  for (let x = 0; x <= config.event; x++) {
-    let numEvent = Math.floor(Math.random() * (9 - 1)) + 1
-    let resultProcess = false
 
-    if(x == 0){
-      numEvent = 7
-    }
+  const startNumber = config.event || 20
+
+  let numEvents = startNumber
+
+  while (numEvents !== 0) {
+    let numEvent = numEvents === startNumber ? 7 : Math.floor(Math.random() * (9 - 1)) + 1
 
     switch (numEvent) {
       case 1:
-        resultProcess = await structForm.inputTextFunction()
+        await structForm.inputTextFunction()
         break
       case 2:
-        resultProcess = await structForm.inputCheckboxFunction()
+        await structForm.inputCheckboxFunction()
         break
       case 3:
-        resultProcess = await structForm.inputRadioFunction()
+        await structForm.inputRadioFunction()
         break
       case 4:
-        resultProcess = await structForm.inputNumberFunction()
+        await structForm.inputNumberFunction()
         break
       case 5:
-        resultProcess = await structForm.textAreaFunction()
+        await structForm.textAreaFunction()
         break
       case 6:
-        resultProcess = await structForm.linksFunction()
+        await structForm.linksFunction()
         break
       case 7:
-        resultProcess = await structForm.buttonFunction()
+        await structForm.buttonFunction()
         break
       case 8:
-        resultProcess = await structForm.submitFunction()
+        await structForm.submitFunction()
         break
     }
 
-    if (cont > 10) {
-      break
-    }
-
-    if (!resultProcess) {
-      cont++
-      x--
-    } else {
-      cont = 0
-      await t.takeScreenshot()
-    }
+    await t.takeScreenshot()
+    numEvents--
   }
 })
